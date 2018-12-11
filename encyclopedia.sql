@@ -55,14 +55,14 @@ CREATE TABLE Category(
 );
 
 CREATE TABLE Lemma(
-	lemma_title VARCHAR(50) PRIMARY KEY,
+	lemma_title VARCHAR(200) PRIMARY KEY,
 	lemma_body MEDIUMBLOB NOT NULL,
 	category_id INT NOT NULL,
 	FOREIGN KEY(category_id) REFERENCES Category(category_id)
 );
 
 CREATE TABLE Edited_Lemma(
-	lemma_title VARCHAR(50) NOT NULL,
+	lemma_title VARCHAR(200) NOT NULL,
 	editor_id INT NOT NULL,
 	edited_lemma_body MEDIUMBLOB NOT NULL,
 	edited_lemma_created_at DATE NOT NULL,
@@ -73,7 +73,7 @@ CREATE TABLE Edited_Lemma(
 );
 
 CREATE TABLE Favorite_Lemma(
-	lemma_title VARCHAR(50) NOT NULL,
+	lemma_title VARCHAR(200) NOT NULL,
 	user_id INT NOT NULL,
 	favorite_lemma_created_at DATE NOT NULL,
 	PRIMARY KEY (lemma_title, user_id),
@@ -84,7 +84,7 @@ CREATE TABLE Favorite_Lemma(
 CREATE TABLE Shared_Lemma( -- lemmata shared with sender's contacts
 	sender_id INT NOT NULL,
 	receiver_id INT NOT NULL,
-	lemma_title VARCHAR(50) NOT NULL,
+	lemma_title VARCHAR(200) NOT NULL,
 	if_edited_lemma CHAR NOT NULL CHECK (if_edited_lemma IN ('0','1')), -- If it is an edited lemma, or a common one.
 	sending_date DATETIME NOT NULL,
 	additional_notes VARCHAR(250),
