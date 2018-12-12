@@ -14,7 +14,7 @@ namespace Encyclopedia
         [STAThread]
         static void Main()
         {
-            Console.WriteLine("haha");
+            Console.WriteLine("haha333333");
             Console.WriteLine("Another String");
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
