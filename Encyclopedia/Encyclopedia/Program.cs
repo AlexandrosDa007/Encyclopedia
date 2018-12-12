@@ -14,7 +14,7 @@ namespace Encyclopedia
         [STAThread]
         static void Main()
         {
-            Console.WriteLine("haha");
+            Console.WriteLine("Telika eprepe auto to string");
             Console.WriteLine("Another String");
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
