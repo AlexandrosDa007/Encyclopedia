@@ -14,6 +14,7 @@ namespace Encyclopedia
         [STAThread]
         static void Main()
         {
+            Console.WriteLine("Another String");
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Form1());
