@@ -262,7 +262,7 @@
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 3;
-            this.button1.Text = "Raf Button";
+            this.button1.Text = "Alex Button";
             this.button1.UseVisualStyleBackColor = true;
             // 
             // button2
@@ -270,9 +270,9 @@
             this.button2.Location = new System.Drawing.Point(608, 196);
             this.button2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(103, 19);
+            this.button2.Size = new System.Drawing.Size(56, 19);
             this.button2.TabIndex = 4;
-            this.button2.Text = "Ante geia";
+            this.button2.Text = "Despina ";
             this.button2.UseVisualStyleBackColor = true;
             // 
             // Form1
