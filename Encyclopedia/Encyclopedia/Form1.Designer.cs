@@ -269,11 +269,11 @@
             // button2
             // 
             this.button2.Location = new System.Drawing.Point(608, 196);
-            this.button2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button2.Margin = new System.Windows.Forms.Padding(2);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(56, 19);
             this.button2.TabIndex = 4;
-            this.button2.Text = "Despina ";
+            this.button2.Text = "ante geia";
             this.button2.UseVisualStyleBackColor = true;
             // 
             // button3
