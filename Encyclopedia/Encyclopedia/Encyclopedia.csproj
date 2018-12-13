@@ -60,6 +60,17 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Model\Account.cs" />
+    <Compile Include="Model\Category.cs" />
+    <Compile Include="Model\Contact.cs" />
+    <Compile Include="Model\ContactGroup.cs" />
+    <Compile Include="Model\EditedLemma.cs" />
+    <Compile Include="Model\EducationLevel.cs" />
+    <Compile Include="Model\FavoriteLemma.cs" />
+    <Compile Include="Model\Lemma.cs" />
+    <Compile Include="Model\Role.cs" />
+    <Compile Include="Model\SharedLemma.cs" />
+    <Compile Include="Model\User.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">
@@ -100,7 +111,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Controller\" />
-    <Folder Include="Model\" />
     <Folder Include="View\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
