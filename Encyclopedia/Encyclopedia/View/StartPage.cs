@@ -74,14 +74,18 @@ namespace UI
 
         }
 
-        private void monthCalendar_DateChanged(object sender, DateRangeEventArgs e)
-        {
-
-        }
 
         private void dateFilterLabel_Click(object sender, EventArgs e)
         {
 
         }
+
+        private void popularButton_Click(object sender, EventArgs e)
+        {
+            searchResultsPanel.Visible = true;
+            lemmaOfTheDayPanel.Visible = false;
+        }
+
+        
     }
 }
