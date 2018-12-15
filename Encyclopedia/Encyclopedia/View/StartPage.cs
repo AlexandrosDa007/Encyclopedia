@@ -11,12 +11,13 @@ using System.Windows.Forms;
 namespace UI
 {
     public partial class StartPage : Form
-    {
-        //bunifu_classes.movefrom mf = new bunifu_classes.movefrom;
+    { 
 
         public StartPage()
         {
             InitializeComponent();
+            lemmaOfTheDayPanel.Visible = true;
+
         }
 
         private void searchPanel_Paint(object sender, PaintEventArgs e)
