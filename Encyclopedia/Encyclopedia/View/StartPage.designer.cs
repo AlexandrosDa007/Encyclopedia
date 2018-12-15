@@ -56,6 +56,7 @@
             this.searchTextbox = new Bunifu.Framework.UI.BunifuTextbox();
             this.filterCheckedListBox = new System.Windows.Forms.CheckedListBox();
             this.filtersLabel = new System.Windows.Forms.Label();
+            this.searchResultsPanel = new System.Windows.Forms.Panel();
             this.leftPanel.SuspendLayout();
             this.logoPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.logoPictureBox)).BeginInit();
@@ -313,6 +314,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lemmaOfTheDayPanel.AutoScroll = true;
+            this.lemmaOfTheDayPanel.Controls.Add(this.searchResultsPanel);
             this.lemmaOfTheDayPanel.Controls.Add(this.monthCalendar);
             this.lemmaOfTheDayPanel.Controls.Add(this.lemmaOfTheDayRichTextBox);
             this.lemmaOfTheDayPanel.Controls.Add(this.lemmaOfTheDayLabel);
@@ -453,6 +455,15 @@
             this.filtersLabel.TabIndex = 3;
             this.filtersLabel.Text = "Filters:";
             // 
+            // searchResultsPanel
+            // 
+            this.searchResultsPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.searchResultsPanel.Location = new System.Drawing.Point(0, 0);
+            this.searchResultsPanel.Name = "searchResultsPanel";
+            this.searchResultsPanel.Size = new System.Drawing.Size(1036, 498);
+            this.searchResultsPanel.TabIndex = 18;
+            this.searchResultsPanel.Visible = false;
+            // 
             // StartPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -512,7 +523,7 @@
         private System.Windows.Forms.MonthCalendar monthCalendar;
         private System.Windows.Forms.RichTextBox lemmaOfTheDayRichTextBox;
         private System.Windows.Forms.Label lemmaOfTheDayLabel;
-        
+        private System.Windows.Forms.Panel searchResultsPanel;
     }
 }
 
