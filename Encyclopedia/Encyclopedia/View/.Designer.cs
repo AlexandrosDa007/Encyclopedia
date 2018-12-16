@@ -34,6 +34,7 @@
             // 
             // lemmaResultsΤableLayoutPanel
             // 
+            this.lemmaResultsΤableLayoutPanel.AutoSize = true;
             this.lemmaResultsΤableLayoutPanel.BackColor = System.Drawing.Color.Silver;
             this.lemmaResultsΤableLayoutPanel.ColumnCount = 1;
             this.lemmaResultsΤableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));

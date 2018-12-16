@@ -39,6 +39,9 @@ namespace UI
             else
                 Encyclopedia.View.SearchResultsUserControl.Instance.BringToFront();
 
+                
+
+
         }
 
         private void logoLabel_Click(object sender, EventArgs e)
