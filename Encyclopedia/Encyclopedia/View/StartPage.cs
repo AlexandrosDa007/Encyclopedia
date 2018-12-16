@@ -81,12 +81,11 @@ namespace UI
 
         }
 
-        private void popularButton_Click(object sender, EventArgs e)
+
+        private void popularButton_MouseDown(object sender, MouseEventArgs e)
         {
             searchResultsPanel.Visible = true;
             lemmaOfTheDayPanel.Visible = false;
         }
-
-        
     }
 }
