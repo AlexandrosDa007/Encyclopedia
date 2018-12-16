@@ -16,76 +16,95 @@ namespace UI
         public StartPage()
         {
             InitializeComponent();
-            lemmaOfTheDayPanel.Visible = true;
+            if (!mainPanel.Controls.Contains(Encyclopedia.View.LemmaOfTheDayUserControl.Instance))
+            {
+                mainPanel.Controls.Add(Encyclopedia.View.LemmaOfTheDayUserControl.Instance);
+                Encyclopedia.View.LemmaOfTheDayUserControl.Instance.Dock = DockStyle.Fill;
+                Encyclopedia.View.LemmaOfTheDayUserControl.Instance.BringToFront();
 
+            }
+            else
+                Encyclopedia.View.LemmaOfTheDayUserControl.Instance.BringToFront();
         }
 
-        private void searchPanel_Paint(object sender, PaintEventArgs e)
+        private void popularButton_Click(object sender, EventArgs e)
         {
+            if (!mainPanel.Controls.Contains(Encyclopedia.View.SearchResultsUserControl.Instance))
+            {
+                mainPanel.Controls.Add(Encyclopedia.View.SearchResultsUserControl.Instance);
+                Encyclopedia.View.SearchResultsUserControl.Instance.Dock = DockStyle.Fill;
+                Encyclopedia.View.SearchResultsUserControl.Instance.BringToFront();
 
-        }
-
-        private void leftPanel_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void logoPanel_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void topPanel_Paint(object sender, PaintEventArgs e)
-        {
+            }
+            else
+                Encyclopedia.View.SearchResultsUserControl.Instance.BringToFront();
 
         }
 
         private void logoLabel_Click(object sender, EventArgs e)
         {
+            if (!mainPanel.Controls.Contains(Encyclopedia.View.LemmaOfTheDayUserControl.Instance))
+            {
+                mainPanel.Controls.Add(Encyclopedia.View.LemmaOfTheDayUserControl.Instance);
+                Encyclopedia.View.LemmaOfTheDayUserControl.Instance.Dock = DockStyle.Fill;
+                Encyclopedia.View.LemmaOfTheDayUserControl.Instance.BringToFront();
+
+            }
+            else
+                Encyclopedia.View.LemmaOfTheDayUserControl.Instance.BringToFront();
 
         }
 
-        private void logoPictureBox_Click(object sender, EventArgs e)
+        private void recentButton_Click(object sender, EventArgs e)
         {
+            if (!mainPanel.Controls.Contains(Encyclopedia.View.SearchResultsUserControl.Instance))
+            {
+                mainPanel.Controls.Add(Encyclopedia.View.SearchResultsUserControl.Instance);
+                Encyclopedia.View.SearchResultsUserControl.Instance.Dock = DockStyle.Fill;
+                Encyclopedia.View.SearchResultsUserControl.Instance.BringToFront();
 
+            }
+            else
+                Encyclopedia.View.SearchResultsUserControl.Instance.BringToFront();
         }
 
-        private void connectUserLabel_Click(object sender, EventArgs e)
+        private void filterCheckedListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
+            if (!mainPanel.Controls.Contains(Encyclopedia.View.SearchResultsUserControl.Instance))
+            {
+                mainPanel.Controls.Add(Encyclopedia.View.SearchResultsUserControl.Instance);
+                Encyclopedia.View.SearchResultsUserControl.Instance.Dock = DockStyle.Fill;
+                Encyclopedia.View.SearchResultsUserControl.Instance.BringToFront();
 
+            }
+            else
+                Encyclopedia.View.SearchResultsUserControl.Instance.BringToFront();
         }
 
-        private void usernameLabel_Click(object sender, EventArgs e)
+        private void searchTextbox_OnTextChange(object sender, EventArgs e)
         {
+            if (!mainPanel.Controls.Contains(Encyclopedia.View.SearchResultsUserControl.Instance))
+            {
+                mainPanel.Controls.Add(Encyclopedia.View.SearchResultsUserControl.Instance);
+                Encyclopedia.View.SearchResultsUserControl.Instance.Dock = DockStyle.Fill;
+                Encyclopedia.View.SearchResultsUserControl.Instance.BringToFront();
 
+            }
+            else
+                Encyclopedia.View.SearchResultsUserControl.Instance.BringToFront();
         }
 
-        private void usernameTextBox_TextChanged(object sender, EventArgs e)
+        private void dateTimePicker_ValueChanged(object sender, EventArgs e)
         {
+            if (!mainPanel.Controls.Contains(Encyclopedia.View.SearchResultsUserControl.Instance))
+            {
+                mainPanel.Controls.Add(Encyclopedia.View.SearchResultsUserControl.Instance);
+                Encyclopedia.View.SearchResultsUserControl.Instance.Dock = DockStyle.Fill;
+                Encyclopedia.View.SearchResultsUserControl.Instance.BringToFront();
 
-        }
-
-        private void passwordTextBox_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void passwordLabel_Click(object sender, EventArgs e)
-        {
-
-        }
-
-
-        private void dateFilterLabel_Click(object sender, EventArgs e)
-        {
-
-        }
-
-
-        private void popularButton_MouseDown(object sender, MouseEventArgs e)
-        {
-            searchResultsPanel.Visible = true;
-            lemmaOfTheDayPanel.Visible = false;
+            }
+            else
+                Encyclopedia.View.SearchResultsUserControl.Instance.BringToFront();
         }
     }
 }

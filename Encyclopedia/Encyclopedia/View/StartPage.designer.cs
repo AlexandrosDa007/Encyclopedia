@@ -47,18 +47,12 @@
             this.recentButton = new System.Windows.Forms.Button();
             this.popularButton = new System.Windows.Forms.Button();
             this.searchPanel = new System.Windows.Forms.Panel();
-            this.lemmaOfTheDayPanel = new System.Windows.Forms.Panel();
-            this.monthCalendar = new System.Windows.Forms.MonthCalendar();
-            this.lemmaOfTheDayRichTextBox = new System.Windows.Forms.RichTextBox();
-            this.lemmaOfTheDayLabel = new System.Windows.Forms.Label();
+            this.mainPanel = new System.Windows.Forms.Panel();
             this.dateFilterLabel = new System.Windows.Forms.Label();
             this.dateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.searchTextbox = new Bunifu.Framework.UI.BunifuTextbox();
             this.filterCheckedListBox = new System.Windows.Forms.CheckedListBox();
             this.filtersLabel = new System.Windows.Forms.Label();
-            this.searchResultsPanel = new System.Windows.Forms.Panel();
-            this.lemmaResultsΤableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
-            this.searchResultsLabel = new System.Windows.Forms.Label();
             this.leftPanel.SuspendLayout();
             this.logoPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.logoPictureBox)).BeginInit();
@@ -66,8 +60,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.searchPanel.SuspendLayout();
-            this.lemmaOfTheDayPanel.SuspendLayout();
-            this.searchResultsPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // leftPanel
@@ -87,7 +79,6 @@
             this.leftPanel.Name = "leftPanel";
             this.leftPanel.Size = new System.Drawing.Size(243, 654);
             this.leftPanel.TabIndex = 0;
-            this.leftPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.leftPanel_Paint);
             // 
             // logoPanel
             // 
@@ -99,7 +90,6 @@
             this.logoPanel.Name = "logoPanel";
             this.logoPanel.Size = new System.Drawing.Size(243, 61);
             this.logoPanel.TabIndex = 0;
-            this.logoPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.logoPanel_Paint);
             // 
             // logoPictureBox
             // 
@@ -110,7 +100,6 @@
             this.logoPictureBox.Size = new System.Drawing.Size(33, 34);
             this.logoPictureBox.TabIndex = 2;
             this.logoPictureBox.TabStop = false;
-            this.logoPictureBox.Click += new System.EventHandler(this.logoPictureBox_Click);
             // 
             // logoLabel
             // 
@@ -162,7 +151,6 @@
             this.usernameTextBox.Name = "usernameTextBox";
             this.usernameTextBox.Size = new System.Drawing.Size(139, 20);
             this.usernameTextBox.TabIndex = 12;
-            this.usernameTextBox.TextChanged += new System.EventHandler(this.usernameTextBox_TextChanged);
             // 
             // loginButton
             // 
@@ -187,7 +175,6 @@
             this.connectUserLabel.Size = new System.Drawing.Size(116, 21);
             this.connectUserLabel.TabIndex = 9;
             this.connectUserLabel.Text = "Connect User";
-            this.connectUserLabel.Click += new System.EventHandler(this.connectUserLabel_Click);
             // 
             // passwordTextBox
             // 
@@ -197,7 +184,6 @@
             this.passwordTextBox.PasswordChar = '•';
             this.passwordTextBox.Size = new System.Drawing.Size(139, 20);
             this.passwordTextBox.TabIndex = 13;
-            this.passwordTextBox.TextChanged += new System.EventHandler(this.passwordTextBox_TextChanged);
             // 
             // passwordLabel
             // 
@@ -210,7 +196,6 @@
             this.passwordLabel.Size = new System.Drawing.Size(78, 19);
             this.passwordLabel.TabIndex = 10;
             this.passwordLabel.Text = "password:";
-            this.passwordLabel.Click += new System.EventHandler(this.passwordLabel_Click);
             // 
             // usernameLabel
             // 
@@ -223,7 +208,6 @@
             this.usernameLabel.Size = new System.Drawing.Size(81, 19);
             this.usernameLabel.TabIndex = 11;
             this.usernameLabel.Text = "username:";
-            this.usernameLabel.Click += new System.EventHandler(this.usernameLabel_Click);
             // 
             // topPanel
             // 
@@ -235,7 +219,6 @@
             this.topPanel.Name = "topPanel";
             this.topPanel.Size = new System.Drawing.Size(778, 34);
             this.topPanel.TabIndex = 1;
-            this.topPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.topPanel_Paint);
             // 
             // pictureBox2
             // 
@@ -270,6 +253,7 @@
             this.recentButton.TabIndex = 10;
             this.recentButton.Text = "Recent Lemmata";
             this.recentButton.UseVisualStyleBackColor = true;
+            this.recentButton.Click += new System.EventHandler(this.recentButton_Click);
             // 
             // popularButton
             // 
@@ -284,13 +268,13 @@
             this.popularButton.TabIndex = 9;
             this.popularButton.Text = "Popular Lemmata";
             this.popularButton.UseVisualStyleBackColor = true;
-            this.popularButton.MouseDown += new System.Windows.Forms.MouseEventHandler(this.popularButton_MouseDown);
+            this.popularButton.Click += new System.EventHandler(this.popularButton_Click);
             // 
             // searchPanel
             // 
             this.searchPanel.AutoSize = true;
             this.searchPanel.BackColor = System.Drawing.Color.Gainsboro;
-            this.searchPanel.Controls.Add(this.lemmaOfTheDayPanel);
+            this.searchPanel.Controls.Add(this.mainPanel);
             this.searchPanel.Controls.Add(this.recentButton);
             this.searchPanel.Controls.Add(this.topPanel);
             this.searchPanel.Controls.Add(this.dateFilterLabel);
@@ -304,59 +288,18 @@
             this.searchPanel.Name = "searchPanel";
             this.searchPanel.Size = new System.Drawing.Size(778, 654);
             this.searchPanel.TabIndex = 2;
-            this.searchPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.searchPanel_Paint);
             // 
-            // lemmaOfTheDayPanel
+            // mainPanel
             // 
-            this.lemmaOfTheDayPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.mainPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.lemmaOfTheDayPanel.AutoScroll = true;
-            this.lemmaOfTheDayPanel.Controls.Add(this.searchResultsPanel);
-            this.lemmaOfTheDayPanel.Controls.Add(this.monthCalendar);
-            this.lemmaOfTheDayPanel.Controls.Add(this.lemmaOfTheDayRichTextBox);
-            this.lemmaOfTheDayPanel.Controls.Add(this.lemmaOfTheDayLabel);
-            this.lemmaOfTheDayPanel.Location = new System.Drawing.Point(-3, 249);
-            this.lemmaOfTheDayPanel.Margin = new System.Windows.Forms.Padding(2);
-            this.lemmaOfTheDayPanel.Name = "lemmaOfTheDayPanel";
-            this.lemmaOfTheDayPanel.Size = new System.Drawing.Size(777, 405);
-            this.lemmaOfTheDayPanel.TabIndex = 12;
-            // 
-            // monthCalendar
-            // 
-            this.monthCalendar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.monthCalendar.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-            this.monthCalendar.Location = new System.Drawing.Point(555, 61);
-            this.monthCalendar.Name = "monthCalendar";
-            this.monthCalendar.TabIndex = 17;
-            this.monthCalendar.TitleBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(126)))), ((int)(((byte)(49)))));
-            // 
-            // lemmaOfTheDayRichTextBox
-            // 
-            this.lemmaOfTheDayRichTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.lemmaOfTheDayRichTextBox.BackColor = System.Drawing.Color.Gainsboro;
-            this.lemmaOfTheDayRichTextBox.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-            this.lemmaOfTheDayRichTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(53)))), ((int)(((byte)(65)))));
-            this.lemmaOfTheDayRichTextBox.Location = new System.Drawing.Point(28, 61);
-            this.lemmaOfTheDayRichTextBox.Name = "lemmaOfTheDayRichTextBox";
-            this.lemmaOfTheDayRichTextBox.ReadOnly = true;
-            this.lemmaOfTheDayRichTextBox.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical;
-            this.lemmaOfTheDayRichTextBox.Size = new System.Drawing.Size(510, 336);
-            this.lemmaOfTheDayRichTextBox.TabIndex = 16;
-            this.lemmaOfTheDayRichTextBox.Text = "";
-            // 
-            // lemmaOfTheDayLabel
-            // 
-            this.lemmaOfTheDayLabel.AutoSize = true;
-            this.lemmaOfTheDayLabel.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-            this.lemmaOfTheDayLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(53)))), ((int)(((byte)(65)))));
-            this.lemmaOfTheDayLabel.Location = new System.Drawing.Point(22, 15);
-            this.lemmaOfTheDayLabel.Name = "lemmaOfTheDayLabel";
-            this.lemmaOfTheDayLabel.Size = new System.Drawing.Size(225, 28);
-            this.lemmaOfTheDayLabel.TabIndex = 15;
-            this.lemmaOfTheDayLabel.Text = "Lemma of the day";
+            this.mainPanel.AutoScroll = true;
+            this.mainPanel.Location = new System.Drawing.Point(-3, 249);
+            this.mainPanel.Margin = new System.Windows.Forms.Padding(2);
+            this.mainPanel.Name = "mainPanel";
+            this.mainPanel.Size = new System.Drawing.Size(777, 405);
+            this.mainPanel.TabIndex = 12;
             // 
             // dateFilterLabel
             // 
@@ -370,7 +313,6 @@
             this.dateFilterLabel.Size = new System.Drawing.Size(75, 17);
             this.dateFilterLabel.TabIndex = 7;
             this.dateFilterLabel.Text = "Date filter:";
-            this.dateFilterLabel.Click += new System.EventHandler(this.dateFilterLabel_Click);
             // 
             // dateTimePicker
             // 
@@ -380,6 +322,7 @@
             this.dateTimePicker.Name = "dateTimePicker";
             this.dateTimePicker.Size = new System.Drawing.Size(210, 21);
             this.dateTimePicker.TabIndex = 6;
+            this.dateTimePicker.ValueChanged += new System.EventHandler(this.dateTimePicker_ValueChanged);
             // 
             // searchTextbox
             // 
@@ -396,6 +339,7 @@
             this.searchTextbox.Size = new System.Drawing.Size(353, 37);
             this.searchTextbox.TabIndex = 5;
             this.searchTextbox.text = "Search";
+            this.searchTextbox.OnTextChange += new System.EventHandler(this.searchTextbox_OnTextChange);
             // 
             // filterCheckedListBox
             // 
@@ -436,6 +380,7 @@
             this.filterCheckedListBox.Name = "filterCheckedListBox";
             this.filterCheckedListBox.Size = new System.Drawing.Size(201, 55);
             this.filterCheckedListBox.TabIndex = 4;
+            this.filterCheckedListBox.SelectedIndexChanged += new System.EventHandler(this.filterCheckedListBox_SelectedIndexChanged);
             // 
             // filtersLabel
             // 
@@ -449,48 +394,6 @@
             this.filtersLabel.Size = new System.Drawing.Size(46, 17);
             this.filtersLabel.TabIndex = 3;
             this.filtersLabel.Text = "Filters:";
-            // 
-            // searchResultsPanel
-            // 
-            this.searchResultsPanel.Controls.Add(this.lemmaResultsΤableLayoutPanel);
-            this.searchResultsPanel.Controls.Add(this.searchResultsLabel);
-            this.searchResultsPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.searchResultsPanel.Location = new System.Drawing.Point(0, 0);
-            this.searchResultsPanel.Margin = new System.Windows.Forms.Padding(2);
-            this.searchResultsPanel.Name = "searchResultsPanel";
-            this.searchResultsPanel.Size = new System.Drawing.Size(777, 405);
-            this.searchResultsPanel.TabIndex = 19;
-            this.searchResultsPanel.Visible = false;
-            // 
-            // lemmaResultsΤableLayoutPanel
-            // 
-            this.lemmaResultsΤableLayoutPanel.BackColor = System.Drawing.Color.Silver;
-            this.lemmaResultsΤableLayoutPanel.ColumnCount = 1;
-            this.lemmaResultsΤableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.lemmaResultsΤableLayoutPanel.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-            this.lemmaResultsΤableLayoutPanel.Location = new System.Drawing.Point(49, 83);
-            this.lemmaResultsΤableLayoutPanel.Name = "lemmaResultsΤableLayoutPanel";
-            this.lemmaResultsΤableLayoutPanel.RowCount = 7;
-            this.lemmaResultsΤableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
-            this.lemmaResultsΤableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
-            this.lemmaResultsΤableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
-            this.lemmaResultsΤableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
-            this.lemmaResultsΤableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
-            this.lemmaResultsΤableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
-            this.lemmaResultsΤableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
-            this.lemmaResultsΤableLayoutPanel.Size = new System.Drawing.Size(697, 283);
-            this.lemmaResultsΤableLayoutPanel.TabIndex = 1;
-            // 
-            // searchResultsLabel
-            // 
-            this.searchResultsLabel.AutoSize = true;
-            this.searchResultsLabel.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-            this.searchResultsLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(53)))), ((int)(((byte)(65)))));
-            this.searchResultsLabel.Location = new System.Drawing.Point(74, 30);
-            this.searchResultsLabel.Name = "searchResultsLabel";
-            this.searchResultsLabel.Size = new System.Drawing.Size(221, 28);
-            this.searchResultsLabel.TabIndex = 0;
-            this.searchResultsLabel.Text = "Search Results for ";
             // 
             // StartPage
             // 
@@ -514,10 +417,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.searchPanel.ResumeLayout(false);
             this.searchPanel.PerformLayout();
-            this.lemmaOfTheDayPanel.ResumeLayout(false);
-            this.lemmaOfTheDayPanel.PerformLayout();
-            this.searchResultsPanel.ResumeLayout(false);
-            this.searchResultsPanel.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -548,13 +447,7 @@
         private System.Windows.Forms.Label dateFilterLabel;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Panel lemmaOfTheDayPanel;
-        private System.Windows.Forms.MonthCalendar monthCalendar;
-        private System.Windows.Forms.RichTextBox lemmaOfTheDayRichTextBox;
-        private System.Windows.Forms.Label lemmaOfTheDayLabel;
-        private System.Windows.Forms.Panel searchResultsPanel;
-        private System.Windows.Forms.TableLayoutPanel lemmaResultsΤableLayoutPanel;
-        private System.Windows.Forms.Label searchResultsLabel;
+        private System.Windows.Forms.Panel mainPanel;
     }
 }
 

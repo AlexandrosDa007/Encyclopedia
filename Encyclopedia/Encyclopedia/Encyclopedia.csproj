@@ -79,6 +79,12 @@
     <Compile Include="Model\User.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="View\LemmaOfTheDayUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\LemmaOfTheDayUserControl.Designer.cs">
+      <DependentUpon>LemmaOfTheDayUserControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\SearchBar.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -91,6 +97,13 @@
     <Compile Include="View\StartPage.designer.cs">
       <DependentUpon>StartPage.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\SearchResultsUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\.Designer.cs">
+      <DependentUpon>SearchResultsUserControl.cs</DependentUpon>
+      <SubType>UserControl</SubType>
+    </Compile>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -100,11 +113,17 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="View\LemmaOfTheDayUserControl.resx">
+      <DependentUpon>LemmaOfTheDayUserControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\SearchBar.resx">
       <DependentUpon>SearchBar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\StartPage.resx">
       <DependentUpon>StartPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\SearchResultsUserControl.resx">
+      <DependentUpon>SearchResultsUserControl.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="fooDataSet.xsc">
       <DependentUpon>fooDataSet.xsd</DependentUpon>
