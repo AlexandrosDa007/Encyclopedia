@@ -19,7 +19,7 @@ namespace Encyclopedia
             Console.WriteLine("Another String");
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new SearchBar());
+            Application.Run(new UI.StartPage());
         }
 
         
