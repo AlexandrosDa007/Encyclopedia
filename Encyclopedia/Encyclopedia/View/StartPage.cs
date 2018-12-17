@@ -11,20 +11,26 @@ using System.Windows.Forms;
 namespace UI
 {
     public partial class StartPage : Form
-    { 
+    {
 
         public StartPage()
         {
             InitializeComponent();
+            
             if (!mainPanel.Controls.Contains(Encyclopedia.View.LemmaOfTheDayUserControl.Instance))
             {
                 mainPanel.Controls.Add(Encyclopedia.View.LemmaOfTheDayUserControl.Instance);
                 Encyclopedia.View.LemmaOfTheDayUserControl.Instance.Dock = DockStyle.Fill;
                 Encyclopedia.View.LemmaOfTheDayUserControl.Instance.BringToFront();
-
+                
             }
             else
+            {
                 Encyclopedia.View.LemmaOfTheDayUserControl.Instance.BringToFront();
+                
+            }
+                
+            
         }
 
         private void popularButton_Click(object sender, EventArgs e)
