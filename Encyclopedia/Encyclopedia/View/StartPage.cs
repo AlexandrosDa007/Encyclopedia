@@ -28,6 +28,7 @@ namespace UI
             {
                 Encyclopedia.View.LemmaOfTheDayUserControl.Instance.BringToFront();
                 
+                
             }
                 
             
@@ -57,10 +58,14 @@ namespace UI
                 mainPanel.Controls.Add(Encyclopedia.View.LemmaOfTheDayUserControl.Instance);
                 Encyclopedia.View.LemmaOfTheDayUserControl.Instance.Dock = DockStyle.Fill;
                 Encyclopedia.View.LemmaOfTheDayUserControl.Instance.BringToFront();
-
+                
             }
             else
+            {
                 Encyclopedia.View.LemmaOfTheDayUserControl.Instance.BringToFront();
+                
+            }
+                
 
         }
 
@@ -92,6 +97,7 @@ namespace UI
 
         private void searchTextbox_OnTextChange(object sender, EventArgs e)
         {
+            
             if (!mainPanel.Controls.Contains(Encyclopedia.View.SearchResultsUserControl.Instance))
             {
                 mainPanel.Controls.Add(Encyclopedia.View.SearchResultsUserControl.Instance);
@@ -100,7 +106,13 @@ namespace UI
 
             }
             else
+            {
                 Encyclopedia.View.SearchResultsUserControl.Instance.BringToFront();
+                //when searching update the list
+                Encyclopedia.View.SearchResultsUserControl.Instance.AddToTheResults(searchTextbox.text);
+                
+            }
+                
         }
 
         private void dateTimePicker_ValueChanged(object sender, EventArgs e)
@@ -115,5 +127,7 @@ namespace UI
             else
                 Encyclopedia.View.SearchResultsUserControl.Instance.BringToFront();
         }
+
+        
     }
 }

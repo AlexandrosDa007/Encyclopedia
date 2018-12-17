@@ -333,6 +333,7 @@
             this.searchTextbox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.searchTextbox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(126)))), ((int)(((byte)(49)))));
             this.searchTextbox.Icon = ((System.Drawing.Image)(resources.GetObject("searchTextbox.Icon")));
+            this.searchTextbox.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.searchTextbox.Location = new System.Drawing.Point(238, 89);
             this.searchTextbox.Margin = new System.Windows.Forms.Padding(4);
             this.searchTextbox.Name = "searchTextbox";

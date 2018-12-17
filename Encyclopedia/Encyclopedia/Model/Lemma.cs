@@ -8,14 +8,15 @@ namespace Encyclopedia.Model
         // fields
         private String title;
         private String body;
-        private Category category;
+        //Changed the category to integer 
+        private int categoryId;
 
         // constructor
-        public Lemma(String title, Byte[] bodyInBytes, Category category)
+        public Lemma(String title, Byte[] bodyInBytes, int categoryId)
         {
             this.title = title ?? throw new ArgumentNullException(nameof(title));
             this.body = Encoding.Default.GetString(bodyInBytes) ?? throw new ArgumentNullException(nameof(bodyInBytes));
-            this.category = category ?? throw new ArgumentNullException(nameof(category));
+            this.categoryId = categoryId;
         }
 
         // setters and getters
@@ -43,15 +44,15 @@ namespace Encyclopedia.Model
             }
         }
 
-        public Category Category
+        public int Category
         {
             get
             {
-                return category;
+                return categoryId;
             }
             set
             {
-                category = value;
+                categoryId = value;
             }
         }
 

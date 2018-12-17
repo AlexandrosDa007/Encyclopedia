@@ -10,18 +10,15 @@ namespace Encyclopedia.Controller
 {
     class DBConnect
     {
-        private MySqlConnection connection;
-        private string server;
-        private string database;
-        private string uid;
-        private string password;
+        public static MySqlConnection connection;
+        public static string server;
+        public static string database;
+        public static string uid;
+        public static string password;
 
-        public DBConnect()
-        {
-            Initialize();
-        }
+       
 
-        private void Initialize()
+        public static void Initialize()
         {
             server = "83.212.103.59";
             database = "foo";
@@ -35,8 +32,9 @@ namespace Encyclopedia.Controller
         }
 
         //open connection to database
-        private bool OpenConnection()
+        public static bool OpenConnection()
         {
+            
             try
             {
                 connection.Open();
@@ -64,7 +62,7 @@ namespace Encyclopedia.Controller
         }
 
         //Close connection
-        private bool CloseConnection()
+        public static bool CloseConnection()
         {
             try
             {
@@ -80,7 +78,7 @@ namespace Encyclopedia.Controller
 
         //Select
 
-        public Byte[] GetLemmaBodyByTitle(string lemmaTitle)
+        public static Byte[] GetLemmaBodyByTitle(string lemmaTitle)
         {
             Byte[] lemmaBody = new byte[10000];
             string query = "SELECT lemma_body FROM Lemma WHERE lemma_title = '" + lemmaTitle + "'";
@@ -91,7 +89,28 @@ namespace Encyclopedia.Controller
                 lemmaBody = Encoding.UTF8.GetBytes(dataReader.GetString("lemma_body"));
             }
 
+            dataReader.Close();
             return lemmaBody;
+        }
+
+        public static List<Lemma> GetAllLemma()
+        {
+            List<Lemma> lemmaList = new List<Lemma>();
+
+            string query = "SELECT * FROM Lemma";
+            MySqlCommand cmd = new MySqlCommand(query, connection);
+            cmd.CommandTimeout = 500000;
+            MySqlDataReader dataReader = cmd.ExecuteReader();
+            int i = 0;
+            while (dataReader.Read())
+            {
+                Console.WriteLine(i);
+                Lemma lemma = new Lemma(dataReader[0].ToString(), Encoding.UTF8.GetBytes(dataReader[1].ToString()), Convert.ToInt32(dataReader[2].ToString()));
+                lemmaList.Add(lemma);
+                i++;
+            }
+
+            return lemmaList;
         }
 
         //insert

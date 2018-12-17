@@ -16,7 +16,6 @@ namespace Encyclopedia.View
     {
         private static LemmaOfTheDayUserControl _instance;
 
-        public string value;
 
         public static LemmaOfTheDayUserControl Instance
         {
@@ -31,12 +30,22 @@ namespace Encyclopedia.View
         }
         public LemmaOfTheDayUserControl()
         {
+            //init the database connection -- not the best place here
+            DBConnect.Initialize();
             InitializeComponent();
-            DBConnect db = new DBConnect();
-            string value = Encoding.UTF8.GetString(db.GetLemmaBodyByTitle("Concept"));
-            Console.WriteLine(value);
-            webBrowser1.DocumentText = value;
+            //start by having something as default --TO BE CHANGED
+            ChangeValue("Concept");
         }
+
+
+        //Use this to Search
+        public void ChangeValue(string title)
+        {
+            //change the web browser to display the lemma_body from the title given
+            webBrowser1.DocumentText = Encoding.UTF8.GetString(DBConnect.GetLemmaBodyByTitle(title));
+        }
+
+
 
         
         
