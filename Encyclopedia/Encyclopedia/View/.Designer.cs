@@ -62,7 +62,6 @@
             this.listView1.TabIndex = 1;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.Details;
-            this.listView1.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged);
             this.listView1.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.listView1_MouseDoubleClick);
             // 
             // titleHeader
@@ -78,7 +77,6 @@
             this.Controls.Add(this.searchResultsLabel);
             this.Name = "SearchResultsUserControl";
             this.Size = new System.Drawing.Size(765, 370);
-            this.Load += new System.EventHandler(this.SearchResultsUserControl_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

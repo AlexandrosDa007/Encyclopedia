@@ -103,16 +103,31 @@ namespace UI
                 mainPanel.Controls.Add(Encyclopedia.View.SearchResultsUserControl.Instance);
                 Encyclopedia.View.SearchResultsUserControl.Instance.Dock = DockStyle.Fill;
                 Encyclopedia.View.SearchResultsUserControl.Instance.BringToFront();
+                Search();
 
             }
             else
             {
                 Encyclopedia.View.SearchResultsUserControl.Instance.BringToFront();
-                //when searching update the list
-                Encyclopedia.View.SearchResultsUserControl.Instance.AddToTheResults(searchTextbox.text);
+                Search();
                 
             }
                 
+        }
+
+        private void Search()
+        {
+            
+            //when searching update the list
+            string[] filterArray = new string[filterCheckedListBox.CheckedItems.Count];
+            int i = 0;
+            foreach (Object ob in filterCheckedListBox.CheckedItems)
+            {
+                filterArray[i] = filterCheckedListBox.GetItemText(ob.ToString());
+                i++;
+            }
+            
+            Encyclopedia.View.SearchResultsUserControl.Instance.AddToTheResults(searchTextbox.text, filterArray);
         }
 
         private void dateTimePicker_ValueChanged(object sender, EventArgs e)
@@ -127,7 +142,5 @@ namespace UI
             else
                 Encyclopedia.View.SearchResultsUserControl.Instance.BringToFront();
         }
-
-        
     }
 }

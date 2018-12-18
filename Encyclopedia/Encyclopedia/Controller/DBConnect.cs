@@ -109,8 +109,41 @@ namespace Encyclopedia.Controller
                 lemmaList.Add(lemma);
                 i++;
             }
-
+            dataReader.Close();
             return lemmaList;
+        }
+
+        public static List<string> GetLemmaTitleByCategoryName(string categoryName)
+        {
+            string query = "SELECT category_id FROM Category WHERE category_name = '" + categoryName + "'";
+            MySqlCommand cmd = new MySqlCommand(query, connection);
+            cmd.CommandTimeout = 500000;
+            MySqlDataReader dataReader = cmd.ExecuteReader();
+            int id = -1;
+            while (dataReader.Read())
+            {
+                id = Convert.ToInt32(dataReader[0].ToString());
+            }
+
+            Category category = new Category(id, categoryName);
+            List<string> titleList = new List<string>();
+
+            dataReader.Close();
+
+            query = "SELECT lemma_title FROM Lemma L JOIN Category C ON L.category_id = C.category_id WHERE C.category_id = " + category.Id;
+            cmd = new MySqlCommand(query, connection);
+            cmd.CommandTimeout = 500000;
+            
+            dataReader = cmd.ExecuteReader();
+
+            while (dataReader.Read())
+            {
+                titleList.Add(dataReader[0].ToString());
+            }
+
+            Console.WriteLine(titleList.Count);
+            dataReader.Close();
+            return titleList;
         }
 
         //insert

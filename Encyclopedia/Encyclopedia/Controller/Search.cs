@@ -123,6 +123,8 @@ namespace Encyclopedia.Controller
             searcher.Search(query,collector);
             ScoreDoc[] matches = collector.TopDocs().ScoreDocs;
 
+            Console.WriteLine("matches count: " + matches.Length);
+
             //Itereate in matches array 
             foreach (ScoreDoc item in matches)
             {

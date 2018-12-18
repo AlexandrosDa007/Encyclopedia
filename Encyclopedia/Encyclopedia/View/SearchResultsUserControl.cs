@@ -31,7 +31,7 @@ namespace Encyclopedia.View
             InitializeComponent();
         }
 
-        public void AddToTheResults(string text)
+        public void AddToTheResults(string text, string[] filters)
         {
             //clear the list
             listView1.Items.Clear();
@@ -39,6 +39,34 @@ namespace Encyclopedia.View
             List<Document> list = Search.DoSearch(text);
             if (list == null)
                 return;
+
+            //apply filter
+            List<string> allLemmaTitlesToBeChecked = new List<string>();
+            foreach (string str in filters)
+            {
+                List<string> lemma_titles = DBConnect.GetLemmaTitleByCategoryName(str);
+                foreach(string title in lemma_titles)
+                {
+                    allLemmaTitlesToBeChecked.Add(title);
+                }
+            }
+
+            Console.WriteLine("before it has: " + list.Count);
+
+            List<Document> documentsToBeRemoved = new List<Document>();
+            foreach(Document doc in list)
+            {
+                if (!allLemmaTitlesToBeChecked.Contains(doc.GetField("lemma_title").StringValue))
+                    documentsToBeRemoved.Add(doc);
+            }
+
+            foreach(Document document in documentsToBeRemoved)
+            {
+                list.Remove(document);
+            }
+
+            Console.WriteLine("after it has: " + list.Count);
+
             //iterate
             foreach (Document doc in list)
             {

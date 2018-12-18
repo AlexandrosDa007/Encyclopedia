@@ -31,7 +31,7 @@ namespace Encyclopedia.View
         public LemmaOfTheDayUserControl()
         {
             //init the database connection -- not the best place here
-            DBConnect.Initialize();
+            
             InitializeComponent();
             //start by having something as default --TO BE CHANGED
             ChangeValue("Concept");
