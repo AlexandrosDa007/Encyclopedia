@@ -95,6 +95,12 @@
     <Compile Include="View\LemmaOfTheDayUserControl.Designer.cs">
       <DependentUpon>LemmaOfTheDayUserControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\LemmaViewUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\LemmaViewUserControl.Designer.cs">
+      <DependentUpon>LemmaViewUserControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\SearchBar.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -125,6 +131,9 @@
     </Compile>
     <EmbeddedResource Include="View\LemmaOfTheDayUserControl.resx">
       <DependentUpon>LemmaOfTheDayUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\LemmaViewUserControl.resx">
+      <DependentUpon>LemmaViewUserControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\SearchBar.resx">
       <DependentUpon>SearchBar.cs</DependentUpon>
