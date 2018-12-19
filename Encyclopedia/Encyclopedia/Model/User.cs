@@ -17,32 +17,56 @@ namespace Encyclopedia.Model
         private Byte[] image;
 
         // default constructor
-        public User(int id, string name, string surname, DateTime dateOfBirth, char gender, int tel, Role role, EducationLevel educationLevel, string description, byte[] image)
+        public User(int id, string name, string surname, DateTime dateOfBirth, char gender, int tel, Role role, EducationLevel educationLevel, string description, Byte[] image)
         {
             this.id = id;
-            this.name = name ?? throw new ArgumentNullException(nameof(name));
-            this.surname = surname ?? throw new ArgumentNullException(nameof(surname));
+            if (name.Length > 40)
+            {
+                throw new ArgumentOutOfRangeException(nameof(name));
+            }
+            else
+                this.name = name ?? throw new ArgumentNullException(nameof(name));
+            if (surname.Length > 50)
+            {
+                throw new ArgumentOutOfRangeException(nameof(surname));
+            }
+            else
+                this.surname = surname ?? throw new ArgumentNullException(nameof(surname));
             this.dateOfBirth = dateOfBirth;
-
             if (gender.Equals('M') || gender.Equals('F'))
             {
                 this.gender = gender;
             }
             else
-                throw new ArgumentOutOfRangeException();
+                throw new ArgumentOutOfRangeException(nameof(gender));
             this.tel = tel;
-            this.role = role ?? throw new ArgumentNullException(nameof(role));
-            this.educationLevel = educationLevel ?? throw new ArgumentNullException(nameof(educationLevel));
-            this.description = description ?? throw new ArgumentNullException(nameof(description));
-            this.image = image ?? throw new ArgumentNullException(nameof(image));
+            this.role = role;
+            this.educationLevel = educationLevel;
+            if (description.Length <= 250)
+            {
+                this.description = description;
+            }
+            else
+                throw new ArgumentOutOfRangeException(nameof(description));
+            this.image = image;
         }
 
         // constructor with null values
         public User(int id, string name, string surname, DateTime dateOfBirth)
         {
             this.id = id;
-            this.name = name ?? throw new ArgumentNullException(nameof(name));
-            this.surname = surname ?? throw new ArgumentNullException(nameof(surname));
+            if (name.Length > 40)
+            {
+                throw new ArgumentOutOfRangeException(nameof(name));
+            }
+            else
+                this.name = name ?? throw new ArgumentNullException(nameof(name));
+            if (surname.Length > 50)
+            {
+                throw new ArgumentOutOfRangeException(nameof(surname));
+            }
+            else
+                this.surname = surname ?? throw new ArgumentNullException(nameof(surname));
             this.dateOfBirth = dateOfBirth;
 
             // optional fields set to null

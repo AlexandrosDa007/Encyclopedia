@@ -148,59 +148,142 @@ namespace Encyclopedia.Controller
 
         //insert
 
-        public void Insert(Account account)
+        public int Insert(Account account)
         {
             //code to insert new account
+            return 1;
         }
 
-        public void Insert(Category category)
+        public int Insert(Category category)
         {
             //code to insert new category
+            return 1;
         }
 
-        public void Insert(Contact contact)
+        public int Insert(Contact contact)
         {
             //code to insert new contact
+            return 1;
         }
 
-        public void Insert(ContactGroup contactGroup)
+        public int Insert(ContactGroup contactGroup)
         {
             //code to insert contactgroup
+            return 1;
         }
 
-        public void Insert(EditedLemma editedLemma)
+        public int Insert(EditedLemma editedLemma)
         {
             //code to insert editedLemma
+            return 1;
         }
 
-        public void Insert(EducationLevel educationLevel)
+        public int Insert(EducationLevel educationLevel)
         {
             //code to insert educationLevel
+            return 1;
         }
 
-        public void Insert(FavoriteLemma favoriteLemma)
+        public int Insert(FavoriteLemma favoriteLemma)
         {
             //code to insert favoriteLemma
+            return 1;
         }
 
-        public void Insert(Lemma lemma)
+        public int Insert(Lemma lemma)
         {
             //code to insert lemma
+            return 1;
         }
 
-        public void Insert(Role role)
+        public int Insert(Role role)
         {
             //code to insert role
+            return 1;
         }
 
-        public void Insert(SharedLemma sharedLemma)
+        public int Insert(SharedLemma sharedLemma)
         {
             //code to insert sharedLemma
+            return 1;
         }
 
-        public void Insert(User user)
+        public int Insert(User user)
         {
-            //code to insert user
+            // prepare query string
+            string insertFields = "INSERT INTO " +
+                "User (user_name, user_surname, user_date_of_birth";
+            string insertValues = "VALUES(@name, @surname, @dateOfBirth";
+
+            // check if fields aren't null
+            if (!user.Gender.Equals("-"))
+            {
+                insertFields += ", user_gender";
+                insertValues += ", @gender";
+            }
+            if (!user.Tel.Equals(-1))
+            {
+                insertFields += ", user_tel";
+                insertValues += ", @tel";
+            }
+            if (!user.Role.Equals(null))
+            {
+                insertFields += ", user_role_id";
+                insertValues += ", @roleId";
+            }
+            if (!user.EducationLevel.Equals(null))
+            {
+                insertFields += ", user_education_level_id";
+                insertValues += ", @educationLevel";
+            }
+            if (!user.Description.Equals(null))
+            {
+                insertFields += ", user_description";
+                insertValues += ", @description";
+            }
+            if (!user.Image.Equals(null))
+            {
+                insertFields += ", user_image";
+                insertValues += ", @image";
+            }
+            string insertUser = insertFields + ") " + insertValues + ") ";
+            
+            MySqlCommand cmd = new MySqlCommand(insertUser, connection);
+            cmd.CommandTimeout = 500000;
+
+            // add values to the parameters
+            cmd.Parameters.AddWithValue("@name", user.Name);
+            cmd.Parameters.AddWithValue("@surname", user.Surname);
+            cmd.Parameters.AddWithValue("@dateOfBirth", user.DateOfBirth);
+            if (!user.Gender.Equals("-"))
+            {
+                cmd.Parameters.AddWithValue("@gender", user.Gender);
+            }
+            if (!user.Tel.Equals(-1))
+            {
+                cmd.Parameters.AddWithValue("@tel", user.Tel);
+            }
+            if (!user.Role.Equals(null))
+            {
+                cmd.Parameters.AddWithValue("@roleId", user.Role.Id);
+            }
+            if (!user.EducationLevel.Equals(null))
+            {
+                cmd.Parameters.AddWithValue("@educationLevel", user.EducationLevel.Id);
+            }
+            if (!user.Description.Equals(null))
+            {
+                cmd.Parameters.AddWithValue("@description", user.Description);
+            }
+            if (!user.Image.Equals(null))
+            {
+                cmd.Parameters.AddWithValue("@image", Encoding.UTF8.GetBytes(user.Image.ToString()));
+            }
+
+            // prepare and execute
+            cmd.Prepare();
+            int rowsAffected = cmd.ExecuteNonQuery();
+            return rowsAffected; // if rowsAffected equals to 1, then the insertion completed successfully
         }
 
         //delete

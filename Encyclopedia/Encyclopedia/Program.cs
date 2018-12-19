@@ -24,7 +24,7 @@ namespace Encyclopedia
             
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new UI.StartPage());
+            Application.Run(new View.RegisterForm());
 
              
         }
