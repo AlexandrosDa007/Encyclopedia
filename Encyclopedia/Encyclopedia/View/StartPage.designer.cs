@@ -381,6 +381,7 @@
             this.filterCheckedListBox.Name = "filterCheckedListBox";
             this.filterCheckedListBox.Size = new System.Drawing.Size(201, 55);
             this.filterCheckedListBox.TabIndex = 4;
+            this.filterCheckedListBox.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.filterCheckedListBox_ItemCheck);
             this.filterCheckedListBox.SelectedIndexChanged += new System.EventHandler(this.filterCheckedListBox_SelectedIndexChanged);
             // 
             // filtersLabel

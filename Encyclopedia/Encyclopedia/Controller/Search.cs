@@ -24,7 +24,8 @@ namespace Encyclopedia.Controller
         public static RAMDirectory directory;
         //List to be returned with lemma
         public static List<Lemma> lemmaList;
-        
+
+        public static SimpleFSDirectory dir = new SimpleFSDirectory(new System.IO.DirectoryInfo("LuceneDocuments"), null);
 
 
         /*
@@ -39,10 +40,11 @@ namespace Encyclopedia.Controller
             lemmaList = new List<Lemma>();
             
 
+
             //Analyzer object used to analyze text based search
             Analyzer analyzer = new StandardAnalyzer(Lucene.Net.Util.Version.LUCENE_30);
             //Writer object used to write the directory or the "Index"
-            IndexWriter writer = new IndexWriter(directory, analyzer, new IndexWriter.MaxFieldLength(1000));
+            IndexWriter writer = new IndexWriter(dir, analyzer, new IndexWriter.MaxFieldLength(1000));
 
             //Seting similarity -- Used to make the text based search retrive relavant
             //used in scoring system
@@ -88,7 +90,7 @@ namespace Encyclopedia.Controller
             List<Document> list = new List<Document>();
 
             //The IndexReader reads the index table -- opens the directory(IN MEMORY)
-            IndexReader reader = IndexReader.Open(new SimpleFSDirectory(new System.IO.DirectoryInfo("C://Users//wonde//Desktop//thisfile.txt"),null), true);
+            IndexReader reader = IndexReader.Open(dir, true);
             //The indexSearcher is used to search for matches
             IndexSearcher searcher = new IndexSearcher(reader);
             searcher.SetDefaultFieldSortScoring(true, false);
