@@ -25,7 +25,7 @@ namespace Encyclopedia.Controller
         //List to be returned with lemma
         public static List<Lemma> lemmaList;
 
-        public static SimpleFSDirectory dir = new SimpleFSDirectory(new System.IO.DirectoryInfo("LuceneDocuments"), null);
+        public static SimpleFSDirectory dir = new SimpleFSDirectory(new System.IO.DirectoryInfo("../../LuceneDocuments"), null);
 
 
         /*
