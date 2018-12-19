@@ -10,30 +10,30 @@ namespace Encyclopedia.Model
         private String surname;
         private DateTime dateOfBirth;
         private Char gender;
-        private int tel;
+        private string tel;
         private Role role;
         private EducationLevel educationLevel;
         private String description;
         private Byte[] image;
 
         // default constructor
-        public User(int id, string name, string surname, DateTime dateOfBirth, char gender, int tel, Role role, EducationLevel educationLevel, string description, Byte[] image)
+        public User(int id, string name, string surname, DateTime dateOfBirth, char gender, string tel, Role role, EducationLevel educationLevel, string description, Byte[] image)
         {
             this.id = id;
-            if (name.Length > 40)
+            if (name.Length > 40 || name.Length == 0)
             {
                 throw new ArgumentOutOfRangeException(nameof(name));
             }
             else
                 this.name = name ?? throw new ArgumentNullException(nameof(name));
-            if (surname.Length > 50)
+            if (surname.Length > 50 || surname.Length == 0)
             {
                 throw new ArgumentOutOfRangeException(nameof(surname));
             }
             else
                 this.surname = surname ?? throw new ArgumentNullException(nameof(surname));
             this.dateOfBirth = dateOfBirth;
-            if (gender.Equals('M') || gender.Equals('F'))
+            if (gender.Equals('M') || gender.Equals('F') || gender.Equals('-'))
             {
                 this.gender = gender;
             }
@@ -71,7 +71,7 @@ namespace Encyclopedia.Model
 
             // optional fields set to null
             this.gender = '-';
-            this.tel = -1;
+            this.tel = "";
             this.role = null;
             this.educationLevel = null;
             this.description = null;
@@ -144,7 +144,7 @@ namespace Encyclopedia.Model
             }
         }
 
-        public int Tel
+        public String Tel
         {
             get
             {

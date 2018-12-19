@@ -89,6 +89,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controller\DBConnect.cs" />
+    <Compile Include="Controller\DynamicUIControlsHandler.cs" />
     <Compile Include="Controller\Search.cs" />
     <Compile Include="Controller\UserControls.cs" />
     <Compile Include="fooDataSet.Designer.cs">

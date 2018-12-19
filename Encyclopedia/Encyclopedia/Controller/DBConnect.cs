@@ -145,69 +145,159 @@ namespace Encyclopedia.Controller
             return titleList;
         }
 
-        //insert
+        public static List<EducationLevel> FindEducationLevel(string educationLevelName)
+        {
+            List<EducationLevel> educationLevelList = new List<EducationLevel>();
+            // construct query
+            string selectQuery = "SELECT * FROM Education_Level where education_level_name = @name";
+            MySqlCommand cmd = new MySqlCommand(selectQuery, connection);
+            cmd.Parameters.AddWithValue("@name", educationLevelName);
+            cmd.CommandTimeout = 500000;
 
-        public int Insert(Account account)
+            // prepare and execute
+            cmd.Prepare();
+            MySqlDataReader dataReader = cmd.ExecuteReader();
+
+            while (dataReader.Read())
+            {
+                EducationLevel educationLevel = new EducationLevel(Convert.ToInt32(dataReader["education_level_id"]), dataReader["education_level_name"].ToString());
+                educationLevelList.Add(educationLevel);
+            }
+
+            dataReader.Close();
+            return educationLevelList;
+        }
+
+		public static string[] GetEducationLevels()
+		{
+			List<string> educationLevelList = new List<string>();
+			// construct query
+			string selectQuery = "SELECT education_level_name FROM Education_Level";
+			MySqlCommand cmd = new MySqlCommand(selectQuery, connection);
+			cmd.CommandTimeout = 500000;
+
+			// prepare and execute
+			cmd.Prepare();
+			MySqlDataReader dataReader = cmd.ExecuteReader();
+			
+			while (dataReader.Read())
+			{
+				educationLevelList.Add(dataReader["education_level_name"].ToString());
+			}
+
+			string[] educationLevelArray = educationLevelList.ToArray();
+			dataReader.Close();
+			return educationLevelArray;
+		}
+
+		public static List<Role> FindRole(string roleName)
+        {
+            List<Role> roleList = new List<Role>();
+            // construct query
+            string selectQuery = "SELECT * FROM Role where role_name = @name";
+            MySqlCommand cmd = new MySqlCommand(selectQuery, connection);
+            cmd.Parameters.AddWithValue("@name", roleName);
+            cmd.CommandTimeout = 500000;
+
+            // prepare and execute
+            cmd.Prepare();
+            MySqlDataReader dataReader = cmd.ExecuteReader();
+
+            while (dataReader.Read())
+            {
+                Role role = new Role(Convert.ToInt32(dataReader["role_id"]), dataReader["role_name"].ToString());
+                roleList.Add(role);
+            }
+
+            dataReader.Close();
+            return roleList;
+        }
+
+		public static string[] GetRoles()
+		{
+			List<string> roleList = new List<string>();
+			// construct query
+			string selectQuery = "SELECT role_name FROM Role";
+			MySqlCommand cmd = new MySqlCommand(selectQuery, connection);
+			cmd.CommandTimeout = 500000;
+
+			// prepare and execute
+			cmd.Prepare();
+			MySqlDataReader dataReader = cmd.ExecuteReader();
+
+			while (dataReader.Read())
+			{
+				roleList.Add(dataReader["role_name"].ToString());
+			}
+
+			string[] roleArray = roleList.ToArray();
+			dataReader.Close();
+			return roleArray;
+		}
+
+		//insert
+
+		public static int Insert(Account account)
         {
             //code to insert new account
             return 1;
         }
 
-        public int Insert(Category category)
+        public static int Insert(Category category)
         {
             //code to insert new category
             return 1;
         }
 
-        public int Insert(Contact contact)
+        public static int Insert(Contact contact)
         {
             //code to insert new contact
             return 1;
         }
 
-        public int Insert(ContactGroup contactGroup)
+        public static int Insert(ContactGroup contactGroup)
         {
             //code to insert contactgroup
             return 1;
         }
 
-        public int Insert(EditedLemma editedLemma)
+        public static int Insert(EditedLemma editedLemma)
         {
             //code to insert editedLemma
             return 1;
         }
 
-        public int Insert(EducationLevel educationLevel)
+        public static int Insert(EducationLevel educationLevel)
         {
             //code to insert educationLevel
             return 1;
         }
 
-        public int Insert(FavoriteLemma favoriteLemma)
+        public static int Insert(FavoriteLemma favoriteLemma)
         {
             //code to insert favoriteLemma
             return 1;
         }
 
-        public int Insert(Lemma lemma)
+        public static int Insert(Lemma lemma)
         {
             //code to insert lemma
             return 1;
         }
 
-        public int Insert(Role role)
+        public static int Insert(Role role)
         {
             //code to insert role
             return 1;
         }
 
-        public int Insert(SharedLemma sharedLemma)
+        public static int Insert(SharedLemma sharedLemma)
         {
             //code to insert sharedLemma
             return 1;
         }
 
-        public int Insert(User user)
+        public static int Insert(User user)
         {
             // prepare query string
             string insertFields = "INSERT INTO " +
@@ -220,7 +310,7 @@ namespace Encyclopedia.Controller
                 insertFields += ", user_gender";
                 insertValues += ", @gender";
             }
-            if (!user.Tel.Equals(-1))
+            if (!user.Tel.Equals("__________") || !user.Tel.Equals(null))
             {
                 insertFields += ", user_tel";
                 insertValues += ", @tel";
@@ -235,7 +325,7 @@ namespace Encyclopedia.Controller
                 insertFields += ", user_education_level_id";
                 insertValues += ", @educationLevel";
             }
-            if (!user.Description.Equals(null))
+            if (!user.Description.Equals("") || !user.Description.Equals(null))
             {
                 insertFields += ", user_description";
                 insertValues += ", @description";
@@ -253,7 +343,7 @@ namespace Encyclopedia.Controller
             // add values to the parameters
             cmd.Parameters.AddWithValue("@name", user.Name);
             cmd.Parameters.AddWithValue("@surname", user.Surname);
-            cmd.Parameters.AddWithValue("@dateOfBirth", user.DateOfBirth);
+            cmd.Parameters.AddWithValue("@dateOfBirth", user.DateOfBirth.Date);
             if (!user.Gender.Equals("-"))
             {
                 cmd.Parameters.AddWithValue("@gender", user.Gender);
