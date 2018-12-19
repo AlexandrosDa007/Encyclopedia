@@ -14,7 +14,7 @@ CREATE TABLE User(
 	user_surname VARCHAR(50) NOT NULL,
 	user_date_of_birth DATE NOT NULL,
 	user_gender CHAR CHECK (user_gender IN ('M','F')),
-	user_tel INT,
+	user_tel VARCHAR(15),
 	user_role_id INT,
 	user_education_level_id INT,
 	user_description VARCHAR(250),
