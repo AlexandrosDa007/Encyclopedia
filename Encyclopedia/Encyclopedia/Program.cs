@@ -1,7 +1,10 @@
-﻿using Encyclopedia.View;
+﻿using Encyclopedia.Controller;
+using Encyclopedia.View;
+using Lucene.Net.Documents;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -15,13 +18,17 @@ namespace Encyclopedia
         [STAThread]
         static void Main()
         {
-            Console.WriteLine("Telika eprepe auto to string");
-            Console.WriteLine("Another String");
+            DBConnect.Initialize();
+            //this takes a long time - 4min 
+            Search.CreateIndex();
+            
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new UI.StartPage());
+            
+             
         }
 
-        
+
     }
 }

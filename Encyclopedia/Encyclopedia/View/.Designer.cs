@@ -28,29 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.lemmaResultsΤableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.searchResultsLabel = new System.Windows.Forms.Label();
+            this.listView1 = new System.Windows.Forms.ListView();
+            this.titleHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.SuspendLayout();
-            // 
-            // lemmaResultsΤableLayoutPanel
-            // 
-            this.lemmaResultsΤableLayoutPanel.AutoSize = true;
-            this.lemmaResultsΤableLayoutPanel.BackColor = System.Drawing.Color.Silver;
-            this.lemmaResultsΤableLayoutPanel.ColumnCount = 1;
-            this.lemmaResultsΤableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.lemmaResultsΤableLayoutPanel.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-            this.lemmaResultsΤableLayoutPanel.Location = new System.Drawing.Point(32, 66);
-            this.lemmaResultsΤableLayoutPanel.Name = "lemmaResultsΤableLayoutPanel";
-            this.lemmaResultsΤableLayoutPanel.RowCount = 7;
-            this.lemmaResultsΤableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
-            this.lemmaResultsΤableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
-            this.lemmaResultsΤableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
-            this.lemmaResultsΤableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
-            this.lemmaResultsΤableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
-            this.lemmaResultsΤableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
-            this.lemmaResultsΤableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
-            this.lemmaResultsΤableLayoutPanel.Size = new System.Drawing.Size(697, 283);
-            this.lemmaResultsΤableLayoutPanel.TabIndex = 3;
             // 
             // searchResultsLabel
             // 
@@ -63,11 +44,36 @@
             this.searchResultsLabel.TabIndex = 2;
             this.searchResultsLabel.Text = "Search Results for ";
             // 
+            // listView1
+            // 
+            this.listView1.Alignment = System.Windows.Forms.ListViewAlignment.SnapToGrid;
+            this.listView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.listView1.AutoArrange = false;
+            this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.titleHeader});
+            this.listView1.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
+            this.listView1.Location = new System.Drawing.Point(28, 54);
+            this.listView1.MultiSelect = false;
+            this.listView1.Name = "listView1";
+            this.listView1.ShowGroups = false;
+            this.listView1.Size = new System.Drawing.Size(564, 288);
+            this.listView1.TabIndex = 1;
+            this.listView1.UseCompatibleStateImageBehavior = false;
+            this.listView1.View = System.Windows.Forms.View.Details;
+            this.listView1.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.listView1_MouseDoubleClick);
+            // 
+            // titleHeader
+            // 
+            this.titleHeader.Text = "Lemma Titles";
+            this.titleHeader.Width = 1080;
+            // 
             // SearchResultsUserControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.lemmaResultsΤableLayoutPanel);
+            this.Controls.Add(this.listView1);
             this.Controls.Add(this.searchResultsLabel);
             this.Name = "SearchResultsUserControl";
             this.Size = new System.Drawing.Size(765, 370);
@@ -77,8 +83,8 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.TableLayoutPanel lemmaResultsΤableLayoutPanel;
         private System.Windows.Forms.Label searchResultsLabel;
+        private System.Windows.Forms.ListView listView1;
+        private System.Windows.Forms.ColumnHeader titleHeader;
     }
 }
