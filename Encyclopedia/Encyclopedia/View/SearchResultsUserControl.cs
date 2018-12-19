@@ -74,8 +74,6 @@ namespace Encyclopedia.View
                 //add a new label with the value of titles matching the search text
                 listView1.Items.Add(doc.GetField("lemma_title").StringValue);
             }
-            
-
         }
 
         private void listView1_MouseDoubleClick(object sender, MouseEventArgs e)

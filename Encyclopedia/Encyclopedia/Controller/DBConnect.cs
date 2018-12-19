@@ -11,23 +11,11 @@ namespace Encyclopedia.Controller
     class DBConnect
     {
         public static MySqlConnection connection;
-        public static string server;
-        public static string database;
-        public static string uid;
-        public static string password;
 
-       
 
         public static void Initialize()
         {
-            server = "83.212.103.59";
-            database = "foo";
-            uid = "user1";
-            password = "1234567890";
-            string connectionString;
-            connectionString = "SERVER=" + server + ";" + "DATABASE=" + database + ";" + "UID=" + uid + ";" + "PASSWORD=" + password + ";";
-
-            connection = new MySqlConnection(connectionString);
+            connection = new MySqlConnection(Encyclopedia.Properties.Settings.Default.fooConnectionString);
             OpenConnection();
         }
 

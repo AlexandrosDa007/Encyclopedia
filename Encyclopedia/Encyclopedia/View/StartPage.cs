@@ -16,7 +16,6 @@ namespace UI
         public StartPage()
         {
             InitializeComponent();
-            
             if (!mainPanel.Controls.Contains(Encyclopedia.View.LemmaOfTheDayUserControl.Instance))
             {
                 mainPanel.Controls.Add(Encyclopedia.View.LemmaOfTheDayUserControl.Instance);
