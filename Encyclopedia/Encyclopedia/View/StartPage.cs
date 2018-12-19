@@ -142,5 +142,10 @@ namespace UI
             else
                 Encyclopedia.View.SearchResultsUserControl.Instance.BringToFront();
         }
+
+        private void filterCheckedListBox_ItemCheck(object sender, ItemCheckEventArgs e)
+        {
+            //TODO: check
+        }
     }
 }

@@ -77,7 +77,6 @@ namespace Encyclopedia.Controller
         }
 
         //Select
-
         public static Byte[] GetLemmaBodyByTitle(string lemmaTitle)
         {
             Byte[] lemmaBody = new byte[10000];
