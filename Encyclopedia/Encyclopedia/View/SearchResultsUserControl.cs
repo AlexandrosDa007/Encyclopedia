@@ -31,7 +31,7 @@ namespace Encyclopedia.View
             InitializeComponent();
         }
 
-        public void AddToTheResults(string text, string[] filters)
+        public void AddToTheResults(string text, List<string> checkedFilters)
         {
             //clear the list
             listView1.Items.Clear();
@@ -40,40 +40,47 @@ namespace Encyclopedia.View
             if (list == null)
                 return;
 
-            //apply filter
-            List<string> allLemmaTitlesToBeChecked = new List<string>();
-            foreach (string str in filters)
+            //if all filters are unchecked
+            if(checkedFilters.Count == 0)
             {
-                List<string> lemma_titles = DBConnect.GetLemmaTitleByCategoryName(str);
-                foreach(string title in lemma_titles)
+                //iterate
+                foreach (Document doc in list)
                 {
-                    allLemmaTitlesToBeChecked.Add(title);
+                    Label l = new Label();
+                    //add a new label with the value of titles matching the search text
+                    listView1.Items.Add(doc.GetField("lemma_title").StringValue);
+                }
+            }
+            else
+            {
+                /*
+                 * Search the top results and filter them by all the filters that are checked
+                 */
+
+                List<Document> documents = new List<Document>();
+                //get all id's of the filters
+                List<int> filterIds = DBConnect.GetCategoryIdByName(checkedFilters);
+                foreach (Document doc in list)
+                {
+                    foreach(int id in filterIds)
+                    {
+                        if (Convert.ToInt32(doc.GetField("category_id").StringValue) == id)
+                        {
+                            documents.Add(doc);
+                        }
+                    }
+                    
+                }
+                //iterate
+                foreach (Document doc in documents)
+                {
+                    Label l = new Label();
+                    //add a new label with the value of titles matching the search text
+                    listView1.Items.Add(doc.GetField("lemma_title").StringValue);
                 }
             }
 
-            Console.WriteLine("before it has: " + list.Count);
-
-            List<Document> documentsToBeRemoved = new List<Document>();
-            foreach(Document doc in list)
-            {
-                if (!allLemmaTitlesToBeChecked.Contains(doc.GetField("lemma_title").StringValue))
-                    documentsToBeRemoved.Add(doc);
-            }
-
-            foreach(Document document in documentsToBeRemoved)
-            {
-                list.Remove(document);
-            }
-
-            Console.WriteLine("after it has: " + list.Count);
-
-            //iterate
-            foreach (Document doc in list)
-            {
-                Label l = new Label();
-                //add a new label with the value of titles matching the search text
-                listView1.Items.Add(doc.GetField("lemma_title").StringValue);
-            }
+            
         }
 
         private void listView1_MouseDoubleClick(object sender, MouseEventArgs e)

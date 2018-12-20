@@ -133,6 +133,27 @@ namespace Encyclopedia.Controller
             return titleList;
         }
 
+        public static List<int> GetCategoryIdByName(List<string> categoryNameList)
+        {
+            List<int> categoryIdList = new List<int>();
+            foreach (string name in categoryNameList)
+            {
+                string query = "SELECT category_id from Category WHERE category_name = '" + name + "'";
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+                cmd.CommandTimeout = 500000;
+                MySqlDataReader dataReader = cmd.ExecuteReader();
+                while (dataReader.Read())
+                {
+                    categoryIdList.Add(Convert.ToInt32(dataReader[0].ToString()));
+                }
+                dataReader.Close();
+            }
+            Console.WriteLine(categoryIdList.Count);
+            return categoryIdList;
+        }
+
+
+
         //insert
 
         public void Insert(Account account)
