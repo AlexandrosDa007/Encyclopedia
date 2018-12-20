@@ -64,6 +64,22 @@ namespace Encyclopedia.Controller
             }
         }
 
+        public static bool Validation(String username, String password)
+        {
+            string query = "SELECT username,password FROM Account WHERE username='"+username+"' AND password='"+password+"'";
+            MySqlCommand cmd = new MySqlCommand(query, connection);
+            MySqlDataReader dataReader = cmd.ExecuteReader();
+            int i = 0;
+            while (dataReader.Read())
+            {
+                i++;
+            }
+            dataReader.Close();
+            if (i > 0)
+                return true;
+            return false;
+        }
+
         //Select
         public static Byte[] GetLemmaBodyByTitle(string lemmaTitle)
         {
