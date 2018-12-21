@@ -50,12 +50,14 @@ namespace Encyclopedia.Controller
                 switch (ex.Number)
                 {
                     case 0:
-                        Console.WriteLine("Cannot connect to server. Contact Admin");
+                        Console.WriteLine("Cannot connect to server. Contact Admin.");
                         break;
-
                     case 1045:
-                        Console.WriteLine("Invalid username/password, please try again");
+                        Console.WriteLine("Invalid username/password, please try again.");
                         break;
+					default:
+						Console.WriteLine("Error Number " + ex.Number + ": " + ex.Message);
+						break;
                 }
                 return false;
             }
