@@ -20,7 +20,7 @@ namespace Encyclopedia.Controller
 				if (!(educationLevelList.Count() == 1))
 				{
 					// either there are more than one Education Levels with the same name or there isn't any at all
-					return 2;
+					return 10;
 				}
 				educationLevel = educationLevelList.ElementAt(0);
 			}
@@ -33,7 +33,7 @@ namespace Encyclopedia.Controller
 				if (!(roleList.Count() == 1))
 				{
 					// either there are more than one Roles with the same name or there isn't any at all
-					return 3;
+					return 11;
 				}
 				role = roleList.ElementAt(0);
 			}
@@ -51,19 +51,19 @@ namespace Encyclopedia.Controller
 				switch (ex.ParamName)
 				{
 					case "name":
-						return 4;
+						return 12;
 					case "surname":
-						return 5;
+						return 13;
 					case "dateOfBirth":
-						return 6;
+						return 14;
 					case "gender":
-						return 7;
+						return 15;
 					case "tel":
-						return 8;
+						return 16;
 					case "description":
-						return 9;
+						return 17;
 					case "image":
-						return 10;
+						return 18;
 				}
             }
 
@@ -74,13 +74,13 @@ namespace Encyclopedia.Controller
 				// check if the username inserted is unique
 				if (!DBConnect.IsAccountUsernameUnique(username))
 				{
-					return 11;
+					return 20;
 				}
 
 				// check if the password and the password confirmation are the same
 				if (!password.Equals(passwordConfirmation))
 				{
-					return 12;
+					return 21;
 				}
 
 				// validate the remaining fields regarding the Account
@@ -88,7 +88,7 @@ namespace Encyclopedia.Controller
 				try
 				{
 					account = new Account(user, username, password, email, DateTime.Now);
-					// TODO validate password
+					// TODO validate password and alter Account model (saltedPasswordHash, passwordSalt)
 				}
 				catch (ArgumentException ex)
 				{
@@ -97,24 +97,49 @@ namespace Encyclopedia.Controller
 					switch (ex.ParamName)
 					{
 						case "username":
-							return 13;
+							return 22;
 						case "password":
-							return 14;
+							return 23;
 						case "email":
-							return 15;
+							return 24;
 					}
 				}
 
-				// if both of the inputs regarding the User and the Account were valid,
-				// the registration can continue with the database insertion
+				// if the Account is valid
 				if (!account.Equals(null))
 				{
-					//int rowsAffectedUser = DBConnect.Insert(user);
-					//int rowsAffectedAccount = DBConnect.Insert(account);
-					// TODO implement Insert(account)
+					// if each of the inputs regarding the User and the Account were valid,
+					// the registration can continue with the database insertion
+
+					// the exitCode must be equal to 0, otherwise something went wrong with the database
+					int exitCode = DBConnect.Insert(user, account);
+					if (exitCode == 1)
+					{
+						// something went wrong with the User insertion in the database - Database Problem
+						return 2;
+					}
+					else if (exitCode == 2)
+					{
+						// something went wrong with the Account insertion in the database - Database Problem
+						return 3;
+					}
+					
+					// Insertion successful, process terminated with exit code 0
+					return 0;
+				}
+				else
+				{
+					// something is invalid regarding the Account
+					// general error, will propably never occur
+					return 25;
 				}
 			}
-			return 0;
+			else
+			{
+				// something is invalid regarding the User
+				// general error, will propably never occur
+				return 19;
+			}
         }
     }
 }

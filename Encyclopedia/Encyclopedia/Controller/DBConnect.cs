@@ -261,13 +261,7 @@ namespace Encyclopedia.Controller
 
 		//insert
 
-		public static int Insert(Account account)
-        {
-            //code to insert new account
-            return 1;
-        }
-
-        public static int Insert(Category category)
+		public static int Insert(Category category)
         {
             //code to insert new category
             return 1;
@@ -321,7 +315,32 @@ namespace Encyclopedia.Controller
             return 1;
         }
 
-        public static int Insert(User user)
+		public static int Insert(User user, Account account)
+		{
+			int userId = Insert(user);
+			// if the userId remained -1, it means that the insertion was unsuccessful
+			if (userId != -1)
+			{
+				account.User.Id = userId;
+				Console.WriteLine(account.User.Id);
+
+				// if rowsAffectedAccount equals to 1, then the insertion completed successfully
+				int rowsAffectedAccount = Insert(account);
+				if (rowsAffectedAccount != 1)
+				{
+					return 2;
+				}
+			}
+			else
+			{
+				return 1;
+			}
+
+			// if the method doesn't return 0, something went wrong with the database
+			return 0;
+		}
+
+		public static int Insert(User user)
         {
             // prepare query string
             string insertFields = "INSERT INTO " +
@@ -360,8 +379,9 @@ namespace Encyclopedia.Controller
                 insertValues += ", @image";
             }
             string insertUser = insertFields + ") " + insertValues + ") ";
-            
-            MySqlCommand cmd = new MySqlCommand(insertUser, connection);
+			Console.WriteLine(insertUser);
+
+			MySqlCommand cmd = new MySqlCommand(insertUser, connection);
             cmd.CommandTimeout = 500000;
 
             // add values to the parameters
@@ -390,21 +410,50 @@ namespace Encyclopedia.Controller
             }
             if (!user.Image.Equals(null))
             {
-                cmd.Parameters.AddWithValue("@image", Encoding.UTF8.GetBytes(user.Image.ToString()));
+                cmd.Parameters.AddWithValue("@image", user.Image);
             }
 
             // prepare and execute
             cmd.Prepare();
             int rowsAffected = cmd.ExecuteNonQuery();
-            return rowsAffected; // if rowsAffected equals to 1, then the insertion completed successfully
+
+			int lastInsertedUserId = -1;
+			// if rowsAffected equals to 1, then the insertion completed successfully
+			if (rowsAffected == 1)
+			{
+				lastInsertedUserId = (int)cmd.LastInsertedId;
+				Console.WriteLine(lastInsertedUserId);
+			}
+			
+            return lastInsertedUserId; 
         }
 
-        //delete
+		public static int Insert(Account account)
+		{
+			// query string
+			string insertAccount = "INSERT INTO " +
+				"Account (account_id, account_username, account_salted_password_hash, account_password_salt, account_email, account_created_at) " +
+				"VALUES(@id, @username, @saltedPasswordHash, @passwordSalt, @email, @createdAt) ";
 
-        public void Delete(Account account)
-        {
-            //code to Delete new account
-        }
+			MySqlCommand cmd = new MySqlCommand(insertAccount, connection);
+			cmd.CommandTimeout = 500000;
+
+			// add values to the parameters
+			cmd.Parameters.AddWithValue("@id", account.User.Id);
+			cmd.Parameters.AddWithValue("@username", account.Username);
+			cmd.Parameters.AddWithValue("@saltedPasswordHash", account.Password); // will be replaced
+			cmd.Parameters.AddWithValue("@passwordSalt", account.Password);		  // will be replaced
+			cmd.Parameters.AddWithValue("@email", account.Email);
+			cmd.Parameters.AddWithValue("@createdAt", account.CreatedAt.Date);
+
+			// prepare and execute
+			cmd.Prepare();
+			int rowsAffected = cmd.ExecuteNonQuery();
+
+			return rowsAffected; // if rowsAffected equals to 1, then the insertion completed successfully
+		}
+
+		//delete
 
         public void Delete(Category category)
         {
@@ -453,15 +502,15 @@ namespace Encyclopedia.Controller
 
         public void Delete(User user)
         {
-            //code to Delete user
-        }
+			//code to Delete user
+		}
 
-        //update
+		public void Delete(Account account)
+		{
+			//code to Delete new account
+		}
 
-        public void Update(Account account)
-        {
-            //code to Update new account
-        }
+		//update
 
         public void Update(Category category)
         {
@@ -512,7 +561,12 @@ namespace Encyclopedia.Controller
         {
             //code to Update user
         }
-    }
+
+		public void Update(Account account)
+		{
+			//code to Update new account
+		}
+	}
 
     
 }

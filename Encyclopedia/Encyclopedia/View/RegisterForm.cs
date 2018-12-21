@@ -60,8 +60,9 @@ namespace Encyclopedia.View
 			Console.WriteLine(name + "  " + surname + " !!!" + tel + "!!! " + email + "   " + username + "    " + password + "  " + passwordConfirmation + "    " + gender + "  " + dateOfBirth + " >>>" + educationLevelName + "<<<  >>>" + roleName + "<<<    " + description);
 
 
-            // call the method to validate the input and complete the registration process
+			// call the method to validate the input and complete the registration process
 			// the exitCode must be equal to 0, otherwise something went wrong
+			// the error range is | from 10 to 19 related to the User | from 20 to 25 related to the Account | 2 and 3 related to Database problem
             int exitCode = UserControls.RegisterUserAccount(name, surname, dateOfBirth, gender, tel, roleName, educationLevelName, description, imageData, username, password, passwordConfirmation, email);
 
 			// show error messages if any
