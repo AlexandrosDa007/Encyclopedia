@@ -72,7 +72,7 @@
 			this.passwordConfirmTB.MaxLength = 40;
 			this.passwordConfirmTB.Name = "passwordConfirmTB";
 			this.passwordConfirmTB.Size = new System.Drawing.Size(203, 22);
-			this.passwordConfirmTB.TabIndex = 2;
+			this.passwordConfirmTB.TabIndex = 6;
 			this.passwordConfirmTB.UseSystemPasswordChar = true;
 			// 
 			// emailTB
@@ -106,7 +106,7 @@
 			this.telTB.Mask = "(999) 000-0000";
 			this.telTB.Name = "telTB";
 			this.telTB.Size = new System.Drawing.Size(203, 22);
-			this.telTB.TabIndex = 6;
+			this.telTB.TabIndex = 2;
 			this.telTB.TextMaskFormat = System.Windows.Forms.MaskFormat.IncludePrompt;
 			// 
 			// groupBox1
@@ -126,7 +126,7 @@
 			this.genderFemaleRB.Location = new System.Drawing.Point(46, 48);
 			this.genderFemaleRB.Name = "genderFemaleRB";
 			this.genderFemaleRB.Size = new System.Drawing.Size(72, 21);
-			this.genderFemaleRB.TabIndex = 1;
+			this.genderFemaleRB.TabIndex = 8;
 			this.genderFemaleRB.Text = "Female";
 			this.genderFemaleRB.UseVisualStyleBackColor = true;
 			// 
@@ -136,7 +136,7 @@
 			this.genderMaleRB.Location = new System.Drawing.Point(46, 21);
 			this.genderMaleRB.Name = "genderMaleRB";
 			this.genderMaleRB.Size = new System.Drawing.Size(56, 21);
-			this.genderMaleRB.TabIndex = 0;
+			this.genderMaleRB.TabIndex = 7;
 			this.genderMaleRB.Text = "Male";
 			this.genderMaleRB.UseVisualStyleBackColor = true;
 			// 
@@ -148,12 +148,12 @@
 			this.dateOfBirthDTP.MinDate = new System.DateTime(1900, 1, 1, 0, 0, 0, 0);
 			this.dateOfBirthDTP.Name = "dateOfBirthDTP";
 			this.dateOfBirthDTP.Size = new System.Drawing.Size(203, 22);
-			this.dateOfBirthDTP.TabIndex = 4;
+			this.dateOfBirthDTP.TabIndex = 9;
 			this.dateOfBirthDTP.Value = new System.DateTime(1990, 1, 1, 0, 0, 0, 0);
 			// 
 			// imagePB
 			// 
-			this.imagePB.Location = new System.Drawing.Point(489, 686);
+			this.imagePB.Location = new System.Drawing.Point(447, 697);
 			this.imagePB.Name = "imagePB";
 			this.imagePB.Size = new System.Drawing.Size(102, 100);
 			this.imagePB.TabIndex = 9;
@@ -165,7 +165,7 @@
 			this.educationLevelCB.Location = new System.Drawing.Point(213, 594);
 			this.educationLevelCB.Name = "educationLevelCB";
 			this.educationLevelCB.Size = new System.Drawing.Size(203, 24);
-			this.educationLevelCB.TabIndex = 11;
+			this.educationLevelCB.TabIndex = 10;
 			// 
 			// roleCB
 			// 
@@ -173,7 +173,7 @@
 			this.roleCB.Location = new System.Drawing.Point(213, 645);
 			this.roleCB.Name = "roleCB";
 			this.roleCB.Size = new System.Drawing.Size(203, 24);
-			this.roleCB.TabIndex = 12;
+			this.roleCB.TabIndex = 11;
 			// 
 			// descriptionRTB
 			// 
@@ -181,7 +181,7 @@
 			this.descriptionRTB.MaxLength = 250;
 			this.descriptionRTB.Name = "descriptionRTB";
 			this.descriptionRTB.Size = new System.Drawing.Size(203, 80);
-			this.descriptionRTB.TabIndex = 13;
+			this.descriptionRTB.TabIndex = 12;
 			this.descriptionRTB.Text = "";
 			// 
 			// registerB
@@ -189,7 +189,7 @@
 			this.registerB.Location = new System.Drawing.Point(341, 868);
 			this.registerB.Name = "registerB";
 			this.registerB.Size = new System.Drawing.Size(75, 23);
-			this.registerB.TabIndex = 14;
+			this.registerB.TabIndex = 15;
 			this.registerB.Text = "Register";
 			this.registerB.UseVisualStyleBackColor = true;
 			this.registerB.Click += new System.EventHandler(this.registerb_Click);
@@ -199,20 +199,21 @@
 			this.imagePathTB.Location = new System.Drawing.Point(213, 814);
 			this.imagePathTB.Name = "imagePathTB";
 			this.imagePathTB.Size = new System.Drawing.Size(200, 22);
-			this.imagePathTB.TabIndex = 15;
+			this.imagePathTB.TabIndex = 13;
 			// 
 			// browseB
 			// 
-			this.browseB.Location = new System.Drawing.Point(489, 813);
+			this.browseB.Location = new System.Drawing.Point(447, 814);
 			this.browseB.Name = "browseB";
 			this.browseB.Size = new System.Drawing.Size(102, 23);
-			this.browseB.TabIndex = 16;
+			this.browseB.TabIndex = 14;
 			this.browseB.Text = "Browse";
 			this.browseB.UseVisualStyleBackColor = true;
 			this.browseB.Click += new System.EventHandler(this.browseb_Click);
 			// 
 			// RegisterForm
 			// 
+			this.AcceptButton = this.registerB;
 			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(631, 925);
@@ -233,7 +234,8 @@
 			this.Controls.Add(this.surnameTB);
 			this.Controls.Add(this.nameTB);
 			this.Name = "RegisterForm";
-			this.Text = "RegisterForm";
+			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+			this.Text = "Registration Form";
 			this.groupBox1.ResumeLayout(false);
 			this.groupBox1.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)(this.imagePB)).EndInit();

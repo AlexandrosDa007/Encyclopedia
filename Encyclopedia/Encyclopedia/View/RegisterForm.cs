@@ -27,12 +27,8 @@ namespace Encyclopedia.View
             // take all the input in variables
             string name = nameTB.Text;
             string surname = surnameTB.Text;
-            string tel = telTB.Text;
-            string email = emailTB.Text;
-            string username = usernameTB.Text;
-            string password = passwordTB.Text;
-            string passwordConfirmation = passwordConfirmTB.Text;
-            char gender = '-';
+            DateTime dateOfBirth = dateOfBirthDTP.Value;
+			char gender = '-';
             if (genderMaleRB.Checked)
             {
                 gender = 'M';
@@ -41,9 +37,9 @@ namespace Encyclopedia.View
             {
                 gender = 'F';
             }
-            DateTime dateOfBirth = dateOfBirthDTP.Value;
-            string educationLevelName = educationLevelCB.GetItemText(educationLevelCB.SelectedItem); ;
-            string roleName = roleCB.GetItemText(roleCB.SelectedItem); ;
+            string tel = telTB.Text;
+            string roleName = roleCB.GetItemText(roleCB.SelectedItem);
+			string educationLevelName = educationLevelCB.GetItemText(educationLevelCB.SelectedItem);
             string description = descriptionRTB.Text;
             // convert the image into a Byte array
             Byte[] imageData = null;
@@ -56,13 +52,17 @@ namespace Encyclopedia.View
                 br.Close();
                 fs.Close();
             }
+			string username = usernameTB.Text;
+			string password = passwordTB.Text;
+			string passwordConfirmation = passwordConfirmTB.Text;
+			string email = emailTB.Text;
 
-            Console.WriteLine(name + "  " + surname + " !!!" + tel + "!!! " + email + "   " + username + "    " + password + "  " + passwordConfirmation + "    " + gender + "  " + dateOfBirth + " >>>" + educationLevelName + "<<<  >>>" + roleName + "<<<    " + description);
+			Console.WriteLine(name + "  " + surname + " !!!" + tel + "!!! " + email + "   " + username + "    " + password + "  " + passwordConfirmation + "    " + gender + "  " + dateOfBirth + " >>>" + educationLevelName + "<<<  >>>" + roleName + "<<<    " + description);
 
 
             // call the method to validate the input and complete the registration process
 			// the exitCode must be equal to 0, otherwise something went wrong
-            int exitCode = UserControls.RegisterUser(name, surname, dateOfBirth, gender, tel, roleName, educationLevelName, description, imageData);
+            int exitCode = UserControls.RegisterUserAccount(name, surname, dateOfBirth, gender, tel, roleName, educationLevelName, description, imageData, username, password, passwordConfirmation, email);
 
 			// show error messages if any
 			Console.WriteLine("The exit code was: " + exitCode);

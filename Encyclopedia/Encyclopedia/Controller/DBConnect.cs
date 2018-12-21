@@ -213,6 +213,28 @@ namespace Encyclopedia.Controller
             return roleList;
         }
 
+		public static bool IsAccountUsernameUnique(string username)
+		{
+			bool isUnique = true;
+			// construct query
+			string selectQuery = "SELECT account_username FROM Account WHERE account_username = @username";
+			MySqlCommand cmd = new MySqlCommand(selectQuery, connection);
+			cmd.Parameters.AddWithValue("@username", username);
+			cmd.CommandTimeout = 500000;
+
+			// prepare and execute
+			cmd.Prepare();
+			MySqlDataReader dataReader = cmd.ExecuteReader();
+
+			while (dataReader.Read())
+			{
+				isUnique = false;
+			}
+
+			dataReader.Close();
+			return isUnique;
+		}
+
 		public static string[] GetRoles()
 		{
 			List<string> roleList = new List<string>();
@@ -348,7 +370,7 @@ namespace Encyclopedia.Controller
             {
                 cmd.Parameters.AddWithValue("@gender", user.Gender);
             }
-            if (!user.Tel.Equals(-1))
+            if (!user.Tel.Equals("__________") || !user.Tel.Equals(null))
             {
                 cmd.Parameters.AddWithValue("@tel", user.Tel);
             }
@@ -360,7 +382,7 @@ namespace Encyclopedia.Controller
             {
                 cmd.Parameters.AddWithValue("@educationLevel", user.EducationLevel.Id);
             }
-            if (!user.Description.Equals(null))
+            if (!user.Description.Equals("") || !user.Description.Equals(null))
             {
                 cmd.Parameters.AddWithValue("@description", user.Description);
             }
