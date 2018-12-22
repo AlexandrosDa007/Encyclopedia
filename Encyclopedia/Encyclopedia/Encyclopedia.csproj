@@ -117,6 +117,12 @@
     <Compile Include="View\AfterLogin.Designer.cs">
       <DependentUpon>AfterLogin.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\FavouriteLemmataUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\FavouriteLemmataUserControl.Designer.cs">
+      <DependentUpon>FavouriteLemmataUserControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\LemmaOfTheDayUserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -165,6 +171,9 @@
     </Compile>
     <EmbeddedResource Include="View\AfterLogin.resx">
       <DependentUpon>AfterLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\FavouriteLemmataUserControl.resx">
+      <DependentUpon>FavouriteLemmataUserControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\LemmaOfTheDayUserControl.resx">
       <DependentUpon>LemmaOfTheDayUserControl.cs</DependentUpon>
