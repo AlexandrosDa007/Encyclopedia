@@ -50,9 +50,12 @@
             this.mainPanel = new System.Windows.Forms.Panel();
             this.dateFilterLabel = new System.Windows.Forms.Label();
             this.dateTimePicker = new System.Windows.Forms.DateTimePicker();
-            this.searchTextbox = new Bunifu.Framework.UI.BunifuTextbox();
             this.filterCheckedListBox = new System.Windows.Forms.CheckedListBox();
             this.filtersLabel = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.FeedbackPanel = new System.Windows.Forms.Panel();
+            this.searchTextBox = new System.Windows.Forms.TextBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.leftPanel.SuspendLayout();
             this.logoPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.logoPictureBox)).BeginInit();
@@ -60,11 +63,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.searchPanel.SuspendLayout();
+            this.FeedbackPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // leftPanel
             // 
             this.leftPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(53)))), ((int)(((byte)(65)))));
+            this.leftPanel.Controls.Add(this.FeedbackPanel);
             this.leftPanel.Controls.Add(this.logoPanel);
             this.leftPanel.Controls.Add(this.newUserLinkLabel);
             this.leftPanel.Controls.Add(this.forgotPasswordLinkLabel);
@@ -76,7 +81,7 @@
             this.leftPanel.Controls.Add(this.usernameLabel);
             this.leftPanel.Dock = System.Windows.Forms.DockStyle.Left;
             this.leftPanel.Location = new System.Drawing.Point(0, 0);
-            this.leftPanel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.leftPanel.Margin = new System.Windows.Forms.Padding(4);
             this.leftPanel.Name = "leftPanel";
             this.leftPanel.Size = new System.Drawing.Size(324, 805);
             this.leftPanel.TabIndex = 0;
@@ -90,7 +95,7 @@
             this.logoPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.logoPanel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(126)))), ((int)(((byte)(49)))));
             this.logoPanel.Location = new System.Drawing.Point(0, 0);
-            this.logoPanel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.logoPanel.Margin = new System.Windows.Forms.Padding(4);
             this.logoPanel.Name = "logoPanel";
             this.logoPanel.Size = new System.Drawing.Size(324, 75);
             this.logoPanel.TabIndex = 0;
@@ -99,7 +104,7 @@
             // 
             this.logoPictureBox.Image = ((System.Drawing.Image)(resources.GetObject("logoPictureBox.Image")));
             this.logoPictureBox.Location = new System.Drawing.Point(41, 22);
-            this.logoPictureBox.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.logoPictureBox.Margin = new System.Windows.Forms.Padding(5);
             this.logoPictureBox.Name = "logoPictureBox";
             this.logoPictureBox.Size = new System.Drawing.Size(44, 42);
             this.logoPictureBox.TabIndex = 2;
@@ -151,7 +156,7 @@
             // usernameTextBox
             // 
             this.usernameTextBox.Location = new System.Drawing.Point(117, 151);
-            this.usernameTextBox.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.usernameTextBox.Margin = new System.Windows.Forms.Padding(5);
             this.usernameTextBox.Name = "usernameTextBox";
             this.usernameTextBox.Size = new System.Drawing.Size(184, 22);
             this.usernameTextBox.TabIndex = 12;
@@ -161,7 +166,7 @@
             this.loginButton.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
             this.loginButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(53)))), ((int)(((byte)(65)))));
             this.loginButton.Location = new System.Drawing.Point(88, 286);
-            this.loginButton.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.loginButton.Margin = new System.Windows.Forms.Padding(5);
             this.loginButton.Name = "loginButton";
             this.loginButton.Size = new System.Drawing.Size(133, 34);
             this.loginButton.TabIndex = 14;
@@ -183,7 +188,7 @@
             // passwordTextBox
             // 
             this.passwordTextBox.Location = new System.Drawing.Point(117, 202);
-            this.passwordTextBox.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.passwordTextBox.Margin = new System.Windows.Forms.Padding(5);
             this.passwordTextBox.Name = "passwordTextBox";
             this.passwordTextBox.PasswordChar = '•';
             this.passwordTextBox.Size = new System.Drawing.Size(184, 22);
@@ -220,7 +225,7 @@
             this.topPanel.Controls.Add(this.pictureBox1);
             this.topPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.topPanel.Location = new System.Drawing.Point(0, 0);
-            this.topPanel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.topPanel.Margin = new System.Windows.Forms.Padding(4);
             this.topPanel.Name = "topPanel";
             this.topPanel.Size = new System.Drawing.Size(1037, 42);
             this.topPanel.TabIndex = 1;
@@ -230,7 +235,7 @@
             this.pictureBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
             this.pictureBox2.Location = new System.Drawing.Point(940, 10);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(39, 28);
             this.pictureBox2.TabIndex = 1;
@@ -241,7 +246,7 @@
             this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(987, 10);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(45, 28);
             this.pictureBox1.TabIndex = 0;
@@ -254,7 +259,7 @@
             this.recentButton.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
             this.recentButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(53)))), ((int)(((byte)(65)))));
             this.recentButton.Location = new System.Drawing.Point(589, 50);
-            this.recentButton.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.recentButton.Margin = new System.Windows.Forms.Padding(5);
             this.recentButton.Name = "recentButton";
             this.recentButton.Size = new System.Drawing.Size(249, 37);
             this.recentButton.TabIndex = 10;
@@ -269,7 +274,7 @@
             this.popularButton.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
             this.popularButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(53)))), ((int)(((byte)(65)))));
             this.popularButton.Location = new System.Drawing.Point(253, 50);
-            this.popularButton.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.popularButton.Margin = new System.Windows.Forms.Padding(5);
             this.popularButton.Name = "popularButton";
             this.popularButton.Size = new System.Drawing.Size(241, 37);
             this.popularButton.TabIndex = 9;
@@ -281,18 +286,19 @@
             // 
             this.searchPanel.AutoSize = true;
             this.searchPanel.BackColor = System.Drawing.Color.Gainsboro;
+            this.searchPanel.Controls.Add(this.searchTextBox);
+            this.searchPanel.Controls.Add(this.button1);
             this.searchPanel.Controls.Add(this.mainPanel);
             this.searchPanel.Controls.Add(this.recentButton);
             this.searchPanel.Controls.Add(this.topPanel);
             this.searchPanel.Controls.Add(this.dateFilterLabel);
             this.searchPanel.Controls.Add(this.popularButton);
             this.searchPanel.Controls.Add(this.dateTimePicker);
-            this.searchPanel.Controls.Add(this.searchTextbox);
             this.searchPanel.Controls.Add(this.filterCheckedListBox);
             this.searchPanel.Controls.Add(this.filtersLabel);
             this.searchPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.searchPanel.Location = new System.Drawing.Point(324, 0);
-            this.searchPanel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.searchPanel.Margin = new System.Windows.Forms.Padding(4);
             this.searchPanel.Name = "searchPanel";
             this.searchPanel.Size = new System.Drawing.Size(1037, 805);
             this.searchPanel.TabIndex = 2;
@@ -315,7 +321,7 @@
             this.dateFilterLabel.AutoSize = true;
             this.dateFilterLabel.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
             this.dateFilterLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(53)))), ((int)(((byte)(65)))));
-            this.dateFilterLabel.Location = new System.Drawing.Point(325, 258);
+            this.dateFilterLabel.Location = new System.Drawing.Point(325, 278);
             this.dateFilterLabel.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.dateFilterLabel.Name = "dateFilterLabel";
             this.dateFilterLabel.Size = new System.Drawing.Size(97, 21);
@@ -326,32 +332,12 @@
             // 
             this.dateTimePicker.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.dateTimePicker.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-            this.dateTimePicker.Location = new System.Drawing.Point(433, 256);
-            this.dateTimePicker.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dateTimePicker.Location = new System.Drawing.Point(433, 276);
+            this.dateTimePicker.Margin = new System.Windows.Forms.Padding(4);
             this.dateTimePicker.Name = "dateTimePicker";
             this.dateTimePicker.Size = new System.Drawing.Size(279, 24);
             this.dateTimePicker.TabIndex = 6;
             this.dateTimePicker.ValueChanged += new System.EventHandler(this.dateTimePicker_ValueChanged);
-            // 
-            // searchTextbox
-            // 
-            this.searchTextbox.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.searchTextbox.AutoSize = true;
-            this.searchTextbox.BackColor = System.Drawing.Color.Silver;
-            this.searchTextbox.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("searchTextbox.BackgroundImage")));
-            this.searchTextbox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.searchTextbox.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.searchTextbox.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.searchTextbox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(126)))), ((int)(((byte)(49)))));
-            this.searchTextbox.Icon = ((System.Drawing.Image)(resources.GetObject("searchTextbox.Icon")));
-            this.searchTextbox.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.searchTextbox.Location = new System.Drawing.Point(253, 111);
-            this.searchTextbox.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
-            this.searchTextbox.Name = "searchTextbox";
-            this.searchTextbox.Size = new System.Drawing.Size(585, 50);
-            this.searchTextbox.TabIndex = 5;
-            this.searchTextbox.text = "";
-            this.searchTextbox.OnTextChange += new System.EventHandler(this.searchTextbox_OnTextChange);
             // 
             // filterCheckedListBox
             // 
@@ -388,9 +374,9 @@
             "Universe",
             "World"});
             this.filterCheckedListBox.Location = new System.Drawing.Point(433, 180);
-            this.filterCheckedListBox.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.filterCheckedListBox.Margin = new System.Windows.Forms.Padding(5);
             this.filterCheckedListBox.Name = "filterCheckedListBox";
-            this.filterCheckedListBox.Size = new System.Drawing.Size(267, 67);
+            this.filterCheckedListBox.Size = new System.Drawing.Size(279, 88);
             this.filterCheckedListBox.TabIndex = 4;
             this.filterCheckedListBox.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.filterCheckedListBox_ItemCheck);
             this.filterCheckedListBox.SelectedIndexChanged += new System.EventHandler(this.filterCheckedListBox_SelectedIndexChanged);
@@ -408,6 +394,50 @@
             this.filtersLabel.TabIndex = 3;
             this.filtersLabel.Text = "Filters:";
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(40, 37);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(46, 17);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "label1";
+            // 
+            // FeedbackPanel
+            // 
+            this.FeedbackPanel.Controls.Add(this.label1);
+            this.FeedbackPanel.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.FeedbackPanel.Location = new System.Drawing.Point(0, 717);
+            this.FeedbackPanel.Name = "FeedbackPanel";
+            this.FeedbackPanel.Size = new System.Drawing.Size(324, 88);
+            this.FeedbackPanel.TabIndex = 17;
+            // 
+            // searchTextBox
+            // 
+            this.searchTextBox.BackColor = System.Drawing.Color.Silver;
+            this.searchTextBox.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
+            this.searchTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(126)))), ((int)(((byte)(49)))));
+            this.searchTextBox.Location = new System.Drawing.Point(253, 115);
+            this.searchTextBox.Name = "searchTextBox";
+            this.searchTextBox.Size = new System.Drawing.Size(438, 36);
+            this.searchTextBox.TabIndex = 16;
+            this.searchTextBox.Text = "Search";
+            this.searchTextBox.UseWaitCursor = true;
+            // 
+            // button1
+            // 
+            this.button1.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.button1.AutoSize = true;
+            this.button1.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
+            this.button1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(53)))), ((int)(((byte)(65)))));
+            this.button1.Location = new System.Drawing.Point(691, 115);
+            this.button1.Margin = new System.Windows.Forms.Padding(5);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(147, 37);
+            this.button1.TabIndex = 15;
+            this.button1.Text = "Search";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
             // StartPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -417,7 +447,7 @@
             this.Controls.Add(this.searchPanel);
             this.Controls.Add(this.leftPanel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "StartPage";
             this.Text = "Encyclopedia";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
@@ -431,6 +461,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.searchPanel.ResumeLayout(false);
             this.searchPanel.PerformLayout();
+            this.FeedbackPanel.ResumeLayout(false);
+            this.FeedbackPanel.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -454,7 +486,6 @@
         private System.Windows.Forms.Button recentButton;
         private System.Windows.Forms.Button popularButton;
         private System.Windows.Forms.Panel searchPanel;
-        private Bunifu.Framework.UI.BunifuTextbox searchTextbox;
         private System.Windows.Forms.CheckedListBox filterCheckedListBox;
         private System.Windows.Forms.Label filtersLabel;
         private System.Windows.Forms.DateTimePicker dateTimePicker;
@@ -462,6 +493,10 @@
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Panel mainPanel;
+        private System.Windows.Forms.Panel FeedbackPanel;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox searchTextBox;
+        private System.Windows.Forms.Button button1;
     }
 }
 
