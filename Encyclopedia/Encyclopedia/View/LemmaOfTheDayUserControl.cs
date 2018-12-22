@@ -34,20 +34,20 @@ namespace Encyclopedia.View
             
             InitializeComponent();
             //start by having something as default --TO BE CHANGED
-            ChangeValue("Concept");
+            //ChangeValue("Concept");
         }
 
 
-        //Use this to Search
-        public void ChangeValue(string title)
-        {
-            //change the web browser to display the lemma_body from the title given
-            webBrowser1.DocumentText = Encoding.UTF8.GetString(DBConnect.GetLemmaBodyByTitle(title));
-        }
+       ////Use this to Search
+       // public void ChangeValue(string title)
+       // {
+       //     //change the web browser to display the lemma_body from the title given
+       //     //lemmaOfTheDayWebBrowser.DocumentText = Encoding.UTF8.GetString(DBConnect.GetLemmaBodyByTitle(title));
+       // }
 
 
 
-        
-        
+
+
     }
 }

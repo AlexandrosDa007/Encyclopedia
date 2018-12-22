@@ -11,23 +11,11 @@ namespace Encyclopedia.Controller
     class DBConnect
     {
         public static MySqlConnection connection;
-        public static string server;
-        public static string database;
-        public static string uid;
-        public static string password;
 
-       
 
         public static void Initialize()
         {
-            server = "83.212.103.59";
-            database = "foo";
-            uid = "user1";
-            password = "1234567890";
-            string connectionString;
-            connectionString = "SERVER=" + server + ";" + "DATABASE=" + database + ";" + "UID=" + uid + ";" + "PASSWORD=" + password + ";";
-
-            connection = new MySqlConnection(connectionString);
+            connection = new MySqlConnection(Encyclopedia.Properties.Settings.Default.fooConnectionString);
             OpenConnection();
         }
 
@@ -76,6 +64,22 @@ namespace Encyclopedia.Controller
                 Console.WriteLine(ex.ToString());
                 return false;
             }
+        }
+
+        public static bool Validation(String username, String password)
+        {
+            string query = "SELECT username,password FROM Account WHERE username='"+username+"' AND password='"+password+"'";
+            MySqlCommand cmd = new MySqlCommand(query, connection);
+            MySqlDataReader dataReader = cmd.ExecuteReader();
+            int i = 0;
+            while (dataReader.Read())
+            {
+                i++;
+            }
+            dataReader.Close();
+            if (i > 0)
+                return true;
+            return false;
         }
 
         //Select
@@ -223,6 +227,28 @@ namespace Encyclopedia.Controller
 			MySqlCommand cmd = new MySqlCommand(selectQuery, connection);
 			cmd.Parameters.AddWithValue("@username", username);
 			cmd.CommandTimeout = 500000;
+        public static List<int> GetCategoryIdByName(List<string> categoryNameList)
+        {
+            List<int> categoryIdList = new List<int>();
+            foreach (string name in categoryNameList)
+            {
+                string query = "SELECT category_id from Category WHERE category_name = '" + name + "'";
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+                cmd.CommandTimeout = 500000;
+                MySqlDataReader dataReader = cmd.ExecuteReader();
+                while (dataReader.Read())
+                {
+                    categoryIdList.Add(Convert.ToInt32(dataReader[0].ToString()));
+                }
+                dataReader.Close();
+            }
+            Console.WriteLine(categoryIdList.Count);
+            return categoryIdList;
+        }
+
+
+
+        //insert
 
 			// prepare and execute
 			cmd.Prepare();
