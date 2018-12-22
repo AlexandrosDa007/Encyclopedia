@@ -246,6 +246,7 @@
             this.editedButton.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.editedButton.Textcolor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(126)))), ((int)(((byte)(49)))));
             this.editedButton.TextFont = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
+            this.editedButton.Click += new System.EventHandler(this.editedButton_Click);
             // 
             // favouritesButton
             // 
@@ -282,6 +283,7 @@
             this.favouritesButton.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.favouritesButton.Textcolor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(126)))), ((int)(((byte)(49)))));
             this.favouritesButton.TextFont = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
+            this.favouritesButton.Click += new System.EventHandler(this.favouritesButton_Click);
             // 
             // profileButton
             // 

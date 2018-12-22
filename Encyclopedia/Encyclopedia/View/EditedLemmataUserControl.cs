@@ -10,27 +10,26 @@ using System.Windows.Forms;
 
 namespace Encyclopedia.View
 {
-    public partial class FavouriteLemmataUserControl : UserControl
+    public partial class EditedLemmataUserControl : UserControl
     {
-        private static FavouriteLemmataUserControl _instance;
+        public EditedLemmataUserControl()
+        {
+            InitializeComponent();
+        }
+
+        private static EditedLemmataUserControl _instance;
 
 
-        public static FavouriteLemmataUserControl Instance
+        public static EditedLemmataUserControl Instance
         {
             get
             {
 
                 if (_instance == null)
-                    _instance = new FavouriteLemmataUserControl();
+                    _instance = new EditedLemmataUserControl();
                 return _instance;
 
             }
         }
-        public FavouriteLemmataUserControl()
-        {
-            InitializeComponent();
-        }
-
-        
     }
 }

@@ -17,6 +17,31 @@ namespace Encyclopedia.View
             InitializeComponent();
         }
 
-        
+        private void favouritesButton_Click(object sender, EventArgs e)
+        {
+            if (!mainPanel.Controls.Contains(Encyclopedia.View.FavouriteLemmataUserControl.Instance))
+            {
+                mainPanel.Controls.Add(Encyclopedia.View.FavouriteLemmataUserControl.Instance);
+                Encyclopedia.View.FavouriteLemmataUserControl.Instance.Dock = DockStyle.Fill;
+                Encyclopedia.View.FavouriteLemmataUserControl.Instance.BringToFront();
+
+            }
+            else
+                Encyclopedia.View.FavouriteLemmataUserControl.Instance.BringToFront();
+
+        }
+
+        private void editedButton_Click(object sender, EventArgs e)
+        {
+            if (!mainPanel.Controls.Contains(Encyclopedia.View.EditedLemmataUserControl.Instance))
+            {
+                mainPanel.Controls.Add(Encyclopedia.View.EditedLemmataUserControl.Instance);
+                Encyclopedia.View.EditedLemmataUserControl.Instance.Dock = DockStyle.Fill;
+                Encyclopedia.View.EditedLemmataUserControl.Instance.BringToFront();
+
+            }
+            else
+                Encyclopedia.View.EditedLemmataUserControl.Instance.BringToFront();
+        }
     }
 }
