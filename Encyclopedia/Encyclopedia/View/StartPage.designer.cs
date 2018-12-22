@@ -47,6 +47,7 @@
             this.recentButton = new System.Windows.Forms.Button();
             this.popularButton = new System.Windows.Forms.Button();
             this.searchPanel = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
             this.mainPanel = new System.Windows.Forms.Panel();
             this.dateFilterLabel = new System.Windows.Forms.Label();
             this.dateTimePicker = new System.Windows.Forms.DateTimePicker();
@@ -286,7 +287,9 @@
             // 
             this.searchPanel.AutoSize = true;
             this.searchPanel.BackColor = System.Drawing.Color.Gainsboro;
+
             this.searchPanel.Controls.Add(this.searchTextBox);
+
             this.searchPanel.Controls.Add(this.button1);
             this.searchPanel.Controls.Add(this.mainPanel);
             this.searchPanel.Controls.Add(this.recentButton);
@@ -302,6 +305,16 @@
             this.searchPanel.Name = "searchPanel";
             this.searchPanel.Size = new System.Drawing.Size(1037, 805);
             this.searchPanel.TabIndex = 2;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(619, 89);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(69, 37);
+            this.button1.TabIndex = 13;
+            this.button1.Text = "Search";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // mainPanel
             // 
@@ -339,6 +352,7 @@
             this.dateTimePicker.TabIndex = 6;
             this.dateTimePicker.ValueChanged += new System.EventHandler(this.dateTimePicker_ValueChanged);
             // 
+
             // filterCheckedListBox
             // 
             this.filterCheckedListBox.Anchor = System.Windows.Forms.AnchorStyles.Top;
@@ -378,8 +392,6 @@
             this.filterCheckedListBox.Name = "filterCheckedListBox";
             this.filterCheckedListBox.Size = new System.Drawing.Size(279, 88);
             this.filterCheckedListBox.TabIndex = 4;
-            this.filterCheckedListBox.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.filterCheckedListBox_ItemCheck);
-            this.filterCheckedListBox.SelectedIndexChanged += new System.EventHandler(this.filterCheckedListBox_SelectedIndexChanged);
             // 
             // filtersLabel
             // 
@@ -493,9 +505,11 @@
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Panel mainPanel;
+
         private System.Windows.Forms.Panel FeedbackPanel;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox searchTextBox;
+
         private System.Windows.Forms.Button button1;
     }
 }

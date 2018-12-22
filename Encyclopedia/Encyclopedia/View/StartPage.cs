@@ -12,11 +12,12 @@ namespace UI
 {
     public partial class StartPage : Form
     {
+        //list with filters to be checked
+        public List<string> filterList = new List<string>();
 
         public StartPage()
         {
             InitializeComponent();
-            
             if (!mainPanel.Controls.Contains(Encyclopedia.View.LemmaOfTheDayUserControl.Instance))
             {
                 mainPanel.Controls.Add(Encyclopedia.View.LemmaOfTheDayUserControl.Instance);
@@ -81,7 +82,7 @@ namespace UI
             else
                 Encyclopedia.View.SearchResultsUserControl.Instance.BringToFront();
         }
-
+        /*
         private void filterCheckedListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (!mainPanel.Controls.Contains(Encyclopedia.View.SearchResultsUserControl.Instance))
@@ -94,7 +95,8 @@ namespace UI
             else
                 Encyclopedia.View.SearchResultsUserControl.Instance.BringToFront();
         }
-
+        */
+        /*
         private void searchTextbox_OnTextChange(object sender, EventArgs e)
         {
             
@@ -114,20 +116,17 @@ namespace UI
             }
                 
         }
-
+        */
         private void Search()
         {
-            
-            //when searching update the list
-            string[] filterArray = new string[filterCheckedListBox.CheckedItems.Count];
-            int i = 0;
+            //add the the checked items to the filterlist
             foreach (Object ob in filterCheckedListBox.CheckedItems)
             {
-                filterArray[i] = filterCheckedListBox.GetItemText(ob.ToString());
-                i++;
+                filterList.Add(ob.ToString());
             }
-            
+
             Encyclopedia.View.SearchResultsUserControl.Instance.AddToTheResults(searchTextBox.Text, filterArray);
+
         }
 
         private void dateTimePicker_ValueChanged(object sender, EventArgs e)
@@ -143,9 +142,22 @@ namespace UI
                 Encyclopedia.View.SearchResultsUserControl.Instance.BringToFront();
         }
 
-        private void filterCheckedListBox_ItemCheck(object sender, ItemCheckEventArgs e)
+
+        private void button1_Click(object sender, EventArgs e)
         {
-            //TODO: check
+            if (!mainPanel.Controls.Contains(Encyclopedia.View.SearchResultsUserControl.Instance))
+            {
+                mainPanel.Controls.Add(Encyclopedia.View.SearchResultsUserControl.Instance);
+                Encyclopedia.View.SearchResultsUserControl.Instance.Dock = DockStyle.Fill;
+                Encyclopedia.View.SearchResultsUserControl.Instance.BringToFront();
+
+            }
+            else
+                Encyclopedia.View.SearchResultsUserControl.Instance.BringToFront();
+
+            Search();
+            //clear the filter list
+            filterList.Clear();
         }
 
         

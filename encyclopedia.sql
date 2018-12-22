@@ -14,7 +14,7 @@ CREATE TABLE User(
 	user_surname VARCHAR(50) NOT NULL,
 	user_date_of_birth DATE NOT NULL,
 	user_gender CHAR CHECK (user_gender IN ('M','F')),
-	user_tel INT,
+	user_tel VARCHAR(15),
 	user_role_id INT,
 	user_education_level_id INT,
 	user_description VARCHAR(250),
@@ -26,7 +26,9 @@ CREATE TABLE User(
 CREATE TABLE Account(
 	account_id INT NOT NULL PRIMARY KEY,
 	account_username VARCHAR(40) NOT NULL UNIQUE,
-	account_password VARCHAR(40) NOT NULL, -- Hash value
+	account_password VARCHAR(40) NOT NULL, -- Hash value -> to be deleted
+	-- account_salted_password_hash CHAR(64) NOT NULL,
+	-- account_password_salt CHAR(16) NOT NULL,
 	account_email VARCHAR(60) NOT NULL UNIQUE,
 	account_created_at DATE NOT NULL,
 	FOREIGN KEY(account_id) REFERENCES User(user_id)
