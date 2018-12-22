@@ -88,9 +88,9 @@ namespace Encyclopedia.View
             //Get the selected item's text
             string toSearch = listView1.SelectedItems[0].Text;
             //show The Home page
-            Encyclopedia.View.LemmaOfTheDayUserControl.Instance.BringToFront();
+            Encyclopedia.View.LemmaViewUserControl.Instance.BringToFront();
             //search for the lemma_body
-            Encyclopedia.View.LemmaOfTheDayUserControl.Instance.ChangeValue(toSearch);
+            Encyclopedia.View.LemmaViewUserControl.Instance.ChangeValue(toSearch);
         }
     }
 }

@@ -124,7 +124,9 @@ namespace UI
             {
                 filterList.Add(ob.ToString());
             }
-            Encyclopedia.View.SearchResultsUserControl.Instance.AddToTheResults(searchTextbox.text, filterList);
+
+            Encyclopedia.View.SearchResultsUserControl.Instance.AddToTheResults(searchTextBox.Text, filterArray);
+
         }
 
         private void dateTimePicker_ValueChanged(object sender, EventArgs e)
@@ -157,5 +159,7 @@ namespace UI
             //clear the filter list
             filterList.Clear();
         }
+
+        
     }
 }

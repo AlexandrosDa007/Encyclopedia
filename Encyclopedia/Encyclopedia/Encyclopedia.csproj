@@ -90,11 +90,23 @@
     <Compile Include="Model\User.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="View\AfterLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\AfterLogin.Designer.cs">
+      <DependentUpon>AfterLogin.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\LemmaOfTheDayUserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="View\LemmaOfTheDayUserControl.Designer.cs">
       <DependentUpon>LemmaOfTheDayUserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\LemmaViewUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\LemmaViewUserControl.Designer.cs">
+      <DependentUpon>LemmaViewUserControl.cs</DependentUpon>
     </Compile>
     <Compile Include="View\SearchBar.cs">
       <SubType>Form</SubType>
@@ -124,8 +136,14 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="View\AfterLogin.resx">
+      <DependentUpon>AfterLogin.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\LemmaOfTheDayUserControl.resx">
       <DependentUpon>LemmaOfTheDayUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\LemmaViewUserControl.resx">
+      <DependentUpon>LemmaViewUserControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\SearchBar.resx">
       <DependentUpon>SearchBar.cs</DependentUpon>
