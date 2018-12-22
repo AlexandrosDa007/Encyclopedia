@@ -298,10 +298,10 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.mainPanel.AutoScroll = true;
-            this.mainPanel.Location = new System.Drawing.Point(-4, 306);
+            this.mainPanel.Location = new System.Drawing.Point(322, 306);
             this.mainPanel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.mainPanel.Name = "mainPanel";
-            this.mainPanel.Size = new System.Drawing.Size(1342, 451);
+            this.mainPanel.Size = new System.Drawing.Size(1016, 451);
             this.mainPanel.TabIndex = 12;
             // 
             // sideProfilePicture
