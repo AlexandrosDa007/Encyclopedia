@@ -33,6 +33,14 @@
             this.logoPictureBox = new System.Windows.Forms.PictureBox();
             this.logoLabel = new System.Windows.Forms.Label();
             this.leftPanel = new System.Windows.Forms.Panel();
+            this.FeedbackPanel = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.logoutButton = new Bunifu.Framework.UI.BunifuFlatButton();
+            this.contactsButton = new Bunifu.Framework.UI.BunifuFlatButton();
+            this.editedButton = new Bunifu.Framework.UI.BunifuFlatButton();
+            this.favouritesButton = new Bunifu.Framework.UI.BunifuFlatButton();
+            this.profileButton = new Bunifu.Framework.UI.BunifuFlatButton();
+            this.sideProfilePicture = new System.Windows.Forms.PictureBox();
             this.connectUserLabel = new System.Windows.Forms.Label();
             this.recentButton = new System.Windows.Forms.Button();
             this.topPanel = new System.Windows.Forms.Panel();
@@ -44,26 +52,18 @@
             this.filterCheckedListBox = new System.Windows.Forms.CheckedListBox();
             this.filtersLabel = new System.Windows.Forms.Label();
             this.searchPanel = new System.Windows.Forms.Panel();
-            this.mainPanel = new System.Windows.Forms.Panel();
-            this.sideProfilePicture = new System.Windows.Forms.PictureBox();
-            this.profileButton = new Bunifu.Framework.UI.BunifuFlatButton();
-            this.favouritesButton = new Bunifu.Framework.UI.BunifuFlatButton();
-            this.editedButton = new Bunifu.Framework.UI.BunifuFlatButton();
-            this.contactsButton = new Bunifu.Framework.UI.BunifuFlatButton();
-            this.logoutButton = new Bunifu.Framework.UI.BunifuFlatButton();
-            this.FeedbackPanel = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
             this.searchTextBox = new System.Windows.Forms.TextBox();
+            this.button1 = new System.Windows.Forms.Button();
+            mainPanel = new System.Windows.Forms.Panel();
             this.logoPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.logoPictureBox)).BeginInit();
             this.leftPanel.SuspendLayout();
+            this.FeedbackPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.sideProfilePicture)).BeginInit();
             this.topPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.searchPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.sideProfilePicture)).BeginInit();
-            this.FeedbackPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // logoPanel
@@ -120,6 +120,213 @@
             this.leftPanel.Name = "leftPanel";
             this.leftPanel.Size = new System.Drawing.Size(324, 758);
             this.leftPanel.TabIndex = 3;
+            // 
+            // FeedbackPanel
+            // 
+            this.FeedbackPanel.Controls.Add(this.label1);
+            this.FeedbackPanel.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.FeedbackPanel.Location = new System.Drawing.Point(0, 670);
+            this.FeedbackPanel.Name = "FeedbackPanel";
+            this.FeedbackPanel.Size = new System.Drawing.Size(324, 88);
+            this.FeedbackPanel.TabIndex = 16;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(40, 37);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(46, 17);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "label1";
+            // 
+            // logoutButton
+            // 
+            this.logoutButton.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(53)))), ((int)(((byte)(65)))));
+            this.logoutButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(53)))), ((int)(((byte)(65)))));
+            this.logoutButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.logoutButton.BorderRadius = 0;
+            this.logoutButton.ButtonText = "Logout";
+            this.logoutButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.logoutButton.DisabledColor = System.Drawing.Color.Gray;
+            this.logoutButton.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
+            this.logoutButton.Iconcolor = System.Drawing.Color.Transparent;
+            this.logoutButton.Iconimage = null;
+            this.logoutButton.Iconimage_right = null;
+            this.logoutButton.Iconimage_right_Selected = null;
+            this.logoutButton.Iconimage_Selected = null;
+            this.logoutButton.IconMarginLeft = 0;
+            this.logoutButton.IconMarginRight = 0;
+            this.logoutButton.IconRightVisible = true;
+            this.logoutButton.IconRightZoom = 0D;
+            this.logoutButton.IconVisible = true;
+            this.logoutButton.IconZoom = 90D;
+            this.logoutButton.IsTab = false;
+            this.logoutButton.Location = new System.Drawing.Point(0, 560);
+            this.logoutButton.Margin = new System.Windows.Forms.Padding(4);
+            this.logoutButton.Name = "logoutButton";
+            this.logoutButton.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(53)))), ((int)(((byte)(65)))));
+            this.logoutButton.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(92)))), ((int)(((byte)(127)))));
+            this.logoutButton.OnHoverTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(126)))), ((int)(((byte)(49)))));
+            this.logoutButton.selected = false;
+            this.logoutButton.Size = new System.Drawing.Size(324, 63);
+            this.logoutButton.TabIndex = 15;
+            this.logoutButton.Text = "Logout";
+            this.logoutButton.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.logoutButton.Textcolor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(126)))), ((int)(((byte)(49)))));
+            this.logoutButton.TextFont = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
+            // 
+            // contactsButton
+            // 
+            this.contactsButton.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(53)))), ((int)(((byte)(65)))));
+            this.contactsButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(53)))), ((int)(((byte)(65)))));
+            this.contactsButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.contactsButton.BorderRadius = 0;
+            this.contactsButton.ButtonText = "Contacts";
+            this.contactsButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.contactsButton.DisabledColor = System.Drawing.Color.Gray;
+            this.contactsButton.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
+            this.contactsButton.Iconcolor = System.Drawing.Color.Transparent;
+            this.contactsButton.Iconimage = null;
+            this.contactsButton.Iconimage_right = null;
+            this.contactsButton.Iconimage_right_Selected = null;
+            this.contactsButton.Iconimage_Selected = null;
+            this.contactsButton.IconMarginLeft = 0;
+            this.contactsButton.IconMarginRight = 0;
+            this.contactsButton.IconRightVisible = true;
+            this.contactsButton.IconRightZoom = 0D;
+            this.contactsButton.IconVisible = true;
+            this.contactsButton.IconZoom = 90D;
+            this.contactsButton.IsTab = false;
+            this.contactsButton.Location = new System.Drawing.Point(0, 484);
+            this.contactsButton.Margin = new System.Windows.Forms.Padding(4);
+            this.contactsButton.Name = "contactsButton";
+            this.contactsButton.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(53)))), ((int)(((byte)(65)))));
+            this.contactsButton.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(92)))), ((int)(((byte)(127)))));
+            this.contactsButton.OnHoverTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(126)))), ((int)(((byte)(49)))));
+            this.contactsButton.selected = false;
+            this.contactsButton.Size = new System.Drawing.Size(324, 63);
+            this.contactsButton.TabIndex = 14;
+            this.contactsButton.Text = "Contacts";
+            this.contactsButton.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.contactsButton.Textcolor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(126)))), ((int)(((byte)(49)))));
+            this.contactsButton.TextFont = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
+            // 
+            // editedButton
+            // 
+            this.editedButton.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(53)))), ((int)(((byte)(65)))));
+            this.editedButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(53)))), ((int)(((byte)(65)))));
+            this.editedButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.editedButton.BorderRadius = 0;
+            this.editedButton.ButtonText = "Edited Lemmata";
+            this.editedButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.editedButton.DisabledColor = System.Drawing.Color.Gray;
+            this.editedButton.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
+            this.editedButton.Iconcolor = System.Drawing.Color.Transparent;
+            this.editedButton.Iconimage = null;
+            this.editedButton.Iconimage_right = null;
+            this.editedButton.Iconimage_right_Selected = null;
+            this.editedButton.Iconimage_Selected = null;
+            this.editedButton.IconMarginLeft = 0;
+            this.editedButton.IconMarginRight = 0;
+            this.editedButton.IconRightVisible = true;
+            this.editedButton.IconRightZoom = 0D;
+            this.editedButton.IconVisible = true;
+            this.editedButton.IconZoom = 90D;
+            this.editedButton.IsTab = false;
+            this.editedButton.Location = new System.Drawing.Point(0, 414);
+            this.editedButton.Margin = new System.Windows.Forms.Padding(4);
+            this.editedButton.Name = "editedButton";
+            this.editedButton.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(53)))), ((int)(((byte)(65)))));
+            this.editedButton.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(92)))), ((int)(((byte)(127)))));
+            this.editedButton.OnHoverTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(126)))), ((int)(((byte)(49)))));
+            this.editedButton.selected = false;
+            this.editedButton.Size = new System.Drawing.Size(324, 63);
+            this.editedButton.TabIndex = 13;
+            this.editedButton.Text = "Edited Lemmata";
+            this.editedButton.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.editedButton.Textcolor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(126)))), ((int)(((byte)(49)))));
+            this.editedButton.TextFont = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
+            // 
+            // favouritesButton
+            // 
+            this.favouritesButton.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(53)))), ((int)(((byte)(65)))));
+            this.favouritesButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(53)))), ((int)(((byte)(65)))));
+            this.favouritesButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.favouritesButton.BorderRadius = 0;
+            this.favouritesButton.ButtonText = "Favourites";
+            this.favouritesButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.favouritesButton.DisabledColor = System.Drawing.Color.Gray;
+            this.favouritesButton.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
+            this.favouritesButton.Iconcolor = System.Drawing.Color.Transparent;
+            this.favouritesButton.Iconimage = null;
+            this.favouritesButton.Iconimage_right = null;
+            this.favouritesButton.Iconimage_right_Selected = null;
+            this.favouritesButton.Iconimage_Selected = null;
+            this.favouritesButton.IconMarginLeft = 0;
+            this.favouritesButton.IconMarginRight = 0;
+            this.favouritesButton.IconRightVisible = true;
+            this.favouritesButton.IconRightZoom = 0D;
+            this.favouritesButton.IconVisible = true;
+            this.favouritesButton.IconZoom = 90D;
+            this.favouritesButton.IsTab = false;
+            this.favouritesButton.Location = new System.Drawing.Point(0, 332);
+            this.favouritesButton.Margin = new System.Windows.Forms.Padding(4);
+            this.favouritesButton.Name = "favouritesButton";
+            this.favouritesButton.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(53)))), ((int)(((byte)(65)))));
+            this.favouritesButton.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(92)))), ((int)(((byte)(127)))));
+            this.favouritesButton.OnHoverTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(126)))), ((int)(((byte)(49)))));
+            this.favouritesButton.selected = false;
+            this.favouritesButton.Size = new System.Drawing.Size(324, 63);
+            this.favouritesButton.TabIndex = 12;
+            this.favouritesButton.Text = "Favourites";
+            this.favouritesButton.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.favouritesButton.Textcolor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(126)))), ((int)(((byte)(49)))));
+            this.favouritesButton.TextFont = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
+            this.favouritesButton.Click += new System.EventHandler(this.favouritesButton_Click);
+            // 
+            // profileButton
+            // 
+            this.profileButton.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(53)))), ((int)(((byte)(65)))));
+            this.profileButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(53)))), ((int)(((byte)(65)))));
+            this.profileButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.profileButton.BorderRadius = 0;
+            this.profileButton.ButtonText = "Profile";
+            this.profileButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.profileButton.DisabledColor = System.Drawing.Color.Gray;
+            this.profileButton.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
+            this.profileButton.Iconcolor = System.Drawing.Color.Transparent;
+            this.profileButton.Iconimage = null;
+            this.profileButton.Iconimage_right = null;
+            this.profileButton.Iconimage_right_Selected = null;
+            this.profileButton.Iconimage_Selected = null;
+            this.profileButton.IconMarginLeft = 0;
+            this.profileButton.IconMarginRight = 0;
+            this.profileButton.IconRightVisible = true;
+            this.profileButton.IconRightZoom = 0D;
+            this.profileButton.IconVisible = true;
+            this.profileButton.IconZoom = 90D;
+            this.profileButton.IsTab = false;
+            this.profileButton.Location = new System.Drawing.Point(0, 257);
+            this.profileButton.Margin = new System.Windows.Forms.Padding(4);
+            this.profileButton.Name = "profileButton";
+            this.profileButton.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(53)))), ((int)(((byte)(65)))));
+            this.profileButton.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(92)))), ((int)(((byte)(127)))));
+            this.profileButton.OnHoverTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(126)))), ((int)(((byte)(49)))));
+            this.profileButton.selected = false;
+            this.profileButton.Size = new System.Drawing.Size(324, 63);
+            this.profileButton.TabIndex = 11;
+            this.profileButton.Text = "Profile";
+            this.profileButton.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.profileButton.Textcolor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(126)))), ((int)(((byte)(49)))));
+            this.profileButton.TextFont = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
+            // 
+            // sideProfilePicture
+            // 
+            this.sideProfilePicture.Location = new System.Drawing.Point(91, 124);
+            this.sideProfilePicture.Name = "sideProfilePicture";
+            this.sideProfilePicture.Size = new System.Drawing.Size(139, 104);
+            this.sideProfilePicture.TabIndex = 10;
+            this.sideProfilePicture.TabStop = false;
             // 
             // connectUserLabel
             // 
@@ -277,7 +484,7 @@
             this.searchPanel.BackColor = System.Drawing.Color.Gainsboro;
             this.searchPanel.Controls.Add(this.searchTextBox);
             this.searchPanel.Controls.Add(this.button1);
-            this.searchPanel.Controls.Add(this.mainPanel);
+            this.searchPanel.Controls.Add(mainPanel);
             this.searchPanel.Controls.Add(this.recentButton);
             this.searchPanel.Controls.Add(this.topPanel);
             this.searchPanel.Controls.Add(this.dateFilterLabel);
@@ -292,224 +499,18 @@
             this.searchPanel.Size = new System.Drawing.Size(1343, 758);
             this.searchPanel.TabIndex = 4;
             // 
-            // mainPanel
+            // searchTextBox
             // 
-            this.mainPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.mainPanel.AutoScroll = true;
-            this.mainPanel.Location = new System.Drawing.Point(322, 306);
-            this.mainPanel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.mainPanel.Name = "mainPanel";
-            this.mainPanel.Size = new System.Drawing.Size(1016, 451);
-            this.mainPanel.TabIndex = 12;
-            // 
-            // sideProfilePicture
-            // 
-            this.sideProfilePicture.Location = new System.Drawing.Point(91, 124);
-            this.sideProfilePicture.Name = "sideProfilePicture";
-            this.sideProfilePicture.Size = new System.Drawing.Size(139, 104);
-            this.sideProfilePicture.TabIndex = 10;
-            this.sideProfilePicture.TabStop = false;
-            // 
-            // profileButton
-            // 
-            this.profileButton.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(53)))), ((int)(((byte)(65)))));
-            this.profileButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(53)))), ((int)(((byte)(65)))));
-            this.profileButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.profileButton.BorderRadius = 0;
-            this.profileButton.ButtonText = "Profile";
-            this.profileButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.profileButton.DisabledColor = System.Drawing.Color.Gray;
-            this.profileButton.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-            this.profileButton.Iconcolor = System.Drawing.Color.Transparent;
-            this.profileButton.Iconimage = null;
-            this.profileButton.Iconimage_right = null;
-            this.profileButton.Iconimage_right_Selected = null;
-            this.profileButton.Iconimage_Selected = null;
-            this.profileButton.IconMarginLeft = 0;
-            this.profileButton.IconMarginRight = 0;
-            this.profileButton.IconRightVisible = true;
-            this.profileButton.IconRightZoom = 0D;
-            this.profileButton.IconVisible = true;
-            this.profileButton.IconZoom = 90D;
-            this.profileButton.IsTab = false;
-            this.profileButton.Location = new System.Drawing.Point(0, 257);
-            this.profileButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.profileButton.Name = "profileButton";
-            this.profileButton.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(53)))), ((int)(((byte)(65)))));
-            this.profileButton.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(92)))), ((int)(((byte)(127)))));
-            this.profileButton.OnHoverTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(126)))), ((int)(((byte)(49)))));
-            this.profileButton.selected = false;
-            this.profileButton.Size = new System.Drawing.Size(324, 63);
-            this.profileButton.TabIndex = 11;
-            this.profileButton.Text = "Profile";
-            this.profileButton.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.profileButton.Textcolor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(126)))), ((int)(((byte)(49)))));
-            this.profileButton.TextFont = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-            // 
-            // favouritesButton
-            // 
-            this.favouritesButton.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(53)))), ((int)(((byte)(65)))));
-            this.favouritesButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(53)))), ((int)(((byte)(65)))));
-            this.favouritesButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.favouritesButton.BorderRadius = 0;
-            this.favouritesButton.ButtonText = "Favourites";
-            this.favouritesButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.favouritesButton.DisabledColor = System.Drawing.Color.Gray;
-            this.favouritesButton.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-            this.favouritesButton.Iconcolor = System.Drawing.Color.Transparent;
-            this.favouritesButton.Iconimage = null;
-            this.favouritesButton.Iconimage_right = null;
-            this.favouritesButton.Iconimage_right_Selected = null;
-            this.favouritesButton.Iconimage_Selected = null;
-            this.favouritesButton.IconMarginLeft = 0;
-            this.favouritesButton.IconMarginRight = 0;
-            this.favouritesButton.IconRightVisible = true;
-            this.favouritesButton.IconRightZoom = 0D;
-            this.favouritesButton.IconVisible = true;
-            this.favouritesButton.IconZoom = 90D;
-            this.favouritesButton.IsTab = false;
-            this.favouritesButton.Location = new System.Drawing.Point(0, 332);
-            this.favouritesButton.Margin = new System.Windows.Forms.Padding(4);
-            this.favouritesButton.Name = "favouritesButton";
-            this.favouritesButton.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(53)))), ((int)(((byte)(65)))));
-            this.favouritesButton.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(92)))), ((int)(((byte)(127)))));
-            this.favouritesButton.OnHoverTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(126)))), ((int)(((byte)(49)))));
-            this.favouritesButton.selected = false;
-            this.favouritesButton.Size = new System.Drawing.Size(324, 63);
-            this.favouritesButton.TabIndex = 12;
-            this.favouritesButton.Text = "Favourites";
-            this.favouritesButton.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.favouritesButton.Textcolor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(126)))), ((int)(((byte)(49)))));
-            this.favouritesButton.TextFont = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-            this.favouritesButton.Click += new System.EventHandler(this.favouritesButton_Click);
-            // 
-            // editedButton
-            // 
-            this.editedButton.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(53)))), ((int)(((byte)(65)))));
-            this.editedButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(53)))), ((int)(((byte)(65)))));
-            this.editedButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.editedButton.BorderRadius = 0;
-            this.editedButton.ButtonText = "Edited Lemmata";
-            this.editedButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.editedButton.DisabledColor = System.Drawing.Color.Gray;
-            this.editedButton.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-            this.editedButton.Iconcolor = System.Drawing.Color.Transparent;
-            this.editedButton.Iconimage = null;
-            this.editedButton.Iconimage_right = null;
-            this.editedButton.Iconimage_right_Selected = null;
-            this.editedButton.Iconimage_Selected = null;
-            this.editedButton.IconMarginLeft = 0;
-            this.editedButton.IconMarginRight = 0;
-            this.editedButton.IconRightVisible = true;
-            this.editedButton.IconRightZoom = 0D;
-            this.editedButton.IconVisible = true;
-            this.editedButton.IconZoom = 90D;
-            this.editedButton.IsTab = false;
-            this.editedButton.Location = new System.Drawing.Point(0, 414);
-            this.editedButton.Margin = new System.Windows.Forms.Padding(4);
-            this.editedButton.Name = "editedButton";
-            this.editedButton.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(53)))), ((int)(((byte)(65)))));
-            this.editedButton.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(92)))), ((int)(((byte)(127)))));
-            this.editedButton.OnHoverTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(126)))), ((int)(((byte)(49)))));
-            this.editedButton.selected = false;
-            this.editedButton.Size = new System.Drawing.Size(324, 63);
-            this.editedButton.TabIndex = 13;
-            this.editedButton.Text = "Edited Lemmata";
-            this.editedButton.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.editedButton.Textcolor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(126)))), ((int)(((byte)(49)))));
-            this.editedButton.TextFont = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-            // 
-            // contactsButton
-            // 
-            this.contactsButton.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(53)))), ((int)(((byte)(65)))));
-            this.contactsButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(53)))), ((int)(((byte)(65)))));
-            this.contactsButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.contactsButton.BorderRadius = 0;
-            this.contactsButton.ButtonText = "Contacts";
-            this.contactsButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.contactsButton.DisabledColor = System.Drawing.Color.Gray;
-            this.contactsButton.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-            this.contactsButton.Iconcolor = System.Drawing.Color.Transparent;
-            this.contactsButton.Iconimage = null;
-            this.contactsButton.Iconimage_right = null;
-            this.contactsButton.Iconimage_right_Selected = null;
-            this.contactsButton.Iconimage_Selected = null;
-            this.contactsButton.IconMarginLeft = 0;
-            this.contactsButton.IconMarginRight = 0;
-            this.contactsButton.IconRightVisible = true;
-            this.contactsButton.IconRightZoom = 0D;
-            this.contactsButton.IconVisible = true;
-            this.contactsButton.IconZoom = 90D;
-            this.contactsButton.IsTab = false;
-            this.contactsButton.Location = new System.Drawing.Point(0, 484);
-            this.contactsButton.Margin = new System.Windows.Forms.Padding(4);
-            this.contactsButton.Name = "contactsButton";
-            this.contactsButton.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(53)))), ((int)(((byte)(65)))));
-            this.contactsButton.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(92)))), ((int)(((byte)(127)))));
-            this.contactsButton.OnHoverTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(126)))), ((int)(((byte)(49)))));
-            this.contactsButton.selected = false;
-            this.contactsButton.Size = new System.Drawing.Size(324, 63);
-            this.contactsButton.TabIndex = 14;
-            this.contactsButton.Text = "Contacts";
-            this.contactsButton.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.contactsButton.Textcolor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(126)))), ((int)(((byte)(49)))));
-            this.contactsButton.TextFont = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-            // 
-            // logoutButton
-            // 
-            this.logoutButton.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(53)))), ((int)(((byte)(65)))));
-            this.logoutButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(53)))), ((int)(((byte)(65)))));
-            this.logoutButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.logoutButton.BorderRadius = 0;
-            this.logoutButton.ButtonText = "Logout";
-            this.logoutButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.logoutButton.DisabledColor = System.Drawing.Color.Gray;
-            this.logoutButton.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-            this.logoutButton.Iconcolor = System.Drawing.Color.Transparent;
-            this.logoutButton.Iconimage = null;
-            this.logoutButton.Iconimage_right = null;
-            this.logoutButton.Iconimage_right_Selected = null;
-            this.logoutButton.Iconimage_Selected = null;
-            this.logoutButton.IconMarginLeft = 0;
-            this.logoutButton.IconMarginRight = 0;
-            this.logoutButton.IconRightVisible = true;
-            this.logoutButton.IconRightZoom = 0D;
-            this.logoutButton.IconVisible = true;
-            this.logoutButton.IconZoom = 90D;
-            this.logoutButton.IsTab = false;
-            this.logoutButton.Location = new System.Drawing.Point(0, 560);
-            this.logoutButton.Margin = new System.Windows.Forms.Padding(4);
-            this.logoutButton.Name = "logoutButton";
-            this.logoutButton.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(53)))), ((int)(((byte)(65)))));
-            this.logoutButton.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(92)))), ((int)(((byte)(127)))));
-            this.logoutButton.OnHoverTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(126)))), ((int)(((byte)(49)))));
-            this.logoutButton.selected = false;
-            this.logoutButton.Size = new System.Drawing.Size(324, 63);
-            this.logoutButton.TabIndex = 15;
-            this.logoutButton.Text = "Logout";
-            this.logoutButton.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.logoutButton.Textcolor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(126)))), ((int)(((byte)(49)))));
-            this.logoutButton.TextFont = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-            // 
-            // FeedbackPanel
-            // 
-            this.FeedbackPanel.Controls.Add(this.label1);
-            this.FeedbackPanel.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.FeedbackPanel.Location = new System.Drawing.Point(0, 670);
-            this.FeedbackPanel.Name = "FeedbackPanel";
-            this.FeedbackPanel.Size = new System.Drawing.Size(324, 88);
-            this.FeedbackPanel.TabIndex = 16;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(40, 37);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(46, 17);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "label1";
+            this.searchTextBox.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.searchTextBox.BackColor = System.Drawing.Color.Silver;
+            this.searchTextBox.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
+            this.searchTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(126)))), ((int)(((byte)(49)))));
+            this.searchTextBox.Location = new System.Drawing.Point(544, 117);
+            this.searchTextBox.Name = "searchTextBox";
+            this.searchTextBox.Size = new System.Drawing.Size(438, 36);
+            this.searchTextBox.TabIndex = 14;
+            this.searchTextBox.Text = "Search";
+            this.searchTextBox.UseWaitCursor = true;
             // 
             // button1
             // 
@@ -525,17 +526,17 @@
             this.button1.Text = "Search";
             this.button1.UseVisualStyleBackColor = true;
             // 
-            // searchTextBox
+            // mainPanel
             // 
-            this.searchTextBox.BackColor = System.Drawing.Color.Silver;
-            this.searchTextBox.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-            this.searchTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(126)))), ((int)(((byte)(49)))));
-            this.searchTextBox.Location = new System.Drawing.Point(544, 117);
-            this.searchTextBox.Name = "searchTextBox";
-            this.searchTextBox.Size = new System.Drawing.Size(438, 36);
-            this.searchTextBox.TabIndex = 14;
-            this.searchTextBox.Text = "Search";
-            this.searchTextBox.UseWaitCursor = true;
+            mainPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            mainPanel.AutoScroll = true;
+            mainPanel.Location = new System.Drawing.Point(322, 306);
+            mainPanel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            mainPanel.Name = "mainPanel";
+            mainPanel.Size = new System.Drawing.Size(1016, 451);
+            mainPanel.TabIndex = 12;
             // 
             // AfterLogin
             // 
@@ -554,14 +555,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.logoPictureBox)).EndInit();
             this.leftPanel.ResumeLayout(false);
             this.leftPanel.PerformLayout();
+            this.FeedbackPanel.ResumeLayout(false);
+            this.FeedbackPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.sideProfilePicture)).EndInit();
             this.topPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.searchPanel.ResumeLayout(false);
             this.searchPanel.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.sideProfilePicture)).EndInit();
-            this.FeedbackPanel.ResumeLayout(false);
-            this.FeedbackPanel.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -584,7 +585,7 @@
         private System.Windows.Forms.CheckedListBox filterCheckedListBox;
         private System.Windows.Forms.Label filtersLabel;
         private System.Windows.Forms.Panel searchPanel;
-        private System.Windows.Forms.Panel mainPanel;
+        public static System.Windows.Forms.Panel mainPanel;
         private System.Windows.Forms.Panel FeedbackPanel;
         private System.Windows.Forms.Label label1;
         private Bunifu.Framework.UI.BunifuFlatButton logoutButton;

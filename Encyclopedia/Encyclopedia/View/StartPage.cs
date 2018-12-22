@@ -15,6 +15,7 @@ namespace UI
         //list with filters to be checked
         public List<string> filterList = new List<string>();
 
+        //Opens LemmaOfTheDayUserControl in mainPanel when application starts
         public StartPage()
         {
             InitializeComponent();
@@ -27,14 +28,11 @@ namespace UI
             }
             else
             {
-                Encyclopedia.View.LemmaOfTheDayUserControl.Instance.BringToFront();
-                
-                
-            }
-                
-            
+                Encyclopedia.View.LemmaOfTheDayUserControl.Instance.BringToFront();   
+            }     
         }
 
+        //Opens SearchResultsUserControl in mainPanel when popularButton is clicked
         private void popularButton_Click(object sender, EventArgs e)
         {
             if (!mainPanel.Controls.Contains(Encyclopedia.View.SearchResultsUserControl.Instance))
@@ -46,12 +44,9 @@ namespace UI
             }
             else
                 Encyclopedia.View.SearchResultsUserControl.Instance.BringToFront();
-
-                
-
-
         }
 
+        //Opens LemmaOfTheDayUserControl in mainPanel when Logo is clicked
         private void logoLabel_Click(object sender, EventArgs e)
         {
             if (!mainPanel.Controls.Contains(Encyclopedia.View.LemmaOfTheDayUserControl.Instance))
@@ -70,6 +65,7 @@ namespace UI
 
         }
 
+        //Opens SearchResultsUserControl in mainPanel when recentButton is clicked
         private void recentButton_Click(object sender, EventArgs e)
         {
             if (!mainPanel.Controls.Contains(Encyclopedia.View.SearchResultsUserControl.Instance))
@@ -129,6 +125,8 @@ namespace UI
 
         }
 
+
+        //Opens SearchResultsUserControl in mainPanel when we choose a date
         private void dateTimePicker_ValueChanged(object sender, EventArgs e)
         {
             if (!mainPanel.Controls.Contains(Encyclopedia.View.SearchResultsUserControl.Instance))
@@ -143,7 +141,7 @@ namespace UI
         }
 
 
-        private void button1_Click(object sender, EventArgs e)
+        private void searchButton_Click(object sender, EventArgs e)
         {
             if (!mainPanel.Controls.Contains(Encyclopedia.View.SearchResultsUserControl.Instance))
             {
@@ -160,6 +158,7 @@ namespace UI
             filterList.Clear();
         }
 
-        
+
+
     }
 }
