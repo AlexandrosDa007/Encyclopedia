@@ -125,7 +125,7 @@ namespace UI
                 filterList.Add(ob.ToString());
             }
 
-            Encyclopedia.View.SearchResultsUserControl.Instance.AddToTheResults(searchTextBox.Text, filterArray);
+            Encyclopedia.View.SearchResultsUserControl.Instance.AddToTheResults(searchTextBox.Text, filterList);
 
         }
 

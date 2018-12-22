@@ -26,8 +26,8 @@ namespace Encyclopedia.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("User Id=user1;Password=1234567890;Host=83.212.103.59;Database=foo;Persist Securit" +
-            "y Info=True")]
+        [global::System.Configuration.DefaultSettingValueAttribute("User Id=sql7271121;Password=EhtnVkBSsJ;Host=sql7.freemysqlhosting.net;Database=sq" +
+            "l7271121")]
         public string fooConnectionString {
             get {
                 return ((string)(this["fooConnectionString"]));

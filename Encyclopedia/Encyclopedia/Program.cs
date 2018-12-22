@@ -19,7 +19,7 @@ namespace Encyclopedia
         static void Main()
         {
             //comment because database issues
-            //DBConnect.Initialize();
+            DBConnect.Initialize();
             //this takes a long time - 4min 
             //Search.CreateIndex();
             
