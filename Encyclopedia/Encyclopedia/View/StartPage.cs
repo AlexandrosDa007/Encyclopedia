@@ -127,7 +127,7 @@ namespace UI
                 i++;
             }
             
-            Encyclopedia.View.SearchResultsUserControl.Instance.AddToTheResults(searchTextbox.text, filterArray);
+            Encyclopedia.View.SearchResultsUserControl.Instance.AddToTheResults(searchTextBox.Text, filterArray);
         }
 
         private void dateTimePicker_ValueChanged(object sender, EventArgs e)
