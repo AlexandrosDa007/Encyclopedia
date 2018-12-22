@@ -10,44 +10,68 @@ namespace Encyclopedia.Model
         private String surname;
         private DateTime dateOfBirth;
         private Char gender;
-        private int tel;
+        private string tel;
         private Role role;
         private EducationLevel educationLevel;
         private String description;
         private Byte[] image;
 
         // default constructor
-        public User(int id, string name, string surname, DateTime dateOfBirth, char gender, int tel, Role role, EducationLevel educationLevel, string description, byte[] image)
+        public User(int id, string name, string surname, DateTime dateOfBirth, char gender, string tel, Role role, EducationLevel educationLevel, string description, Byte[] image)
         {
             this.id = id;
-            this.name = name ?? throw new ArgumentNullException(nameof(name));
-            this.surname = surname ?? throw new ArgumentNullException(nameof(surname));
+            if (name.Length > 40 || name.Length == 0)
+            {
+                throw new ArgumentOutOfRangeException(nameof(name));
+            }
+            else
+                this.name = name ?? throw new ArgumentNullException(nameof(name));
+            if (surname.Length > 50 || surname.Length == 0)
+            {
+                throw new ArgumentOutOfRangeException(nameof(surname));
+            }
+            else
+                this.surname = surname ?? throw new ArgumentNullException(nameof(surname));
             this.dateOfBirth = dateOfBirth;
-
-            if (gender.Equals('M') || gender.Equals('F'))
+            if (gender.Equals('M') || gender.Equals('F') || gender.Equals('-'))
             {
                 this.gender = gender;
             }
             else
-                throw new ArgumentOutOfRangeException();
+                throw new ArgumentOutOfRangeException(nameof(gender));
             this.tel = tel;
-            this.role = role ?? throw new ArgumentNullException(nameof(role));
-            this.educationLevel = educationLevel ?? throw new ArgumentNullException(nameof(educationLevel));
-            this.description = description ?? throw new ArgumentNullException(nameof(description));
-            this.image = image ?? throw new ArgumentNullException(nameof(image));
+            this.role = role;
+            this.educationLevel = educationLevel;
+            if (description.Length <= 250)
+            {
+                this.description = description;
+            }
+            else
+                throw new ArgumentOutOfRangeException(nameof(description));
+            this.image = image;
         }
 
         // constructor with null values
         public User(int id, string name, string surname, DateTime dateOfBirth)
         {
             this.id = id;
-            this.name = name ?? throw new ArgumentNullException(nameof(name));
-            this.surname = surname ?? throw new ArgumentNullException(nameof(surname));
+            if (name.Length > 40)
+            {
+                throw new ArgumentOutOfRangeException(nameof(name));
+            }
+            else
+                this.name = name ?? throw new ArgumentNullException(nameof(name));
+            if (surname.Length > 50)
+            {
+                throw new ArgumentOutOfRangeException(nameof(surname));
+            }
+            else
+                this.surname = surname ?? throw new ArgumentNullException(nameof(surname));
             this.dateOfBirth = dateOfBirth;
 
             // optional fields set to null
             this.gender = '-';
-            this.tel = -1;
+            this.tel = "";
             this.role = null;
             this.educationLevel = null;
             this.description = null;
@@ -120,7 +144,7 @@ namespace Encyclopedia.Model
             }
         }
 
-        public int Tel
+        public String Tel
         {
             get
             {

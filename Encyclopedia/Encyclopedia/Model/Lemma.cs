@@ -15,7 +15,7 @@ namespace Encyclopedia.Model
         public Lemma(String title, Byte[] bodyInBytes, int categoryId)
         {
             this.title = title ?? throw new ArgumentNullException(nameof(title));
-            this.body = Encoding.Default.GetString(bodyInBytes) ?? throw new ArgumentNullException(nameof(bodyInBytes));
+            this.body = Encoding.UTF8.GetString(bodyInBytes) ?? throw new ArgumentNullException(nameof(bodyInBytes));
             this.categoryId = categoryId;
         }
 

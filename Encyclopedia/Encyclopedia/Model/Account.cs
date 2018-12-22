@@ -13,16 +13,21 @@ namespace Encyclopedia.Model
         private DateTime createdAt;
 
         // constructor
-        public Account(User user, string username, String password, String email, DateTime createdAt)
+        public Account(User user, string username, string password, string email, DateTime createdAt)
         {
             this.user = user ?? throw new ArgumentNullException(nameof(user));
-            this.username = username ?? throw new ArgumentNullException(nameof(username));
-            this.password = password ?? throw new ArgumentNullException(nameof(password));
+			if (username.Length > 40 || username.Length < 2) // the username must be at least 2 characters
+			{
+				throw new ArgumentOutOfRangeException(nameof(username));
+			}
+			else
+				this.username = username ?? throw new ArgumentNullException(nameof(username));
+			this.password = password ?? throw new ArgumentNullException(nameof(password));
             try
             {
-                MailAddress m = new MailAddress(email);
+                MailAddress m = new MailAddress(email); // this line will determine if the email is in valid format
 
-                this.email = email ?? throw new ArgumentNullException(nameof(email));
+                this.email = email ?? throw new ArgumentNullException(nameof(email)); // it must also be unique
             }
             catch (FormatException)
             {

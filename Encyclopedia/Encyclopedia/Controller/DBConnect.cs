@@ -50,12 +50,14 @@ namespace Encyclopedia.Controller
                 switch (ex.Number)
                 {
                     case 0:
-                        Console.WriteLine("Cannot connect to server. Contact Admin");
+                        Console.WriteLine("Cannot connect to server. Contact Admin.");
                         break;
-
                     case 1045:
-                        Console.WriteLine("Invalid username/password, please try again");
+                        Console.WriteLine("Invalid username/password, please try again.");
                         break;
+					default:
+						Console.WriteLine("Error Number " + ex.Number + ": " + ex.Message);
+						break;
                 }
                 return false;
             }
@@ -145,69 +147,313 @@ namespace Encyclopedia.Controller
             return titleList;
         }
 
-        //insert
-
-        public void Insert(Account account)
+        public static List<EducationLevel> FindEducationLevel(string educationLevelName)
         {
-            //code to insert new account
+            List<EducationLevel> educationLevelList = new List<EducationLevel>();
+            // construct query
+            string selectQuery = "SELECT * FROM Education_Level where education_level_name = @name";
+            MySqlCommand cmd = new MySqlCommand(selectQuery, connection);
+            cmd.Parameters.AddWithValue("@name", educationLevelName);
+            cmd.CommandTimeout = 500000;
+
+            // prepare and execute
+            cmd.Prepare();
+            MySqlDataReader dataReader = cmd.ExecuteReader();
+
+            while (dataReader.Read())
+            {
+                EducationLevel educationLevel = new EducationLevel(Convert.ToInt32(dataReader["education_level_id"]), dataReader["education_level_name"].ToString());
+                educationLevelList.Add(educationLevel);
+            }
+
+            dataReader.Close();
+            return educationLevelList;
         }
 
-        public void Insert(Category category)
+		public static string[] GetEducationLevels()
+		{
+			List<string> educationLevelList = new List<string>();
+			// construct query
+			string selectQuery = "SELECT education_level_name FROM Education_Level";
+			MySqlCommand cmd = new MySqlCommand(selectQuery, connection);
+			cmd.CommandTimeout = 500000;
+
+			// prepare and execute
+			cmd.Prepare();
+			MySqlDataReader dataReader = cmd.ExecuteReader();
+			
+			while (dataReader.Read())
+			{
+				educationLevelList.Add(dataReader["education_level_name"].ToString());
+			}
+
+			string[] educationLevelArray = educationLevelList.ToArray();
+			dataReader.Close();
+			return educationLevelArray;
+		}
+
+		public static List<Role> FindRole(string roleName)
+        {
+            List<Role> roleList = new List<Role>();
+            // construct query
+            string selectQuery = "SELECT * FROM Role where role_name = @name";
+            MySqlCommand cmd = new MySqlCommand(selectQuery, connection);
+            cmd.Parameters.AddWithValue("@name", roleName);
+            cmd.CommandTimeout = 500000;
+
+            // prepare and execute
+            cmd.Prepare();
+            MySqlDataReader dataReader = cmd.ExecuteReader();
+
+            while (dataReader.Read())
+            {
+                Role role = new Role(Convert.ToInt32(dataReader["role_id"]), dataReader["role_name"].ToString());
+                roleList.Add(role);
+            }
+
+            dataReader.Close();
+            return roleList;
+        }
+
+		public static bool IsAccountUsernameUnique(string username)
+		{
+			bool isUnique = true;
+			// construct query
+			string selectQuery = "SELECT account_username FROM Account WHERE account_username = @username";
+			MySqlCommand cmd = new MySqlCommand(selectQuery, connection);
+			cmd.Parameters.AddWithValue("@username", username);
+			cmd.CommandTimeout = 500000;
+
+			// prepare and execute
+			cmd.Prepare();
+			MySqlDataReader dataReader = cmd.ExecuteReader();
+
+			while (dataReader.Read())
+			{
+				isUnique = false;
+			}
+
+			dataReader.Close();
+			return isUnique;
+		}
+
+		public static string[] GetRoles()
+		{
+			List<string> roleList = new List<string>();
+			// construct query
+			string selectQuery = "SELECT role_name FROM Role";
+			MySqlCommand cmd = new MySqlCommand(selectQuery, connection);
+			cmd.CommandTimeout = 500000;
+
+			// prepare and execute
+			cmd.Prepare();
+			MySqlDataReader dataReader = cmd.ExecuteReader();
+
+			while (dataReader.Read())
+			{
+				roleList.Add(dataReader["role_name"].ToString());
+			}
+
+			string[] roleArray = roleList.ToArray();
+			dataReader.Close();
+			return roleArray;
+		}
+
+		//insert
+
+		public static int Insert(Category category)
         {
             //code to insert new category
+            return 1;
         }
 
-        public void Insert(Contact contact)
+        public static int Insert(Contact contact)
         {
             //code to insert new contact
+            return 1;
         }
 
-        public void Insert(ContactGroup contactGroup)
+        public static int Insert(ContactGroup contactGroup)
         {
             //code to insert contactgroup
+            return 1;
         }
 
-        public void Insert(EditedLemma editedLemma)
+        public static int Insert(EditedLemma editedLemma)
         {
             //code to insert editedLemma
+            return 1;
         }
 
-        public void Insert(EducationLevel educationLevel)
+        public static int Insert(EducationLevel educationLevel)
         {
             //code to insert educationLevel
+            return 1;
         }
 
-        public void Insert(FavoriteLemma favoriteLemma)
+        public static int Insert(FavoriteLemma favoriteLemma)
         {
             //code to insert favoriteLemma
+            return 1;
         }
 
-        public void Insert(Lemma lemma)
+        public static int Insert(Lemma lemma)
         {
             //code to insert lemma
+            return 1;
         }
 
-        public void Insert(Role role)
+        public static int Insert(Role role)
         {
             //code to insert role
+            return 1;
         }
 
-        public void Insert(SharedLemma sharedLemma)
+        public static int Insert(SharedLemma sharedLemma)
         {
             //code to insert sharedLemma
+            return 1;
         }
 
-        public void Insert(User user)
+		public static int Insert(User user, Account account)
+		{
+			int userId = Insert(user);
+			// if the userId remained -1, it means that the insertion was unsuccessful
+			if (userId != -1)
+			{
+				account.User.Id = userId;
+				Console.WriteLine(account.User.Id);
+
+				// if rowsAffectedAccount equals to 1, then the insertion completed successfully
+				int rowsAffectedAccount = Insert(account);
+				if (rowsAffectedAccount != 1)
+				{
+					return 2;
+				}
+			}
+			else
+			{
+				return 1;
+			}
+
+			// if the method doesn't return 0, something went wrong with the database
+			return 0;
+		}
+
+		public static int Insert(User user)
         {
-            //code to insert user
+            // prepare query string
+            string insertFields = "INSERT INTO " +
+                "User (user_name, user_surname, user_date_of_birth";
+            string insertValues = "VALUES(@name, @surname, @dateOfBirth";
+
+            // check if fields aren't null
+            if (!user.Gender.Equals("-"))
+            {
+                insertFields += ", user_gender";
+                insertValues += ", @gender";
+            }
+            if (!user.Tel.Equals("__________") || !user.Tel.Equals(null))
+            {
+                insertFields += ", user_tel";
+                insertValues += ", @tel";
+            }
+            if (!user.Role.Equals(null))
+            {
+                insertFields += ", user_role_id";
+                insertValues += ", @roleId";
+            }
+            if (!user.EducationLevel.Equals(null))
+            {
+                insertFields += ", user_education_level_id";
+                insertValues += ", @educationLevel";
+            }
+            if (!user.Description.Equals("") || !user.Description.Equals(null))
+            {
+                insertFields += ", user_description";
+                insertValues += ", @description";
+            }
+            if (!user.Image.Equals(null))
+            {
+                insertFields += ", user_image";
+                insertValues += ", @image";
+            }
+            string insertUser = insertFields + ") " + insertValues + ") ";
+			Console.WriteLine(insertUser);
+
+			MySqlCommand cmd = new MySqlCommand(insertUser, connection);
+            cmd.CommandTimeout = 500000;
+
+            // add values to the parameters
+            cmd.Parameters.AddWithValue("@name", user.Name);
+            cmd.Parameters.AddWithValue("@surname", user.Surname);
+            cmd.Parameters.AddWithValue("@dateOfBirth", user.DateOfBirth.Date);
+            if (!user.Gender.Equals("-"))
+            {
+                cmd.Parameters.AddWithValue("@gender", user.Gender);
+            }
+            if (!user.Tel.Equals("__________") || !user.Tel.Equals(null))
+            {
+                cmd.Parameters.AddWithValue("@tel", user.Tel);
+            }
+            if (!user.Role.Equals(null))
+            {
+                cmd.Parameters.AddWithValue("@roleId", user.Role.Id);
+            }
+            if (!user.EducationLevel.Equals(null))
+            {
+                cmd.Parameters.AddWithValue("@educationLevel", user.EducationLevel.Id);
+            }
+            if (!user.Description.Equals("") || !user.Description.Equals(null))
+            {
+                cmd.Parameters.AddWithValue("@description", user.Description);
+            }
+            if (!user.Image.Equals(null))
+            {
+                cmd.Parameters.AddWithValue("@image", user.Image);
+            }
+
+            // prepare and execute
+            cmd.Prepare();
+            int rowsAffected = cmd.ExecuteNonQuery();
+
+			int lastInsertedUserId = -1;
+			// if rowsAffected equals to 1, then the insertion completed successfully
+			if (rowsAffected == 1)
+			{
+				lastInsertedUserId = (int)cmd.LastInsertedId;
+				Console.WriteLine(lastInsertedUserId);
+			}
+			
+            return lastInsertedUserId; 
         }
 
-        //delete
+		public static int Insert(Account account)
+		{
+			// query string
+			string insertAccount = "INSERT INTO " +
+				"Account (account_id, account_username, account_salted_password_hash, account_password_salt, account_email, account_created_at) " +
+				"VALUES(@id, @username, @saltedPasswordHash, @passwordSalt, @email, @createdAt) ";
 
-        public void Delete(Account account)
-        {
-            //code to Delete new account
-        }
+			MySqlCommand cmd = new MySqlCommand(insertAccount, connection);
+			cmd.CommandTimeout = 500000;
+
+			// add values to the parameters
+			cmd.Parameters.AddWithValue("@id", account.User.Id);
+			cmd.Parameters.AddWithValue("@username", account.Username);
+			cmd.Parameters.AddWithValue("@saltedPasswordHash", account.Password); // will be replaced
+			cmd.Parameters.AddWithValue("@passwordSalt", account.Password);		  // will be replaced
+			cmd.Parameters.AddWithValue("@email", account.Email);
+			cmd.Parameters.AddWithValue("@createdAt", account.CreatedAt.Date);
+
+			// prepare and execute
+			cmd.Prepare();
+			int rowsAffected = cmd.ExecuteNonQuery();
+
+			return rowsAffected; // if rowsAffected equals to 1, then the insertion completed successfully
+		}
+
+		//delete
 
         public void Delete(Category category)
         {
@@ -256,15 +502,15 @@ namespace Encyclopedia.Controller
 
         public void Delete(User user)
         {
-            //code to Delete user
-        }
+			//code to Delete user
+		}
 
-        //update
+		public void Delete(Account account)
+		{
+			//code to Delete new account
+		}
 
-        public void Update(Account account)
-        {
-            //code to Update new account
-        }
+		//update
 
         public void Update(Category category)
         {
@@ -315,7 +561,12 @@ namespace Encyclopedia.Controller
         {
             //code to Update user
         }
-    }
+
+		public void Update(Account account)
+		{
+			//code to Update new account
+		}
+	}
 
     
 }
