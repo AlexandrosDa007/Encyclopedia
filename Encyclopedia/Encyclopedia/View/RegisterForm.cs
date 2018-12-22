@@ -25,8 +25,8 @@ namespace Encyclopedia.View
         private void registerb_Click(object sender, EventArgs e)
         {
             // take all the input in variables
-            string name = nameTB.Text;
-            string surname = surnameTB.Text;
+            string name = nameTextBox.Text;
+            string surname = surnameTextBox.Text;
             DateTime dateOfBirth = dateOfBirthDTP.Value;
 			char gender = '-';
             if (genderMaleRB.Checked)
@@ -37,7 +37,7 @@ namespace Encyclopedia.View
             {
                 gender = 'F';
             }
-            string tel = telTB.Text;
+            string tel = telTexBox.Text;
             string roleName = roleCB.GetItemText(roleCB.SelectedItem);
 			string educationLevelName = educationLevelCB.GetItemText(educationLevelCB.SelectedItem);
             string description = descriptionRTB.Text;
@@ -52,10 +52,10 @@ namespace Encyclopedia.View
                 br.Close();
                 fs.Close();
             }
-			string username = usernameTB.Text;
-			string password = passwordTB.Text;
-			string passwordConfirmation = passwordConfirmTB.Text;
-			string email = emailTB.Text;
+			string username = usernameTextBox.Text;
+			string password = passwordTextBox.Text;
+			string passwordConfirmation = passwordConfirmTextBox.Text;
+			string email = emailTextBox.Text;
 
 			Console.WriteLine(name + "  " + surname + " !!!" + tel + "!!! " + email + "   " + username + "    " + password + "  " + passwordConfirmation + "    " + gender + "  " + dateOfBirth + " >>>" + educationLevelName + "<<<  >>>" + roleName + "<<<    " + description);
 

@@ -54,7 +54,7 @@
             this.searchPanel = new System.Windows.Forms.Panel();
             this.searchTextBox = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
-            mainPanel = new System.Windows.Forms.Panel();
+            this.mainPanel = new System.Windows.Forms.Panel();
             this.logoPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.logoPictureBox)).BeginInit();
             this.leftPanel.SuspendLayout();
@@ -282,7 +282,6 @@
             this.favouritesButton.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.favouritesButton.Textcolor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(126)))), ((int)(((byte)(49)))));
             this.favouritesButton.TextFont = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-            this.favouritesButton.Click += new System.EventHandler(this.favouritesButton_Click);
             // 
             // profileButton
             // 
@@ -484,7 +483,7 @@
             this.searchPanel.BackColor = System.Drawing.Color.Gainsboro;
             this.searchPanel.Controls.Add(this.searchTextBox);
             this.searchPanel.Controls.Add(this.button1);
-            this.searchPanel.Controls.Add(mainPanel);
+            this.searchPanel.Controls.Add(this.mainPanel);
             this.searchPanel.Controls.Add(this.recentButton);
             this.searchPanel.Controls.Add(this.topPanel);
             this.searchPanel.Controls.Add(this.dateFilterLabel);
@@ -528,15 +527,15 @@
             // 
             // mainPanel
             // 
-            mainPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.mainPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            mainPanel.AutoScroll = true;
-            mainPanel.Location = new System.Drawing.Point(322, 306);
-            mainPanel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            mainPanel.Name = "mainPanel";
-            mainPanel.Size = new System.Drawing.Size(1016, 451);
-            mainPanel.TabIndex = 12;
+            this.mainPanel.AutoScroll = true;
+            this.mainPanel.Location = new System.Drawing.Point(322, 306);
+            this.mainPanel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.mainPanel.Name = "mainPanel";
+            this.mainPanel.Size = new System.Drawing.Size(1016, 451);
+            this.mainPanel.TabIndex = 12;
             // 
             // AfterLogin
             // 
@@ -585,7 +584,6 @@
         private System.Windows.Forms.CheckedListBox filterCheckedListBox;
         private System.Windows.Forms.Label filtersLabel;
         private System.Windows.Forms.Panel searchPanel;
-        public static System.Windows.Forms.Panel mainPanel;
         private System.Windows.Forms.Panel FeedbackPanel;
         private System.Windows.Forms.Label label1;
         private Bunifu.Framework.UI.BunifuFlatButton logoutButton;
@@ -596,5 +594,6 @@
         private System.Windows.Forms.PictureBox sideProfilePicture;
         private System.Windows.Forms.TextBox searchTextBox;
         private System.Windows.Forms.Button button1;
+        public System.Windows.Forms.Panel mainPanel;
     }
 }

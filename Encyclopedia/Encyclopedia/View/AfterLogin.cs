@@ -17,9 +17,6 @@ namespace Encyclopedia.View
             InitializeComponent();
         }
 
-        private void favouritesButton_Click(object sender, EventArgs e)
-        {
-
-        }
+        
     }
 }
