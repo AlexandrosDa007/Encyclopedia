@@ -12,6 +12,9 @@ namespace UI
 {
     public partial class StartPage : Form
     {
+
+
+
         //list with filters to be checked
         public List<string> filterList = new List<string>();
 
@@ -29,7 +32,8 @@ namespace UI
             else
             {
                 Encyclopedia.View.LemmaOfTheDayUserControl.Instance.BringToFront();   
-            }     
+            }
+            mainPanel.Controls.Add(Encyclopedia.View.LemmaViewUserControl.Instance);
         }
 
         //Opens SearchResultsUserControl in mainPanel when popularButton is clicked

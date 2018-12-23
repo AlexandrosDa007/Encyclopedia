@@ -22,10 +22,10 @@ namespace Encyclopedia
             DBConnect.Initialize();
             //this takes a long time - 4min 
             //Search.CreateIndex();
-            
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new UI.StartPage());
+            
 
         }
 

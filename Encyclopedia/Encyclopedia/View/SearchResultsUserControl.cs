@@ -88,22 +88,12 @@ namespace Encyclopedia.View
         {
             //Get the selected item's text
             string toSearch = listView1.SelectedItems[0].Text;
-
-            if (!StartPage.mainPanel.Controls.Contains(Encyclopedia.View.LemmaViewUserControl.Instance))
-            {
-                StartPage.mainPanel.Controls.Add(Encyclopedia.View.LemmaViewUserControl.Instance);
-                Encyclopedia.View.LemmaViewUserControl.Instance.Dock = DockStyle.Fill;
-                Encyclopedia.View.LemmaViewUserControl.Instance.BringToFront();
-
-            }
-            else
-            {
-                Encyclopedia.View.LemmaViewUserControl.Instance.BringToFront();
-
-            }    
+            Encyclopedia.View.LemmaViewUserControl.Instance.Dock = DockStyle.Fill;
+            Encyclopedia.View.LemmaViewUserControl.Instance.BringToFront();
             //search for the lemma_body
             Encyclopedia.View.LemmaViewUserControl.Instance.ChangeValue(toSearch);
         }
+
 
     }
 }
