@@ -34,7 +34,7 @@ namespace Encyclopedia.View
 
             InitializeComponent();
             //start by having something as default --TO BE CHANGED
-            ChangeValue("Concept");
+            //ChangeValue("Concept");
         }
 
 

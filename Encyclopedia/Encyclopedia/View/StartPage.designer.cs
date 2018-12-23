@@ -51,7 +51,7 @@
             this.searchPanel = new System.Windows.Forms.Panel();
             this.searchTextBox = new System.Windows.Forms.TextBox();
             this.searchButton = new System.Windows.Forms.Button();
-            mainPanel = new System.Windows.Forms.Panel();
+            this.mainPanel = new System.Windows.Forms.Panel();
             this.dateFilterLabel = new System.Windows.Forms.Label();
             this.dateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.filterCheckedListBox = new System.Windows.Forms.CheckedListBox();
@@ -81,26 +81,27 @@
             this.leftPanel.Controls.Add(this.usernameLabel);
             this.leftPanel.Dock = System.Windows.Forms.DockStyle.Left;
             this.leftPanel.Location = new System.Drawing.Point(0, 0);
-            this.leftPanel.Margin = new System.Windows.Forms.Padding(4);
             this.leftPanel.Name = "leftPanel";
-            this.leftPanel.Size = new System.Drawing.Size(324, 805);
+            this.leftPanel.Size = new System.Drawing.Size(243, 654);
             this.leftPanel.TabIndex = 0;
             // 
             // FeedbackPanel
             // 
             this.FeedbackPanel.Controls.Add(this.label1);
             this.FeedbackPanel.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.FeedbackPanel.Location = new System.Drawing.Point(0, 717);
+            this.FeedbackPanel.Location = new System.Drawing.Point(0, 582);
+            this.FeedbackPanel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.FeedbackPanel.Name = "FeedbackPanel";
-            this.FeedbackPanel.Size = new System.Drawing.Size(324, 88);
+            this.FeedbackPanel.Size = new System.Drawing.Size(243, 72);
             this.FeedbackPanel.TabIndex = 17;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(40, 37);
+            this.label1.Location = new System.Drawing.Point(30, 30);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(46, 17);
+            this.label1.Size = new System.Drawing.Size(35, 13);
             this.label1.TabIndex = 0;
             this.label1.Text = "label1";
             // 
@@ -113,18 +114,17 @@
             this.logoPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.logoPanel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(126)))), ((int)(((byte)(49)))));
             this.logoPanel.Location = new System.Drawing.Point(0, 0);
-            this.logoPanel.Margin = new System.Windows.Forms.Padding(4);
             this.logoPanel.Name = "logoPanel";
-            this.logoPanel.Size = new System.Drawing.Size(324, 75);
+            this.logoPanel.Size = new System.Drawing.Size(243, 62);
             this.logoPanel.TabIndex = 0;
             // 
             // logoPictureBox
             // 
             this.logoPictureBox.Image = ((System.Drawing.Image)(resources.GetObject("logoPictureBox.Image")));
-            this.logoPictureBox.Location = new System.Drawing.Point(41, 22);
-            this.logoPictureBox.Margin = new System.Windows.Forms.Padding(5);
+            this.logoPictureBox.Location = new System.Drawing.Point(31, 18);
+            this.logoPictureBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.logoPictureBox.Name = "logoPictureBox";
-            this.logoPictureBox.Size = new System.Drawing.Size(44, 42);
+            this.logoPictureBox.Size = new System.Drawing.Size(33, 34);
             this.logoPictureBox.TabIndex = 2;
             this.logoPictureBox.TabStop = false;
             // 
@@ -133,10 +133,10 @@
             this.logoLabel.AutoSize = true;
             this.logoLabel.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
             this.logoLabel.ForeColor = System.Drawing.Color.White;
-            this.logoLabel.Location = new System.Drawing.Point(97, 27);
-            this.logoLabel.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.logoLabel.Location = new System.Drawing.Point(73, 22);
+            this.logoLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.logoLabel.Name = "logoLabel";
-            this.logoLabel.Size = new System.Drawing.Size(218, 37);
+            this.logoLabel.Size = new System.Drawing.Size(172, 28);
             this.logoLabel.TabIndex = 1;
             this.logoLabel.Text = "Encyclopedia";
             this.logoLabel.Click += new System.EventHandler(this.logoLabel_Click);
@@ -147,10 +147,10 @@
             this.newUserLinkLabel.AutoSize = true;
             this.newUserLinkLabel.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
             this.newUserLinkLabel.LinkColor = System.Drawing.Color.White;
-            this.newUserLinkLabel.Location = new System.Drawing.Point(113, 336);
-            this.newUserLinkLabel.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.newUserLinkLabel.Location = new System.Drawing.Point(85, 273);
+            this.newUserLinkLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.newUserLinkLabel.Name = "newUserLinkLabel";
-            this.newUserLinkLabel.Size = new System.Drawing.Size(71, 19);
+            this.newUserLinkLabel.Size = new System.Drawing.Size(57, 16);
             this.newUserLinkLabel.TabIndex = 16;
             this.newUserLinkLabel.TabStop = true;
             this.newUserLinkLabel.Text = "New user";
@@ -162,10 +162,10 @@
             this.forgotPasswordLinkLabel.AutoSize = true;
             this.forgotPasswordLinkLabel.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
             this.forgotPasswordLinkLabel.LinkColor = System.Drawing.Color.White;
-            this.forgotPasswordLinkLabel.Location = new System.Drawing.Point(92, 246);
-            this.forgotPasswordLinkLabel.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.forgotPasswordLinkLabel.Location = new System.Drawing.Point(69, 200);
+            this.forgotPasswordLinkLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.forgotPasswordLinkLabel.Name = "forgotPasswordLinkLabel";
-            this.forgotPasswordLinkLabel.Size = new System.Drawing.Size(129, 19);
+            this.forgotPasswordLinkLabel.Size = new System.Drawing.Size(103, 16);
             this.forgotPasswordLinkLabel.TabIndex = 15;
             this.forgotPasswordLinkLabel.TabStop = true;
             this.forgotPasswordLinkLabel.Text = "Forgot password?";
@@ -173,20 +173,20 @@
             // 
             // usernameTextBox
             // 
-            this.usernameTextBox.Location = new System.Drawing.Point(117, 151);
-            this.usernameTextBox.Margin = new System.Windows.Forms.Padding(5);
+            this.usernameTextBox.Location = new System.Drawing.Point(88, 123);
+            this.usernameTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.usernameTextBox.Name = "usernameTextBox";
-            this.usernameTextBox.Size = new System.Drawing.Size(184, 22);
+            this.usernameTextBox.Size = new System.Drawing.Size(139, 20);
             this.usernameTextBox.TabIndex = 12;
             // 
             // loginButton
             // 
             this.loginButton.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
             this.loginButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(53)))), ((int)(((byte)(65)))));
-            this.loginButton.Location = new System.Drawing.Point(88, 286);
-            this.loginButton.Margin = new System.Windows.Forms.Padding(5);
+            this.loginButton.Location = new System.Drawing.Point(66, 232);
+            this.loginButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.loginButton.Name = "loginButton";
-            this.loginButton.Size = new System.Drawing.Size(133, 34);
+            this.loginButton.Size = new System.Drawing.Size(100, 28);
             this.loginButton.TabIndex = 14;
             this.loginButton.Text = "Login";
             this.loginButton.UseVisualStyleBackColor = true;
@@ -196,20 +196,20 @@
             this.connectUserLabel.AutoSize = true;
             this.connectUserLabel.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
             this.connectUserLabel.ForeColor = System.Drawing.Color.White;
-            this.connectUserLabel.Location = new System.Drawing.Point(92, 95);
-            this.connectUserLabel.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.connectUserLabel.Location = new System.Drawing.Point(69, 77);
+            this.connectUserLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.connectUserLabel.Name = "connectUserLabel";
-            this.connectUserLabel.Size = new System.Drawing.Size(142, 23);
+            this.connectUserLabel.Size = new System.Drawing.Size(116, 21);
             this.connectUserLabel.TabIndex = 9;
             this.connectUserLabel.Text = "Connect User";
             // 
             // passwordTextBox
             // 
-            this.passwordTextBox.Location = new System.Drawing.Point(117, 202);
-            this.passwordTextBox.Margin = new System.Windows.Forms.Padding(5);
+            this.passwordTextBox.Location = new System.Drawing.Point(88, 164);
+            this.passwordTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.passwordTextBox.Name = "passwordTextBox";
             this.passwordTextBox.PasswordChar = '•';
-            this.passwordTextBox.Size = new System.Drawing.Size(184, 22);
+            this.passwordTextBox.Size = new System.Drawing.Size(139, 20);
             this.passwordTextBox.TabIndex = 13;
             // 
             // passwordLabel
@@ -217,10 +217,10 @@
             this.passwordLabel.AutoSize = true;
             this.passwordLabel.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
             this.passwordLabel.ForeColor = System.Drawing.Color.White;
-            this.passwordLabel.Location = new System.Drawing.Point(7, 203);
-            this.passwordLabel.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.passwordLabel.Location = new System.Drawing.Point(5, 165);
+            this.passwordLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.passwordLabel.Name = "passwordLabel";
-            this.passwordLabel.Size = new System.Drawing.Size(95, 21);
+            this.passwordLabel.Size = new System.Drawing.Size(78, 19);
             this.passwordLabel.TabIndex = 10;
             this.passwordLabel.Text = "password:";
             // 
@@ -229,10 +229,10 @@
             this.usernameLabel.AutoSize = true;
             this.usernameLabel.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
             this.usernameLabel.ForeColor = System.Drawing.Color.White;
-            this.usernameLabel.Location = new System.Drawing.Point(5, 151);
-            this.usernameLabel.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.usernameLabel.Location = new System.Drawing.Point(4, 123);
+            this.usernameLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.usernameLabel.Name = "usernameLabel";
-            this.usernameLabel.Size = new System.Drawing.Size(96, 21);
+            this.usernameLabel.Size = new System.Drawing.Size(81, 19);
             this.usernameLabel.TabIndex = 11;
             this.usernameLabel.Text = "username:";
             // 
@@ -243,19 +243,17 @@
             this.topPanel.Controls.Add(this.pictureBox1);
             this.topPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.topPanel.Location = new System.Drawing.Point(0, 0);
-            this.topPanel.Margin = new System.Windows.Forms.Padding(4);
             this.topPanel.Name = "topPanel";
-            this.topPanel.Size = new System.Drawing.Size(1037, 42);
+            this.topPanel.Size = new System.Drawing.Size(778, 34);
             this.topPanel.TabIndex = 1;
             // 
             // pictureBox2
             // 
             this.pictureBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(940, 10);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(4);
+            this.pictureBox2.Location = new System.Drawing.Point(705, 8);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(39, 28);
+            this.pictureBox2.Size = new System.Drawing.Size(29, 23);
             this.pictureBox2.TabIndex = 1;
             this.pictureBox2.TabStop = false;
             // 
@@ -263,10 +261,9 @@
             // 
             this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(987, 10);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
+            this.pictureBox1.Location = new System.Drawing.Point(740, 8);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(45, 28);
+            this.pictureBox1.Size = new System.Drawing.Size(34, 23);
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
@@ -276,10 +273,10 @@
             this.recentButton.AutoSize = true;
             this.recentButton.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
             this.recentButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(53)))), ((int)(((byte)(65)))));
-            this.recentButton.Location = new System.Drawing.Point(589, 50);
-            this.recentButton.Margin = new System.Windows.Forms.Padding(5);
+            this.recentButton.Location = new System.Drawing.Point(442, 41);
+            this.recentButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.recentButton.Name = "recentButton";
-            this.recentButton.Size = new System.Drawing.Size(249, 37);
+            this.recentButton.Size = new System.Drawing.Size(187, 30);
             this.recentButton.TabIndex = 10;
             this.recentButton.Text = "Recent Lemmata";
             this.recentButton.UseVisualStyleBackColor = true;
@@ -291,10 +288,10 @@
             this.popularButton.AutoSize = true;
             this.popularButton.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
             this.popularButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(53)))), ((int)(((byte)(65)))));
-            this.popularButton.Location = new System.Drawing.Point(253, 50);
-            this.popularButton.Margin = new System.Windows.Forms.Padding(5);
+            this.popularButton.Location = new System.Drawing.Point(190, 41);
+            this.popularButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.popularButton.Name = "popularButton";
-            this.popularButton.Size = new System.Drawing.Size(241, 37);
+            this.popularButton.Size = new System.Drawing.Size(181, 30);
             this.popularButton.TabIndex = 9;
             this.popularButton.Text = "Popular Lemmata";
             this.popularButton.UseVisualStyleBackColor = true;
@@ -306,7 +303,7 @@
             this.searchPanel.BackColor = System.Drawing.Color.Gainsboro;
             this.searchPanel.Controls.Add(this.searchTextBox);
             this.searchPanel.Controls.Add(this.searchButton);
-            this.searchPanel.Controls.Add(mainPanel);
+            this.searchPanel.Controls.Add(this.mainPanel);
             this.searchPanel.Controls.Add(this.recentButton);
             this.searchPanel.Controls.Add(this.topPanel);
             this.searchPanel.Controls.Add(this.dateFilterLabel);
@@ -315,21 +312,22 @@
             this.searchPanel.Controls.Add(this.filterCheckedListBox);
             this.searchPanel.Controls.Add(this.filtersLabel);
             this.searchPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.searchPanel.Location = new System.Drawing.Point(324, 0);
-            this.searchPanel.Margin = new System.Windows.Forms.Padding(4);
+            this.searchPanel.Location = new System.Drawing.Point(243, 0);
             this.searchPanel.Name = "searchPanel";
-            this.searchPanel.Size = new System.Drawing.Size(1037, 805);
+            this.searchPanel.Size = new System.Drawing.Size(778, 654);
             this.searchPanel.TabIndex = 2;
             // 
             // searchTextBox
             // 
             this.searchTextBox.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.searchTextBox.BackColor = System.Drawing.Color.Silver;
+            this.searchTextBox.Cursor = System.Windows.Forms.Cursors.WaitCursor;
             this.searchTextBox.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
             this.searchTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(126)))), ((int)(((byte)(49)))));
-            this.searchTextBox.Location = new System.Drawing.Point(253, 115);
+            this.searchTextBox.Location = new System.Drawing.Point(190, 93);
+            this.searchTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.searchTextBox.Name = "searchTextBox";
-            this.searchTextBox.Size = new System.Drawing.Size(438, 36);
+            this.searchTextBox.Size = new System.Drawing.Size(330, 30);
             this.searchTextBox.TabIndex = 16;
             this.searchTextBox.Text = "Search";
             this.searchTextBox.UseWaitCursor = true;
@@ -340,10 +338,10 @@
             this.searchButton.AutoSize = true;
             this.searchButton.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
             this.searchButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(53)))), ((int)(((byte)(65)))));
-            this.searchButton.Location = new System.Drawing.Point(691, 115);
-            this.searchButton.Margin = new System.Windows.Forms.Padding(5);
+            this.searchButton.Location = new System.Drawing.Point(518, 93);
+            this.searchButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.searchButton.Name = "searchButton";
-            this.searchButton.Size = new System.Drawing.Size(147, 37);
+            this.searchButton.Size = new System.Drawing.Size(110, 30);
             this.searchButton.TabIndex = 15;
             this.searchButton.Text = "Search";
             this.searchButton.UseVisualStyleBackColor = true;
@@ -351,15 +349,15 @@
             // 
             // mainPanel
             // 
-            mainPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.mainPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            mainPanel.AutoScroll = true;
-            mainPanel.Location = new System.Drawing.Point(-4, 306);
-            mainPanel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            mainPanel.Name = "mainPanel";
-            mainPanel.Size = new System.Drawing.Size(1036, 498);
-            mainPanel.TabIndex = 12;
+            this.mainPanel.AutoScroll = true;
+            this.mainPanel.Location = new System.Drawing.Point(-3, 249);
+            this.mainPanel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.mainPanel.Name = "mainPanel";
+            this.mainPanel.Size = new System.Drawing.Size(777, 405);
+            this.mainPanel.TabIndex = 12;
             // 
             // dateFilterLabel
             // 
@@ -367,10 +365,10 @@
             this.dateFilterLabel.AutoSize = true;
             this.dateFilterLabel.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
             this.dateFilterLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(53)))), ((int)(((byte)(65)))));
-            this.dateFilterLabel.Location = new System.Drawing.Point(325, 278);
-            this.dateFilterLabel.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.dateFilterLabel.Location = new System.Drawing.Point(244, 226);
+            this.dateFilterLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.dateFilterLabel.Name = "dateFilterLabel";
-            this.dateFilterLabel.Size = new System.Drawing.Size(97, 21);
+            this.dateFilterLabel.Size = new System.Drawing.Size(75, 17);
             this.dateFilterLabel.TabIndex = 7;
             this.dateFilterLabel.Text = "Date filter:";
             // 
@@ -378,10 +376,9 @@
             // 
             this.dateTimePicker.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.dateTimePicker.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-            this.dateTimePicker.Location = new System.Drawing.Point(433, 276);
-            this.dateTimePicker.Margin = new System.Windows.Forms.Padding(4);
+            this.dateTimePicker.Location = new System.Drawing.Point(325, 224);
             this.dateTimePicker.Name = "dateTimePicker";
-            this.dateTimePicker.Size = new System.Drawing.Size(279, 24);
+            this.dateTimePicker.Size = new System.Drawing.Size(210, 21);
             this.dateTimePicker.TabIndex = 6;
             this.dateTimePicker.ValueChanged += new System.EventHandler(this.dateTimePicker_ValueChanged);
             // 
@@ -419,10 +416,10 @@
             "Technology",
             "Universe",
             "World"});
-            this.filterCheckedListBox.Location = new System.Drawing.Point(433, 180);
-            this.filterCheckedListBox.Margin = new System.Windows.Forms.Padding(5);
+            this.filterCheckedListBox.Location = new System.Drawing.Point(325, 146);
+            this.filterCheckedListBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.filterCheckedListBox.Name = "filterCheckedListBox";
-            this.filterCheckedListBox.Size = new System.Drawing.Size(279, 88);
+            this.filterCheckedListBox.Size = new System.Drawing.Size(210, 72);
             this.filterCheckedListBox.TabIndex = 4;
             // 
             // filtersLabel
@@ -431,23 +428,22 @@
             this.filtersLabel.AutoSize = true;
             this.filtersLabel.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
             this.filtersLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(53)))), ((int)(((byte)(65)))));
-            this.filtersLabel.Location = new System.Drawing.Point(355, 182);
-            this.filtersLabel.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.filtersLabel.Location = new System.Drawing.Point(266, 148);
+            this.filtersLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.filtersLabel.Name = "filtersLabel";
-            this.filtersLabel.Size = new System.Drawing.Size(59, 21);
+            this.filtersLabel.Size = new System.Drawing.Size(46, 17);
             this.filtersLabel.TabIndex = 3;
             this.filtersLabel.Text = "Filters:";
             // 
             // StartPage
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Gainsboro;
-            this.ClientSize = new System.Drawing.Size(1361, 805);
+            this.ClientSize = new System.Drawing.Size(1021, 654);
             this.Controls.Add(this.searchPanel);
             this.Controls.Add(this.leftPanel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "StartPage";
             this.Text = "Encyclopedia";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
@@ -498,7 +494,7 @@
         private System.Windows.Forms.TextBox searchTextBox;
 
         private System.Windows.Forms.Button searchButton;
-        public static System.Windows.Forms.Panel mainPanel;
+        public System.Windows.Forms.Panel mainPanel;
     }
 }
 
