@@ -27,7 +27,7 @@ CREATE TABLE Account(
 	account_id INT NOT NULL PRIMARY KEY,
 	account_username VARCHAR(40) NOT NULL UNIQUE,
 	account_salted_password_hash CHAR(64) NOT NULL,
-	account_password_salt CHAR(16) NOT NULL,
+	account_password_salt CHAR(24) NOT NULL,
 	account_email VARCHAR(60) NOT NULL UNIQUE,
 	account_created_at DATE NOT NULL,
 	FOREIGN KEY(account_id) REFERENCES User(user_id)
