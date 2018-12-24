@@ -8,13 +8,17 @@ namespace Encyclopedia.Model
         // fields
         private String title;
         private String body;
-        //Changed the category to integer 
+		//Changed the category to integer
+		// !! It MUST be instance of Category, that's the point of MVC.
+		// You can construct the object like "new Category(id, "")",
+		// it doesn't really matter (even thought the main point is to preserve consistency and uphold the constraints) but it has to be type of Category.
+		// Change it back whenever you can.
         private int categoryId;
 
         // constructor
         public Lemma(String title, Byte[] bodyInBytes, int categoryId)
         {
-            this.title = title ?? throw new ArgumentNullException(nameof(title));
+            Title = title;
             this.body = Encoding.UTF8.GetString(bodyInBytes) ?? throw new ArgumentNullException(nameof(bodyInBytes));
             this.categoryId = categoryId;
         }
@@ -28,8 +32,8 @@ namespace Encyclopedia.Model
             }
             set
             {
-                title = value;
-            }
+				title = value ?? throw new ArgumentNullException(nameof(title));
+			}
         }
 
         public String Body

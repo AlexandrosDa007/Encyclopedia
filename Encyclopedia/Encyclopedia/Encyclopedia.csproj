@@ -92,7 +92,7 @@
     <Compile Include="Controller\LoginHandler.cs" />
     <Compile Include="Controller\DynamicUIControlsHandler.cs" />
     <Compile Include="Controller\Search.cs" />
-    <Compile Include="Controller\UserControls.cs" />
+    <Compile Include="Controller\UserHandler.cs" />
     <Compile Include="fooDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

@@ -19,7 +19,7 @@ namespace Encyclopedia.Model
             }
             else
                 throw new ArgumentException("The user cannot be contacts with himself.");
-            this.contactGroup = contactGroup ?? throw new ArgumentNullException(nameof(contactGroup));
+            ContactGroup = contactGroup ?? throw new ArgumentNullException(nameof(contactGroup));
         }
 
         // constructor with null values
@@ -33,7 +33,7 @@ namespace Encyclopedia.Model
             else
                 throw new ArgumentException("The user cannot be contacts with himself.");
 
-            this.contactGroup = null;
+            ContactGroup = null;
         }
 
         // setters and getters

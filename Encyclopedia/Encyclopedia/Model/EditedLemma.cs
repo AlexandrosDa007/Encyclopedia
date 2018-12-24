@@ -15,11 +15,11 @@ namespace Encyclopedia.Model
         // constructor
         public EditedLemma(Lemma originalLemma, User editor, Byte[] editedBodyInBytes, DateTime createdAt, DateTime updatedAt)
         {
-            this.originalLemma = originalLemma ?? throw new ArgumentNullException(nameof(originalLemma));
-            this.editor = editor ?? throw new ArgumentNullException(nameof(editor));
-            this.editedBody = Encoding.Default.GetString(editedBodyInBytes) ?? throw new ArgumentNullException(nameof(editedBodyInBytes));
-            this.createdAt = createdAt;
-            this.updatedAt = updatedAt;
+            OriginalLemma = originalLemma;
+            Editor = editor;
+            this.editedBody = Encoding.UTF8.GetString(editedBodyInBytes) ?? throw new ArgumentNullException(nameof(editedBodyInBytes));
+            CreatedAt = createdAt;
+            UpdatedAt = updatedAt;
         }
 
         // setters and getters
@@ -31,7 +31,7 @@ namespace Encyclopedia.Model
             }
             set
             {
-                originalLemma = value;
+				originalLemma = value ?? throw new ArgumentNullException(nameof(originalLemma));
             }
         }
 
@@ -43,8 +43,8 @@ namespace Encyclopedia.Model
             }
             set
             {
-                editor = value;
-            }
+				editor = value ?? throw new ArgumentNullException(nameof(editor));
+			}
         }
 
         public String Body

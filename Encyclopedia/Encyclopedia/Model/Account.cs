@@ -8,32 +8,20 @@ namespace Encyclopedia.Model
         // fields
         private User user;
         private String username;
-        private String password; // Hash value
-        private String email;
+        private String saltedPasswordHash; // Hash value
+		private String passwordSalt;
+		private String email;
         private DateTime createdAt;
 
         // constructor
-        public Account(User user, string username, string password, string email, DateTime createdAt)
+        public Account(User user, string username, string saltedPasswordHash, string passwordSalt, string email, DateTime createdAt)
         {
-            this.user = user ?? throw new ArgumentNullException(nameof(user));
-			if (username.Length > 40 || username.Length < 2) // the username must be at least 2 characters
-			{
-				throw new ArgumentOutOfRangeException(nameof(username));
-			}
-			else
-				this.username = username ?? throw new ArgumentNullException(nameof(username));
-			this.password = password ?? throw new ArgumentNullException(nameof(password));
-            try
-            {
-                MailAddress m = new MailAddress(email); // this line will determine if the email is in valid format
-
-                this.email = email ?? throw new ArgumentNullException(nameof(email)); // it must also be unique
-            }
-            catch (FormatException)
-            {
-                throw new ArgumentException(nameof(email));
-            }
-            this.createdAt = createdAt;
+            User = user;
+			Username = username;
+			SaltedPasswordHash = saltedPasswordHash;
+			PasswordSalt = passwordSalt;
+			Email = email;
+            CreatedAt = createdAt;
         }
 
         // setters and getters
@@ -45,7 +33,7 @@ namespace Encyclopedia.Model
             }
             set
             {
-                user = value;
+				user = value ?? throw new ArgumentNullException(nameof(user));
             }
         }
 
@@ -57,23 +45,50 @@ namespace Encyclopedia.Model
             }
             set
             {
-                username = value;
+				if (value.Length > 40 || value.Length < 2) // the username must be at least 2 characters
+				{
+					throw new ArgumentOutOfRangeException(nameof(username));
+				}
+				else
+					username = value ?? throw new ArgumentNullException(nameof(username));
             }
         }
 
-        public String Password
-        {
+        public String SaltedPasswordHash
+		{
             get
             {
-                return password;
+                return saltedPasswordHash;
             }
             set
             {
-                password = value;
+				if (value.Length != 64)
+				{
+					throw new ArgumentOutOfRangeException(nameof(saltedPasswordHash));
+				}
+				else
+					saltedPasswordHash = value ?? throw new ArgumentNullException(nameof(saltedPasswordHash));
             }
         }
 
-        public String Email
+		public String PasswordSalt
+		{
+			get
+			{
+				return passwordSalt;
+			}
+			set
+			{
+				if (value.Length != 24)
+				{
+					throw new ArgumentOutOfRangeException(nameof(passwordSalt));
+				}
+				else
+					passwordSalt = value ?? throw new ArgumentNullException(nameof(passwordSalt));
+			}
+		}
+
+		public String Email
         {
             get
             {
@@ -81,16 +96,16 @@ namespace Encyclopedia.Model
             }
             set
             {
-                try
-                {
-                    MailAddress m = new MailAddress(value);
+				try
+				{
+					MailAddress m = new MailAddress(value); // this line will determine if the email is in valid format
 
-                    email = value;
-                }
-                catch (FormatException)
-                {
-                    throw new ArgumentException(nameof(value));
-                }
+					email = value ?? throw new ArgumentNullException(nameof(email)); // it must also be unique
+				}
+				catch (FormatException)
+				{
+					throw new ArgumentException(nameof(email));
+				}
             }
         }
 
