@@ -47,7 +47,6 @@ namespace Encyclopedia.Controller
             }
             catch (ArgumentException ex)
             {
-				Console.WriteLine(ex.ParamName);
 				// some of the User parameters wasn't valid, check the User constructor
 				switch (ex.ParamName)
 				{

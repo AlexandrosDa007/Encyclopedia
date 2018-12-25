@@ -426,7 +426,6 @@ namespace Encyclopedia.Controller
                 insertValues += ", @image";
             }
             string insertUser = insertFields + ") " + insertValues + ") ";
-			Console.WriteLine(insertUser);
 
 			MySqlCommand cmd = new MySqlCommand(insertUser, connection);
             cmd.CommandTimeout = 500000;
