@@ -25,6 +25,10 @@ namespace Encyclopedia.Controller
 				}
 				educationLevel = educationLevelList.ElementAt(0);
 			}
+			else
+			{
+				educationLevel = new EducationLevel(-1, "");
+			}
 
 			// check if a role was selected and if it was, find and construct a Role object
 			Role role = null;
@@ -37,6 +41,10 @@ namespace Encyclopedia.Controller
 					return 11;
 				}
 				role = roleList.ElementAt(0);
+			}
+			else
+			{
+				role = new Role(-1, "");
 			}
 
 			// validate the remaining fields regarding the User
@@ -79,7 +87,7 @@ namespace Encyclopedia.Controller
 				}
 
 				// check if the email inserted is unique
-				if (!DBConnect.IsAccountUsernameUnique(email))
+				if (!DBConnect.IsAccountEmailUnique(email))
 				{
 					return 21;
 				}
@@ -94,8 +102,7 @@ namespace Encyclopedia.Controller
 				else
 				{
 					// check if the password has at least 8 characters, one number and one letter (case-insensitive)
-					if (password.Length < 8 /*|| !Regex.Match(password, @"/\d+/", RegexOptions.ECMAScript).Success
-						|| !Regex.Match(password, @"/[a-zA-Z]+/", RegexOptions.ECMAScript).Success*/)
+					if (password.Length < 8 || !password.Any(char.IsNumber) || !password.Any(char.IsLetter))
 					{
 						// invalid
 						return 23;

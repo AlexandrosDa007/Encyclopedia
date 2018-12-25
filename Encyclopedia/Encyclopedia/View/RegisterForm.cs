@@ -52,6 +52,10 @@ namespace Encyclopedia.View
                 br.Close();
                 fs.Close();
             }
+			else
+			{
+				imageData = new byte[0];
+			}
 			string username = usernameTB.Text;
 			string password = passwordTB.Text;
 			string passwordConfirmation = passwordConfirmTB.Text;

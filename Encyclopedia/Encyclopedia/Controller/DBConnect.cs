@@ -276,6 +276,7 @@ namespace Encyclopedia.Controller
 
 			while (dataReader.Read())
 			{
+				Console.WriteLine(dataReader["account_username"]);
 				isUnique = false;
 			}
 
@@ -369,7 +370,6 @@ namespace Encyclopedia.Controller
 			if (userId != -1)
 			{
 				account.User.Id = userId;
-				Console.WriteLine(account.User.Id);
 
 				// if rowsAffectedAccount equals to 1, then the insertion completed successfully
 				int rowsAffectedAccount = Insert(account);
@@ -405,22 +405,22 @@ namespace Encyclopedia.Controller
                 insertFields += ", user_tel";
                 insertValues += ", @tel";
             }
-            if (!user.Role.Equals(null))
+            if (!user.Role.Id.Equals(-1))
             {
                 insertFields += ", user_role_id";
                 insertValues += ", @roleId";
             }
-            if (!user.EducationLevel.Equals(null))
+            if (!user.EducationLevel.Id.Equals(-1))
             {
                 insertFields += ", user_education_level_id";
-                insertValues += ", @educationLevel";
+                insertValues += ", @educationLevelId";
             }
-            if (!user.Description.Equals("") || !user.Description.Equals(null))
+            if (!user.Description.Length.Equals(0))
             {
                 insertFields += ", user_description";
                 insertValues += ", @description";
             }
-            if (!user.Image.Equals(null))
+            if (!user.Image.Length.Equals(0))
             {
                 insertFields += ", user_image";
                 insertValues += ", @image";
@@ -443,19 +443,19 @@ namespace Encyclopedia.Controller
             {
                 cmd.Parameters.AddWithValue("@tel", user.Tel);
             }
-            if (!user.Role.Equals(null))
+            if (!user.Role.Id.Equals(-1))
             {
                 cmd.Parameters.AddWithValue("@roleId", user.Role.Id);
             }
-            if (!user.EducationLevel.Equals(null))
+            if (!user.EducationLevel.Id.Equals(-1))
             {
-                cmd.Parameters.AddWithValue("@educationLevel", user.EducationLevel.Id);
+                cmd.Parameters.AddWithValue("@educationLevelId", user.EducationLevel.Id);
             }
-            if (!user.Description.Equals("") || !user.Description.Equals(null))
+            if (!user.Description.Length.Equals(0))
             {
                 cmd.Parameters.AddWithValue("@description", user.Description);
             }
-            if (!user.Image.Equals(null))
+            if (!user.Image.Length.Equals(0))
             {
                 cmd.Parameters.AddWithValue("@image", user.Image);
             }
@@ -469,7 +469,6 @@ namespace Encyclopedia.Controller
 			if (rowsAffected == 1)
 			{
 				lastInsertedUserId = (int)cmd.LastInsertedId;
-				Console.WriteLine(lastInsertedUserId);
 			}
 			
             return lastInsertedUserId; 
