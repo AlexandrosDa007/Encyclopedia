@@ -395,32 +395,32 @@ namespace Encyclopedia.Controller
             string insertValues = "VALUES(@name, @surname, @dateOfBirth";
 
             // check if fields aren't null
-            if (!user.Gender.Equals("-"))
+            if (!user.Gender.Equals('-'))
             {
                 insertFields += ", user_gender";
                 insertValues += ", @gender";
             }
-            if (!user.Tel.Equals("__________") || !user.Tel.Equals(null))
-            {
+            if (!user.Tel.Equals("__________"))
+			{
                 insertFields += ", user_tel";
                 insertValues += ", @tel";
             }
-            if (!user.Role.Id.Equals(-1))
+            if (user.Role != null)
             {
                 insertFields += ", user_role_id";
                 insertValues += ", @roleId";
             }
-            if (!user.EducationLevel.Id.Equals(-1))
+            if (user.EducationLevel != null)
             {
                 insertFields += ", user_education_level_id";
                 insertValues += ", @educationLevelId";
             }
             if (!user.Description.Length.Equals(0))
-            {
+			{
                 insertFields += ", user_description";
                 insertValues += ", @description";
             }
-            if (!user.Image.Length.Equals(0))
+            if (user.Image != null)
             {
                 insertFields += ", user_image";
                 insertValues += ", @image";
@@ -435,19 +435,19 @@ namespace Encyclopedia.Controller
             cmd.Parameters.AddWithValue("@name", user.Name);
             cmd.Parameters.AddWithValue("@surname", user.Surname);
             cmd.Parameters.AddWithValue("@dateOfBirth", user.DateOfBirth.Date);
-            if (!user.Gender.Equals("-"))
-            {
+            if (!user.Gender.Equals('-'))
+			{
                 cmd.Parameters.AddWithValue("@gender", user.Gender);
             }
-            if (!user.Tel.Equals("__________") || !user.Tel.Equals(null))
-            {
+            if (!user.Tel.Equals("__________"))
+			{
                 cmd.Parameters.AddWithValue("@tel", user.Tel);
             }
-            if (!user.Role.Id.Equals(-1))
+            if (user.Role != null)
             {
                 cmd.Parameters.AddWithValue("@roleId", user.Role.Id);
             }
-            if (!user.EducationLevel.Id.Equals(-1))
+            if (user.EducationLevel != null)
             {
                 cmd.Parameters.AddWithValue("@educationLevelId", user.EducationLevel.Id);
             }
@@ -455,7 +455,7 @@ namespace Encyclopedia.Controller
             {
                 cmd.Parameters.AddWithValue("@description", user.Description);
             }
-            if (!user.Image.Length.Equals(0))
+            if (user.Image != null)
             {
                 cmd.Parameters.AddWithValue("@image", user.Image);
             }

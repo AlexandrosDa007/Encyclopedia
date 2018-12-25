@@ -52,10 +52,6 @@ namespace Encyclopedia.View
                 br.Close();
                 fs.Close();
             }
-			else
-			{
-				imageData = new byte[0];
-			}
 			string username = usernameTB.Text;
 			string password = passwordTB.Text;
 			string passwordConfirmation = passwordConfirmTB.Text;
@@ -66,7 +62,7 @@ namespace Encyclopedia.View
 
 			// call the method to validate the input and complete the registration process
 			// the exitCode must be equal to 0, otherwise something went wrong
-			// the error range is | from 10 to 19 related to the User | from 20 to 28 related to the Account | 2 and 3 related to Database problem
+			// the error range is | from 10 to 19 related to the User | from 20 to 29 related to the Account | 2 and 3 related to Database problem
             int exitCode = UserHandler.RegisterUserAccount(name, surname, dateOfBirth, gender, tel, roleName, educationLevelName, description, imageData, username, password, passwordConfirmation, email);
 
 			// show error messages if any

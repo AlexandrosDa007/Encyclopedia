@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 
 namespace Encyclopedia.Model
 {
@@ -44,7 +45,7 @@ namespace Encyclopedia.Model
             Tel = "";
             Role = null;
             EducationLevel = null;
-            this.description = null;
+            Description = "";
             Image = null;
         }
 
@@ -132,7 +133,12 @@ namespace Encyclopedia.Model
             }
             set
             {
-                tel = value;
+				if (value.Length != 10 || !value.All(char.IsNumber))
+				{
+					tel = "__________";
+				}
+				else
+					tel = value ?? throw new ArgumentNullException(nameof(tel));
             }
         }
 

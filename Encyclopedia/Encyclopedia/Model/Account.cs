@@ -96,16 +96,9 @@ namespace Encyclopedia.Model
             }
             set
             {
-				try
-				{
-					MailAddress m = new MailAddress(value); // this line will determine if the email is in valid format
+				MailAddress m = new MailAddress(value); // this line will determine if the email is in valid format
 
-					email = value ?? throw new ArgumentNullException(nameof(email)); // it must also be unique
-				}
-				catch (FormatException)
-				{
-					throw new ArgumentException(nameof(email));
-				}
+				email = value ?? throw new ArgumentNullException(nameof(email));
             }
         }
 

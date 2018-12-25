@@ -25,10 +25,6 @@ namespace Encyclopedia.Controller
 				}
 				educationLevel = educationLevelList.ElementAt(0);
 			}
-			else
-			{
-				educationLevel = new EducationLevel(-1, "");
-			}
 
 			// check if a role was selected and if it was, find and construct a Role object
 			Role role = null;
@@ -41,10 +37,6 @@ namespace Encyclopedia.Controller
 					return 11;
 				}
 				role = roleList.ElementAt(0);
-			}
-			else
-			{
-				role = new Role(-1, "");
 			}
 
 			// validate the remaining fields regarding the User
@@ -77,17 +69,17 @@ namespace Encyclopedia.Controller
             }
 
 			// if the User is valid
-			if (!user.Equals(null))
+			if (user != null)
 			{
 				// check the input regarding the Account
-				// check if the username inserted is unique
-				if (!DBConnect.IsAccountUsernameUnique(username))
+				// check if the email inserted is unique
+				if (!DBConnect.IsAccountEmailUnique(email))
 				{
 					return 20;
 				}
 
-				// check if the email inserted is unique
-				if (!DBConnect.IsAccountEmailUnique(email))
+				// check if the username inserted is unique
+				if (!DBConnect.IsAccountUsernameUnique(username))
 				{
 					return 21;
 				}
@@ -111,13 +103,12 @@ namespace Encyclopedia.Controller
 					{
 						// valid, continue with the salt and the salted password hash creation
 						passwordSalt = LoginHandler.CreateSalt(16);
-						Console.WriteLine("password salt: " + passwordSalt);
+
 						saltedPasswordHash = LoginHandler.GenerateSHA256Hash(password, passwordSalt);
-						Console.WriteLine("salted hash: " + saltedPasswordHash);
 					}
 				}
 
-				if (!passwordSalt.Equals(null) && !saltedPasswordHash.Equals(null))
+				if (passwordSalt != null && saltedPasswordHash != null)
 				{
 					// validate the remaining fields regarding the Account
 					Account account = null;
@@ -127,7 +118,6 @@ namespace Encyclopedia.Controller
 					}
 					catch (ArgumentException ex)
 					{
-						Console.WriteLine(ex.ParamName);
 						// some of the Account parameters wasn't valid, check the Account constructor
 						switch (ex.ParamName)
 						{
@@ -137,13 +127,18 @@ namespace Encyclopedia.Controller
 								return 26;
 							case "passwordSalt":
 								return 26; // same as the above because it references to the same problem regarding the salt
-							case "email":
+							case "email":  // null email input string
 								return 27;
 						}
 					}
+					catch (FormatException)
+					{
+						// invalid email address, wrong format
+						return 28;
+					}
 
 					// if the Account is valid
-					if (!account.Equals(null))
+					if (account != null)
 					{
 						// if each of the inputs regarding the User and the Account were valid,
 						// the registration can continue with the database insertion
@@ -168,7 +163,7 @@ namespace Encyclopedia.Controller
 					{
 						// something is invalid regarding the Account
 						// general error, will propably never occur
-						return 28;
+						return 29;
 					}
 				}
 				else
