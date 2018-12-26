@@ -376,6 +376,7 @@ namespace Encyclopedia.Controller
 
         public static int Insert(FavoriteLemma favoriteLemma)
         {
+            //Get object properties into local variables
             Lemma lemma = favoriteLemma.Lemma;
             User user = favoriteLemma.User;
             DateTime createdAt = favoriteLemma.CreatedAt;
@@ -383,16 +384,16 @@ namespace Encyclopedia.Controller
             string lemmaTitle = lemma.Title;
             int userID = user.Id;
 
+            //Create prepared statement string
             string insertFavoriteLemma = "INSERT INTO " +
                 "Favorite_Lemma (lemma_title,user_id,favorite_lemma_created_at) " +
                 "VALUES(@title, @userID, @createdAt) ";
 
             MySqlCommand cmd = new MySqlCommand(insertFavoriteLemma, connection);
             cmd.CommandTimeout = 500000;
-
             // add values to the parameters
             cmd.Parameters.AddWithValue("@title", lemmaTitle);
-            cmd.Parameters.AddWithValue("@user_id", userID);
+            cmd.Parameters.AddWithValue("@userID", userID);
             cmd.Parameters.AddWithValue("@createdAt", createdAt);
 
             // prepare and execute
