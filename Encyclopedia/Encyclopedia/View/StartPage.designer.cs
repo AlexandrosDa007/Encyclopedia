@@ -44,8 +44,8 @@
             this.passwordLabel = new System.Windows.Forms.Label();
             this.usernameLabel = new System.Windows.Forms.Label();
             this.topPanel = new System.Windows.Forms.Panel();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.minimizePictureBox = new System.Windows.Forms.PictureBox();
+            this.closePictureBox = new System.Windows.Forms.PictureBox();
             this.recentButton = new System.Windows.Forms.Button();
             this.popularButton = new System.Windows.Forms.Button();
             this.searchPanel = new System.Windows.Forms.Panel();
@@ -61,8 +61,8 @@
             this.logoPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.logoPictureBox)).BeginInit();
             this.topPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.minimizePictureBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.closePictureBox)).BeginInit();
             this.searchPanel.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -241,8 +241,8 @@
             // topPanel
             // 
             this.topPanel.AutoSize = true;
-            this.topPanel.Controls.Add(this.pictureBox2);
-            this.topPanel.Controls.Add(this.pictureBox1);
+            this.topPanel.Controls.Add(this.minimizePictureBox);
+            this.topPanel.Controls.Add(this.closePictureBox);
             this.topPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.topPanel.Location = new System.Drawing.Point(0, 0);
             this.topPanel.Margin = new System.Windows.Forms.Padding(4);
@@ -250,27 +250,29 @@
             this.topPanel.Size = new System.Drawing.Size(1037, 42);
             this.topPanel.TabIndex = 1;
             // 
-            // pictureBox2
+            // minimizePictureBox
             // 
-            this.pictureBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(940, 10);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(4);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(39, 28);
-            this.pictureBox2.TabIndex = 1;
-            this.pictureBox2.TabStop = false;
+            this.minimizePictureBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.minimizePictureBox.Image = ((System.Drawing.Image)(resources.GetObject("minimizePictureBox.Image")));
+            this.minimizePictureBox.Location = new System.Drawing.Point(940, 10);
+            this.minimizePictureBox.Margin = new System.Windows.Forms.Padding(4);
+            this.minimizePictureBox.Name = "minimizePictureBox";
+            this.minimizePictureBox.Size = new System.Drawing.Size(39, 28);
+            this.minimizePictureBox.TabIndex = 1;
+            this.minimizePictureBox.TabStop = false;
+            this.minimizePictureBox.Click += new System.EventHandler(this.minimizePictureBox_Click);
             // 
-            // pictureBox1
+            // closePictureBox
             // 
-            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(987, 10);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(45, 28);
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
+            this.closePictureBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.closePictureBox.Image = ((System.Drawing.Image)(resources.GetObject("closePictureBox.Image")));
+            this.closePictureBox.Location = new System.Drawing.Point(987, 10);
+            this.closePictureBox.Margin = new System.Windows.Forms.Padding(4);
+            this.closePictureBox.Name = "closePictureBox";
+            this.closePictureBox.Size = new System.Drawing.Size(45, 28);
+            this.closePictureBox.TabIndex = 0;
+            this.closePictureBox.TabStop = false;
+            this.closePictureBox.Click += new System.EventHandler(this.closePictureBox_Click);
             // 
             // recentButton
             // 
@@ -462,8 +464,8 @@
             this.logoPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.logoPictureBox)).EndInit();
             this.topPanel.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.minimizePictureBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.closePictureBox)).EndInit();
             this.searchPanel.ResumeLayout(false);
             this.searchPanel.PerformLayout();
             this.ResumeLayout(false);
@@ -493,8 +495,8 @@
         private System.Windows.Forms.Label filtersLabel;
         private System.Windows.Forms.DateTimePicker dateTimePicker;
         private System.Windows.Forms.Label dateFilterLabel;
-        private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox minimizePictureBox;
+        private System.Windows.Forms.PictureBox closePictureBox;
 
         private System.Windows.Forms.Panel FeedbackPanel;
         private System.Windows.Forms.Label label1;

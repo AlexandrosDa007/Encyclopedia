@@ -98,5 +98,10 @@ namespace Encyclopedia.View
                 Console.WriteLine(ex.Message);
             }
         }
+
+        private void closePictureBox_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

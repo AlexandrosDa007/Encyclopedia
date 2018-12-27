@@ -164,5 +164,17 @@ namespace UI
             RegisterForm registerForm = new RegisterForm();
             registerForm.ShowDialog();
         }
+
+        
+
+        private void minimizePictureBox_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
+
+        private void closePictureBox_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

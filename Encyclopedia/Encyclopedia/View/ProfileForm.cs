@@ -76,5 +76,10 @@ namespace Encyclopedia.View
         {
 
         }
+
+        private void closePictureBox_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

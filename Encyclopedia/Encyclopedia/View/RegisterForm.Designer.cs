@@ -60,11 +60,11 @@
             this.educationLabel = new System.Windows.Forms.Label();
             this.imagePathLabel = new System.Windows.Forms.Label();
             this.topPanel = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.closePictureBox = new System.Windows.Forms.PictureBox();
             this.genderGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imagePB)).BeginInit();
             this.topPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.closePictureBox)).BeginInit();
             this.SuspendLayout();
             // 
             // nameTextBox
@@ -381,7 +381,7 @@
             // topPanel
             // 
             this.topPanel.AutoSize = true;
-            this.topPanel.Controls.Add(this.pictureBox1);
+            this.topPanel.Controls.Add(this.closePictureBox);
             this.topPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.topPanel.Location = new System.Drawing.Point(0, 0);
             this.topPanel.Margin = new System.Windows.Forms.Padding(4);
@@ -389,16 +389,17 @@
             this.topPanel.Size = new System.Drawing.Size(839, 44);
             this.topPanel.TabIndex = 28;
             // 
-            // pictureBox1
+            // closePictureBox
             // 
-            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(790, 13);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(45, 27);
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
+            this.closePictureBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.closePictureBox.Image = ((System.Drawing.Image)(resources.GetObject("closePictureBox.Image")));
+            this.closePictureBox.Location = new System.Drawing.Point(790, 13);
+            this.closePictureBox.Margin = new System.Windows.Forms.Padding(4);
+            this.closePictureBox.Name = "closePictureBox";
+            this.closePictureBox.Size = new System.Drawing.Size(45, 27);
+            this.closePictureBox.TabIndex = 0;
+            this.closePictureBox.TabStop = false;
+            this.closePictureBox.Click += new System.EventHandler(this.closePictureBox_Click);
             // 
             // RegisterForm
             // 
@@ -444,7 +445,7 @@
             this.genderGroupBox.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imagePB)).EndInit();
             this.topPanel.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.closePictureBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -483,6 +484,6 @@
         private System.Windows.Forms.Label educationLabel;
         private System.Windows.Forms.Label imagePathLabel;
         private System.Windows.Forms.Panel topPanel;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox closePictureBox;
     }
 }
