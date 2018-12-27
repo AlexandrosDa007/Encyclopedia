@@ -45,9 +45,9 @@
             // 
             this.FeedbackPanel.Controls.Add(this.label1);
             this.FeedbackPanel.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.FeedbackPanel.Location = new System.Drawing.Point(0, 596);
+            this.FeedbackPanel.Location = new System.Drawing.Point(0, 717);
             this.FeedbackPanel.Name = "FeedbackPanel";
-            this.FeedbackPanel.Size = new System.Drawing.Size(332, 88);
+            this.FeedbackPanel.Size = new System.Drawing.Size(324, 88);
             this.FeedbackPanel.TabIndex = 24;
             // 
             // label1
@@ -278,7 +278,7 @@
             this.Controls.Add(this.sideProfilePicture);
             this.Controls.Add(this.connectUserLabel);
             this.Name = "AfterLoginUserControl";
-            this.Size = new System.Drawing.Size(332, 684);
+            this.Size = new System.Drawing.Size(324, 805);
             this.FeedbackPanel.ResumeLayout(false);
             this.FeedbackPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.sideProfilePicture)).EndInit();

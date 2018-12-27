@@ -118,6 +118,12 @@
     <Compile Include="View\AfterLoginUserControl.Designer.cs">
       <DependentUpon>AfterLoginUserControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\ContactsUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\ContactsUserControl.Designer.cs">
+      <DependentUpon>ContactsUserControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\EditedLemmataUserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -178,6 +184,9 @@
     </Compile>
     <EmbeddedResource Include="View\AfterLoginUserControl.resx">
       <DependentUpon>AfterLoginUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\ContactsUserControl.resx">
+      <DependentUpon>ContactsUserControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\EditedLemmataUserControl.resx">
       <DependentUpon>EditedLemmataUserControl.cs</DependentUpon>
