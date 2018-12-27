@@ -32,10 +32,10 @@
             this.searchContactsButton = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.contactsTabPage = new System.Windows.Forms.TabPage();
-            this.groupTabPage = new System.Windows.Forms.TabPage();
-            this.createGroupButton = new System.Windows.Forms.Button();
             this.listView1 = new System.Windows.Forms.ListView();
+            this.groupTabPage = new System.Windows.Forms.TabPage();
             this.listView2 = new System.Windows.Forms.ListView();
+            this.createGroupButton = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.contactsTabPage.SuspendLayout();
             this.groupTabPage.SuspendLayout();
@@ -93,6 +93,14 @@
             this.contactsTabPage.Text = "Contacts";
             this.contactsTabPage.UseVisualStyleBackColor = true;
             // 
+            // listView1
+            // 
+            this.listView1.Location = new System.Drawing.Point(6, 3);
+            this.listView1.Name = "listView1";
+            this.listView1.Size = new System.Drawing.Size(957, 315);
+            this.listView1.TabIndex = 0;
+            this.listView1.UseCompatibleStateImageBehavior = false;
+            // 
             // groupTabPage
             // 
             this.groupTabPage.Controls.Add(this.listView2);
@@ -105,6 +113,14 @@
             this.groupTabPage.TabIndex = 1;
             this.groupTabPage.Text = "Groups";
             this.groupTabPage.UseVisualStyleBackColor = true;
+            // 
+            // listView2
+            // 
+            this.listView2.Location = new System.Drawing.Point(6, 52);
+            this.listView2.Name = "listView2";
+            this.listView2.Size = new System.Drawing.Size(957, 269);
+            this.listView2.TabIndex = 19;
+            this.listView2.UseCompatibleStateImageBehavior = false;
             // 
             // createGroupButton
             // 
@@ -119,22 +135,6 @@
             this.createGroupButton.TabIndex = 18;
             this.createGroupButton.Text = "Create Group";
             this.createGroupButton.UseVisualStyleBackColor = true;
-            // 
-            // listView1
-            // 
-            this.listView1.Location = new System.Drawing.Point(6, 3);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(957, 315);
-            this.listView1.TabIndex = 0;
-            this.listView1.UseCompatibleStateImageBehavior = false;
-            // 
-            // listView2
-            // 
-            this.listView2.Location = new System.Drawing.Point(6, 52);
-            this.listView2.Name = "listView2";
-            this.listView2.Size = new System.Drawing.Size(957, 269);
-            this.listView2.TabIndex = 19;
-            this.listView2.UseCompatibleStateImageBehavior = false;
             // 
             // ContactsUserControl
             // 
