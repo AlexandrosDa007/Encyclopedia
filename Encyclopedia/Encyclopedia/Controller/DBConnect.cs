@@ -459,12 +459,12 @@ namespace Encyclopedia.Controller
 				int rowsAffectedAccount = Insert(account);
 				if (rowsAffectedAccount != 1)
 				{
-					return 2;
+					return 3;
 				}
 			}
 			else
 			{
-				return 1;
+				return 2;
 			}
 
 			// if the method doesn't return 0, something went wrong with the database
