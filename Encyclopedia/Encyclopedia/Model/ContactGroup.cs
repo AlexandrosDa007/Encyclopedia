@@ -12,9 +12,9 @@ namespace Encyclopedia.Model
         // constructor
         public ContactGroup(int id, string name, User owner)
         {
-            this.id = id;
-            this.name = name ?? throw new ArgumentNullException(nameof(name));
-            this.owner = owner ?? throw new ArgumentNullException(nameof(owner));
+            Id = id;
+            Name = name;
+            Owner = owner;
         }
 
         // setters and getters
@@ -38,7 +38,7 @@ namespace Encyclopedia.Model
             }
             set
             {
-                name = value;
+				name = value ?? throw new ArgumentNullException(nameof(name));
             }
         }
 
@@ -50,7 +50,7 @@ namespace Encyclopedia.Model
             }
             set
             {
-                owner = value;
+				owner = value ?? throw new ArgumentNullException(nameof(owner));
             }
         }
 

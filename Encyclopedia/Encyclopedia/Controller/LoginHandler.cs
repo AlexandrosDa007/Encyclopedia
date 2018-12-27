@@ -1,11 +1,6 @@
-﻿using Encyclopedia.Model;
-using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System;
 using System.Security.Cryptography;
 using System.Text;
-using System.Threading.Tasks;
-
 
 namespace Encyclopedia.Controller
 {
@@ -26,28 +21,28 @@ namespace Encyclopedia.Controller
             String hashedpassword = GenerateSHA256Hash(password, salt);
 
             //check in database if true then account exits otherwise false
-            return DBConnect.Validation(username, password);
-
+            return DBConnect.Validation(username, hashedpassword);
         }
 
-        private String CreateSalt(int size)
+        public static String CreateSalt(int size)
         {
-            RNGCryptoServiceProvider rng = new System.Security.Cryptography.RNGCryptoServiceProvider();
-            byte[] buff = new byte[size];
-            rng.GetBytes(buff);
-            return Convert.ToBase64String(buff);
+            RNGCryptoServiceProvider rng = new RNGCryptoServiceProvider();
+            byte[] buffer = new byte[size];
+            rng.GetBytes(buffer);
+            return Convert.ToBase64String(buffer);
         }
 
-        public String GenerateSHA256Hash(String input, String salt)
+        public static String GenerateSHA256Hash(String input, String salt)
         {
-            byte[] bytes = System.Text.Encoding.UTF8.GetBytes(input + salt);
-            System.Security.Cryptography.SHA256Managed sha256hashstring = new System.Security.Cryptography.SHA256Managed();
+            byte[] bytes = Encoding.UTF8.GetBytes(input + salt);
+
+            SHA256Managed sha256hashstring = new SHA256Managed();
             byte[] hash = sha256hashstring.ComputeHash(bytes);
 
             return ByteArrayToHexString(hash);
         }
 
-        public String ByteArrayToHexString(byte[] hash)
+        private static String ByteArrayToHexString(byte[] hash)
         {
             StringBuilder hex = new StringBuilder(hash.Length * 2);
             foreach (byte h in hash)

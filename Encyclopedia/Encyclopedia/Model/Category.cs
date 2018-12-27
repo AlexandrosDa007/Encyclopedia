@@ -11,8 +11,8 @@ namespace Encyclopedia.Model
         // constructor
         public Category(int id, string name)
         {
-            this.id = id;
-            this.name = name ?? throw new ArgumentNullException(nameof(name));
+            Id = id;
+            Name = name;
         }
 
         // setters and getters
@@ -36,8 +36,8 @@ namespace Encyclopedia.Model
             }
             set
             {
-                name = value;
-            }
+				name = value ?? throw new ArgumentNullException(nameof(name));
+			}
         }
 
         // overrided ToString

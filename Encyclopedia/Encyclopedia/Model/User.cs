@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 
 namespace Encyclopedia.Model
 {
@@ -19,63 +20,33 @@ namespace Encyclopedia.Model
         // default constructor
         public User(int id, string name, string surname, DateTime dateOfBirth, char gender, string tel, Role role, EducationLevel educationLevel, string description, Byte[] image)
         {
-            this.id = id;
-            if (name.Length > 40 || name.Length == 0)
-            {
-                throw new ArgumentOutOfRangeException(nameof(name));
-            }
-            else
-                this.name = name ?? throw new ArgumentNullException(nameof(name));
-            if (surname.Length > 50 || surname.Length == 0)
-            {
-                throw new ArgumentOutOfRangeException(nameof(surname));
-            }
-            else
-                this.surname = surname ?? throw new ArgumentNullException(nameof(surname));
-            this.dateOfBirth = dateOfBirth;
-            if (gender.Equals('M') || gender.Equals('F') || gender.Equals('-'))
-            {
-                this.gender = gender;
-            }
-            else
-                throw new ArgumentOutOfRangeException(nameof(gender));
-            this.tel = tel;
-            this.role = role;
-            this.educationLevel = educationLevel;
-            if (description.Length <= 250)
-            {
-                this.description = description;
-            }
-            else
-                throw new ArgumentOutOfRangeException(nameof(description));
-            this.image = image;
+			Id = id;
+			Name = name;
+			Surname = surname;
+			DateOfBirth = dateOfBirth;
+			Gender = gender;
+            Tel = tel;
+            Role = role;
+            EducationLevel = educationLevel;
+			Description = description;
+            Image = image;
         }
 
         // constructor with null values
         public User(int id, string name, string surname, DateTime dateOfBirth)
         {
-            this.id = id;
-            if (name.Length > 40)
-            {
-                throw new ArgumentOutOfRangeException(nameof(name));
-            }
-            else
-                this.name = name ?? throw new ArgumentNullException(nameof(name));
-            if (surname.Length > 50)
-            {
-                throw new ArgumentOutOfRangeException(nameof(surname));
-            }
-            else
-                this.surname = surname ?? throw new ArgumentNullException(nameof(surname));
-            this.dateOfBirth = dateOfBirth;
+            Id = id;
+			Name = name;
+			Surname = surname;
+            DateOfBirth = dateOfBirth;
 
             // optional fields set to null
-            this.gender = '-';
-            this.tel = "";
-            this.role = null;
-            this.educationLevel = null;
-            this.description = null;
-            this.image = null;
+            Gender = '-';
+            Tel = "";
+            Role = null;
+            EducationLevel = null;
+            Description = "";
+            Image = null;
         }
 
         // setters and getters
@@ -99,7 +70,12 @@ namespace Encyclopedia.Model
             }
             set
             {
-                name = value;
+				if (value.Length > 40 || value.Length == 0)
+				{
+					throw new ArgumentOutOfRangeException(nameof(name));
+				}
+				else
+					name = value ?? throw new ArgumentNullException(nameof(name));
             }
         }
 
@@ -111,7 +87,12 @@ namespace Encyclopedia.Model
             }
             set
             {
-                surname = value;
+				if (value.Length > 50 || value.Length == 0)
+				{
+					throw new ArgumentOutOfRangeException(nameof(surname));
+				}
+				else
+					surname = value ?? throw new ArgumentNullException(nameof(surname));
             }
         }
 
@@ -135,12 +116,12 @@ namespace Encyclopedia.Model
             }
             set
             {
-                if (value.Equals('M') || value.Equals('F'))
-                {
-                    gender = value;
-                }
-                else
-                    throw new ArgumentOutOfRangeException();
+				if (value.Equals('M') || value.Equals('F') || value.Equals('-'))
+				{
+					gender = value;
+				}
+				else
+					throw new ArgumentOutOfRangeException(nameof(gender));
             }
         }
 
@@ -152,7 +133,12 @@ namespace Encyclopedia.Model
             }
             set
             {
-                tel = value;
+				if (value.Length != 10 || !value.All(char.IsNumber))
+				{
+					tel = "__________";
+				}
+				else
+					tel = value ?? throw new ArgumentNullException(nameof(tel));
             }
         }
 
@@ -188,7 +174,12 @@ namespace Encyclopedia.Model
             }
             set
             {
-                description = value;
+				if (value.Length <= 250)
+				{
+					description = value;
+				}
+				else
+					throw new ArgumentOutOfRangeException(nameof(description));
             }
         }
 

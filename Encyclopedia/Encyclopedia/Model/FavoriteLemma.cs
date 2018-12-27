@@ -12,9 +12,9 @@ namespace Encyclopedia.Model
         // constructor
         public FavoriteLemma(Lemma lemma, User user, DateTime createdAt)
         {
-            this.lemma = lemma ?? throw new ArgumentNullException(nameof(lemma));
-            this.user = user ?? throw new ArgumentNullException(nameof(user));
-            this.createdAt = createdAt;
+            Lemma = lemma;
+            User = user;
+            CreatedAt = createdAt;
         }
 
         // setters and getters
@@ -26,8 +26,8 @@ namespace Encyclopedia.Model
             }
             set
             {
-                lemma = value;
-            }
+				lemma = value ?? throw new ArgumentNullException(nameof(lemma));
+			}
         }
 
         public User User
@@ -38,8 +38,8 @@ namespace Encyclopedia.Model
             }
             set
             {
-                user = value;
-            }
+				user = value ?? throw new ArgumentNullException(nameof(user));
+			}
         }
 
         public DateTime CreatedAt

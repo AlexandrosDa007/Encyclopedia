@@ -23,20 +23,20 @@ namespace Encyclopedia.Model
             else
                 throw new ArgumentException("The user cannot send lemmata to himself.");
 
-            this.lemma = lemma ?? throw new ArgumentNullException(nameof(lemma));
+            Lemma = lemma;
 
             if (ifEditedLemmaChar.Equals('0'))
             {
-                this.ifEditedLemma = false;
+                IfEditedLemma = false;
             }
             else if (ifEditedLemmaChar.Equals('1'))
             {
-                this.ifEditedLemma = true;
+                IfEditedLemma = true;
             }
             else
                 throw new ArgumentOutOfRangeException(nameof(ifEditedLemma));
-            this.sendingDate = sendingDate;
-            this.additionalNotes = additionalNotes ?? throw new ArgumentNullException(nameof(additionalNotes));
+            SendingDate = sendingDate;
+            AdditionalNotes = additionalNotes ?? throw new ArgumentNullException(nameof(additionalNotes));
         }
 
         // constructor with null values
@@ -50,19 +50,19 @@ namespace Encyclopedia.Model
             else
                 throw new ArgumentException("The user cannot send lemmata to himself.");
 
-            this.lemma = lemma ?? throw new ArgumentNullException(nameof(lemma));
+            Lemma = lemma;
 
             if (ifEditedLemmaChar.Equals('0'))
             {
-                this.ifEditedLemma = false;
+                IfEditedLemma = false;
             }
             else if (ifEditedLemmaChar.Equals('1'))
             {
-                this.ifEditedLemma = true;
+                IfEditedLemma = true;
             }
             else
                 throw new ArgumentOutOfRangeException(nameof(ifEditedLemma));
-            this.sendingDate = sendingDate;
+            SendingDate = sendingDate;
 
             this.additionalNotes = null;
         }
@@ -110,8 +110,8 @@ namespace Encyclopedia.Model
             }
             set
             {
-                lemma = value;
-            }
+                lemma = value ?? throw new ArgumentNullException(nameof(lemma));
+			}
         }
 
         public Boolean IfEditedLemma
@@ -146,7 +146,12 @@ namespace Encyclopedia.Model
             }
             set
             {
-                additionalNotes = value;
+				if (value.Length <= 250)
+				{
+					additionalNotes = value;
+				}
+				else
+					throw new ArgumentOutOfRangeException(nameof(additionalNotes));
             }
         }
 

@@ -151,7 +151,26 @@ namespace Encyclopedia.Controller
             return titleList;
         }
 
-        public static List<EducationLevel> FindEducationLevel(string educationLevelName)
+		public static List<int> GetCategoryIdByName(List<string> categoryNameList)
+		{
+			List<int> categoryIdList = new List<int>();
+			foreach (string name in categoryNameList)
+			{
+				string query = "SELECT category_id from Category WHERE category_name = '" + name + "'";
+				MySqlCommand cmd = new MySqlCommand(query, connection);
+				cmd.CommandTimeout = 500000;
+				MySqlDataReader dataReader = cmd.ExecuteReader();
+				while (dataReader.Read())
+				{
+					categoryIdList.Add(Convert.ToInt32(dataReader[0].ToString()));
+				}
+				dataReader.Close();
+			}
+			Console.WriteLine(categoryIdList.Count);
+			return categoryIdList;
+		}
+
+		public static List<EducationLevel> FindEducationLevel(string educationLevelName)
         {
             List<EducationLevel> educationLevelList = new List<EducationLevel>();
             // construct query
@@ -219,46 +238,6 @@ namespace Encyclopedia.Controller
             return roleList;
         }
 
-        public static List<int> GetCategoryIdByName(List<string> categoryNameList)
-        {
-            List<int> categoryIdList = new List<int>();
-            foreach (string name in categoryNameList)
-            {
-                string query = "SELECT category_id from Category WHERE category_name = '" + name + "'";
-                MySqlCommand cmd = new MySqlCommand(query, connection);
-                cmd.CommandTimeout = 500000;
-                MySqlDataReader dataReader = cmd.ExecuteReader();
-                while (dataReader.Read())
-                {
-                    categoryIdList.Add(Convert.ToInt32(dataReader[0].ToString()));
-                }
-                dataReader.Close();
-            }
-            Console.WriteLine(categoryIdList.Count);
-            return categoryIdList;
-        }
-
-        public static bool IsAccountUsernameUnique(string username)
-		{
-			bool isUnique = true;
-			// construct query
-			string selectQuery = "SELECT account_username FROM Account WHERE account_username = @username";
-			MySqlCommand cmd = new MySqlCommand(selectQuery, connection);
-			cmd.Parameters.AddWithValue("@username", username);
-			cmd.CommandTimeout = 500000;
-			// prepare and execute
-			cmd.Prepare();
-			MySqlDataReader dataReader = cmd.ExecuteReader();
-
-			while (dataReader.Read())
-			{
-				isUnique = false;
-			}
-
-			dataReader.Close();
-			return isUnique;
-		}
-
 		public static string[] GetRoles()
 		{
 			List<string> roleList = new List<string>();
@@ -279,6 +258,53 @@ namespace Encyclopedia.Controller
 			string[] roleArray = roleList.ToArray();
 			dataReader.Close();
 			return roleArray;
+		}
+
+		public static bool IsAccountUsernameUnique(string username)
+		{
+			bool isUnique = true;
+
+			// construct query
+			string selectQuery = "SELECT account_username FROM Account WHERE account_username = @username";
+			MySqlCommand cmd = new MySqlCommand(selectQuery, connection);
+			cmd.Parameters.AddWithValue("@username", username);
+			cmd.CommandTimeout = 500000;
+
+			// prepare and execute
+			cmd.Prepare();
+			MySqlDataReader dataReader = cmd.ExecuteReader();
+
+			while (dataReader.Read())
+			{
+				Console.WriteLine(dataReader["account_username"]);
+				isUnique = false;
+			}
+
+			dataReader.Close();
+			return isUnique;
+		}
+
+		public static bool IsAccountEmailUnique(string email)
+		{
+			bool isUnique = true;
+
+			// construct query
+			string selectQuery = "SELECT account_email FROM Account WHERE account_email = @email";
+			MySqlCommand cmd = new MySqlCommand(selectQuery, connection);
+			cmd.Parameters.AddWithValue("@email", email);
+			cmd.CommandTimeout = 500000;
+
+			// prepare and execute
+			cmd.Prepare();
+			MySqlDataReader dataReader = cmd.ExecuteReader();
+
+			while (dataReader.Read())
+			{
+				isUnique = false;
+			}
+
+			dataReader.Close();
+			return isUnique;
 		}
 
         public static int GetLemmaCategoryByTitle(string lemmaTitle)
@@ -428,7 +454,6 @@ namespace Encyclopedia.Controller
 			if (userId != -1)
 			{
 				account.User.Id = userId;
-				Console.WriteLine(account.User.Id);
 
 				// if rowsAffectedAccount equals to 1, then the insertion completed successfully
 				int rowsAffectedAccount = Insert(account);
@@ -454,38 +479,37 @@ namespace Encyclopedia.Controller
             string insertValues = "VALUES(@name, @surname, @dateOfBirth";
 
             // check if fields aren't null
-            if (!user.Gender.Equals("-"))
+            if (!user.Gender.Equals('-'))
             {
                 insertFields += ", user_gender";
                 insertValues += ", @gender";
             }
-            if (!user.Tel.Equals("__________") || !user.Tel.Equals(null))
-            {
+            if (!user.Tel.Equals("__________"))
+			{
                 insertFields += ", user_tel";
                 insertValues += ", @tel";
             }
-            if (!user.Role.Equals(null))
+            if (user.Role != null)
             {
                 insertFields += ", user_role_id";
                 insertValues += ", @roleId";
             }
-            if (!user.EducationLevel.Equals(null))
+            if (user.EducationLevel != null)
             {
                 insertFields += ", user_education_level_id";
-                insertValues += ", @educationLevel";
+                insertValues += ", @educationLevelId";
             }
-            if (!user.Description.Equals("") || !user.Description.Equals(null))
-            {
+            if (!user.Description.Length.Equals(0))
+			{
                 insertFields += ", user_description";
                 insertValues += ", @description";
             }
-            if (!user.Image.Equals(null))
+            if (user.Image != null)
             {
                 insertFields += ", user_image";
                 insertValues += ", @image";
             }
             string insertUser = insertFields + ") " + insertValues + ") ";
-			Console.WriteLine(insertUser);
 
 			MySqlCommand cmd = new MySqlCommand(insertUser, connection);
             cmd.CommandTimeout = 500000;
@@ -494,27 +518,27 @@ namespace Encyclopedia.Controller
             cmd.Parameters.AddWithValue("@name", user.Name);
             cmd.Parameters.AddWithValue("@surname", user.Surname);
             cmd.Parameters.AddWithValue("@dateOfBirth", user.DateOfBirth.Date);
-            if (!user.Gender.Equals("-"))
-            {
+            if (!user.Gender.Equals('-'))
+			{
                 cmd.Parameters.AddWithValue("@gender", user.Gender);
             }
-            if (!user.Tel.Equals("__________") || !user.Tel.Equals(null))
-            {
+            if (!user.Tel.Equals("__________"))
+			{
                 cmd.Parameters.AddWithValue("@tel", user.Tel);
             }
-            if (!user.Role.Equals(null))
+            if (user.Role != null)
             {
                 cmd.Parameters.AddWithValue("@roleId", user.Role.Id);
             }
-            if (!user.EducationLevel.Equals(null))
+            if (user.EducationLevel != null)
             {
-                cmd.Parameters.AddWithValue("@educationLevel", user.EducationLevel.Id);
+                cmd.Parameters.AddWithValue("@educationLevelId", user.EducationLevel.Id);
             }
-            if (!user.Description.Equals("") || !user.Description.Equals(null))
+            if (!user.Description.Length.Equals(0))
             {
                 cmd.Parameters.AddWithValue("@description", user.Description);
             }
-            if (!user.Image.Equals(null))
+            if (user.Image != null)
             {
                 cmd.Parameters.AddWithValue("@image", user.Image);
             }
@@ -528,7 +552,6 @@ namespace Encyclopedia.Controller
 			if (rowsAffected == 1)
 			{
 				lastInsertedUserId = (int)cmd.LastInsertedId;
-				Console.WriteLine(lastInsertedUserId);
 			}
 			
             return lastInsertedUserId; 
@@ -547,8 +570,8 @@ namespace Encyclopedia.Controller
 			// add values to the parameters
 			cmd.Parameters.AddWithValue("@id", account.User.Id);
 			cmd.Parameters.AddWithValue("@username", account.Username);
-			cmd.Parameters.AddWithValue("@saltedPasswordHash", account.Password); // will be replaced
-			cmd.Parameters.AddWithValue("@passwordSalt", account.Password);		  // will be replaced
+			cmd.Parameters.AddWithValue("@saltedPasswordHash", account.SaltedPasswordHash);
+			cmd.Parameters.AddWithValue("@passwordSalt", account.PasswordSalt);
 			cmd.Parameters.AddWithValue("@email", account.Email);
 			cmd.Parameters.AddWithValue("@createdAt", account.CreatedAt.Date);
 

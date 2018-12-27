@@ -57,13 +57,10 @@ namespace Encyclopedia.View
 			string passwordConfirmation = passwordConfirmTextBox.Text;
 			string email = emailTextBox.Text;
 
-			Console.WriteLine(name + "  " + surname + " !!!" + tel + "!!! " + email + "   " + username + "    " + password + "  " + passwordConfirmation + "    " + gender + "  " + dateOfBirth + " >>>" + educationLevelName + "<<<  >>>" + roleName + "<<<    " + description);
-
-
 			// call the method to validate the input and complete the registration process
 			// the exitCode must be equal to 0, otherwise something went wrong
-			// the error range is | from 10 to 19 related to the User | from 20 to 25 related to the Account | 2 and 3 related to Database problem
-            int exitCode = UserControls.RegisterUserAccount(name, surname, dateOfBirth, gender, tel, roleName, educationLevelName, description, imageData, username, password, passwordConfirmation, email);
+			// the error range is | from 10 to 19 related to the User | from 20 to 29 related to the Account | 2 and 3 related to Database problem
+            int exitCode = UserHandler.RegisterUserAccount(name, surname, dateOfBirth, gender, tel, roleName, educationLevelName, description, imageData, username, password, passwordConfirmation, email);
 
 			// show error messages if any
 			Console.WriteLine("The exit code was: " + exitCode);
@@ -82,7 +79,6 @@ namespace Encyclopedia.View
                 {
                     // check if the file size isn't bigger than 16 MB approx. (measured in bytes)
                     long imageLength = new FileInfo(openFileDialog1.FileName).Length;
-					Console.WriteLine(imageLength);
                     if (imageLength > 16250215)
                     {
                         throw new ArgumentOutOfRangeException(nameof(imageLength));
