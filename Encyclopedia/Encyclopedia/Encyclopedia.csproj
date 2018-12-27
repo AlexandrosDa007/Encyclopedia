@@ -112,11 +112,11 @@
     <Compile Include="Model\User.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="View\AfterLogin.cs">
-      <SubType>Form</SubType>
+    <Compile Include="View\AfterLoginUserControl.cs">
+      <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="View\AfterLogin.Designer.cs">
-      <DependentUpon>AfterLogin.cs</DependentUpon>
+    <Compile Include="View\AfterLoginUserControl.Designer.cs">
+      <DependentUpon>AfterLoginUserControl.cs</DependentUpon>
     </Compile>
     <Compile Include="View\EditedLemmataUserControl.cs">
       <SubType>UserControl</SubType>
@@ -176,8 +176,8 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="View\AfterLogin.resx">
-      <DependentUpon>AfterLogin.cs</DependentUpon>
+    <EmbeddedResource Include="View\AfterLoginUserControl.resx">
+      <DependentUpon>AfterLoginUserControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\EditedLemmataUserControl.resx">
       <DependentUpon>EditedLemmataUserControl.cs</DependentUpon>
