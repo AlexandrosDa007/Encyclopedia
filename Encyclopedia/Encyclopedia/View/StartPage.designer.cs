@@ -254,10 +254,11 @@
             // 
             this.minimizePictureBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.minimizePictureBox.Image = ((System.Drawing.Image)(resources.GetObject("minimizePictureBox.Image")));
-            this.minimizePictureBox.Location = new System.Drawing.Point(940, 10);
+            this.minimizePictureBox.Location = new System.Drawing.Point(936, 4);
             this.minimizePictureBox.Margin = new System.Windows.Forms.Padding(4);
             this.minimizePictureBox.Name = "minimizePictureBox";
-            this.minimizePictureBox.Size = new System.Drawing.Size(39, 28);
+            this.minimizePictureBox.Size = new System.Drawing.Size(43, 34);
+            this.minimizePictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.minimizePictureBox.TabIndex = 1;
             this.minimizePictureBox.TabStop = false;
             this.minimizePictureBox.Click += new System.EventHandler(this.minimizePictureBox_Click);
@@ -266,10 +267,11 @@
             // 
             this.closePictureBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.closePictureBox.Image = ((System.Drawing.Image)(resources.GetObject("closePictureBox.Image")));
-            this.closePictureBox.Location = new System.Drawing.Point(987, 10);
+            this.closePictureBox.Location = new System.Drawing.Point(987, 4);
             this.closePictureBox.Margin = new System.Windows.Forms.Padding(4);
             this.closePictureBox.Name = "closePictureBox";
-            this.closePictureBox.Size = new System.Drawing.Size(45, 28);
+            this.closePictureBox.Size = new System.Drawing.Size(46, 34);
+            this.closePictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.closePictureBox.TabIndex = 0;
             this.closePictureBox.TabStop = false;
             this.closePictureBox.Click += new System.EventHandler(this.closePictureBox_Click);

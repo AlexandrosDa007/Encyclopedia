@@ -43,5 +43,7 @@ namespace Encyclopedia.View
             //change the web browser to display the lemma_body from the title given
             LemmaViewWebBrowser.DocumentText = Encoding.UTF8.GetString(DBConnect.GetLemmaBodyByTitle(title));
         }
+
+        
     }
 }
