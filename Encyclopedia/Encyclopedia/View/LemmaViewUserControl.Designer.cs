@@ -40,16 +40,17 @@
             this.LemmaViewWebBrowser.Margin = new System.Windows.Forms.Padding(4);
             this.LemmaViewWebBrowser.MinimumSize = new System.Drawing.Size(27, 25);
             this.LemmaViewWebBrowser.Name = "LemmaViewWebBrowser";
-            this.LemmaViewWebBrowser.Size = new System.Drawing.Size(954, 448);
+            this.LemmaViewWebBrowser.Size = new System.Drawing.Size(945, 445);
             this.LemmaViewWebBrowser.TabIndex = 23;
             // 
             // LemmaViewUserControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.Gainsboro;
             this.Controls.Add(this.LemmaViewWebBrowser);
             this.Name = "LemmaViewUserControl";
-            this.Size = new System.Drawing.Size(1045, 501);
+            this.Size = new System.Drawing.Size(1036, 498);
             this.ResumeLayout(false);
 
         }

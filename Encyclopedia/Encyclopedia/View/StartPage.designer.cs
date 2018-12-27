@@ -148,7 +148,7 @@
             this.newUserLinkLabel.AutoSize = true;
             this.newUserLinkLabel.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
             this.newUserLinkLabel.LinkColor = System.Drawing.Color.White;
-            this.newUserLinkLabel.Location = new System.Drawing.Point(113, 336);
+            this.newUserLinkLabel.Location = new System.Drawing.Point(117, 336);
             this.newUserLinkLabel.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.newUserLinkLabel.Name = "newUserLinkLabel";
             this.newUserLinkLabel.Size = new System.Drawing.Size(71, 19);
@@ -156,6 +156,7 @@
             this.newUserLinkLabel.TabStop = true;
             this.newUserLinkLabel.Text = "New user";
             this.newUserLinkLabel.VisitedLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.newUserLinkLabel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.newUserLinkLabel_LinkClicked);
             // 
             // forgotPasswordLinkLabel
             // 
@@ -357,10 +358,10 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.mainPanel.AutoScroll = true;
-            this.mainPanel.Location = new System.Drawing.Point(-4, 306);
+            this.mainPanel.Location = new System.Drawing.Point(0, 306);
             this.mainPanel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.mainPanel.Name = "mainPanel";
-            this.mainPanel.Size = new System.Drawing.Size(1036, 498);
+            this.mainPanel.Size = new System.Drawing.Size(1032, 498);
             this.mainPanel.TabIndex = 12;
             // 
             // dateFilterLabel

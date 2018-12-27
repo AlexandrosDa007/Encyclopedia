@@ -30,13 +30,13 @@
         {
             this.searchContactsTextBox = new System.Windows.Forms.TextBox();
             this.searchContactsButton = new System.Windows.Forms.Button();
-            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.contactsTabControl = new System.Windows.Forms.TabControl();
             this.contactsTabPage = new System.Windows.Forms.TabPage();
-            this.listView1 = new System.Windows.Forms.ListView();
+            this.contactsListView = new System.Windows.Forms.ListView();
             this.groupTabPage = new System.Windows.Forms.TabPage();
-            this.listView2 = new System.Windows.Forms.ListView();
+            this.groupListView = new System.Windows.Forms.ListView();
             this.createGroupButton = new System.Windows.Forms.Button();
-            this.tabControl1.SuspendLayout();
+            this.contactsTabControl.SuspendLayout();
             this.contactsTabPage.SuspendLayout();
             this.groupTabPage.SuspendLayout();
             this.SuspendLayout();
@@ -51,9 +51,9 @@
             this.searchContactsTextBox.Location = new System.Drawing.Point(41, 48);
             this.searchContactsTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.searchContactsTextBox.Name = "searchContactsTextBox";
-            this.searchContactsTextBox.Size = new System.Drawing.Size(280, 36);
+            this.searchContactsTextBox.Size = new System.Drawing.Size(417, 36);
             this.searchContactsTextBox.TabIndex = 18;
-            this.searchContactsTextBox.Text = "Search contacts";
+            this.searchContactsTextBox.Text = "Search contacts/groups";
             this.searchContactsTextBox.UseWaitCursor = true;
             // 
             // searchContactsButton
@@ -62,7 +62,7 @@
             this.searchContactsButton.AutoSize = true;
             this.searchContactsButton.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
             this.searchContactsButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(53)))), ((int)(((byte)(65)))));
-            this.searchContactsButton.Location = new System.Drawing.Point(319, 47);
+            this.searchContactsButton.Location = new System.Drawing.Point(457, 48);
             this.searchContactsButton.Margin = new System.Windows.Forms.Padding(5);
             this.searchContactsButton.Name = "searchContactsButton";
             this.searchContactsButton.Size = new System.Drawing.Size(147, 37);
@@ -70,20 +70,20 @@
             this.searchContactsButton.Text = "Search";
             this.searchContactsButton.UseVisualStyleBackColor = true;
             // 
-            // tabControl1
+            // contactsTabControl
             // 
-            this.tabControl1.Controls.Add(this.contactsTabPage);
-            this.tabControl1.Controls.Add(this.groupTabPage);
-            this.tabControl1.Font = new System.Drawing.Font("Century Gothic", 10.8F);
-            this.tabControl1.Location = new System.Drawing.Point(41, 108);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(977, 358);
-            this.tabControl1.TabIndex = 19;
+            this.contactsTabControl.Controls.Add(this.contactsTabPage);
+            this.contactsTabControl.Controls.Add(this.groupTabPage);
+            this.contactsTabControl.Font = new System.Drawing.Font("Century Gothic", 10.8F);
+            this.contactsTabControl.Location = new System.Drawing.Point(41, 108);
+            this.contactsTabControl.Name = "contactsTabControl";
+            this.contactsTabControl.SelectedIndex = 0;
+            this.contactsTabControl.Size = new System.Drawing.Size(977, 358);
+            this.contactsTabControl.TabIndex = 19;
             // 
             // contactsTabPage
             // 
-            this.contactsTabPage.Controls.Add(this.listView1);
+            this.contactsTabPage.Controls.Add(this.contactsListView);
             this.contactsTabPage.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
             this.contactsTabPage.Location = new System.Drawing.Point(4, 30);
             this.contactsTabPage.Name = "contactsTabPage";
@@ -93,17 +93,17 @@
             this.contactsTabPage.Text = "Contacts";
             this.contactsTabPage.UseVisualStyleBackColor = true;
             // 
-            // listView1
+            // contactsListView
             // 
-            this.listView1.Location = new System.Drawing.Point(6, 3);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(957, 315);
-            this.listView1.TabIndex = 0;
-            this.listView1.UseCompatibleStateImageBehavior = false;
+            this.contactsListView.Location = new System.Drawing.Point(6, 3);
+            this.contactsListView.Name = "contactsListView";
+            this.contactsListView.Size = new System.Drawing.Size(957, 315);
+            this.contactsListView.TabIndex = 0;
+            this.contactsListView.UseCompatibleStateImageBehavior = false;
             // 
             // groupTabPage
             // 
-            this.groupTabPage.Controls.Add(this.listView2);
+            this.groupTabPage.Controls.Add(this.groupListView);
             this.groupTabPage.Controls.Add(this.createGroupButton);
             this.groupTabPage.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
             this.groupTabPage.Location = new System.Drawing.Point(4, 30);
@@ -114,13 +114,13 @@
             this.groupTabPage.Text = "Groups";
             this.groupTabPage.UseVisualStyleBackColor = true;
             // 
-            // listView2
+            // groupListView
             // 
-            this.listView2.Location = new System.Drawing.Point(6, 52);
-            this.listView2.Name = "listView2";
-            this.listView2.Size = new System.Drawing.Size(957, 269);
-            this.listView2.TabIndex = 19;
-            this.listView2.UseCompatibleStateImageBehavior = false;
+            this.groupListView.Location = new System.Drawing.Point(6, 52);
+            this.groupListView.Name = "groupListView";
+            this.groupListView.Size = new System.Drawing.Size(957, 269);
+            this.groupListView.TabIndex = 19;
+            this.groupListView.UseCompatibleStateImageBehavior = false;
             // 
             // createGroupButton
             // 
@@ -140,12 +140,13 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.tabControl1);
+            this.BackColor = System.Drawing.Color.Gainsboro;
+            this.Controls.Add(this.contactsTabControl);
             this.Controls.Add(this.searchContactsTextBox);
             this.Controls.Add(this.searchContactsButton);
             this.Name = "ContactsUserControl";
             this.Size = new System.Drawing.Size(1036, 498);
-            this.tabControl1.ResumeLayout(false);
+            this.contactsTabControl.ResumeLayout(false);
             this.contactsTabPage.ResumeLayout(false);
             this.groupTabPage.ResumeLayout(false);
             this.groupTabPage.PerformLayout();
@@ -158,11 +159,11 @@
 
         private System.Windows.Forms.TextBox searchContactsTextBox;
         private System.Windows.Forms.Button searchContactsButton;
-        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabControl contactsTabControl;
         private System.Windows.Forms.TabPage contactsTabPage;
         private System.Windows.Forms.TabPage groupTabPage;
         private System.Windows.Forms.Button createGroupButton;
-        private System.Windows.Forms.ListView listView1;
-        private System.Windows.Forms.ListView listView2;
+        private System.Windows.Forms.ListView contactsListView;
+        private System.Windows.Forms.ListView groupListView;
     }
 }

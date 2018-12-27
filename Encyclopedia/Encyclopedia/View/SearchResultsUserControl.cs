@@ -35,7 +35,7 @@ namespace Encyclopedia.View
         public void AddToTheResults(string text, List<string> checkedFilters)
         {
             //clear the list
-            listView1.Items.Clear();
+            searchResultsListView.Items.Clear();
             //make the search in the indexed file
             List<Document> list = Search.DoSearch(text);
             if (list == null)
@@ -49,7 +49,7 @@ namespace Encyclopedia.View
                 {
                     Label l = new Label();
                     //add a new label with the value of titles matching the search text
-                    listView1.Items.Add(doc.GetField("lemma_title").StringValue);
+                    searchResultsListView.Items.Add(doc.GetField("lemma_title").StringValue);
                 }
             }
             else
@@ -77,7 +77,7 @@ namespace Encyclopedia.View
                 {
                     Label l = new Label();
                     //add a new label with the value of titles matching the search text
-                    listView1.Items.Add(doc.GetField("lemma_title").StringValue);
+                    searchResultsListView.Items.Add(doc.GetField("lemma_title").StringValue);
                 }
             }
 
@@ -87,7 +87,7 @@ namespace Encyclopedia.View
         private void listView1_MouseDoubleClick(object sender, MouseEventArgs e)
         {
             //Get the selected item's text
-            string toSearch = listView1.SelectedItems[0].Text;
+            string toSearch = searchResultsListView.SelectedItems[0].Text;
             /*
             if (!StartPage.mainPanel.Controls.Contains(Encyclopedia.View.LemmaViewUserControl.Instance))
             {

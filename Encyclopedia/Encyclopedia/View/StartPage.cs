@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Encyclopedia.View;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -158,7 +159,10 @@ namespace UI
             filterList.Clear();
         }
 
-
-
+        private void newUserLinkLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            RegisterForm registerForm = new RegisterForm();
+            registerForm.ShowDialog();
+        }
     }
 }

@@ -37,7 +37,7 @@
             // 
             this.monthCalendar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.monthCalendar.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-            this.monthCalendar.Location = new System.Drawing.Point(836, 116);
+            this.monthCalendar.Location = new System.Drawing.Point(740, 116);
             this.monthCalendar.Margin = new System.Windows.Forms.Padding(12, 11, 12, 11);
             this.monthCalendar.Name = "monthCalendar";
             this.monthCalendar.TabIndex = 20;
@@ -64,7 +64,7 @@
             this.lemmaOfTheDayWebBrowser.Margin = new System.Windows.Forms.Padding(4);
             this.lemmaOfTheDayWebBrowser.MinimumSize = new System.Drawing.Size(27, 25);
             this.lemmaOfTheDayWebBrowser.Name = "lemmaOfTheDayWebBrowser";
-            this.lemmaOfTheDayWebBrowser.Size = new System.Drawing.Size(797, 421);
+            this.lemmaOfTheDayWebBrowser.Size = new System.Drawing.Size(701, 391);
             this.lemmaOfTheDayWebBrowser.TabIndex = 21;
             // 
             // LemmaOfTheDayUserControl
@@ -77,7 +77,7 @@
             this.Controls.Add(this.lemmaOfTheDayLabel);
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "LemmaOfTheDayUserControl";
-            this.Size = new System.Drawing.Size(1132, 528);
+            this.Size = new System.Drawing.Size(1036, 498);
             this.ResumeLayout(false);
             this.PerformLayout();
 
