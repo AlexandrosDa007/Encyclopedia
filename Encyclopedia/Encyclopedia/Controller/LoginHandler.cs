@@ -6,8 +6,8 @@ namespace Encyclopedia.Controller
 {
     class LoginHandler
     {
-        private String username;
-        private String password;
+        public String username { set; get; }
+        public String password { set; get; }
 
         public LoginHandler(String username, String password)
         {
@@ -17,9 +17,8 @@ namespace Encyclopedia.Controller
 
         public bool ValidateAccount()
         {
-            String salt = CreateSalt(10);
+            String salt = DBConnect.GetSaltByUsername(username);
             String hashedpassword = GenerateSHA256Hash(password, salt);
-
             //check in database if true then account exits otherwise false
             return DBConnect.Validation(username, hashedpassword);
         }

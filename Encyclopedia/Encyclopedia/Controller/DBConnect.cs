@@ -68,7 +68,7 @@ namespace Encyclopedia.Controller
 
         public static bool Validation(String username, String password)
         {
-            string query = "SELECT username,password FROM Account WHERE username='"+username+"' AND password='"+password+"'";
+            string query = "SELECT account_username,account_salted_password_hash FROM Account WHERE account_username='"+username+ "' AND account_salted_password_hash='" + password+"'";
             MySqlCommand cmd = new MySqlCommand(query, connection);
             MySqlDataReader dataReader = cmd.ExecuteReader();
             int i = 0;
@@ -369,6 +369,26 @@ namespace Encyclopedia.Controller
 
 
         //insert
+        public static string GetSaltByUsername(string username)
+        {
+            string salt = "";
+            string selectQuery = "SELECT account_password_salt FROM Account WHERE account_username = @user";
+            MySqlCommand cmd = new MySqlCommand(selectQuery, connection);
+            cmd.CommandTimeout = 500000;
+            cmd.Parameters.AddWithValue("@user", username);
+            cmd.Prepare();
+            MySqlDataReader dataReader = cmd.ExecuteReader();
+
+            while (dataReader.Read())
+            {
+                salt = dataReader[0].ToString();
+            }
+            dataReader.Close();
+
+            return salt;
+        }
+
+		//insert
 
         public static int Insert(Category category)
         {
