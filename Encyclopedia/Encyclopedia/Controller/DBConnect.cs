@@ -281,9 +281,70 @@ namespace Encyclopedia.Controller
 			return roleArray;
 		}
 
-		//insert
+        public static int GetLemmaCategoryByTitle(string lemmaTitle)
+        {
+            int lemmaCategory=-1;
+            string query = "SELECT category_id FROM Lemma WHERE lemma_title = '" + lemmaTitle + "'";
+            MySqlCommand cmd = new MySqlCommand(query, connection);
+            MySqlDataReader dataReader = cmd.ExecuteReader();
+            while (dataReader.Read())
+            {
+                lemmaCategory = dataReader.GetInt32("category_id");
+            }
 
-		public static int Insert(Category category)
+            dataReader.Close();
+            return lemmaCategory;
+        }
+
+        public static string GetUserNameByID(int userID)
+        {
+            string userName = "";
+            string query = "SELECT user_name FROM User WHERE user_id='" + userID +"'";
+            MySqlCommand cmd = new MySqlCommand(query, connection);
+            MySqlDataReader dataReader = cmd.ExecuteReader();
+            while (dataReader.Read())
+            {
+                userName = dataReader.GetString("user_name");
+            }
+
+            dataReader.Close();
+            return userName;
+        }
+
+        public static string GetUserSurnameByID(int userID)
+        {
+            string userSurname = "";
+            string query = "SELECT user_surname FROM User WHERE user_id='" + userID + "'";
+            MySqlCommand cmd = new MySqlCommand(query, connection);
+            MySqlDataReader dataReader = cmd.ExecuteReader();
+            while (dataReader.Read())
+            {
+                userSurname = dataReader.GetString("user_surname");
+            }
+
+            dataReader.Close();
+            return userSurname;
+        }
+
+        public static DateTime GetUserDateOfBirthByID(int userID)
+        {
+            DateTime userDateOfBirth = new DateTime();
+            string query = "SELECT user_date_of_birth FROM User WHERE user_id='" + userID + "'";
+            MySqlCommand cmd = new MySqlCommand(query, connection);
+            MySqlDataReader dataReader = cmd.ExecuteReader();
+            while (dataReader.Read())
+            {
+                userDateOfBirth = dataReader.GetDateTime("user_date_of_birth");
+            }
+
+            dataReader.Close();
+            return userDateOfBirth;
+        }
+
+
+        //insert
+
+        public static int Insert(Category category)
         {
             //code to insert new category
             return 1;
@@ -315,8 +376,31 @@ namespace Encyclopedia.Controller
 
         public static int Insert(FavoriteLemma favoriteLemma)
         {
-            //code to insert favoriteLemma
-            return 1;
+            //Get object properties into local variables
+            Lemma lemma = favoriteLemma.Lemma;
+            User user = favoriteLemma.User;
+            DateTime createdAt = favoriteLemma.CreatedAt;
+
+            string lemmaTitle = lemma.Title;
+            int userID = user.Id;
+
+            //Create prepared statement string
+            string insertFavoriteLemma = "INSERT INTO " +
+                "Favorite_Lemma (lemma_title,user_id,favorite_lemma_created_at) " +
+                "VALUES(@title, @userID, @createdAt) ";
+
+            MySqlCommand cmd = new MySqlCommand(insertFavoriteLemma, connection);
+            cmd.CommandTimeout = 500000;
+            // add values to the parameters
+            cmd.Parameters.AddWithValue("@title", lemmaTitle);
+            cmd.Parameters.AddWithValue("@userID", userID);
+            cmd.Parameters.AddWithValue("@createdAt", createdAt);
+
+            // prepare and execute
+            cmd.Prepare();
+            int rowsAffected = cmd.ExecuteNonQuery();
+
+            return rowsAffected; // if rowsAffected equals to 1, then the insertion completed successfully
         }
 
         public static int Insert(Lemma lemma)
