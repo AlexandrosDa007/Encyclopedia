@@ -12,6 +12,20 @@ namespace Encyclopedia.View
 {
     public partial class ContactsUserControl : UserControl
     {
+        private static ContactsUserControl _instance;
+
+
+        public static ContactsUserControl Instance
+        {
+            get
+            {
+
+                if (_instance == null)
+                    _instance = new ContactsUserControl();
+                return _instance;
+
+            }
+        }
         public ContactsUserControl()
         {
             InitializeComponent();
