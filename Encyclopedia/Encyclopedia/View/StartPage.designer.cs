@@ -81,7 +81,7 @@
             this.leftPanel.Controls.Add(this.usernameLabel);
             this.leftPanel.Dock = System.Windows.Forms.DockStyle.Left;
             this.leftPanel.Location = new System.Drawing.Point(0, 0);
-            this.leftPanel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.leftPanel.Margin = new System.Windows.Forms.Padding(4);
             this.leftPanel.Name = "leftPanel";
             this.leftPanel.Size = new System.Drawing.Size(324, 805);
             this.leftPanel.TabIndex = 0;
@@ -114,7 +114,7 @@
             this.logoPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.logoPanel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(126)))), ((int)(((byte)(49)))));
             this.logoPanel.Location = new System.Drawing.Point(0, 0);
-            this.logoPanel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.logoPanel.Margin = new System.Windows.Forms.Padding(4);
             this.logoPanel.Name = "logoPanel";
             this.logoPanel.Size = new System.Drawing.Size(324, 75);
             this.logoPanel.TabIndex = 0;
@@ -123,7 +123,7 @@
             // 
             this.logoPictureBox.Image = ((System.Drawing.Image)(resources.GetObject("logoPictureBox.Image")));
             this.logoPictureBox.Location = new System.Drawing.Point(41, 22);
-            this.logoPictureBox.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.logoPictureBox.Margin = new System.Windows.Forms.Padding(5);
             this.logoPictureBox.Name = "logoPictureBox";
             this.logoPictureBox.Size = new System.Drawing.Size(44, 42);
             this.logoPictureBox.TabIndex = 2;
@@ -175,7 +175,7 @@
             // usernameTextBox
             // 
             this.usernameTextBox.Location = new System.Drawing.Point(117, 151);
-            this.usernameTextBox.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.usernameTextBox.Margin = new System.Windows.Forms.Padding(5);
             this.usernameTextBox.Name = "usernameTextBox";
             this.usernameTextBox.Size = new System.Drawing.Size(184, 22);
             this.usernameTextBox.TabIndex = 12;
@@ -185,7 +185,7 @@
             this.loginButton.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
             this.loginButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(53)))), ((int)(((byte)(65)))));
             this.loginButton.Location = new System.Drawing.Point(88, 286);
-            this.loginButton.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.loginButton.Margin = new System.Windows.Forms.Padding(5);
             this.loginButton.Name = "loginButton";
             this.loginButton.Size = new System.Drawing.Size(133, 34);
             this.loginButton.TabIndex = 14;
@@ -207,7 +207,7 @@
             // passwordTextBox
             // 
             this.passwordTextBox.Location = new System.Drawing.Point(117, 202);
-            this.passwordTextBox.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.passwordTextBox.Margin = new System.Windows.Forms.Padding(5);
             this.passwordTextBox.Name = "passwordTextBox";
             this.passwordTextBox.PasswordChar = '•';
             this.passwordTextBox.Size = new System.Drawing.Size(184, 22);
@@ -244,7 +244,7 @@
             this.topPanel.Controls.Add(this.pictureBox1);
             this.topPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.topPanel.Location = new System.Drawing.Point(0, 0);
-            this.topPanel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.topPanel.Margin = new System.Windows.Forms.Padding(4);
             this.topPanel.Name = "topPanel";
             this.topPanel.Size = new System.Drawing.Size(1037, 42);
             this.topPanel.TabIndex = 1;
@@ -254,7 +254,7 @@
             this.pictureBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
             this.pictureBox2.Location = new System.Drawing.Point(940, 10);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(39, 28);
             this.pictureBox2.TabIndex = 1;
@@ -265,7 +265,7 @@
             this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(987, 10);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(45, 28);
             this.pictureBox1.TabIndex = 0;
@@ -278,7 +278,7 @@
             this.recentButton.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
             this.recentButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(53)))), ((int)(((byte)(65)))));
             this.recentButton.Location = new System.Drawing.Point(589, 50);
-            this.recentButton.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.recentButton.Margin = new System.Windows.Forms.Padding(5);
             this.recentButton.Name = "recentButton";
             this.recentButton.Size = new System.Drawing.Size(249, 37);
             this.recentButton.TabIndex = 10;
@@ -293,7 +293,7 @@
             this.popularButton.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
             this.popularButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(53)))), ((int)(((byte)(65)))));
             this.popularButton.Location = new System.Drawing.Point(253, 50);
-            this.popularButton.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.popularButton.Margin = new System.Windows.Forms.Padding(5);
             this.popularButton.Name = "popularButton";
             this.popularButton.Size = new System.Drawing.Size(241, 37);
             this.popularButton.TabIndex = 9;
@@ -317,7 +317,7 @@
             this.searchPanel.Controls.Add(this.filtersLabel);
             this.searchPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.searchPanel.Location = new System.Drawing.Point(324, 0);
-            this.searchPanel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.searchPanel.Margin = new System.Windows.Forms.Padding(4);
             this.searchPanel.Name = "searchPanel";
             this.searchPanel.Size = new System.Drawing.Size(1037, 805);
             this.searchPanel.TabIndex = 2;
@@ -326,7 +326,7 @@
             // 
             this.searchTextBox.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.searchTextBox.BackColor = System.Drawing.Color.Silver;
-            this.searchTextBox.Cursor = System.Windows.Forms.Cursors.WaitCursor;
+            this.searchTextBox.Cursor = System.Windows.Forms.Cursors.Default;
             this.searchTextBox.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
             this.searchTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(126)))), ((int)(((byte)(49)))));
             this.searchTextBox.Location = new System.Drawing.Point(253, 114);
@@ -335,7 +335,6 @@
             this.searchTextBox.Size = new System.Drawing.Size(439, 36);
             this.searchTextBox.TabIndex = 16;
             this.searchTextBox.Text = "Search";
-            this.searchTextBox.UseWaitCursor = true;
             // 
             // searchButton
             // 
@@ -344,7 +343,7 @@
             this.searchButton.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
             this.searchButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(53)))), ((int)(((byte)(65)))));
             this.searchButton.Location = new System.Drawing.Point(691, 114);
-            this.searchButton.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.searchButton.Margin = new System.Windows.Forms.Padding(5);
             this.searchButton.Name = "searchButton";
             this.searchButton.Size = new System.Drawing.Size(147, 37);
             this.searchButton.TabIndex = 15;
@@ -382,7 +381,7 @@
             this.dateTimePicker.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.dateTimePicker.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
             this.dateTimePicker.Location = new System.Drawing.Point(433, 276);
-            this.dateTimePicker.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dateTimePicker.Margin = new System.Windows.Forms.Padding(4);
             this.dateTimePicker.Name = "dateTimePicker";
             this.dateTimePicker.Size = new System.Drawing.Size(279, 24);
             this.dateTimePicker.TabIndex = 6;
@@ -423,7 +422,7 @@
             "Universe",
             "World"});
             this.filterCheckedListBox.Location = new System.Drawing.Point(433, 180);
-            this.filterCheckedListBox.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.filterCheckedListBox.Margin = new System.Windows.Forms.Padding(5);
             this.filterCheckedListBox.Name = "filterCheckedListBox";
             this.filterCheckedListBox.Size = new System.Drawing.Size(279, 88);
             this.filterCheckedListBox.TabIndex = 4;
@@ -450,7 +449,7 @@
             this.Controls.Add(this.searchPanel);
             this.Controls.Add(this.leftPanel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "StartPage";
             this.Text = "Encyclopedia";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
