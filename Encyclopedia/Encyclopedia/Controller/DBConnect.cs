@@ -367,6 +367,20 @@ namespace Encyclopedia.Controller
             return userDateOfBirth;
         }
 
+        public static String getRandomLemmaTitle()
+        {
+            string randomLemmaTitle = "";
+            string query = "SELECT lemma_title FROM Lemma ORDER BY RAND() LIMIT 1";
+            MySqlCommand cmd = new MySqlCommand(query, connection);
+            MySqlDataReader dataReader = cmd.ExecuteReader();
+            while (dataReader.Read())
+            {
+                randomLemmaTitle = dataReader.GetString("lemma_title");
+            }
+
+            dataReader.Close();
+            return randomLemmaTitle;
+        }
 
         //insert
         public static string GetSaltByUsername(string username)
