@@ -41,8 +41,8 @@ namespace Encyclopedia.View
             string roleName = roleCB.GetItemText(roleCB.SelectedItem);
 			string educationLevelName = educationLevelCB.GetItemText(educationLevelCB.SelectedItem);
             string description = descriptionRTB.Text;
-            // convert the image into a Byte array
-            Byte[] imageData = null;
+			// convert the image into a Byte array
+			byte[] imageData = null;
             if (imagePathTB.Text.Length > 0)
             {
                 string filePath = imagePathTB.Text;
@@ -59,7 +59,7 @@ namespace Encyclopedia.View
 
 			// call the method to validate the input and complete the registration process
 			// the exitCode must be equal to 0, otherwise something went wrong
-			// the error range is | from 10 to 19 related to the User | from 20 to 29 related to the Account | 2 and 3 related to Database problem
+			// the error range is | from 10 to 16 related to the User | from 20 to 27 related to the Account | 2 and 3 related to Database problem
             int exitCode = UserHandler.RegisterUserAccount(name, surname, dateOfBirth, gender, tel, roleName, educationLevelName, description, imageData, username, password, passwordConfirmation, email);
 
 			// show error messages if any

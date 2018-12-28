@@ -68,7 +68,7 @@ namespace Encyclopedia.Controller
 
         public static bool Validation(String username, String password)
         {
-            string query = "SELECT username,password FROM Account WHERE username='"+username+"' AND password='"+password+"'";
+            string query = "SELECT account_username,account_salted_password_hash FROM Account WHERE account_username='"+username+ "' AND account_salted_password_hash='" + password+"'";
             MySqlCommand cmd = new MySqlCommand(query, connection);
             MySqlDataReader dataReader = cmd.ExecuteReader();
             int i = 0;
@@ -367,8 +367,42 @@ namespace Encyclopedia.Controller
             return userDateOfBirth;
         }
 
+        public static String getRandomLemmaTitle()
+        {
+            string randomLemmaTitle = "";
+            string query = "SELECT lemma_title FROM Lemma ORDER BY RAND() LIMIT 1";
+            MySqlCommand cmd = new MySqlCommand(query, connection);
+            MySqlDataReader dataReader = cmd.ExecuteReader();
+            while (dataReader.Read())
+            {
+                randomLemmaTitle = dataReader.GetString("lemma_title");
+            }
+
+            dataReader.Close();
+            return randomLemmaTitle;
+        }
 
         //insert
+        public static string GetSaltByUsername(string username)
+        {
+            string salt = "";
+            string selectQuery = "SELECT account_password_salt FROM Account WHERE account_username = @user";
+            MySqlCommand cmd = new MySqlCommand(selectQuery, connection);
+            cmd.CommandTimeout = 500000;
+            cmd.Parameters.AddWithValue("@user", username);
+            cmd.Prepare();
+            MySqlDataReader dataReader = cmd.ExecuteReader();
+
+            while (dataReader.Read())
+            {
+                salt = dataReader[0].ToString();
+            }
+            dataReader.Close();
+
+            return salt;
+        }
+
+		//insert
 
         public static int Insert(Category category)
         {
@@ -459,12 +493,12 @@ namespace Encyclopedia.Controller
 				int rowsAffectedAccount = Insert(account);
 				if (rowsAffectedAccount != 1)
 				{
-					return 2;
+					return 3;
 				}
 			}
 			else
 			{
-				return 1;
+				return 2;
 			}
 
 			// if the method doesn't return 0, something went wrong with the database

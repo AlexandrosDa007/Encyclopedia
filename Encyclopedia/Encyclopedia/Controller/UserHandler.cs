@@ -14,62 +14,23 @@ namespace Encyclopedia.Controller
         {
 			// check the input regarding the User
 			// check if an education level was selected and if it was, find and construct an EducationLevel object
-			EducationLevel educationLevel = null;
-			if (!educationLevelName.Equals(""))
-			{
-				List<EducationLevel> educationLevelList = DBConnect.FindEducationLevel(educationLevelName);
-				if (!(educationLevelList.Count() == 1))
-				{
-					// either there are more than one Education Levels with the same name or there isn't any at all
-					return 10;
-				}
-				educationLevel = educationLevelList.ElementAt(0);
-			}
+			EducationLevel educationLevel = FindEducationLevel(educationLevelName);
 
 			// check if a role was selected and if it was, find and construct a Role object
-			Role role = null;
-			if (!roleName.Equals(""))
-			{
-				List<Role> roleList = DBConnect.FindRole(roleName);
-				if (!(roleList.Count() == 1))
-				{
-					// either there are more than one Roles with the same name or there isn't any at all
-					return 11;
-				}
-				role = roleList.ElementAt(0);
-			}
+			Role role = FindRole(roleName);
 
 			// validate the remaining fields regarding the User
-			User user = null;
-			try
-            {
-                user = new User(-1, name, surname, dateOfBirth, gender, tel, role, educationLevel, description, image);
-            }
-            catch (ArgumentException ex)
-            {
-				// some of the User parameters wasn't valid, check the User constructor
-				switch (ex.ParamName)
-				{
-					case "name":
-						return 12;
-					case "surname":
-						return 13;
-					case "dateOfBirth":
-						return 14;
-					case "gender":
-						return 15;
-					case "tel":
-						return 16;
-					case "description":
-						return 17;
-					case "image":
-						return 18;
-				}
-            }
+			Dictionary<string, Object> userDict = VerifyUser(name, surname, dateOfBirth, gender, tel, role, educationLevel, description, image);
 
-			// if the User is valid
-			if (user != null)
+			if (!userDict["exitCode"].Equals("0"))
 			{
+				return Convert.ToInt32(userDict["exitCode"]);
+			}
+			else
+			{
+				// the User is valid
+				User user = (User)userDict["user"];
+
 				// check the input regarding the Account
 				// check if the email inserted is unique
 				if (!DBConnect.IsAccountEmailUnique(email))
@@ -82,101 +43,191 @@ namespace Encyclopedia.Controller
 				{
 					return 21;
 				}
-				
-				string passwordSalt = null;
-				string saltedPasswordHash = null;
-				// check if the password and the password confirmation are the same
-				if (!password.Equals(passwordConfirmation))
+
+				// check if password is valid and if it does construct the salt and the salted password hash
+				Dictionary<string, string> passwordDict = VerifyPassword(password, passwordConfirmation);
+
+				if (!passwordDict["exitCode"].Equals("0"))
 				{
-					return 22;
+					return Convert.ToInt32(passwordDict["exitCode"]);
 				}
 				else
 				{
-					// check if the password has at least 8 characters, one number and one letter (case-insensitive)
-					if (password.Length < 8 || !password.Any(char.IsNumber) || !password.Any(char.IsLetter))
+					// validate the remaining fields regarding the Account
+					Dictionary<string, Object> accountDict = VerifyAccount(user, username, passwordDict["saltedPasswordHash"], passwordDict["passwordSalt"], email);
+
+					if (!accountDict["exitCode"].Equals("0"))
 					{
-						// invalid
-						return 23;
+						return Convert.ToInt32(accountDict["exitCode"]);
 					}
 					else
 					{
-						// valid, continue with the salt and the salted password hash creation
-						passwordSalt = LoginHandler.CreateSalt(16);
+						// the Account is valid
+						Account account = (Account)accountDict["account"];
 
-						saltedPasswordHash = LoginHandler.GenerateSHA256Hash(password, passwordSalt);
-					}
-				}
-
-				if (passwordSalt != null && saltedPasswordHash != null)
-				{
-					// validate the remaining fields regarding the Account
-					Account account = null;
-					try
-					{
-						account = new Account(user, username, saltedPasswordHash, passwordSalt, email, DateTime.Now);
-					}
-					catch (ArgumentException ex)
-					{
-						// some of the Account parameters wasn't valid, check the Account constructor
-						switch (ex.ParamName)
-						{
-							case "username":
-								return 25;
-							case "saltedPasswordHash":
-								return 26;
-							case "passwordSalt":
-								return 26; // same as the above because it references to the same problem regarding the salt
-							case "email":  // null email input string
-								return 27;
-						}
-					}
-					catch (FormatException)
-					{
-						// invalid email address, wrong format
-						return 28;
-					}
-
-					// if the Account is valid
-					if (account != null)
-					{
 						// if each of the inputs regarding the User and the Account were valid,
 						// the registration can continue with the database insertion
 
 						// the exitCode must be equal to 0, otherwise something went wrong with the database
 						int exitCode = DBConnect.Insert(user, account);
-						if (exitCode == 1)
-						{
-							// something went wrong with the User insertion in the database - Database Problem
-							return 2;
-						}
-						else if (exitCode == 2)
-						{
-							// something went wrong with the Account insertion in the database - Database Problem
-							return 3;
-						}
 
-						// Insertion successful, process terminated with exit code 0
-						return 0;
-					}
-					else
-					{
-						// something is invalid regarding the Account
-						// general error, will propably never occur
-						return 29;
+						// if it was 2, something went wrong with the User insertion in the database - Database Problem
+						// if it was 3, something went wrong with the Account insertion in the database - Database Problem
+						// else successful insertion, process terminated with exit code 0
+						return exitCode;
 					}
 				}
-				else
+			}
+        }
+
+		private static EducationLevel FindEducationLevel(string educationLevelName)
+		{
+			EducationLevel educationLevel = null;
+			if (!educationLevelName.Equals(""))
+			{
+				List<EducationLevel> educationLevelList = DBConnect.FindEducationLevel(educationLevelName);
+				if (!(educationLevelList.Count() == 1))
 				{
-					// something went wrong with the salt and the salted password hash creation
-					return 24;
+					// either there are more than one Education Levels with the same name or there isn't any at all
+					return null;
 				}
+				educationLevel = educationLevelList.ElementAt(0);
+			}
+
+			return educationLevel;
+		}
+
+		private static Role FindRole(string roleName)
+		{
+			Role role = null;
+			if (!roleName.Equals(""))
+			{
+				List<Role> roleList = DBConnect.FindRole(roleName);
+				if (!(roleList.Count() == 1))
+				{
+					// either there are more than one Roles with the same name or there isn't any at all
+					return null;
+				}
+				role = roleList.ElementAt(0);
+			}
+
+			return role;
+		}
+
+		private static Dictionary<string, Object> VerifyUser(string name, string surname, DateTime dateOfBirth, char gender, string tel, Role role, EducationLevel educationLevel, string description, Byte[] image)
+		{
+			Dictionary<string, Object> dict = new Dictionary<string, Object>();
+
+			User user = null;
+			try
+			{
+				user = new User(-1, name, surname, dateOfBirth, gender, tel, role, educationLevel, description, image);
+
+				dict.Add("user", user);
+				dict.Add("exitCode", "0");
+			}
+			catch (ArgumentException ex)
+			{
+				// some of the User parameters wasn't valid, check the User constructor
+				switch (ex.ParamName)
+				{
+					case "name":
+						dict.Add("exitCode", "10");
+						break;
+					case "surname":
+						dict.Add("exitCode", "11");
+						break;
+					case "dateOfBirth":
+						dict.Add("exitCode", "12");
+						break;
+					case "gender":
+						dict.Add("exitCode", "13");
+						break;
+					case "tel":
+						dict.Add("exitCode", "14");
+						break;
+					case "description":
+						dict.Add("exitCode", "15");
+						break;
+					case "image":
+						dict.Add("exitCode", "16");
+						break;
+				}
+			}
+
+			return dict;
+		}
+
+		private static Dictionary<string, string> VerifyPassword(string password, string passwordConfirmation)
+		{
+			Dictionary<string, string> dict = new Dictionary<string, string>();
+			
+			// check if the password and the password confirmation are the same
+			if (!password.Equals(passwordConfirmation))
+			{
+				dict.Add("exitCode", "22");
 			}
 			else
 			{
-				// something is invalid regarding the User
-				// general error, will propably never occur
-				return 19;
+				// check if the password has at least 8 characters, one number and one letter (case-insensitive)
+				if (password.Length < 8 || !password.Any(char.IsNumber) || !password.Any(char.IsLetter))
+				{
+					// invalid
+					dict.Add("exitCode", "23");
+				}
+				else
+				{
+					// valid, continue with the salt and the salted password hash creation
+					dict.Add("passwordSalt", PasswordUtilities.CreateSalt(16));
+					
+					dict.Add("saltedPasswordHash", PasswordUtilities.GenerateSHA256Hash(password, dict["passwordSalt"]));
+
+					dict.Add("exitCode", "0");
+				}
 			}
-        }
-    }
+
+			return dict;
+		}
+
+		private static Dictionary<string, Object> VerifyAccount(User user, string username, string saltedPasswordHash, string passwordSalt, string email)
+		{
+			Dictionary<string, Object> dict = new Dictionary<string, Object>();
+
+			Account account = null;
+			try
+			{
+				account = new Account(user, username, saltedPasswordHash, passwordSalt, email, DateTime.Now);
+
+				dict.Add("account", account);
+				dict.Add("exitCode", "0");
+			}
+			catch (ArgumentException ex)
+			{
+				// some of the Account parameters wasn't valid, check the Account constructor
+				switch (ex.ParamName)
+				{
+					case "username":
+						dict.Add("exitCode", "24");
+						break;
+					case "saltedPasswordHash":
+						dict.Add("exitCode", "25");
+						break;
+					case "passwordSalt":
+						dict.Add("exitCode", "25"); // same as the above because it references to the same problem regarding the salt
+						break;
+					case "email":  // null email input string
+						dict.Add("exitCode", "26");
+						break;
+				}
+			}
+			catch (FormatException)
+			{
+				// invalid email address, wrong format
+				dict.Add("exitCode", "27");
+			}
+
+			return dict;
+		}
+
+	}
 }
