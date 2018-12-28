@@ -255,12 +255,12 @@
             // connectUserLabel
             // 
             this.connectUserLabel.AutoSize = true;
-            this.connectUserLabel.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
+            this.connectUserLabel.Font = new System.Drawing.Font("Century Gothic", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
             this.connectUserLabel.ForeColor = System.Drawing.Color.White;
-            this.connectUserLabel.Location = new System.Drawing.Point(109, 25);
+            this.connectUserLabel.Location = new System.Drawing.Point(92, 20);
             this.connectUserLabel.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.connectUserLabel.Name = "connectUserLabel";
-            this.connectUserLabel.Size = new System.Drawing.Size(103, 23);
+            this.connectUserLabel.Size = new System.Drawing.Size(146, 34);
             this.connectUserLabel.TabIndex = 17;
             this.connectUserLabel.Text = "Welcome";
             // 

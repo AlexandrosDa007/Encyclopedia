@@ -54,7 +54,8 @@
             this.searchResultsListView.AutoArrange = false;
             this.searchResultsListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.titleHeader});
-            this.searchResultsListView.Font = new System.Drawing.Font("Century Gothic", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.searchResultsListView.Font = new System.Drawing.Font("Century Gothic", 22.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
+            this.searchResultsListView.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(53)))), ((int)(((byte)(65)))));
             this.searchResultsListView.Location = new System.Drawing.Point(37, 57);
             this.searchResultsListView.Margin = new System.Windows.Forms.Padding(4);
             this.searchResultsListView.MultiSelect = false;

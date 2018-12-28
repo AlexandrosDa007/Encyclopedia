@@ -41,12 +41,12 @@
             // 
             this.myLemmataLabel.AutoSize = true;
             this.myLemmataLabel.BackColor = System.Drawing.Color.Gainsboro;
-            this.myLemmataLabel.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
+            this.myLemmataLabel.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
             this.myLemmataLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(53)))), ((int)(((byte)(65)))));
             this.myLemmataLabel.Location = new System.Drawing.Point(38, 100);
             this.myLemmataLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.myLemmataLabel.Name = "myLemmataLabel";
-            this.myLemmataLabel.Size = new System.Drawing.Size(128, 23);
+            this.myLemmataLabel.Size = new System.Drawing.Size(134, 23);
             this.myLemmataLabel.TabIndex = 9;
             this.myLemmataLabel.Text = "My lemmata";
             // 
@@ -54,12 +54,12 @@
             // 
             this.removeFromEditedLabel.AutoSize = true;
             this.removeFromEditedLabel.BackColor = System.Drawing.Color.Gainsboro;
-            this.removeFromEditedLabel.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
+            this.removeFromEditedLabel.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
             this.removeFromEditedLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(53)))), ((int)(((byte)(65)))));
             this.removeFromEditedLabel.Location = new System.Drawing.Point(754, 100);
             this.removeFromEditedLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.removeFromEditedLabel.Name = "removeFromEditedLabel";
-            this.removeFromEditedLabel.Size = new System.Drawing.Size(198, 23);
+            this.removeFromEditedLabel.Size = new System.Drawing.Size(210, 23);
             this.removeFromEditedLabel.TabIndex = 8;
             this.removeFromEditedLabel.Text = "Remove from edited";
             // 
@@ -67,12 +67,12 @@
             // 
             this.dateOfAdditionLabel.AutoSize = true;
             this.dateOfAdditionLabel.BackColor = System.Drawing.Color.Gainsboro;
-            this.dateOfAdditionLabel.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
+            this.dateOfAdditionLabel.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
             this.dateOfAdditionLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(53)))), ((int)(((byte)(65)))));
             this.dateOfAdditionLabel.Location = new System.Drawing.Point(474, 100);
             this.dateOfAdditionLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.dateOfAdditionLabel.Name = "dateOfAdditionLabel";
-            this.dateOfAdditionLabel.Size = new System.Drawing.Size(159, 23);
+            this.dateOfAdditionLabel.Size = new System.Drawing.Size(167, 23);
             this.dateOfAdditionLabel.TabIndex = 7;
             this.dateOfAdditionLabel.Text = "Date of addition";
             // 
@@ -108,6 +108,7 @@
             this.removeLabel.AutoSize = true;
             this.removeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
             this.removeLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(126)))), ((int)(((byte)(49)))));
+            this.removeLabel.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.removeLabel.Location = new System.Drawing.Point(791, 12);
             this.removeLabel.Name = "removeLabel";
             this.removeLabel.Size = new System.Drawing.Size(64, 20);
@@ -121,7 +122,7 @@
             this.editedLemmataLabel.BackColor = System.Drawing.Color.Gainsboro;
             this.editedLemmataLabel.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
             this.editedLemmataLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(53)))), ((int)(((byte)(65)))));
-            this.editedLemmataLabel.Location = new System.Drawing.Point(59, 33);
+            this.editedLemmataLabel.Location = new System.Drawing.Point(35, 33);
             this.editedLemmataLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.editedLemmataLabel.Name = "editedLemmataLabel";
             this.editedLemmataLabel.Size = new System.Drawing.Size(253, 37);

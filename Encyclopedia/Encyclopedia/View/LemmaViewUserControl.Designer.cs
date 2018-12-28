@@ -35,6 +35,7 @@
             this.sharePictureBox = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.favouritesPictureBox = new System.Windows.Forms.PictureBox();
+            this.lemmaTitleLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.printPictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.savePictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.sharePictureBox)).BeginInit();
@@ -47,18 +48,18 @@
             this.LemmaViewWebBrowser.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.LemmaViewWebBrowser.Location = new System.Drawing.Point(50, 65);
+            this.LemmaViewWebBrowser.Location = new System.Drawing.Point(20, 90);
             this.LemmaViewWebBrowser.Margin = new System.Windows.Forms.Padding(4);
             this.LemmaViewWebBrowser.MinimumSize = new System.Drawing.Size(27, 25);
             this.LemmaViewWebBrowser.Name = "LemmaViewWebBrowser";
-            this.LemmaViewWebBrowser.Size = new System.Drawing.Size(945, 418);
+            this.LemmaViewWebBrowser.Size = new System.Drawing.Size(986, 393);
             this.LemmaViewWebBrowser.TabIndex = 23;
             // 
             // printPictureBox
             // 
             this.printPictureBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.printPictureBox.Image = ((System.Drawing.Image)(resources.GetObject("printPictureBox.Image")));
-            this.printPictureBox.Location = new System.Drawing.Point(962, 11);
+            this.printPictureBox.Location = new System.Drawing.Point(962, 25);
             this.printPictureBox.Name = "printPictureBox";
             this.printPictureBox.Size = new System.Drawing.Size(44, 43);
             this.printPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -69,7 +70,7 @@
             // 
             this.savePictureBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.savePictureBox.Image = ((System.Drawing.Image)(resources.GetObject("savePictureBox.Image")));
-            this.savePictureBox.Location = new System.Drawing.Point(912, 11);
+            this.savePictureBox.Location = new System.Drawing.Point(912, 25);
             this.savePictureBox.Name = "savePictureBox";
             this.savePictureBox.Size = new System.Drawing.Size(44, 43);
             this.savePictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -80,7 +81,7 @@
             // 
             this.sharePictureBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.sharePictureBox.Image = ((System.Drawing.Image)(resources.GetObject("sharePictureBox.Image")));
-            this.sharePictureBox.Location = new System.Drawing.Point(862, 11);
+            this.sharePictureBox.Location = new System.Drawing.Point(862, 25);
             this.sharePictureBox.Name = "sharePictureBox";
             this.sharePictureBox.Size = new System.Drawing.Size(44, 43);
             this.sharePictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -92,7 +93,7 @@
             // 
             this.pictureBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
-            this.pictureBox3.Location = new System.Drawing.Point(812, 11);
+            this.pictureBox3.Location = new System.Drawing.Point(812, 25);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(44, 43);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -104,7 +105,7 @@
             // 
             this.favouritesPictureBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.favouritesPictureBox.Image = ((System.Drawing.Image)(resources.GetObject("favouritesPictureBox.Image")));
-            this.favouritesPictureBox.Location = new System.Drawing.Point(762, 11);
+            this.favouritesPictureBox.Location = new System.Drawing.Point(762, 25);
             this.favouritesPictureBox.Name = "favouritesPictureBox";
             this.favouritesPictureBox.Size = new System.Drawing.Size(44, 43);
             this.favouritesPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -112,11 +113,24 @@
             this.favouritesPictureBox.TabStop = false;
             this.favouritesPictureBox.Visible = false;
             // 
+            // lemmaTitleLabel
+            // 
+            this.lemmaTitleLabel.AutoSize = true;
+            this.lemmaTitleLabel.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
+            this.lemmaTitleLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(53)))), ((int)(((byte)(65)))));
+            this.lemmaTitleLabel.Location = new System.Drawing.Point(13, 25);
+            this.lemmaTitleLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lemmaTitleLabel.Name = "lemmaTitleLabel";
+            this.lemmaTitleLabel.Size = new System.Drawing.Size(184, 37);
+            this.lemmaTitleLabel.TabIndex = 34;
+            this.lemmaTitleLabel.Text = "Lemma title";
+            // 
             // LemmaViewUserControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Gainsboro;
+            this.Controls.Add(this.lemmaTitleLabel);
             this.Controls.Add(this.favouritesPictureBox);
             this.Controls.Add(this.pictureBox3);
             this.Controls.Add(this.sharePictureBox);
@@ -131,6 +145,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.favouritesPictureBox)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -142,5 +157,6 @@
         private System.Windows.Forms.PictureBox sharePictureBox;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.PictureBox favouritesPictureBox;
+        private System.Windows.Forms.Label lemmaTitleLabel;
     }
 }

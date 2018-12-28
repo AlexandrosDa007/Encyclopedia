@@ -59,7 +59,7 @@
             this.lemmaOfTheDayLabel.AutoSize = true;
             this.lemmaOfTheDayLabel.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
             this.lemmaOfTheDayLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(53)))), ((int)(((byte)(65)))));
-            this.lemmaOfTheDayLabel.Location = new System.Drawing.Point(41, 31);
+            this.lemmaOfTheDayLabel.Location = new System.Drawing.Point(9, 28);
             this.lemmaOfTheDayLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lemmaOfTheDayLabel.Name = "lemmaOfTheDayLabel";
             this.lemmaOfTheDayLabel.Size = new System.Drawing.Size(279, 37);
@@ -71,11 +71,11 @@
             this.lemmaOfTheDayWebBrowser.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.lemmaOfTheDayWebBrowser.Location = new System.Drawing.Point(12, 89);
+            this.lemmaOfTheDayWebBrowser.Location = new System.Drawing.Point(16, 89);
             this.lemmaOfTheDayWebBrowser.Margin = new System.Windows.Forms.Padding(4);
             this.lemmaOfTheDayWebBrowser.MinimumSize = new System.Drawing.Size(27, 25);
             this.lemmaOfTheDayWebBrowser.Name = "lemmaOfTheDayWebBrowser";
-            this.lemmaOfTheDayWebBrowser.Size = new System.Drawing.Size(701, 391);
+            this.lemmaOfTheDayWebBrowser.Size = new System.Drawing.Size(697, 391);
             this.lemmaOfTheDayWebBrowser.TabIndex = 21;
             // 
             // editPictureBox
