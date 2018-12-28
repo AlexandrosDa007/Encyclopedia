@@ -42,7 +42,8 @@
             this.contactsSearchResultsListView.AutoArrange = false;
             this.contactsSearchResultsListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.titleHeader});
-            this.contactsSearchResultsListView.Font = new System.Drawing.Font("Century Gothic", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.contactsSearchResultsListView.Font = new System.Drawing.Font("Century Gothic", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
+            this.contactsSearchResultsListView.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(53)))), ((int)(((byte)(65)))));
             this.contactsSearchResultsListView.Location = new System.Drawing.Point(41, 59);
             this.contactsSearchResultsListView.Margin = new System.Windows.Forms.Padding(4);
             this.contactsSearchResultsListView.MultiSelect = false;

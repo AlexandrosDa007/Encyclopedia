@@ -156,7 +156,7 @@
             // 
             this.genderFemaleRB.AutoSize = true;
             this.genderFemaleRB.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.genderFemaleRB.Location = new System.Drawing.Point(107, 57);
+            this.genderFemaleRB.Location = new System.Drawing.Point(110, 43);
             this.genderFemaleRB.Name = "genderFemaleRB";
             this.genderFemaleRB.Size = new System.Drawing.Size(81, 23);
             this.genderFemaleRB.TabIndex = 8;
@@ -167,7 +167,7 @@
             // 
             this.genderMaleRB.AutoSize = true;
             this.genderMaleRB.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.genderMaleRB.Location = new System.Drawing.Point(107, 28);
+            this.genderMaleRB.Location = new System.Drawing.Point(110, 14);
             this.genderMaleRB.Name = "genderMaleRB";
             this.genderMaleRB.Size = new System.Drawing.Size(65, 23);
             this.genderMaleRB.TabIndex = 7;
@@ -229,9 +229,9 @@
             // 
             this.registerButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.registerButton.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-            this.registerButton.Location = new System.Drawing.Point(703, 923);
+            this.registerButton.Location = new System.Drawing.Point(667, 917);
             this.registerButton.Name = "registerButton";
-            this.registerButton.Size = new System.Drawing.Size(90, 35);
+            this.registerButton.Size = new System.Drawing.Size(109, 35);
             this.registerButton.TabIndex = 15;
             this.registerButton.Text = "Register";
             this.registerButton.UseVisualStyleBackColor = true;
@@ -249,7 +249,7 @@
             // browseB
             // 
             this.browseB.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.browseB.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
+            this.browseB.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
             this.browseB.Location = new System.Drawing.Point(604, 197);
             this.browseB.Name = "browseB";
             this.browseB.Size = new System.Drawing.Size(102, 29);
@@ -388,6 +388,7 @@
             this.topPanel.Name = "topPanel";
             this.topPanel.Size = new System.Drawing.Size(839, 44);
             this.topPanel.TabIndex = 28;
+            this.topPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.topPanel_Paint);
             // 
             // closePictureBox
             // 
