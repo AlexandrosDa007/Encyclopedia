@@ -14,8 +14,8 @@ namespace UI
     public partial class StartPage : Form
     {
         //list with filters to be checked
-        public List<string> filterList = new List<string>();
-
+        public List<string> filterList = new List<string>();     
+        
         //Opens LemmaOfTheDayUserControl in mainPanel when application starts
         public StartPage()
         {
@@ -31,6 +31,14 @@ namespace UI
             {
                 Encyclopedia.View.LemmaOfTheDayUserControl.Instance.BringToFront();   
             }     
+        }
+
+        private void StartPage_Load(object sender, EventArgs e)
+        {
+            this.FormBorderStyle = FormBorderStyle.Sizable;
+            this.WindowState = FormWindowState.Maximized;
+            this.MaximumSize = this.Size;
+            this.FormBorderStyle = FormBorderStyle.None;
         }
 
         //Opens SearchResultsUserControl in mainPanel when popularButton is clicked
