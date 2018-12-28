@@ -367,22 +367,23 @@ namespace Encyclopedia.Controller
             return userDateOfBirth;
         }
 
-        public static String getRandomLemmaTitle()
+        public static Lemma GetRandomLemma()
         {
-            string randomLemmaTitle = "";
-            string query = "SELECT lemma_title FROM Lemma ORDER BY RAND() LIMIT 1";
+			Lemma lemma = null;
+
+            string query = "SELECT * FROM Lemma ORDER BY RAND() LIMIT 1";
             MySqlCommand cmd = new MySqlCommand(query, connection);
+
             MySqlDataReader dataReader = cmd.ExecuteReader();
             while (dataReader.Read())
             {
-                randomLemmaTitle = dataReader.GetString("lemma_title");
+                lemma = new Lemma(dataReader.GetString("lemma_title"), (byte[])dataReader.GetValue(1), dataReader.GetInt32("category_id"));
             }
 
             dataReader.Close();
-            return randomLemmaTitle;
+            return lemma;
         }
-
-        //insert
+		
         public static string GetSaltByUsername(string username)
         {
             string salt = "";
