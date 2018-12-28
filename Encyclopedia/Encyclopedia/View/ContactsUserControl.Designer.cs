@@ -72,6 +72,9 @@
             // 
             // contactsTabControl
             // 
+            this.contactsTabControl.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.contactsTabControl.Controls.Add(this.contactsTabPage);
             this.contactsTabControl.Controls.Add(this.groupTabPage);
             this.contactsTabControl.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
@@ -95,9 +98,11 @@
             // 
             // contactsListView
             // 
-            this.contactsListView.Location = new System.Drawing.Point(6, 3);
+            this.contactsListView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.contactsListView.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(53)))), ((int)(((byte)(65)))));
+            this.contactsListView.Location = new System.Drawing.Point(3, 3);
             this.contactsListView.Name = "contactsListView";
-            this.contactsListView.Size = new System.Drawing.Size(957, 315);
+            this.contactsListView.Size = new System.Drawing.Size(963, 316);
             this.contactsListView.Sorting = System.Windows.Forms.SortOrder.Ascending;
             this.contactsListView.TabIndex = 0;
             this.contactsListView.UseCompatibleStateImageBehavior = false;
@@ -117,6 +122,9 @@
             // 
             // groupListView
             // 
+            this.groupListView.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupListView.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(53)))), ((int)(((byte)(65)))));
             this.groupListView.Location = new System.Drawing.Point(6, 52);
             this.groupListView.Name = "groupListView";
             this.groupListView.Size = new System.Drawing.Size(957, 269);

@@ -146,6 +146,7 @@
             this.Controls.Add(this.topPanel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "SendForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "SendForm";
             ((System.ComponentModel.ISupportInitialize)(this.closePictureBox)).EndInit();
             this.topPanel.ResumeLayout(false);

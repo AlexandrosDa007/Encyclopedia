@@ -51,6 +51,9 @@
             // 
             // favouriteTableLayoutPanel
             // 
+            this.favouriteTableLayoutPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.favouriteTableLayoutPanel.AutoScroll = true;
             this.favouriteTableLayoutPanel.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Inset;
             this.favouriteTableLayoutPanel.ColumnCount = 3;
@@ -132,6 +135,7 @@
             this.Controls.Add(this.favouriteTableLayoutPanel);
             this.Controls.Add(this.favouriteLemmataLabel);
             this.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
+            this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(53)))), ((int)(((byte)(65)))));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FavouriteLemmataUserControl";
             this.Size = new System.Drawing.Size(1036, 498);

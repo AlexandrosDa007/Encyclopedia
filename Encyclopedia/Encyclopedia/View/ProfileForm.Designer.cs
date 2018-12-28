@@ -449,6 +449,7 @@
             this.Controls.Add(this.nameTextBox);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "ProfileForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ProfileForm";
             ((System.ComponentModel.ISupportInitialize)(this.closePictureBox)).EndInit();
             this.topPanel.ResumeLayout(false);

@@ -78,6 +78,9 @@
             // 
             // favouriteTableLayoutPanel
             // 
+            this.favouriteTableLayoutPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.favouriteTableLayoutPanel.AutoScroll = true;
             this.favouriteTableLayoutPanel.BackColor = System.Drawing.Color.Gainsboro;
             this.favouriteTableLayoutPanel.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Inset;
@@ -87,6 +90,7 @@
             this.favouriteTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 23.73887F));
             this.favouriteTableLayoutPanel.Controls.Add(this.removeLabel, 2, 0);
             this.favouriteTableLayoutPanel.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
+            this.favouriteTableLayoutPanel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(53)))), ((int)(((byte)(65)))));
             this.favouriteTableLayoutPanel.Location = new System.Drawing.Point(33, 127);
             this.favouriteTableLayoutPanel.Margin = new System.Windows.Forms.Padding(4);
             this.favouriteTableLayoutPanel.Name = "favouriteTableLayoutPanel";

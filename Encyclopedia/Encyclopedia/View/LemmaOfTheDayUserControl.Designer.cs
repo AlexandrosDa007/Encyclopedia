@@ -37,6 +37,7 @@
             // 
             this.monthCalendar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.monthCalendar.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
+            this.monthCalendar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(53)))), ((int)(((byte)(65)))));
             this.monthCalendar.Location = new System.Drawing.Point(740, 88);
             this.monthCalendar.Margin = new System.Windows.Forms.Padding(12, 11, 12, 11);
             this.monthCalendar.Name = "monthCalendar";
@@ -75,6 +76,7 @@
             this.Controls.Add(this.lemmaOfTheDayWebBrowser);
             this.Controls.Add(this.monthCalendar);
             this.Controls.Add(this.lemmaOfTheDayLabel);
+            this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(53)))), ((int)(((byte)(65)))));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "LemmaOfTheDayUserControl";
             this.Size = new System.Drawing.Size(1036, 498);
