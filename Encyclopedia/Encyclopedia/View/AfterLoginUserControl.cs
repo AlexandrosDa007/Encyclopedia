@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using UI;
 
 namespace Encyclopedia.View
 {
@@ -19,7 +20,14 @@ namespace Encyclopedia.View
 
         private void logoutButton_Click(object sender, EventArgs e)
         {
+            //logout function
+            StartPage st = (StartPage)this.Parent.Parent;
 
+            foreach (Control x in st.controlsBeforeLogin)
+            {
+                x.Visible = true;
+            }
+            st.newLeftPanel.Controls.Remove(this);
         }
 
         private void contactsButton_Click(object sender, EventArgs e)
