@@ -15,8 +15,22 @@ namespace UI
 {
     public partial class StartPage : Form
     {
-        //a list with all the controls to be hidden when login is successfull
-        public List<Control> controlsBeforeLogin = new List<Control>();
+		// implement singleton pattern
+		private static StartPage _instance;
+
+		public static StartPage Instance
+		{
+			get
+			{
+				if (_instance == null)
+					_instance = new StartPage();
+				return _instance;
+
+			}
+		}
+		
+		//a list with all the controls to be hidden when login is successfull
+		public List<Control> controlsBeforeLogin = new List<Control>();
         //the new leftpanel 
         public AfterLoginUserControl afterLoginPanel;
         //a public variable to hold everything --- used instead of private Panel leftPanel
@@ -225,7 +239,7 @@ namespace UI
             {
                 //User doesnt Exists
                 //change the feedback label -- just for demo
-                label1.Text = "USER DOESNT EXISTS";
+                feedbackLabel.Text = "USER DOESNT EXISTS";
             }
             
         }
@@ -241,5 +255,10 @@ namespace UI
 
             leftPanel.Controls.Add(afterLoginPanel);
         }
-    }
+
+		private void FeedbackPanel_Paint(object sender, PaintEventArgs e)
+		{
+
+		}
+	}
 }

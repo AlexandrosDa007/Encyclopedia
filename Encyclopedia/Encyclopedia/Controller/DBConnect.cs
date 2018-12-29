@@ -185,7 +185,7 @@ namespace Encyclopedia.Controller
 
             while (dataReader.Read())
             {
-                EducationLevel educationLevel = new EducationLevel(Convert.ToInt32(dataReader["education_level_id"]), dataReader["education_level_name"].ToString());
+                EducationLevel educationLevel = new EducationLevel(dataReader.GetInt32("education_level_id"), dataReader.GetString("education_level_name"));
                 educationLevelList.Add(educationLevel);
             }
 
@@ -207,7 +207,7 @@ namespace Encyclopedia.Controller
 			
 			while (dataReader.Read())
 			{
-				educationLevelList.Add(dataReader["education_level_name"].ToString());
+				educationLevelList.Add(dataReader.GetString("education_level_name"));
 			}
 
 			string[] educationLevelArray = educationLevelList.ToArray();
@@ -230,7 +230,7 @@ namespace Encyclopedia.Controller
 
             while (dataReader.Read())
             {
-                Role role = new Role(Convert.ToInt32(dataReader["role_id"]), dataReader["role_name"].ToString());
+                Role role = new Role(dataReader.GetInt32("role_id"), dataReader.GetString("role_name"));
                 roleList.Add(role);
             }
 
@@ -252,7 +252,7 @@ namespace Encyclopedia.Controller
 
 			while (dataReader.Read())
 			{
-				roleList.Add(dataReader["role_name"].ToString());
+				roleList.Add(dataReader.GetString("role_name"));
 			}
 
 			string[] roleArray = roleList.ToArray();
@@ -276,7 +276,6 @@ namespace Encyclopedia.Controller
 
 			while (dataReader.Read())
 			{
-				Console.WriteLine(dataReader["account_username"]);
 				isUnique = false;
 			}
 
@@ -307,7 +306,67 @@ namespace Encyclopedia.Controller
 			return isUnique;
 		}
 
-        public static int GetLemmaCategoryByTitle(string lemmaTitle)
+		public static int GetAccountIdByUsername(string username)
+		{
+			int userId = -1;
+
+			// construct query
+			string selectQuery = "SELECT account_id FROM Account WHERE account_username = @username";
+			MySqlCommand cmd = new MySqlCommand(selectQuery, connection);
+			cmd.Parameters.AddWithValue("@username", username);
+			cmd.CommandTimeout = 500000;
+
+			// prepare and execute
+			cmd.Prepare();
+			MySqlDataReader dataReader = cmd.ExecuteReader();
+
+			while (dataReader.Read())
+			{
+				userId = dataReader.GetInt32("account_id");
+			}
+
+			dataReader.Close();
+			return userId;
+		}
+
+		public static User[] GetContacts(int userId)
+		{
+			List<User> userList = new List<User>();
+
+			// construct queries
+			string selectId = "SELECT C.contact_id FROM Contact C NATURAL JOIN User U WHERE C.user_id = @user";
+			MySqlCommand selectIds = new MySqlCommand(selectId, connection);
+			selectIds.Parameters.AddWithValue("@user", userId);
+			selectIds.CommandTimeout = 500000;
+
+			string selectUser = "SELECT * FROM User WHERE user_id = @user";
+			MySqlCommand selectUsers = new MySqlCommand(selectUser, connection);
+			selectUsers.CommandTimeout = 500000;
+			selectUsers.Prepare();
+
+			// prepare and execute
+			selectIds.Prepare();
+			MySqlDataReader dataReaderId = selectIds.ExecuteReader();
+
+			while (dataReaderId.Read())
+			{
+				selectUsers.Parameters.AddWithValue("@user", dataReaderId.GetInt32("contact_id"));
+				MySqlDataReader dataReaderUser = selectUsers.ExecuteReader();
+
+				while (dataReaderUser.Read())
+				{
+					User user = new User(dataReaderUser.GetInt32("user_id"), dataReaderUser.GetString("user_name"), dataReaderUser.GetString("user_surname"), dataReaderUser.GetDateTime("user_date_of_birth"));
+					userList.Add(user);
+				}
+				dataReaderUser.Close();
+			}
+
+			User[] userArray = userList.ToArray();
+			dataReaderId.Close();
+			return userArray;
+		}
+
+		public static int GetLemmaCategoryByTitle(string lemmaTitle)
         {
             int lemmaCategory=-1;
             string query = "SELECT category_id FROM Lemma WHERE lemma_title = '" + lemmaTitle + "'";

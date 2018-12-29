@@ -32,17 +32,20 @@ namespace Encyclopedia.View
 
         private void contactsButton_Click(object sender, EventArgs e)
         {
-            if (!Controls.Contains(Encyclopedia.View.ContactsUserControl.Instance))
+            if (!StartPage.Instance.Controls.Contains(Encyclopedia.View.ContactsUserControl.Instance))
             {
-                Controls.Add(Encyclopedia.View.ContactsUserControl.Instance);
-                Encyclopedia.View.ContactsUserControl.Instance.Dock = DockStyle.Fill;
-                Encyclopedia.View.ContactsUserControl.Instance.BringToFront();
-
+				/*StartPage.Instance.Controls.Add(Encyclopedia.View.ContactsUserControl.Instance);
+				Encyclopedia.View.ContactsUserControl.Instance.Dock = DockStyle.Fill;
+				Encyclopedia.View.ContactsUserControl.Instance.BringToFront();
+				Console.WriteLine("new");*/
             }
             else
-                Encyclopedia.View.ContactsUserControl.Instance.BringToFront();
+			{
+				Encyclopedia.View.ContactsUserControl.Instance.BringToFront();
+				//Console.WriteLine("already");
+			}
 
-        }
+		}
 
         private void editedButton_Click(object sender, EventArgs e)
         {

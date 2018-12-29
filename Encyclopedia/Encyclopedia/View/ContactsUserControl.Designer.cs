@@ -175,12 +175,5 @@
         private System.Windows.Forms.Button createGroupButton;
         private System.Windows.Forms.ListView contactsListView;
         private System.Windows.Forms.ListView groupListView;
-		private System.Windows.Forms.ColumnHeader columnHeader1;
-		private System.Windows.Forms.ColumnHeader columnHeader2;
-		private System.Windows.Forms.ColumnHeader columnHeader3;
-		private System.Windows.Forms.ColumnHeader columnHeader4;
-		private System.Windows.Forms.ColumnHeader columnHeader5;
-		private System.Windows.Forms.ColumnHeader columnHeader6;
-		private System.Windows.Forms.ColumnHeader columnHeader7;
 	}
 }
