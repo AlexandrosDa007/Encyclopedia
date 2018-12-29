@@ -49,18 +49,18 @@
             this.recentButton = new System.Windows.Forms.Button();
             this.popularButton = new System.Windows.Forms.Button();
             this.searchPanel = new System.Windows.Forms.Panel();
+            this.favouritesPictureBox = new System.Windows.Forms.PictureBox();
+            this.editPictureBox = new System.Windows.Forms.PictureBox();
             this.searchTextBox = new System.Windows.Forms.TextBox();
+            this.sharePictureBox = new System.Windows.Forms.PictureBox();
             this.searchButton = new System.Windows.Forms.Button();
+            this.savePictureBox = new System.Windows.Forms.PictureBox();
             this.mainPanel = new System.Windows.Forms.Panel();
+            this.printPictureBox = new System.Windows.Forms.PictureBox();
             this.dateFilterLabel = new System.Windows.Forms.Label();
             this.dateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.filterCheckedListBox = new System.Windows.Forms.CheckedListBox();
             this.filtersLabel = new System.Windows.Forms.Label();
-            this.favouritesPictureBox = new System.Windows.Forms.PictureBox();
-            this.editPictureBox = new System.Windows.Forms.PictureBox();
-            this.sharePictureBox = new System.Windows.Forms.PictureBox();
-            this.savePictureBox = new System.Windows.Forms.PictureBox();
-            this.printPictureBox = new System.Windows.Forms.PictureBox();
             this.leftPanel.SuspendLayout();
             this.FeedbackPanel.SuspendLayout();
             this.logoPanel.SuspendLayout();
@@ -91,27 +91,27 @@
             this.leftPanel.Controls.Add(this.usernameLabel);
             this.leftPanel.Dock = System.Windows.Forms.DockStyle.Left;
             this.leftPanel.Location = new System.Drawing.Point(0, 0);
-            this.leftPanel.Margin = new System.Windows.Forms.Padding(4);
             this.leftPanel.Name = "leftPanel";
-            this.leftPanel.Size = new System.Drawing.Size(317, 805);
+            this.leftPanel.Size = new System.Drawing.Size(238, 654);
             this.leftPanel.TabIndex = 0;
             // 
             // FeedbackPanel
             // 
             this.FeedbackPanel.Controls.Add(this.label1);
             this.FeedbackPanel.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.FeedbackPanel.Location = new System.Drawing.Point(0, 716);
-            this.FeedbackPanel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.FeedbackPanel.Location = new System.Drawing.Point(0, 582);
+            this.FeedbackPanel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.FeedbackPanel.Name = "FeedbackPanel";
-            this.FeedbackPanel.Size = new System.Drawing.Size(317, 89);
+            this.FeedbackPanel.Size = new System.Drawing.Size(238, 72);
             this.FeedbackPanel.TabIndex = 17;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(40, 37);
+            this.label1.Location = new System.Drawing.Point(30, 30);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(46, 17);
+            this.label1.Size = new System.Drawing.Size(35, 13);
             this.label1.TabIndex = 0;
             this.label1.Text = "label1";
             // 
@@ -124,18 +124,17 @@
             this.logoPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.logoPanel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(126)))), ((int)(((byte)(49)))));
             this.logoPanel.Location = new System.Drawing.Point(0, 0);
-            this.logoPanel.Margin = new System.Windows.Forms.Padding(4);
             this.logoPanel.Name = "logoPanel";
-            this.logoPanel.Size = new System.Drawing.Size(317, 75);
+            this.logoPanel.Size = new System.Drawing.Size(238, 62);
             this.logoPanel.TabIndex = 0;
             // 
             // logoPictureBox
             // 
             this.logoPictureBox.Image = ((System.Drawing.Image)(resources.GetObject("logoPictureBox.Image")));
-            this.logoPictureBox.Location = new System.Drawing.Point(16, 22);
-            this.logoPictureBox.Margin = new System.Windows.Forms.Padding(5);
+            this.logoPictureBox.Location = new System.Drawing.Point(12, 18);
+            this.logoPictureBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.logoPictureBox.Name = "logoPictureBox";
-            this.logoPictureBox.Size = new System.Drawing.Size(44, 42);
+            this.logoPictureBox.Size = new System.Drawing.Size(33, 34);
             this.logoPictureBox.TabIndex = 2;
             this.logoPictureBox.TabStop = false;
             // 
@@ -144,10 +143,10 @@
             this.logoLabel.AutoSize = true;
             this.logoLabel.Font = new System.Drawing.Font("Century Gothic", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
             this.logoLabel.ForeColor = System.Drawing.Color.White;
-            this.logoLabel.Location = new System.Drawing.Point(69, 27);
-            this.logoLabel.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.logoLabel.Location = new System.Drawing.Point(52, 22);
+            this.logoLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.logoLabel.Name = "logoLabel";
-            this.logoLabel.Size = new System.Drawing.Size(239, 39);
+            this.logoLabel.Size = new System.Drawing.Size(195, 32);
             this.logoLabel.TabIndex = 1;
             this.logoLabel.Text = "Encyclopedia";
             this.logoLabel.Click += new System.EventHandler(this.logoLabel_Click);
@@ -158,10 +157,10 @@
             this.newUserLinkLabel.AutoSize = true;
             this.newUserLinkLabel.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
             this.newUserLinkLabel.LinkColor = System.Drawing.Color.White;
-            this.newUserLinkLabel.Location = new System.Drawing.Point(117, 336);
-            this.newUserLinkLabel.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.newUserLinkLabel.Location = new System.Drawing.Point(88, 273);
+            this.newUserLinkLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.newUserLinkLabel.Name = "newUserLinkLabel";
-            this.newUserLinkLabel.Size = new System.Drawing.Size(71, 19);
+            this.newUserLinkLabel.Size = new System.Drawing.Size(57, 16);
             this.newUserLinkLabel.TabIndex = 16;
             this.newUserLinkLabel.TabStop = true;
             this.newUserLinkLabel.Text = "New user";
@@ -174,10 +173,10 @@
             this.forgotPasswordLinkLabel.AutoSize = true;
             this.forgotPasswordLinkLabel.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
             this.forgotPasswordLinkLabel.LinkColor = System.Drawing.Color.White;
-            this.forgotPasswordLinkLabel.Location = new System.Drawing.Point(92, 246);
-            this.forgotPasswordLinkLabel.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.forgotPasswordLinkLabel.Location = new System.Drawing.Point(69, 200);
+            this.forgotPasswordLinkLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.forgotPasswordLinkLabel.Name = "forgotPasswordLinkLabel";
-            this.forgotPasswordLinkLabel.Size = new System.Drawing.Size(129, 19);
+            this.forgotPasswordLinkLabel.Size = new System.Drawing.Size(103, 16);
             this.forgotPasswordLinkLabel.TabIndex = 15;
             this.forgotPasswordLinkLabel.TabStop = true;
             this.forgotPasswordLinkLabel.Text = "Forgot password?";
@@ -185,43 +184,44 @@
             // 
             // usernameTextBox
             // 
-            this.usernameTextBox.Location = new System.Drawing.Point(117, 151);
-            this.usernameTextBox.Margin = new System.Windows.Forms.Padding(5);
+            this.usernameTextBox.Location = new System.Drawing.Point(88, 123);
+            this.usernameTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.usernameTextBox.Name = "usernameTextBox";
-            this.usernameTextBox.Size = new System.Drawing.Size(184, 22);
+            this.usernameTextBox.Size = new System.Drawing.Size(139, 20);
             this.usernameTextBox.TabIndex = 12;
             // 
             // loginButton
             // 
             this.loginButton.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
             this.loginButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(53)))), ((int)(((byte)(65)))));
-            this.loginButton.Location = new System.Drawing.Point(88, 286);
-            this.loginButton.Margin = new System.Windows.Forms.Padding(5);
+            this.loginButton.Location = new System.Drawing.Point(66, 232);
+            this.loginButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.loginButton.Name = "loginButton";
-            this.loginButton.Size = new System.Drawing.Size(133, 34);
+            this.loginButton.Size = new System.Drawing.Size(100, 28);
             this.loginButton.TabIndex = 14;
             this.loginButton.Text = "Login";
             this.loginButton.UseVisualStyleBackColor = true;
+            this.loginButton.Click += new System.EventHandler(this.loginButton_Click);
             // 
             // connectUserLabel
             // 
             this.connectUserLabel.AutoSize = true;
             this.connectUserLabel.Font = new System.Drawing.Font("Century Gothic", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
             this.connectUserLabel.ForeColor = System.Drawing.Color.White;
-            this.connectUserLabel.Location = new System.Drawing.Point(67, 92);
-            this.connectUserLabel.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.connectUserLabel.Location = new System.Drawing.Point(50, 75);
+            this.connectUserLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.connectUserLabel.Name = "connectUserLabel";
-            this.connectUserLabel.Size = new System.Drawing.Size(198, 34);
+            this.connectUserLabel.Size = new System.Drawing.Size(157, 25);
             this.connectUserLabel.TabIndex = 9;
             this.connectUserLabel.Text = "Connect User";
             // 
             // passwordTextBox
             // 
-            this.passwordTextBox.Location = new System.Drawing.Point(117, 202);
-            this.passwordTextBox.Margin = new System.Windows.Forms.Padding(5);
+            this.passwordTextBox.Location = new System.Drawing.Point(88, 164);
+            this.passwordTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.passwordTextBox.Name = "passwordTextBox";
             this.passwordTextBox.PasswordChar = '•';
-            this.passwordTextBox.Size = new System.Drawing.Size(184, 22);
+            this.passwordTextBox.Size = new System.Drawing.Size(139, 20);
             this.passwordTextBox.TabIndex = 13;
             // 
             // passwordLabel
@@ -229,10 +229,10 @@
             this.passwordLabel.AutoSize = true;
             this.passwordLabel.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
             this.passwordLabel.ForeColor = System.Drawing.Color.White;
-            this.passwordLabel.Location = new System.Drawing.Point(7, 203);
-            this.passwordLabel.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.passwordLabel.Location = new System.Drawing.Point(5, 165);
+            this.passwordLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.passwordLabel.Name = "passwordLabel";
-            this.passwordLabel.Size = new System.Drawing.Size(95, 21);
+            this.passwordLabel.Size = new System.Drawing.Size(78, 19);
             this.passwordLabel.TabIndex = 10;
             this.passwordLabel.Text = "password:";
             // 
@@ -241,10 +241,10 @@
             this.usernameLabel.AutoSize = true;
             this.usernameLabel.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
             this.usernameLabel.ForeColor = System.Drawing.Color.White;
-            this.usernameLabel.Location = new System.Drawing.Point(5, 151);
-            this.usernameLabel.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.usernameLabel.Location = new System.Drawing.Point(4, 123);
+            this.usernameLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.usernameLabel.Name = "usernameLabel";
-            this.usernameLabel.Size = new System.Drawing.Size(96, 21);
+            this.usernameLabel.Size = new System.Drawing.Size(81, 19);
             this.usernameLabel.TabIndex = 11;
             this.usernameLabel.Text = "username:";
             // 
@@ -255,19 +255,17 @@
             this.topPanel.Controls.Add(this.closePictureBox);
             this.topPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.topPanel.Location = new System.Drawing.Point(0, 0);
-            this.topPanel.Margin = new System.Windows.Forms.Padding(4);
             this.topPanel.Name = "topPanel";
-            this.topPanel.Size = new System.Drawing.Size(1044, 42);
+            this.topPanel.Size = new System.Drawing.Size(783, 34);
             this.topPanel.TabIndex = 1;
             // 
             // minimizePictureBox
             // 
             this.minimizePictureBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.minimizePictureBox.Image = ((System.Drawing.Image)(resources.GetObject("minimizePictureBox.Image")));
-            this.minimizePictureBox.Location = new System.Drawing.Point(943, 4);
-            this.minimizePictureBox.Margin = new System.Windows.Forms.Padding(4);
+            this.minimizePictureBox.Location = new System.Drawing.Point(707, 3);
             this.minimizePictureBox.Name = "minimizePictureBox";
-            this.minimizePictureBox.Size = new System.Drawing.Size(43, 34);
+            this.minimizePictureBox.Size = new System.Drawing.Size(32, 28);
             this.minimizePictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.minimizePictureBox.TabIndex = 1;
             this.minimizePictureBox.TabStop = false;
@@ -277,10 +275,9 @@
             // 
             this.closePictureBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.closePictureBox.Image = ((System.Drawing.Image)(resources.GetObject("closePictureBox.Image")));
-            this.closePictureBox.Location = new System.Drawing.Point(994, 4);
-            this.closePictureBox.Margin = new System.Windows.Forms.Padding(4);
+            this.closePictureBox.Location = new System.Drawing.Point(746, 3);
             this.closePictureBox.Name = "closePictureBox";
-            this.closePictureBox.Size = new System.Drawing.Size(46, 34);
+            this.closePictureBox.Size = new System.Drawing.Size(34, 28);
             this.closePictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.closePictureBox.TabIndex = 0;
             this.closePictureBox.TabStop = false;
@@ -292,10 +289,10 @@
             this.recentButton.AutoSize = true;
             this.recentButton.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
             this.recentButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(53)))), ((int)(((byte)(65)))));
-            this.recentButton.Location = new System.Drawing.Point(593, 50);
-            this.recentButton.Margin = new System.Windows.Forms.Padding(5);
+            this.recentButton.Location = new System.Drawing.Point(445, 41);
+            this.recentButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.recentButton.Name = "recentButton";
-            this.recentButton.Size = new System.Drawing.Size(249, 37);
+            this.recentButton.Size = new System.Drawing.Size(187, 30);
             this.recentButton.TabIndex = 10;
             this.recentButton.Text = "Recent Lemmata";
             this.recentButton.UseVisualStyleBackColor = true;
@@ -307,10 +304,10 @@
             this.popularButton.AutoSize = true;
             this.popularButton.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
             this.popularButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(53)))), ((int)(((byte)(65)))));
-            this.popularButton.Location = new System.Drawing.Point(257, 50);
-            this.popularButton.Margin = new System.Windows.Forms.Padding(5);
+            this.popularButton.Location = new System.Drawing.Point(193, 41);
+            this.popularButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.popularButton.Name = "popularButton";
-            this.popularButton.Size = new System.Drawing.Size(241, 37);
+            this.popularButton.Size = new System.Drawing.Size(181, 30);
             this.popularButton.TabIndex = 9;
             this.popularButton.Text = "Popular Lemmata";
             this.popularButton.UseVisualStyleBackColor = true;
@@ -336,11 +333,38 @@
             this.searchPanel.Controls.Add(this.filterCheckedListBox);
             this.searchPanel.Controls.Add(this.filtersLabel);
             this.searchPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.searchPanel.Location = new System.Drawing.Point(317, 0);
-            this.searchPanel.Margin = new System.Windows.Forms.Padding(4);
+            this.searchPanel.Location = new System.Drawing.Point(238, 0);
             this.searchPanel.Name = "searchPanel";
-            this.searchPanel.Size = new System.Drawing.Size(1044, 805);
+            this.searchPanel.Size = new System.Drawing.Size(783, 654);
             this.searchPanel.TabIndex = 2;
+            // 
+            // favouritesPictureBox
+            // 
+            this.favouritesPictureBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.favouritesPictureBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.favouritesPictureBox.Image = ((System.Drawing.Image)(resources.GetObject("favouritesPictureBox.Image")));
+            this.favouritesPictureBox.Location = new System.Drawing.Point(584, 212);
+            this.favouritesPictureBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.favouritesPictureBox.Name = "favouritesPictureBox";
+            this.favouritesPictureBox.Size = new System.Drawing.Size(33, 35);
+            this.favouritesPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.favouritesPictureBox.TabIndex = 37;
+            this.favouritesPictureBox.TabStop = false;
+            this.favouritesPictureBox.Visible = false;
+            // 
+            // editPictureBox
+            // 
+            this.editPictureBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.editPictureBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.editPictureBox.Image = ((System.Drawing.Image)(resources.GetObject("editPictureBox.Image")));
+            this.editPictureBox.Location = new System.Drawing.Point(622, 212);
+            this.editPictureBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.editPictureBox.Name = "editPictureBox";
+            this.editPictureBox.Size = new System.Drawing.Size(33, 35);
+            this.editPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.editPictureBox.TabIndex = 36;
+            this.editPictureBox.TabStop = false;
+            this.editPictureBox.Visible = false;
             // 
             // searchTextBox
             // 
@@ -349,12 +373,26 @@
             this.searchTextBox.Cursor = System.Windows.Forms.Cursors.Default;
             this.searchTextBox.Font = new System.Drawing.Font("Century Gothic", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
             this.searchTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(126)))), ((int)(((byte)(49)))));
-            this.searchTextBox.Location = new System.Drawing.Point(257, 114);
-            this.searchTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.searchTextBox.Location = new System.Drawing.Point(193, 93);
+            this.searchTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.searchTextBox.Name = "searchTextBox";
-            this.searchTextBox.Size = new System.Drawing.Size(439, 41);
+            this.searchTextBox.Size = new System.Drawing.Size(330, 34);
             this.searchTextBox.TabIndex = 16;
             this.searchTextBox.Text = "Search";
+            // 
+            // sharePictureBox
+            // 
+            this.sharePictureBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.sharePictureBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.sharePictureBox.Image = ((System.Drawing.Image)(resources.GetObject("sharePictureBox.Image")));
+            this.sharePictureBox.Location = new System.Drawing.Point(659, 212);
+            this.sharePictureBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.sharePictureBox.Name = "sharePictureBox";
+            this.sharePictureBox.Size = new System.Drawing.Size(33, 35);
+            this.sharePictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.sharePictureBox.TabIndex = 35;
+            this.sharePictureBox.TabStop = false;
+            this.sharePictureBox.Visible = false;
             // 
             // searchButton
             // 
@@ -362,14 +400,27 @@
             this.searchButton.AutoSize = true;
             this.searchButton.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
             this.searchButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(53)))), ((int)(((byte)(65)))));
-            this.searchButton.Location = new System.Drawing.Point(695, 114);
-            this.searchButton.Margin = new System.Windows.Forms.Padding(5);
+            this.searchButton.Location = new System.Drawing.Point(521, 93);
+            this.searchButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.searchButton.Name = "searchButton";
-            this.searchButton.Size = new System.Drawing.Size(147, 41);
+            this.searchButton.Size = new System.Drawing.Size(110, 33);
             this.searchButton.TabIndex = 15;
             this.searchButton.Text = "Search";
             this.searchButton.UseVisualStyleBackColor = true;
             this.searchButton.Click += new System.EventHandler(this.searchButton_Click);
+            // 
+            // savePictureBox
+            // 
+            this.savePictureBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.savePictureBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.savePictureBox.Image = ((System.Drawing.Image)(resources.GetObject("savePictureBox.Image")));
+            this.savePictureBox.Location = new System.Drawing.Point(697, 212);
+            this.savePictureBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.savePictureBox.Name = "savePictureBox";
+            this.savePictureBox.Size = new System.Drawing.Size(33, 35);
+            this.savePictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.savePictureBox.TabIndex = 34;
+            this.savePictureBox.TabStop = false;
             // 
             // mainPanel
             // 
@@ -377,11 +428,24 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.mainPanel.AutoScroll = true;
-            this.mainPanel.Location = new System.Drawing.Point(0, 306);
-            this.mainPanel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.mainPanel.Location = new System.Drawing.Point(0, 249);
+            this.mainPanel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.mainPanel.Name = "mainPanel";
-            this.mainPanel.Size = new System.Drawing.Size(1039, 499);
+            this.mainPanel.Size = new System.Drawing.Size(779, 405);
             this.mainPanel.TabIndex = 12;
+            // 
+            // printPictureBox
+            // 
+            this.printPictureBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.printPictureBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.printPictureBox.Image = ((System.Drawing.Image)(resources.GetObject("printPictureBox.Image")));
+            this.printPictureBox.Location = new System.Drawing.Point(734, 212);
+            this.printPictureBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.printPictureBox.Name = "printPictureBox";
+            this.printPictureBox.Size = new System.Drawing.Size(33, 35);
+            this.printPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.printPictureBox.TabIndex = 33;
+            this.printPictureBox.TabStop = false;
             // 
             // dateFilterLabel
             // 
@@ -389,10 +453,10 @@
             this.dateFilterLabel.AutoSize = true;
             this.dateFilterLabel.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
             this.dateFilterLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(53)))), ((int)(((byte)(65)))));
-            this.dateFilterLabel.Location = new System.Drawing.Point(246, 267);
-            this.dateFilterLabel.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.dateFilterLabel.Location = new System.Drawing.Point(184, 217);
+            this.dateFilterLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.dateFilterLabel.Name = "dateFilterLabel";
-            this.dateFilterLabel.Size = new System.Drawing.Size(97, 21);
+            this.dateFilterLabel.Size = new System.Drawing.Size(79, 19);
             this.dateFilterLabel.TabIndex = 7;
             this.dateFilterLabel.Text = "Date filter:";
             // 
@@ -400,10 +464,9 @@
             // 
             this.dateTimePicker.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.dateTimePicker.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-            this.dateTimePicker.Location = new System.Drawing.Point(433, 276);
-            this.dateTimePicker.Margin = new System.Windows.Forms.Padding(4);
+            this.dateTimePicker.Location = new System.Drawing.Point(325, 224);
             this.dateTimePicker.Name = "dateTimePicker";
-            this.dateTimePicker.Size = new System.Drawing.Size(340, 28);
+            this.dateTimePicker.Size = new System.Drawing.Size(256, 21);
             this.dateTimePicker.TabIndex = 6;
             this.dateTimePicker.ValueChanged += new System.EventHandler(this.dateTimePicker_ValueChanged);
             // 
@@ -441,10 +504,10 @@
             "Technology",
             "Universe",
             "World"});
-            this.filterCheckedListBox.Location = new System.Drawing.Point(433, 180);
-            this.filterCheckedListBox.Margin = new System.Windows.Forms.Padding(5);
+            this.filterCheckedListBox.Location = new System.Drawing.Point(325, 146);
+            this.filterCheckedListBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.filterCheckedListBox.Name = "filterCheckedListBox";
-            this.filterCheckedListBox.Size = new System.Drawing.Size(340, 119);
+            this.filterCheckedListBox.Size = new System.Drawing.Size(256, 80);
             this.filterCheckedListBox.TabIndex = 4;
             // 
             // filtersLabel
@@ -453,86 +516,22 @@
             this.filtersLabel.AutoSize = true;
             this.filtersLabel.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
             this.filtersLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(53)))), ((int)(((byte)(65)))));
-            this.filtersLabel.Location = new System.Drawing.Point(355, 182);
-            this.filtersLabel.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.filtersLabel.Location = new System.Drawing.Point(266, 148);
+            this.filtersLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.filtersLabel.Name = "filtersLabel";
-            this.filtersLabel.Size = new System.Drawing.Size(59, 21);
+            this.filtersLabel.Size = new System.Drawing.Size(49, 19);
             this.filtersLabel.TabIndex = 3;
             this.filtersLabel.Text = "Filters:";
             // 
-            // favouritesPictureBox
-            // 
-            this.favouritesPictureBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.favouritesPictureBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.favouritesPictureBox.Image = ((System.Drawing.Image)(resources.GetObject("favouritesPictureBox.Image")));
-            this.favouritesPictureBox.Location = new System.Drawing.Point(779, 261);
-            this.favouritesPictureBox.Name = "favouritesPictureBox";
-            this.favouritesPictureBox.Size = new System.Drawing.Size(44, 43);
-            this.favouritesPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.favouritesPictureBox.TabIndex = 37;
-            this.favouritesPictureBox.TabStop = false;
-            this.favouritesPictureBox.Visible = false;
-            // 
-            // editPictureBox
-            // 
-            this.editPictureBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.editPictureBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.editPictureBox.Image = ((System.Drawing.Image)(resources.GetObject("editPictureBox.Image")));
-            this.editPictureBox.Location = new System.Drawing.Point(829, 261);
-            this.editPictureBox.Name = "editPictureBox";
-            this.editPictureBox.Size = new System.Drawing.Size(44, 43);
-            this.editPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.editPictureBox.TabIndex = 36;
-            this.editPictureBox.TabStop = false;
-            this.editPictureBox.Visible = false;
-            // 
-            // sharePictureBox
-            // 
-            this.sharePictureBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.sharePictureBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.sharePictureBox.Image = ((System.Drawing.Image)(resources.GetObject("sharePictureBox.Image")));
-            this.sharePictureBox.Location = new System.Drawing.Point(879, 261);
-            this.sharePictureBox.Name = "sharePictureBox";
-            this.sharePictureBox.Size = new System.Drawing.Size(44, 43);
-            this.sharePictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.sharePictureBox.TabIndex = 35;
-            this.sharePictureBox.TabStop = false;
-            this.sharePictureBox.Visible = false;
-            // 
-            // savePictureBox
-            // 
-            this.savePictureBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.savePictureBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.savePictureBox.Image = ((System.Drawing.Image)(resources.GetObject("savePictureBox.Image")));
-            this.savePictureBox.Location = new System.Drawing.Point(929, 261);
-            this.savePictureBox.Name = "savePictureBox";
-            this.savePictureBox.Size = new System.Drawing.Size(44, 43);
-            this.savePictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.savePictureBox.TabIndex = 34;
-            this.savePictureBox.TabStop = false;
-            // 
-            // printPictureBox
-            // 
-            this.printPictureBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.printPictureBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.printPictureBox.Image = ((System.Drawing.Image)(resources.GetObject("printPictureBox.Image")));
-            this.printPictureBox.Location = new System.Drawing.Point(979, 261);
-            this.printPictureBox.Name = "printPictureBox";
-            this.printPictureBox.Size = new System.Drawing.Size(44, 43);
-            this.printPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.printPictureBox.TabIndex = 33;
-            this.printPictureBox.TabStop = false;
-            // 
             // StartPage
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Gainsboro;
-            this.ClientSize = new System.Drawing.Size(1361, 805);
+            this.ClientSize = new System.Drawing.Size(1021, 654);
             this.Controls.Add(this.searchPanel);
             this.Controls.Add(this.leftPanel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "StartPage";
             this.Text = "Encyclopedia";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;

@@ -1,4 +1,6 @@
-﻿using Encyclopedia.View;
+﻿using Encyclopedia.Controller;
+using Encyclopedia.Model;
+using Encyclopedia.View;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,7 +15,12 @@ namespace UI
 {
     public partial class StartPage : Form
     {
-
+        //a list with all the controls to be hidden when login is successfull
+        public List<Control> controlsBeforeLogin = new List<Control>();
+        //the new leftpanel 
+        public AfterLoginUserControl afterLoginPanel;
+        //a public variable to hold everything --- used instead of private Panel leftPanel
+        public Panel newLeftPanel;
 
 
         //list with filters to be checked
@@ -35,6 +42,13 @@ namespace UI
                 Encyclopedia.View.LemmaOfTheDayUserControl.Instance.BringToFront();   
             }
             mainPanel.Controls.Add(Encyclopedia.View.LemmaViewUserControl.Instance);
+
+            //copy all the controls of private left panel to newLeftPanel
+            newLeftPanel = leftPanel;
+            //remove the private left panel
+            this.Controls.Remove(leftPanel);
+            //add the newLeftPanel
+            this.Controls.Add(newLeftPanel);
         }
 
         private void StartPage_Load(object sender, EventArgs e)
@@ -187,6 +201,45 @@ namespace UI
         private void closePictureBox_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void loginButton_Click(object sender, EventArgs e)
+        {
+            //Take user input from fields
+            string username = usernameTextBox.Text;
+            string password = passwordTextBox.Text;
+
+            //crate a handler to validate user information -- returns true if user exists otherwise false
+            LoginHandler handler = new LoginHandler(username, password);
+            bool doesUserExist = handler.ValidateAccount();
+
+            Console.WriteLine(doesUserExist);
+
+            if (doesUserExist)
+            {
+                //User Exists
+                //change the left panel to the new AfterLoginUserControl
+                changePanelControls();
+            }
+            else
+            {
+                //User doesnt Exists
+                //change the feedback label -- just for demo
+                label1.Text = "USER DOESNT EXISTS";
+            }
+            
+        }
+
+        private void changePanelControls()
+        {
+            afterLoginPanel = new AfterLoginUserControl();
+            foreach (Control x in newLeftPanel.Controls)
+            {
+                controlsBeforeLogin.Add(x);
+                x.Visible = false;
+            }
+
+            leftPanel.Controls.Add(afterLoginPanel);
         }
     }
 }
