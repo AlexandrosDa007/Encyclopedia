@@ -5584,7 +5584,7 @@ namespace Encyclopedia.fooDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private void InitConnection() {
             this._connection = new global::Devart.Data.MySql.MySqlConnection();
-            this._connection.ConnectionString = global::Encyclopedia.Properties.Settings.Default.fooConnectionString;
+            this._connection.ConnectionString = global::Encyclopedia.Properties.Settings.Default.Connection;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -5989,7 +5989,7 @@ namespace Encyclopedia.fooDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private void InitConnection() {
             this._connection = new global::Devart.Data.MySql.MySqlConnection();
-            this._connection.ConnectionString = global::Encyclopedia.Properties.Settings.Default.fooConnectionString;
+            this._connection.ConnectionString = global::Encyclopedia.Properties.Settings.Default.Connection;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -6399,7 +6399,7 @@ namespace Encyclopedia.fooDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private void InitConnection() {
             this._connection = new global::Devart.Data.MySql.MySqlConnection();
-            this._connection.ConnectionString = global::Encyclopedia.Properties.Settings.Default.fooConnectionString;
+            this._connection.ConnectionString = global::Encyclopedia.Properties.Settings.Default.Connection;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -6792,7 +6792,7 @@ namespace Encyclopedia.fooDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private void InitConnection() {
             this._connection = new global::Devart.Data.MySql.MySqlConnection();
-            this._connection.ConnectionString = global::Encyclopedia.Properties.Settings.Default.fooConnectionString;
+            this._connection.ConnectionString = global::Encyclopedia.Properties.Settings.Default.Connection;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -7230,7 +7230,7 @@ namespace Encyclopedia.fooDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private void InitConnection() {
             this._connection = new global::Devart.Data.MySql.MySqlConnection();
-            this._connection.ConnectionString = global::Encyclopedia.Properties.Settings.Default.fooConnectionString;
+            this._connection.ConnectionString = global::Encyclopedia.Properties.Settings.Default.Connection;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -7605,7 +7605,7 @@ namespace Encyclopedia.fooDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private void InitConnection() {
             this._connection = new global::Devart.Data.MySql.MySqlConnection();
-            this._connection.ConnectionString = global::Encyclopedia.Properties.Settings.Default.fooConnectionString;
+            this._connection.ConnectionString = global::Encyclopedia.Properties.Settings.Default.Connection;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -7993,7 +7993,7 @@ namespace Encyclopedia.fooDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private void InitConnection() {
             this._connection = new global::Devart.Data.MySql.MySqlConnection();
-            this._connection.ConnectionString = global::Encyclopedia.Properties.Settings.Default.fooConnectionString;
+            this._connection.ConnectionString = global::Encyclopedia.Properties.Settings.Default.Connection;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -8380,7 +8380,7 @@ namespace Encyclopedia.fooDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private void InitConnection() {
             this._connection = new global::Devart.Data.MySql.MySqlConnection();
-            this._connection.ConnectionString = global::Encyclopedia.Properties.Settings.Default.fooConnectionString;
+            this._connection.ConnectionString = global::Encyclopedia.Properties.Settings.Default.Connection;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -8744,7 +8744,7 @@ namespace Encyclopedia.fooDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private void InitConnection() {
             this._connection = new global::Devart.Data.MySql.MySqlConnection();
-            this._connection.ConnectionString = global::Encyclopedia.Properties.Settings.Default.fooConnectionString;
+            this._connection.ConnectionString = global::Encyclopedia.Properties.Settings.Default.Connection;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -9238,7 +9238,7 @@ namespace Encyclopedia.fooDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private void InitConnection() {
             this._connection = new global::Devart.Data.MySql.MySqlConnection();
-            this._connection.ConnectionString = global::Encyclopedia.Properties.Settings.Default.fooConnectionString;
+            this._connection.ConnectionString = global::Encyclopedia.Properties.Settings.Default.Connection;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]

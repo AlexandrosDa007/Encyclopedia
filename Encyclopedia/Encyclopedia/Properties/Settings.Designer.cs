@@ -26,10 +26,11 @@ namespace Encyclopedia.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("server=db4free.net;user id=alator2;password=1234567890;database=alatorsdb2")]
-        public string fooConnectionString {
+        [global::System.Configuration.DefaultSettingValueAttribute("server=db4free.net;user id=alator2;password=1234567890;database=alatorsdb2;oldgui" +
+            "ds=true")]
+        public string Connection {
             get {
-                return ((string)(this["fooConnectionString"]));
+                return ((string)(this["Connection"]));
             }
         }
     }

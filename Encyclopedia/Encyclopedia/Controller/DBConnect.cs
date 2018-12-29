@@ -15,7 +15,7 @@ namespace Encyclopedia.Controller
 
         public static void Initialize()
         {
-            connection = new MySqlConnection(Encyclopedia.Properties.Settings.Default.fooConnectionString);
+            connection = new MySqlConnection(Encyclopedia.Properties.Settings.Default.Connection);
             OpenConnection();
         }
 
