@@ -64,7 +64,13 @@ namespace Encyclopedia.View
 
 			// show error messages if any
 			Console.WriteLine("The exit code was: " + exitCode);
-        }
+			feedbackLabel.Text = "The exit code was: " + exitCode;
+			feedbackLabel.ForeColor = Color.Black;
+
+			Timer timer1 = new Timer();
+			timer1.Tick += new EventHandler(timer1_Tick);
+			timer1.Start();
+		}
 
         private void browseb_Click(object sender, EventArgs e)
         {
@@ -99,5 +105,17 @@ namespace Encyclopedia.View
         {
             this.Close();
         }
+
+		private void timer1_Tick(object sender, EventArgs e)
+		{
+			int fadingSpeed = 5;
+			feedbackLabel.ForeColor = Color.FromArgb(feedbackLabel.ForeColor.R + fadingSpeed, feedbackLabel.ForeColor.G + fadingSpeed, feedbackLabel.ForeColor.B + fadingSpeed);
+
+			if (feedbackLabel.ForeColor.R >= this.BackColor.R)
+			{
+				((Timer)sender).Stop();
+				feedbackLabel.ForeColor = this.BackColor;
+			}
+		}
 	}
 }

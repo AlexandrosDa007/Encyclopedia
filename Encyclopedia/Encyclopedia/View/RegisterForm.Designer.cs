@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+			this.components = new System.ComponentModel.Container();
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RegisterForm));
 			this.nameTextBox = new System.Windows.Forms.TextBox();
 			this.surnameTextBox = new System.Windows.Forms.TextBox();
@@ -61,6 +62,9 @@
 			this.imagePathLabel = new System.Windows.Forms.Label();
 			this.topPanel = new System.Windows.Forms.Panel();
 			this.closePictureBox = new System.Windows.Forms.PictureBox();
+			this.feedbackLabel = new System.Windows.Forms.Label();
+			this.imageToolTip = new System.Windows.Forms.ToolTip(this.components);
+			this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
 			this.genderGroupBox.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.imagePB)).BeginInit();
 			this.topPanel.SuspendLayout();
@@ -188,10 +192,12 @@
 			// 
 			// imagePB
 			// 
-			this.imagePB.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.imagePB.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+			this.imagePB.Image = ((System.Drawing.Image)(resources.GetObject("imagePB.Image")));
 			this.imagePB.Location = new System.Drawing.Point(615, 92);
 			this.imagePB.Name = "imagePB";
 			this.imagePB.Size = new System.Drawing.Size(126, 126);
+			this.imagePB.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
 			this.imagePB.TabIndex = 9;
 			this.imagePB.TabStop = false;
 			// 
@@ -246,12 +252,13 @@
 			this.imagePathTB.Name = "imagePathTB";
 			this.imagePathTB.Size = new System.Drawing.Size(229, 27);
 			this.imagePathTB.TabIndex = 13;
+			this.imageToolTip.SetToolTip(this.imagePathTB, "Leave it blank if you don\'t want any avatar icon.");
 			// 
 			// browseB
 			// 
 			this.browseB.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
 			this.browseB.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-			this.browseB.Location = new System.Drawing.Point(615, 244);
+			this.browseB.Location = new System.Drawing.Point(615, 242);
 			this.browseB.Name = "browseB";
 			this.browseB.Size = new System.Drawing.Size(126, 29);
 			this.browseB.TabIndex = 14;
@@ -378,6 +385,7 @@
 			this.imagePathLabel.Size = new System.Drawing.Size(114, 21);
 			this.imagePathLabel.TabIndex = 27;
 			this.imagePathLabel.Text = "Image Path";
+			this.toolTip1.SetToolTip(this.imagePathLabel, "Leave it blank if you don\'t want any avatar icon.");
 			// 
 			// topPanel
 			// 
@@ -387,14 +395,14 @@
 			this.topPanel.Location = new System.Drawing.Point(0, 0);
 			this.topPanel.Margin = new System.Windows.Forms.Padding(4);
 			this.topPanel.Name = "topPanel";
-			this.topPanel.Size = new System.Drawing.Size(839, 44);
+			this.topPanel.Size = new System.Drawing.Size(840, 44);
 			this.topPanel.TabIndex = 28;
 			// 
 			// closePictureBox
 			// 
 			this.closePictureBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
 			this.closePictureBox.Image = ((System.Drawing.Image)(resources.GetObject("closePictureBox.Image")));
-			this.closePictureBox.Location = new System.Drawing.Point(790, 13);
+			this.closePictureBox.Location = new System.Drawing.Point(791, 13);
 			this.closePictureBox.Margin = new System.Windows.Forms.Padding(4);
 			this.closePictureBox.Name = "closePictureBox";
 			this.closePictureBox.Size = new System.Drawing.Size(45, 27);
@@ -402,13 +410,37 @@
 			this.closePictureBox.TabStop = false;
 			this.closePictureBox.Click += new System.EventHandler(this.closePictureBox_Click);
 			// 
+			// feedbackLabel
+			// 
+			this.feedbackLabel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+			this.feedbackLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.feedbackLabel.Font = new System.Drawing.Font("Century Gothic", 10.01739F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
+			this.feedbackLabel.Location = new System.Drawing.Point(-2, 950);
+			this.feedbackLabel.Name = "feedbackLabel";
+			this.feedbackLabel.Size = new System.Drawing.Size(843, 30);
+			this.feedbackLabel.TabIndex = 29;
+			this.feedbackLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			// 
+			// imageToolTip
+			// 
+			this.imageToolTip.AutoPopDelay = 2000;
+			this.imageToolTip.InitialDelay = 300;
+			this.imageToolTip.ReshowDelay = 100;
+			// 
+			// toolTip1
+			// 
+			this.toolTip1.AutoPopDelay = 2000;
+			this.toolTip1.InitialDelay = 300;
+			this.toolTip1.ReshowDelay = 100;
+			// 
 			// RegisterForm
 			// 
 			this.AcceptButton = this.registerButton;
 			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.BackColor = System.Drawing.Color.Gainsboro;
-			this.ClientSize = new System.Drawing.Size(839, 979);
+			this.ClientSize = new System.Drawing.Size(840, 979);
+			this.Controls.Add(this.feedbackLabel);
 			this.Controls.Add(this.topPanel);
 			this.Controls.Add(this.imagePathLabel);
 			this.Controls.Add(this.educationLabel);
@@ -486,5 +518,8 @@
         private System.Windows.Forms.Label imagePathLabel;
         private System.Windows.Forms.Panel topPanel;
         private System.Windows.Forms.PictureBox closePictureBox;
-    }
+		private System.Windows.Forms.Label feedbackLabel;
+		private System.Windows.Forms.ToolTip imageToolTip;
+		private System.Windows.Forms.ToolTip toolTip1;
+	}
 }
