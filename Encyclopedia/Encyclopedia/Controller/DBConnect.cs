@@ -403,6 +403,127 @@ namespace Encyclopedia.Controller
             return salt;
         }
 
+        public static Account GetAccountByUsername(string username)
+        {
+            Account account;
+            string selectQuery = "SELECT account_id,account_salted_password_hash,account_password_salt,account_email,account_created_at FROM Account WHERE account_username = @user";
+            MySqlCommand cmd = new MySqlCommand(selectQuery, connection);
+            cmd.CommandTimeout = 500000;
+            cmd.Parameters.AddWithValue("@user", username);
+            cmd.Prepare();
+            MySqlDataReader dataReader = cmd.ExecuteReader();
+
+            int accountId = -999;
+            string accountPassword = "";
+            string accountSalt = "";
+            string accountEmail = "";
+            DateTime accountCreatedAt = new DateTime();
+
+            while (dataReader.Read())
+            {
+                accountId = Convert.ToInt32(dataReader[0].ToString());
+                accountPassword = dataReader[1].ToString();
+                accountSalt = dataReader[2].ToString();
+                accountEmail = dataReader[3].ToString();
+                accountCreatedAt = DateTime.Parse(dataReader[4].ToString());
+            }
+
+            dataReader.Close();
+            account = new Account(GetUserByAccountId(accountId),username,accountPassword,accountSalt,accountEmail,accountCreatedAt);
+
+            return account;
+        }
+
+        public static User GetUserByAccountId(int accountId)
+        {
+            User user;
+            string selectQuery = "SELECT user_name,user_surname,user_date_of_birth,user_gender,user_tel,user_role_id,"+
+                "user_education_level_id,user_description,user_image FROM User WHERE user_id = @id";
+            MySqlCommand cmd = new MySqlCommand(selectQuery, connection);
+            cmd.CommandTimeout = 500000;
+            cmd.Parameters.AddWithValue("@id", accountId);
+            cmd.Prepare();
+            MySqlDataReader dataReader = cmd.ExecuteReader();
+
+            string userName = "";
+            string userSurname = "";
+            DateTime dateOfBirth = new DateTime();
+            char gender = 'N';
+            string telNumber = "";
+            int userRoleId = -999;
+            int userEducationLevelId = -999;
+            string userDescription = "";
+            byte[] userImage = null;
+
+            while (dataReader.Read())
+            {
+                userName = dataReader[0].ToString();
+                userSurname = dataReader[1].ToString();
+                dateOfBirth = DateTime.Parse(dataReader[2].ToString());
+                gender = dataReader[3].ToString()[0];
+                telNumber = dataReader[4].ToString();
+                userRoleId = Convert.ToInt32(dataReader[5].ToString());
+                userEducationLevelId = Convert.ToInt32(dataReader[6].ToString());
+                userDescription = dataReader[7].ToString();
+                userImage = (byte[])dataReader["user_image"];
+            }
+            dataReader.Close();
+            Role role = GetRoleById(userRoleId);
+            EducationLevel educationLevel = GetEducationLevelById(userEducationLevelId);
+
+            user = new User(accountId,userName,userSurname,dateOfBirth,gender,telNumber,role,educationLevel,userDescription,userImage);
+
+            return user;
+        }
+
+        public static Role GetRoleById(int roleId)
+        {
+            Role role;
+            string selectQuery = "SELECT role_name FROM Role WHERE role_id = @id";
+            MySqlCommand cmd = new MySqlCommand(selectQuery, connection);
+            cmd.CommandTimeout = 500000;
+            cmd.Parameters.AddWithValue("@id", roleId);
+            cmd.Prepare();
+            MySqlDataReader dataReader = cmd.ExecuteReader();
+
+            string roleName = "";
+
+            while (dataReader.Read())
+            {
+                roleName = dataReader[0].ToString();
+            }
+
+            dataReader.Close();
+
+            role = new Role(roleId, roleName);
+
+            return role;
+        }
+
+        public static EducationLevel GetEducationLevelById(int educationLevelId)
+        {
+            EducationLevel educationLevel;
+            string selectQuery = "SELECT education_level_name FROM Education_Level WHERE education_level_id = @id";
+            MySqlCommand cmd = new MySqlCommand(selectQuery, connection);
+            cmd.CommandTimeout = 500000;
+            cmd.Parameters.AddWithValue("@id", educationLevelId);
+            cmd.Prepare();
+            MySqlDataReader dataReader = cmd.ExecuteReader();
+
+            string educationLevelName = "";
+
+            while (dataReader.Read())
+            {
+                educationLevelName = dataReader[0].ToString();
+            }
+
+            dataReader.Close();
+
+            educationLevel = new EducationLevel(educationLevelId, educationLevelName);
+
+            return educationLevel;
+        }
+
 		//insert
 
         public static int Insert(Category category)
@@ -676,60 +797,89 @@ namespace Encyclopedia.Controller
 
 		//update
 
-        public void Update(Category category)
+        public static void Update(Category category)
         {
             //code to Update new category
         }
 
-        public void Update(Contact contact)
+        public static void Update(Contact contact)
         {
             //code to Update new contact
         }
 
-        public void Update(ContactGroup contactGroup)
+        public static void Update(ContactGroup contactGroup)
         {
             //code to Update contactgroup
         }
 
-        public void Update(EditedLemma editedLemma)
+        public static void Update(EditedLemma editedLemma)
         {
             //code to Update editedLemma
         }
 
-        public void Update(EducationLevel educationLevel)
+        public static void Update(EducationLevel educationLevel)
         {
             //code to Update educationLevel
         }
 
-        public void Update(FavoriteLemma favoriteLemma)
+        public static void Update(FavoriteLemma favoriteLemma)
         {
             //code to Update favoriteLemma
         }
 
-        public void Update(Lemma lemma)
+        public static void Update(Lemma lemma)
         {
             //code to Update lemma
         }
 
-        public void Update(Role role)
+        public static void Update(Role role)
         {
             //code to Update role
         }
 
-        public void Update(SharedLemma sharedLemma)
+        public static void Update(SharedLemma sharedLemma)
         {
             //code to Update sharedLemma
         }
 
-        public void Update(User user)
+        public static int Update(User user)
         {
-            //code to Update user
+            string query = "UPDATE User SET user_name = @name, user_surname = @surname, user_date_of_birth "+
+                "= @date,user_gender = @gender, user_tel = @tel, user_role_id = @role, user_education_level_id = @edu,"+
+                " user_description = @description, user_image = @img WHERE user_id = @id";
+            MySqlCommand cmd = new MySqlCommand(query, connection);
+            cmd.CommandTimeout = 500000;
+            cmd.Parameters.AddWithValue("@name", user.Name);
+            cmd.Parameters.AddWithValue("@surname", user.Surname);
+            cmd.Parameters.AddWithValue("@date", user.DateOfBirth);
+            cmd.Parameters.AddWithValue("@gender", user.Gender);
+            cmd.Parameters.AddWithValue("@tel", user.Tel);
+            cmd.Parameters.AddWithValue("@role", user.Role.Id);
+            cmd.Parameters.AddWithValue("@edu", user.EducationLevel.Id);
+            cmd.Parameters.AddWithValue("@description", user.Description);
+            cmd.Parameters.AddWithValue("@img", user.Image);
+            cmd.Parameters.AddWithValue("@id", user.Id);
+            cmd.Prepare();
+            int rowsAffected = cmd.ExecuteNonQuery();
+
+
+            return rowsAffected;
         }
 
-		public void Update(Account account)
+		public static int Update(Account account)
 		{
-			//code to Update new account
-		}
+            string query = "UPDATE Account SET account_salted_password_hash = @pass,account_password_salt = @salt WHERE account_email = @email";
+            MySqlCommand cmd = new MySqlCommand(query, connection);
+            cmd.CommandTimeout = 500000;
+            cmd.Parameters.AddWithValue("@pass", account.SaltedPasswordHash);
+            cmd.Parameters.AddWithValue("@salt", account.PasswordSalt);
+            cmd.Parameters.AddWithValue("@email", account.Email);
+            cmd.Prepare();
+            int rowsAffected = cmd.ExecuteNonQuery();
+
+
+            return rowsAffected;
+        }
 	}
 
     

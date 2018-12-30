@@ -21,6 +21,8 @@ namespace UI
         public AfterLoginUserControl afterLoginPanel;
         //a public variable to hold everything --- used instead of private Panel leftPanel
         public Panel newLeftPanel;
+        //user account
+        public Account account;
 
 
         //list with filters to be checked
@@ -219,6 +221,9 @@ namespace UI
             {
                 //User Exists
                 //change the left panel to the new AfterLoginUserControl
+                afterLoginPanel = new AfterLoginUserControl();
+                afterLoginPanel.Account = DBConnect.GetAccountByUsername(username);
+                afterLoginPanel.SetImage();
                 changePanelControls();
             }
             else
@@ -232,7 +237,7 @@ namespace UI
 
         private void changePanelControls()
         {
-            afterLoginPanel = new AfterLoginUserControl();
+            
             foreach (Control x in newLeftPanel.Controls)
             {
                 controlsBeforeLogin.Add(x);

@@ -2,7 +2,7 @@
 
 namespace Encyclopedia.Model
 {
-    class ContactGroup
+    public class ContactGroup
     {
         // fields
         private int id;

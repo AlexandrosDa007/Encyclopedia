@@ -2,7 +2,7 @@
 
 namespace Encyclopedia.Model
 {
-    class FavoriteLemma
+    public class FavoriteLemma
     {
         // fields
         private Lemma lemma;

@@ -3,7 +3,7 @@ using System.Net.Mail;
 
 namespace Encyclopedia.Model
 {
-    class Account
+    public class Account
     {
         // fields
         private User user;

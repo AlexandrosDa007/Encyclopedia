@@ -8,14 +8,18 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using UI;
+using Encyclopedia.Model;
 
 namespace Encyclopedia.View
 {
     public partial class AfterLoginUserControl : UserControl
     {
+        public Account Account { set; get; }
+
         public AfterLoginUserControl()
         {
             InitializeComponent();
+            
         }
 
         private void logoutButton_Click(object sender, EventArgs e)
@@ -72,8 +76,20 @@ namespace Encyclopedia.View
 
         private void profileButton_Click(object sender, EventArgs e)
         {
-            ProfileForm profileForm = new ProfileForm();
+
+            ProfileForm profileForm = new ProfileForm(this.Account);
             profileForm.ShowDialog();
+            if (profileForm.UpdatedSuccessfully)
+            {
+                //update success
+                this.Account = profileForm.Account;
+                SetImage();
+            }
+        }
+
+        public void SetImage()
+        {
+            sideProfilePicture.Image = (Bitmap)((new ImageConverter()).ConvertFrom(Account.User.Image));
         }
     }
 }

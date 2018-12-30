@@ -3,7 +3,7 @@ using System.Text;
 
 namespace Encyclopedia.Model
 {
-    class Lemma
+    public class Lemma
     {
         // fields
         private String title;

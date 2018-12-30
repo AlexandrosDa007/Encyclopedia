@@ -80,6 +80,8 @@ namespace Encyclopedia.Controller
 			}
         }
 
+
+
 		private static EducationLevel FindEducationLevel(string educationLevelName)
 		{
 			EducationLevel educationLevel = null;

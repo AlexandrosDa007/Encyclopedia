@@ -45,17 +45,19 @@
             // 
             this.FeedbackPanel.Controls.Add(this.label1);
             this.FeedbackPanel.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.FeedbackPanel.Location = new System.Drawing.Point(0, 717);
+            this.FeedbackPanel.Location = new System.Drawing.Point(0, 582);
+            this.FeedbackPanel.Margin = new System.Windows.Forms.Padding(2);
             this.FeedbackPanel.Name = "FeedbackPanel";
-            this.FeedbackPanel.Size = new System.Drawing.Size(324, 88);
+            this.FeedbackPanel.Size = new System.Drawing.Size(243, 72);
             this.FeedbackPanel.TabIndex = 24;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(40, 37);
+            this.label1.Location = new System.Drawing.Point(30, 30);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(46, 17);
+            this.label1.Size = new System.Drawing.Size(35, 13);
             this.label1.TabIndex = 0;
             this.label1.Text = "label1";
             // 
@@ -81,14 +83,14 @@
             this.logoutButton.IconVisible = true;
             this.logoutButton.IconZoom = 90D;
             this.logoutButton.IsTab = false;
-            this.logoutButton.Location = new System.Drawing.Point(3, 514);
-            this.logoutButton.Margin = new System.Windows.Forms.Padding(4);
+            this.logoutButton.Location = new System.Drawing.Point(2, 418);
+            this.logoutButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.logoutButton.Name = "logoutButton";
             this.logoutButton.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(53)))), ((int)(((byte)(65)))));
             this.logoutButton.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(92)))), ((int)(((byte)(127)))));
             this.logoutButton.OnHoverTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(126)))), ((int)(((byte)(49)))));
             this.logoutButton.selected = false;
-            this.logoutButton.Size = new System.Drawing.Size(324, 63);
+            this.logoutButton.Size = new System.Drawing.Size(243, 51);
             this.logoutButton.TabIndex = 23;
             this.logoutButton.Text = "Logout";
             this.logoutButton.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -118,14 +120,14 @@
             this.contactsButton.IconVisible = true;
             this.contactsButton.IconZoom = 90D;
             this.contactsButton.IsTab = false;
-            this.contactsButton.Location = new System.Drawing.Point(3, 438);
-            this.contactsButton.Margin = new System.Windows.Forms.Padding(4);
+            this.contactsButton.Location = new System.Drawing.Point(2, 356);
+            this.contactsButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.contactsButton.Name = "contactsButton";
             this.contactsButton.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(53)))), ((int)(((byte)(65)))));
             this.contactsButton.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(92)))), ((int)(((byte)(127)))));
             this.contactsButton.OnHoverTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(126)))), ((int)(((byte)(49)))));
             this.contactsButton.selected = false;
-            this.contactsButton.Size = new System.Drawing.Size(324, 63);
+            this.contactsButton.Size = new System.Drawing.Size(243, 51);
             this.contactsButton.TabIndex = 22;
             this.contactsButton.Text = "Contacts";
             this.contactsButton.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -155,14 +157,14 @@
             this.editedButton.IconVisible = true;
             this.editedButton.IconZoom = 90D;
             this.editedButton.IsTab = false;
-            this.editedButton.Location = new System.Drawing.Point(3, 368);
-            this.editedButton.Margin = new System.Windows.Forms.Padding(4);
+            this.editedButton.Location = new System.Drawing.Point(2, 299);
+            this.editedButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.editedButton.Name = "editedButton";
             this.editedButton.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(53)))), ((int)(((byte)(65)))));
             this.editedButton.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(92)))), ((int)(((byte)(127)))));
             this.editedButton.OnHoverTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(126)))), ((int)(((byte)(49)))));
             this.editedButton.selected = false;
-            this.editedButton.Size = new System.Drawing.Size(324, 63);
+            this.editedButton.Size = new System.Drawing.Size(243, 51);
             this.editedButton.TabIndex = 21;
             this.editedButton.Text = "Edited Lemmata";
             this.editedButton.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -192,14 +194,14 @@
             this.favouritesButton.IconVisible = true;
             this.favouritesButton.IconZoom = 90D;
             this.favouritesButton.IsTab = false;
-            this.favouritesButton.Location = new System.Drawing.Point(3, 286);
-            this.favouritesButton.Margin = new System.Windows.Forms.Padding(4);
+            this.favouritesButton.Location = new System.Drawing.Point(2, 232);
+            this.favouritesButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.favouritesButton.Name = "favouritesButton";
             this.favouritesButton.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(53)))), ((int)(((byte)(65)))));
             this.favouritesButton.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(92)))), ((int)(((byte)(127)))));
             this.favouritesButton.OnHoverTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(126)))), ((int)(((byte)(49)))));
             this.favouritesButton.selected = false;
-            this.favouritesButton.Size = new System.Drawing.Size(324, 63);
+            this.favouritesButton.Size = new System.Drawing.Size(243, 51);
             this.favouritesButton.TabIndex = 20;
             this.favouritesButton.Text = "Favourites";
             this.favouritesButton.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -229,14 +231,14 @@
             this.profileButton.IconVisible = true;
             this.profileButton.IconZoom = 90D;
             this.profileButton.IsTab = false;
-            this.profileButton.Location = new System.Drawing.Point(3, 211);
-            this.profileButton.Margin = new System.Windows.Forms.Padding(4);
+            this.profileButton.Location = new System.Drawing.Point(2, 171);
+            this.profileButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.profileButton.Name = "profileButton";
             this.profileButton.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(53)))), ((int)(((byte)(65)))));
             this.profileButton.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(92)))), ((int)(((byte)(127)))));
             this.profileButton.OnHoverTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(126)))), ((int)(((byte)(49)))));
             this.profileButton.selected = false;
-            this.profileButton.Size = new System.Drawing.Size(324, 63);
+            this.profileButton.Size = new System.Drawing.Size(243, 51);
             this.profileButton.TabIndex = 19;
             this.profileButton.Text = "Profile";
             this.profileButton.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -246,9 +248,11 @@
             // 
             // sideProfilePicture
             // 
-            this.sideProfilePicture.Location = new System.Drawing.Point(93, 57);
+            this.sideProfilePicture.Location = new System.Drawing.Point(74, 43);
+            this.sideProfilePicture.Margin = new System.Windows.Forms.Padding(2);
             this.sideProfilePicture.Name = "sideProfilePicture";
-            this.sideProfilePicture.Size = new System.Drawing.Size(139, 104);
+            this.sideProfilePicture.Size = new System.Drawing.Size(100, 100);
+            this.sideProfilePicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.sideProfilePicture.TabIndex = 18;
             this.sideProfilePicture.TabStop = false;
             // 
@@ -257,16 +261,16 @@
             this.connectUserLabel.AutoSize = true;
             this.connectUserLabel.Font = new System.Drawing.Font("Century Gothic", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
             this.connectUserLabel.ForeColor = System.Drawing.Color.White;
-            this.connectUserLabel.Location = new System.Drawing.Point(92, 20);
-            this.connectUserLabel.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.connectUserLabel.Location = new System.Drawing.Point(69, 16);
+            this.connectUserLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.connectUserLabel.Name = "connectUserLabel";
-            this.connectUserLabel.Size = new System.Drawing.Size(146, 34);
+            this.connectUserLabel.Size = new System.Drawing.Size(119, 25);
             this.connectUserLabel.TabIndex = 17;
             this.connectUserLabel.Text = "Welcome";
             // 
             // AfterLoginUserControl
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(53)))), ((int)(((byte)(65)))));
             this.Controls.Add(this.FeedbackPanel);
@@ -277,8 +281,9 @@
             this.Controls.Add(this.profileButton);
             this.Controls.Add(this.sideProfilePicture);
             this.Controls.Add(this.connectUserLabel);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "AfterLoginUserControl";
-            this.Size = new System.Drawing.Size(324, 805);
+            this.Size = new System.Drawing.Size(243, 654);
             this.FeedbackPanel.ResumeLayout(false);
             this.FeedbackPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.sideProfilePicture)).EndInit();
