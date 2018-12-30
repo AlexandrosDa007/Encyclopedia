@@ -27,7 +27,7 @@ namespace Encyclopedia.Properties {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
         [global::System.Configuration.DefaultSettingValueAttribute("server=db4free.net;user id=alator2;password=1234567890;database=alatorsdb2;oldgui" +
-            "ds=true")]
+            "ds=True;characterset=utf8")]
         public string Connection {
             get {
                 return ((string)(this["Connection"]));
