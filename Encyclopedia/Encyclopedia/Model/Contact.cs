@@ -2,7 +2,7 @@
 
 namespace Encyclopedia.Model
 {
-    class Contact
+    public class Contact
     {
         // fields
         private User user;

@@ -3,7 +3,7 @@ using System.Linq;
 
 namespace Encyclopedia.Model
 {
-    class User
+    public class User
     {
         // fields
         private int id;

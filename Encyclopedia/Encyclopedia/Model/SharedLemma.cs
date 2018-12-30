@@ -2,7 +2,7 @@
 
 namespace Encyclopedia.Model
 {
-    class SharedLemma
+    public class SharedLemma
     {
         // fields
         private User sender;

@@ -2,7 +2,7 @@
 
 namespace Encyclopedia.Model
 {
-    class Category
+    public class Category
     {
         // fields
         private int id;
