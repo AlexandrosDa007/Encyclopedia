@@ -88,6 +88,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controller\ContactHandler.cs" />
     <Compile Include="Controller\DBConnect.cs" />
     <Compile Include="Controller\Favorite.cs" />
     <Compile Include="Controller\LoginHandler.cs" />

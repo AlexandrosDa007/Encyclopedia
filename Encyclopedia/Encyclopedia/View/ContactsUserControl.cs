@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Drawing;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Encyclopedia.Controller;
 using System.Windows.Forms;
 
 namespace Encyclopedia.View
@@ -29,6 +22,11 @@ namespace Encyclopedia.View
         public ContactsUserControl()
         {
             InitializeComponent();
+
+			if (UI.StartPage.username != null)
+			{
+				ContactHandler.FillContacts(contactsListView, UI.StartPage.username);
+			}
 			/*
 			ImageList imageList = new ImageList();
 			Image[] images = new Image[3];

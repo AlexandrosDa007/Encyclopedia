@@ -3,32 +3,15 @@ using Encyclopedia.Model;
 using Encyclopedia.View;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace UI
 {
     public partial class StartPage : Form
     {
-		// implement singleton pattern
-		private static StartPage _instance;
+		// stores the username of the logged-in user
+		public static string username = null;
 
-		public static StartPage Instance
-		{
-			get
-			{
-				if (_instance == null)
-					_instance = new StartPage();
-				return _instance;
-
-			}
-		}
-		
 		//a list with all the controls to be hidden when login is successfull
 		public List<Control> controlsBeforeLogin = new List<Control>();
         //the new leftpanel 
@@ -231,9 +214,13 @@ namespace UI
 
             if (doesUserExist)
             {
-                //User Exists
-                //change the left panel to the new AfterLoginUserControl
-                changePanelControls();
+				//User Exists
+				
+				// set the username of the logged-in user
+				StartPage.username = username;
+
+				//change the left panel to the new AfterLoginUserControl
+				changePanelControls();
             }
             else
             {

@@ -329,9 +329,9 @@ namespace Encyclopedia.Controller
 			return userId;
 		}
 
-		public static User[] GetContacts(int userId)
+		public static List<User> GetContacts(int userId)
 		{
-			List<User> userList = new List<User>();
+			List<int> contactIdList = new List<int>();
 
 			// construct queries
 			string selectId = "SELECT C.contact_id FROM Contact C NATURAL JOIN User U WHERE C.user_id = @user";
@@ -339,31 +339,38 @@ namespace Encyclopedia.Controller
 			selectIds.Parameters.AddWithValue("@user", userId);
 			selectIds.CommandTimeout = 500000;
 
-			string selectUser = "SELECT * FROM User WHERE user_id = @user";
-			MySqlCommand selectUsers = new MySqlCommand(selectUser, connection);
-			selectUsers.CommandTimeout = 500000;
-			selectUsers.Prepare();
-
 			// prepare and execute
 			selectIds.Prepare();
 			MySqlDataReader dataReaderId = selectIds.ExecuteReader();
 
 			while (dataReaderId.Read())
 			{
-				selectUsers.Parameters.AddWithValue("@user", dataReaderId.GetInt32("contact_id"));
+				contactIdList.Add(dataReaderId.GetInt32("contact_id"));
+			}
+			dataReaderId.Close();
+
+			List<User> contactUserList = new List<User>();
+
+			string selectUser = "SELECT user_id, user_name, user_surname, user_date_of_birth, user_image FROM User WHERE user_id = @user";
+			MySqlCommand selectUsers = new MySqlCommand(selectUser, connection);
+			selectUsers.CommandTimeout = 500000;
+			selectUsers.Prepare();
+
+			foreach (int contactId in contactIdList)
+			{
+				selectUsers.Parameters.AddWithValue("@user", contactId);
 				MySqlDataReader dataReaderUser = selectUsers.ExecuteReader();
 
 				while (dataReaderUser.Read())
 				{
-					User user = new User(dataReaderUser.GetInt32("user_id"), dataReaderUser.GetString("user_name"), dataReaderUser.GetString("user_surname"), dataReaderUser.GetDateTime("user_date_of_birth"));
-					userList.Add(user);
+					User user = new User(dataReaderUser.GetInt32("user_id"), dataReaderUser.GetString("user_name"), dataReaderUser.GetString("user_surname"), dataReaderUser.GetDateTime("user_date_of_birth"), (byte[])dataReaderUser.GetValue(4));
+					contactUserList.Add(user);
+					Console.WriteLine(user.Name);
 				}
 				dataReaderUser.Close();
 			}
 
-			User[] userArray = userList.ToArray();
-			dataReaderId.Close();
-			return userArray;
+			return contactUserList;
 		}
 
 		public static int GetLemmaCategoryByTitle(string lemmaTitle)

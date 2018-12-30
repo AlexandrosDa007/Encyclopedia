@@ -43,11 +43,12 @@
 			// 
 			// FeedbackPanel
 			// 
+			this.FeedbackPanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
 			this.FeedbackPanel.Controls.Add(this.feedbackLabel);
-			this.FeedbackPanel.Dock = System.Windows.Forms.DockStyle.Bottom;
 			this.FeedbackPanel.Location = new System.Drawing.Point(0, 746);
 			this.FeedbackPanel.Name = "FeedbackPanel";
-			this.FeedbackPanel.Size = new System.Drawing.Size(317, 59);
+			this.FeedbackPanel.Size = new System.Drawing.Size(322, 59);
 			this.FeedbackPanel.TabIndex = 24;
 			// 
 			// feedbackLabel
@@ -83,7 +84,7 @@
 			this.logoutButton.IconVisible = true;
 			this.logoutButton.IconZoom = 90D;
 			this.logoutButton.IsTab = false;
-			this.logoutButton.Location = new System.Drawing.Point(3, 514);
+			this.logoutButton.Location = new System.Drawing.Point(4, 539);
 			this.logoutButton.Margin = new System.Windows.Forms.Padding(4);
 			this.logoutButton.Name = "logoutButton";
 			this.logoutButton.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(53)))), ((int)(((byte)(65)))));
@@ -120,7 +121,7 @@
 			this.contactsButton.IconVisible = true;
 			this.contactsButton.IconZoom = 90D;
 			this.contactsButton.IsTab = false;
-			this.contactsButton.Location = new System.Drawing.Point(3, 438);
+			this.contactsButton.Location = new System.Drawing.Point(4, 444);
 			this.contactsButton.Margin = new System.Windows.Forms.Padding(4);
 			this.contactsButton.Name = "contactsButton";
 			this.contactsButton.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(53)))), ((int)(((byte)(65)))));
@@ -157,7 +158,7 @@
 			this.editedButton.IconVisible = true;
 			this.editedButton.IconZoom = 90D;
 			this.editedButton.IsTab = false;
-			this.editedButton.Location = new System.Drawing.Point(3, 368);
+			this.editedButton.Location = new System.Drawing.Point(4, 373);
 			this.editedButton.Margin = new System.Windows.Forms.Padding(4);
 			this.editedButton.Name = "editedButton";
 			this.editedButton.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(53)))), ((int)(((byte)(65)))));
@@ -194,7 +195,7 @@
 			this.favouritesButton.IconVisible = true;
 			this.favouritesButton.IconZoom = 90D;
 			this.favouritesButton.IsTab = false;
-			this.favouritesButton.Location = new System.Drawing.Point(3, 286);
+			this.favouritesButton.Location = new System.Drawing.Point(4, 302);
 			this.favouritesButton.Margin = new System.Windows.Forms.Padding(4);
 			this.favouritesButton.Name = "favouritesButton";
 			this.favouritesButton.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(53)))), ((int)(((byte)(65)))));
@@ -231,7 +232,7 @@
 			this.profileButton.IconVisible = true;
 			this.profileButton.IconZoom = 90D;
 			this.profileButton.IsTab = false;
-			this.profileButton.Location = new System.Drawing.Point(3, 211);
+			this.profileButton.Location = new System.Drawing.Point(4, 231);
 			this.profileButton.Margin = new System.Windows.Forms.Padding(4);
 			this.profileButton.Name = "profileButton";
 			this.profileButton.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(53)))), ((int)(((byte)(65)))));
@@ -248,28 +249,29 @@
 			// 
 			// sideProfilePicture
 			// 
-			this.sideProfilePicture.Location = new System.Drawing.Point(91, 65);
+			this.sideProfilePicture.Location = new System.Drawing.Point(95, 87);
 			this.sideProfilePicture.Name = "sideProfilePicture";
-			this.sideProfilePicture.Size = new System.Drawing.Size(139, 104);
+			this.sideProfilePicture.Size = new System.Drawing.Size(125, 125);
 			this.sideProfilePicture.TabIndex = 18;
 			this.sideProfilePicture.TabStop = false;
 			// 
 			// connectUserLabel
 			// 
-			this.connectUserLabel.AutoSize = true;
 			this.connectUserLabel.Font = new System.Drawing.Font("Century Gothic", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
 			this.connectUserLabel.ForeColor = System.Drawing.Color.White;
-			this.connectUserLabel.Location = new System.Drawing.Point(92, 20);
+			this.connectUserLabel.Location = new System.Drawing.Point(24, 41);
 			this.connectUserLabel.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
 			this.connectUserLabel.Name = "connectUserLabel";
-			this.connectUserLabel.Size = new System.Drawing.Size(138, 32);
+			this.connectUserLabel.Size = new System.Drawing.Size(271, 32);
 			this.connectUserLabel.TabIndex = 17;
 			this.connectUserLabel.Text = "Welcome";
+			this.connectUserLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
 			// 
 			// AfterLoginUserControl
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+			this.AutoSize = true;
 			this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(53)))), ((int)(((byte)(65)))));
 			this.Controls.Add(this.FeedbackPanel);
 			this.Controls.Add(this.logoutButton);
@@ -280,12 +282,11 @@
 			this.Controls.Add(this.sideProfilePicture);
 			this.Controls.Add(this.connectUserLabel);
 			this.Name = "AfterLoginUserControl";
-			this.Size = new System.Drawing.Size(317, 805);
+			this.Size = new System.Drawing.Size(322, 805);
 			this.FeedbackPanel.ResumeLayout(false);
 			this.FeedbackPanel.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)(this.sideProfilePicture)).EndInit();
 			this.ResumeLayout(false);
-			this.PerformLayout();
 
         }
 

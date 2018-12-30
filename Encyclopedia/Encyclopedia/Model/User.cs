@@ -15,10 +15,10 @@ namespace Encyclopedia.Model
         private Role role;
         private EducationLevel educationLevel;
         private String description;
-        private Byte[] image;
+        private byte[] image;
 
         // default constructor
-        public User(int id, string name, string surname, DateTime dateOfBirth, char gender, string tel, Role role, EducationLevel educationLevel, string description, Byte[] image)
+        public User(int id, string name, string surname, DateTime dateOfBirth, char gender, string tel, Role role, EducationLevel educationLevel, string description, byte[] image)
         {
 			Id = id;
 			Name = name;
@@ -49,8 +49,25 @@ namespace Encyclopedia.Model
             Image = null;
         }
 
-        // setters and getters
-        public int Id
+		public User(int id, string name, string surname, DateTime dateOfBirth, byte[] image)
+		{
+			Id = id;
+			Name = name;
+			Surname = surname;
+			DateOfBirth = dateOfBirth;
+
+			// optional fields set to null
+			Gender = '-';
+			Tel = "";
+			Role = null;
+			EducationLevel = null;
+			Description = "";
+
+			Image = image;
+		}
+
+		// setters and getters
+		public int Id
         {
             get
             {
@@ -183,7 +200,7 @@ namespace Encyclopedia.Model
             }
         }
 
-        public Byte[] Image
+        public byte[] Image
         {
             get
             {
