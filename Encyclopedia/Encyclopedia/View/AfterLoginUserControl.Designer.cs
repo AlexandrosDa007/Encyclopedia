@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.FeedbackPanel = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
+            this.feedbackLabel = new System.Windows.Forms.Label();
             this.logoutButton = new Bunifu.Framework.UI.BunifuFlatButton();
             this.contactsButton = new Bunifu.Framework.UI.BunifuFlatButton();
             this.editedButton = new Bunifu.Framework.UI.BunifuFlatButton();
@@ -43,7 +43,7 @@
             // 
             // FeedbackPanel
             // 
-            this.FeedbackPanel.Controls.Add(this.label1);
+            this.FeedbackPanel.Controls.Add(this.feedbackLabel);
             this.FeedbackPanel.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.FeedbackPanel.Location = new System.Drawing.Point(0, 582);
             this.FeedbackPanel.Margin = new System.Windows.Forms.Padding(2);
@@ -53,13 +53,13 @@
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(30, 30);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(35, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "label1";
+            this.feedbackLabel.AutoSize = true;
+            this.feedbackLabel.Location = new System.Drawing.Point(30, 30);
+            this.feedbackLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.feedbackLabel.Name = "label1";
+            this.feedbackLabel.Size = new System.Drawing.Size(35, 13);
+            this.feedbackLabel.TabIndex = 0;
+            this.feedbackLabel.Text = "label1";
             // 
             // logoutButton
             // 
