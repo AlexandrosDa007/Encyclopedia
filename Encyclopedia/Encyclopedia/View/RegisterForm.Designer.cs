@@ -194,9 +194,9 @@
 			// 
 			this.imagePB.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
 			this.imagePB.Image = ((System.Drawing.Image)(resources.GetObject("imagePB.Image")));
-			this.imagePB.Location = new System.Drawing.Point(615, 92);
+			this.imagePB.Location = new System.Drawing.Point(584, 93);
 			this.imagePB.Name = "imagePB";
-			this.imagePB.Size = new System.Drawing.Size(126, 126);
+			this.imagePB.Size = new System.Drawing.Size(180, 180);
 			this.imagePB.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
 			this.imagePB.TabIndex = 9;
 			this.imagePB.TabStop = false;
@@ -236,7 +236,7 @@
 			// 
 			this.registerButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
 			this.registerButton.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-			this.registerButton.Location = new System.Drawing.Point(615, 898);
+			this.registerButton.Location = new System.Drawing.Point(611, 897);
 			this.registerButton.Name = "registerButton";
 			this.registerButton.Size = new System.Drawing.Size(126, 35);
 			this.registerButton.TabIndex = 15;
@@ -258,7 +258,7 @@
 			// 
 			this.browseB.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
 			this.browseB.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-			this.browseB.Location = new System.Drawing.Point(615, 242);
+			this.browseB.Location = new System.Drawing.Point(611, 300);
 			this.browseB.Name = "browseB";
 			this.browseB.Size = new System.Drawing.Size(126, 29);
 			this.browseB.TabIndex = 14;

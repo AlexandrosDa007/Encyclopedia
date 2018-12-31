@@ -234,7 +234,7 @@
 			this.passwordLabel.AutoSize = true;
 			this.passwordLabel.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
 			this.passwordLabel.ForeColor = System.Drawing.Color.White;
-			this.passwordLabel.Location = new System.Drawing.Point(14, 201);
+			this.passwordLabel.Location = new System.Drawing.Point(16, 201);
 			this.passwordLabel.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
 			this.passwordLabel.Name = "passwordLabel";
 			this.passwordLabel.Size = new System.Drawing.Size(88, 21);
@@ -246,7 +246,7 @@
 			this.usernameLabel.AutoSize = true;
 			this.usernameLabel.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
 			this.usernameLabel.ForeColor = System.Drawing.Color.White;
-			this.usernameLabel.Location = new System.Drawing.Point(14, 150);
+			this.usernameLabel.Location = new System.Drawing.Point(16, 150);
 			this.usernameLabel.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
 			this.usernameLabel.Name = "usernameLabel";
 			this.usernameLabel.Size = new System.Drawing.Size(91, 21);

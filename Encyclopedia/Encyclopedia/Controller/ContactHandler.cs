@@ -9,13 +9,10 @@ namespace Encyclopedia.Controller
 	class ContactHandler
 	{
 		// fills dynamically the parametered ListView
-		public static void FillContacts(ListView listView,string username)
+		public static void FillContacts(ListView listView, Account account)
 		{
-			// get the userId using the username
-			int userId = DBConnect.GetAccountIdByUsername(username);
-			
 			// get the user's contacts
-			List<User> contacts = DBConnect.GetContacts(userId);
+			List<User> contacts = DBConnect.GetContacts(account.User.Id);
 			ListViewItem[] contactNames = new ListViewItem[contacts.Count];
 
 			// adjust image properties
@@ -35,7 +32,7 @@ namespace Encyclopedia.Controller
 				if (contact.Image != null)
 				{
 					MemoryStream ms = new MemoryStream(contact.Image);
-					contactImages.Images.Add(contactItem.Text, Image.FromStream(ms));
+					contactImages.Images.Add(contactItem.ImageKey, Image.FromStream(ms));
 				}
 			}
 

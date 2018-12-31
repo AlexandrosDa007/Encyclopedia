@@ -9,8 +9,8 @@ namespace UI
 {
     public partial class StartPage : Form
     {
-		// stores the username of the logged-in user
-		public static string username = null;
+		// stores the account of the logged-in user
+		public static Account account = null;
 
 		//a list with all the controls to be hidden when login is successfull
 		public List<Control> controlsBeforeLogin = new List<Control>();
@@ -18,8 +18,6 @@ namespace UI
         public AfterLoginUserControl afterLoginPanel;
         //a public variable to hold everything --- used instead of private Panel leftPanel
         public Panel newLeftPanel;
-        //user account
-        public Account account;
 
 
         //list with filters to be checked
@@ -216,10 +214,11 @@ namespace UI
 
             if (doesUserExist)
             {
-                //User Exists
-                //change the left panel to the new AfterLoginUserControl
-                afterLoginPanel = new AfterLoginUserControl();
-                afterLoginPanel.Account = DBConnect.GetAccountByUsername(username);
+				//User Exists
+				//change the left panel to the new AfterLoginUserControl
+				account = DBConnect.GetAccountByUsername(username);
+				afterLoginPanel = new AfterLoginUserControl();
+                afterLoginPanel.Account = account;
                 afterLoginPanel.SetImage();
                 changePanelControls();
             }

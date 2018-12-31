@@ -17,9 +17,9 @@ namespace Encyclopedia.Controller
         {
 			String salt = DBConnect.GetSaltByUsername(username);
 			String hashedpassword = PasswordUtilities.GenerateSHA256Hash(password, salt);
-
+			
             //check in database if true then account exists otherwise false
-            return DBConnect.Validation(username, hashedpassword);
+            return DBConnect.LoginValidation(username, hashedpassword);
         }
     }
 }

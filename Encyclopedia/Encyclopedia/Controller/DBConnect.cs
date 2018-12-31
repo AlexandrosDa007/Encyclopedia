@@ -66,7 +66,7 @@ namespace Encyclopedia.Controller
             }
         }
 
-        public static bool Validation(String username, String password)
+        public static bool LoginValidation(String username, String password)
         {
             string query = "SELECT account_username,account_salted_password_hash FROM Account WHERE account_username='"+username+ "' AND account_salted_password_hash='" + password+"'";
             MySqlCommand cmd = new MySqlCommand(query, connection);
@@ -306,71 +306,37 @@ namespace Encyclopedia.Controller
 			return isUnique;
 		}
 
-		public static int GetAccountIdByUsername(string username)
+		public static List<User> GetContacts(int userId)
 		{
-			int userId = -1;
+			List<int> contactIdsList = new List<int>();
 
 			// construct query
-			string selectQuery = "SELECT account_id FROM Account WHERE account_username = @username";
-			MySqlCommand cmd = new MySqlCommand(selectQuery, connection);
-			cmd.Parameters.AddWithValue("@username", username);
-			cmd.CommandTimeout = 500000;
+			string selectId = "SELECT contact_id FROM Contact WHERE user_id = @user";
+			MySqlCommand select = new MySqlCommand(selectId, connection);
+			select.Parameters.AddWithValue("@user", userId);
+			select.CommandTimeout = 500000;
 
 			// prepare and execute
-			cmd.Prepare();
-			MySqlDataReader dataReader = cmd.ExecuteReader();
+			select.Prepare();
+			MySqlDataReader dataReader = select.ExecuteReader();
 
 			while (dataReader.Read())
 			{
-				userId = dataReader.GetInt32("account_id");
+				// store the contact ids
+				contactIdsList.Add(dataReader.GetInt32("contact_id"));
 			}
-
 			dataReader.Close();
-			return userId;
-		}
 
-		public static List<User> GetContacts(int userId)
-		{
-			List<int> contactIdList = new List<int>();
+			List<User> contactList = new List<User>();
 
-			// construct queries
-			string selectId = "SELECT C.contact_id FROM Contact C NATURAL JOIN User U WHERE C.user_id = @user";
-			MySqlCommand selectIds = new MySqlCommand(selectId, connection);
-			selectIds.Parameters.AddWithValue("@user", userId);
-			selectIds.CommandTimeout = 500000;
-
-			// prepare and execute
-			selectIds.Prepare();
-			MySqlDataReader dataReaderId = selectIds.ExecuteReader();
-
-			while (dataReaderId.Read())
+			foreach (int contactId in contactIdsList)
 			{
-				contactIdList.Add(dataReaderId.GetInt32("contact_id"));
-			}
-			dataReaderId.Close();
-
-			List<User> contactUserList = new List<User>();
-
-			string selectUser = "SELECT user_id, user_name, user_surname, user_date_of_birth, user_image FROM User WHERE user_id = @user";
-			MySqlCommand selectUsers = new MySqlCommand(selectUser, connection);
-			selectUsers.CommandTimeout = 500000;
-			selectUsers.Prepare();
-
-			foreach (int contactId in contactIdList)
-			{
-				selectUsers.Parameters.AddWithValue("@user", contactId);
-				MySqlDataReader dataReaderUser = selectUsers.ExecuteReader();
-
-				while (dataReaderUser.Read())
-				{
-					User user = new User(dataReaderUser.GetInt32("user_id"), dataReaderUser.GetString("user_name"), dataReaderUser.GetString("user_surname"), dataReaderUser.GetDateTime("user_date_of_birth"), (byte[])dataReaderUser.GetValue(4));
-					contactUserList.Add(user);
-					Console.WriteLine(user.Name);
-				}
-				dataReaderUser.Close();
+				// get the contacts from their account ids
+				User contact = GetUserByAccountId(contactId);
+				contactList.Add(contact);
 			}
 
-			return contactUserList;
+			return contactList;
 		}
 
 		public static int GetLemmaCategoryByTitle(string lemmaTitle)

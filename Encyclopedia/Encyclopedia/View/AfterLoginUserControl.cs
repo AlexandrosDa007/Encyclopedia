@@ -20,11 +20,10 @@ namespace Encyclopedia.View
         {
             InitializeComponent();
 
-			// update the connectUserLabel and the sideProfilePicture if the user is logged-in
-			if (StartPage.username != null)
+			// update the connectUserLabel if a user is logged-in
+			if (StartPage.account != null)
 			{
-				connectUserLabel.Text = "Welcome " + StartPage.username + "!";
-				// TODO picture
+				connectUserLabel.Text = "Welcome " + StartPage.account.Username + "!";
 			}
 		}
 
@@ -102,5 +101,10 @@ namespace Encyclopedia.View
         {
             sideProfilePicture.Image = (Bitmap)((new ImageConverter()).ConvertFrom(Account.User.Image));
         }
-    }
+
+		private void FeedbackPanel_Paint(object sender, PaintEventArgs e)
+		{
+
+		}
+	}
 }
