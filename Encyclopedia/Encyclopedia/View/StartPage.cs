@@ -247,5 +247,29 @@ namespace UI
 		{
 
 		}
-	}
+
+        private void savePictureBox_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                SaveFileDialog savefile = new SaveFileDialog();
+                // set a default file name
+                savefile.FileName = "somelemmma";
+                // set filters - this can be done in properties as well
+                savefile.Filter = "Pdf Files|*.pdf";
+
+                if (savefile.ShowDialog() == DialogResult.OK)
+                {
+                    string path = savefile.FileName;
+                    string lemmaTitle = "American_Literature_(academic_discipline)";
+                    PDF.exportToPDF(lemmaTitle, path);
+                }
+            }
+            catch (ArgumentOutOfRangeException ex)
+            {
+                // show the exception message in order to inform the user
+                Console.WriteLine(ex.Message);
+            }
+        }
+    }
 }
