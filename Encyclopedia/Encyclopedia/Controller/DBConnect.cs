@@ -631,8 +631,38 @@ namespace Encyclopedia.Controller
 
         public static int Insert(SharedLemma sharedLemma)
         {
-            //code to insert sharedLemma
-            return 1;
+            //Get object properties into local variables
+            Lemma lemma = sharedLemma.Lemma;
+            User sender = sharedLemma.Sender;
+            User receiver = sharedLemma.Receiver;
+            DateTime sendingDate = sharedLemma.SendingDate;
+            Boolean ifEditedLemma = sharedLemma.IfEditedLemma;
+            string additionalNotes = sharedLemma.AdditionalNotes;
+
+            string lemmaTitle = lemma.Title;
+            int senderID = sender.Id;
+            int receiverID = receiver.Id;
+
+            //Create prepared statement string
+            string insertSharedLemma = "INSERT INTO " +
+                "Shared_Lemma (sender_id,receiver_id,lemma_title,if_edited_lemma,sending_date,additional_notes ) " +
+                "VALUES(@senderID, @receiverID, @lemmaTitle,@ifEditedLemma,@sendingDate,@additionalNotes) ";
+
+            MySqlCommand cmd = new MySqlCommand(insertSharedLemma, connection);
+            cmd.CommandTimeout = 500000;
+            // add values to the parameters
+            cmd.Parameters.AddWithValue("@senderID", senderID);
+            cmd.Parameters.AddWithValue("@receiverID", receiverID);
+            cmd.Parameters.AddWithValue("@lemmaTitle", lemmaTitle);
+            cmd.Parameters.AddWithValue("@ifEditedLemma", ifEditedLemma);
+            cmd.Parameters.AddWithValue("@sendingDate", sendingDate);
+            cmd.Parameters.AddWithValue("@additionalNotes", additionalNotes);
+
+            // prepare and execute
+            cmd.Prepare();
+            int rowsAffected = cmd.ExecuteNonQuery();
+
+            return rowsAffected; // if rowsAffected equals to 1, then the insertion completed successfully
         }
 
 		public static int Insert(User user, Account account)

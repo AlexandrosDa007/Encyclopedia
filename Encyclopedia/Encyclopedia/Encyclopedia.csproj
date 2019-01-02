@@ -97,6 +97,7 @@
     <Compile Include="Controller\Favorite.cs" />
     <Compile Include="Controller\LoginHandler.cs" />
     <Compile Include="Controller\DynamicUIControlsHandler.cs" />
+    <Compile Include="Controller\Message.cs" />
     <Compile Include="Controller\PasswordUtilities.cs" />
     <Compile Include="Controller\PDF.cs" />
     <Compile Include="Controller\Random.cs" />
