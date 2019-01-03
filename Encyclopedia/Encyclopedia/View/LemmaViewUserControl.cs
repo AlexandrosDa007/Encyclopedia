@@ -3,13 +3,17 @@ using System.Text;
 using System.Windows.Forms;
 using Encyclopedia.Controller;
 using Encyclopedia.Model;
+using McDull.Windows.Forms;
 using mshtml;
+using UI;
 
 namespace Encyclopedia.View
 {
     public partial class LemmaViewUserControl : UserControl
     {
         public Lemma lemma;
+
+        private StartPage startPage;
 
         private static LemmaViewUserControl _instance;
 
@@ -32,12 +36,11 @@ namespace Encyclopedia.View
             //start by having something as default --TO BE CHANGED
             //ChangeValue("Concept");
             //SetLemmaData("Placebo");
-            
 
 
         }
 
-        public void SetLemmaData(string lemmaTitle)
+        private void SetLemmaData(string lemmaTitle)
         {
             byte[] body = DBConnect.GetLemmaBodyByTitle(lemmaTitle);
             int categoryId = DBConnect.GetLemmaCategoryByTitle(lemmaTitle);
@@ -47,6 +50,7 @@ namespace Encyclopedia.View
 
         public void ChangeValue(string title)
         {
+            SetLemmaData(title);
 			string titleStyle = " style=\"display: block; " +
 				"font-size: 3em;" +
 				"margin-top: 0.67em; " +
@@ -56,7 +60,7 @@ namespace Encyclopedia.View
 				"font-weight: bold;\"";
 
             //change the web browser to display the lemma_body from the title given
-            LemmaViewWebBrowser.DocumentText = "<h1" + titleStyle + ">" + title.Replace("_", " ") + "</h1>" + Encoding.UTF8.GetString(DBConnect.GetLemmaBodyByTitle(title));
+            LemmaViewWebBrowser.DocumentText = "<h1" + titleStyle + ">" + title.Replace("_", " ") + "</h1>" + lemma.Body;
         }
 
 		private void savePictureBox_Click(object sender, EventArgs e)
@@ -91,7 +95,10 @@ namespace Encyclopedia.View
 
         private void editPictureBox_Click(object sender, EventArgs e)
         {
-
+            //take input from html
+            string lemmaBody = LemmaViewWebBrowser.Document.Body.InnerHtml;
+            LemmaEditor lemmaEditor = new LemmaEditor(lemma);
+            lemmaEditor.ShowDialog();        
         }
 
         public void ChangeLabelsToVisibleByValue(bool value)
