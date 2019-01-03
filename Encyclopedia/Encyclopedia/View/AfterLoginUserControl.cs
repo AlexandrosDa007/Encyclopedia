@@ -34,14 +34,11 @@ namespace Encyclopedia.View
             StartPage st = (StartPage)this.Parent.Parent;
             st.Logout();
      
-           
-
             if (!st.mainPanel.Controls.Contains(Encyclopedia.View.LemmaOfTheDayUserControl.Instance))
             {
                 st.mainPanel.Controls.Add(Encyclopedia.View.LemmaOfTheDayUserControl.Instance);
                 Encyclopedia.View.LemmaOfTheDayUserControl.Instance.Dock = DockStyle.Fill;
                 Encyclopedia.View.LemmaOfTheDayUserControl.Instance.BringToFront();
-
             }
             else
             {
@@ -58,7 +55,6 @@ namespace Encyclopedia.View
 				startP.mainPanel.Controls.Add(ContactsUserControl.Instance);
 				ContactsUserControl.Instance.Dock = DockStyle.Fill;
 				ContactsUserControl.Instance.BringToFront();
-				
             }
             else
 				ContactsUserControl.Instance.BringToFront();
@@ -73,7 +69,6 @@ namespace Encyclopedia.View
 				startP.mainPanel.Controls.Add(EditedLemmataUserControl.Instance);
                 EditedLemmataUserControl.Instance.Dock = DockStyle.Fill;
                 EditedLemmataUserControl.Instance.BringToFront();
-
             }
             else
                 FavouriteLemmataUserControl.Instance.BringToFront();
@@ -88,7 +83,6 @@ namespace Encyclopedia.View
 				startP.mainPanel.Controls.Add(FavouriteLemmataUserControl.Instance);
                 FavouriteLemmataUserControl.Instance.Dock = DockStyle.Fill;
                 FavouriteLemmataUserControl.Instance.BringToFront();
-
             }
             else
                 FavouriteLemmataUserControl.Instance.BringToFront();
@@ -96,7 +90,6 @@ namespace Encyclopedia.View
 
         private void profileButton_Click(object sender, EventArgs e)
         {
-
             ProfileForm profileForm = new ProfileForm(this.Account);
             profileForm.ShowDialog();
             if (profileForm.UpdatedSuccessfully)
@@ -113,11 +106,6 @@ namespace Encyclopedia.View
                 sideProfilePicture.Image = (Bitmap)((new ImageConverter()).ConvertFrom(Account.User.Image));
         }
 
-		private void FeedbackPanel_Paint(object sender, PaintEventArgs e)
-		{
-
-		}
-
         private void logoLabel_Click(object sender, EventArgs e)
         {
             StartPage startP = (StartPage)this.Parent.Parent;
@@ -127,7 +115,6 @@ namespace Encyclopedia.View
                 startP.mainPanel.Controls.Add(Encyclopedia.View.LemmaOfTheDayUserControl.Instance);
                 Encyclopedia.View.LemmaOfTheDayUserControl.Instance.Dock = DockStyle.Fill;
                 Encyclopedia.View.LemmaOfTheDayUserControl.Instance.BringToFront();
-
             }
             else
             {

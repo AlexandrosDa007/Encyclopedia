@@ -361,6 +361,30 @@ namespace Encyclopedia.Controller
 			return contactList;
 		}
 
+		public static List<string> GetContactGroups(int userId)
+		{
+			List<string> groupList = new List<string>();
+
+			// construct query
+			string selectId = "SELECT group_name FROM Contact_Group WHERE owner_id = @user";
+			MySqlCommand select = new MySqlCommand(selectId, connection);
+			select.Parameters.AddWithValue("@user", userId);
+			select.CommandTimeout = 500000;
+
+			// prepare and execute
+			select.Prepare();
+			MySqlDataReader dataReader = select.ExecuteReader();
+
+			while (dataReader.Read())
+			{
+				// add the groups
+				groupList.Add(dataReader.GetString("group_name"));
+			}
+
+			dataReader.Close();
+			return groupList;
+		}
+
 		public static int GetLemmaCategoryByTitle(string lemmaTitle)
         {
             int lemmaCategory=-1;

@@ -20,16 +20,10 @@ namespace Encyclopedia.View
         public ProfileForm(Account account)
         {
             InitializeComponent();
-            string[] educationLevelNames = DBConnect.GetEducationLevels();
-            string[] roleNames = DBConnect.GetRoles();
-            foreach(string str in educationLevelNames)
-            {
-                educationLevelCB.Items.Add(str);
-            }
-            foreach(string str in roleNames)
-            {
-                roleCB.Items.Add(str);
-            }
+
+			DynamicUIControlsHandler.FillEducationLevels(educationLevelCB);
+			DynamicUIControlsHandler.FillRoles(roleCB);
+
             this.Account = account;
             SetAccountData();
             UpdatedSuccessfully = false;

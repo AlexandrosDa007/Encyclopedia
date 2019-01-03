@@ -49,23 +49,6 @@ namespace Encyclopedia.Model
             Image = null;
         }
 
-		public User(int id, string name, string surname, DateTime dateOfBirth, byte[] image)
-		{
-			Id = id;
-			Name = name;
-			Surname = surname;
-			DateOfBirth = dateOfBirth;
-
-			// optional fields set to null
-			Gender = '-';
-			Tel = "";
-			Role = null;
-			EducationLevel = null;
-			Description = "";
-
-			Image = image;
-		}
-
 		// setters and getters
 		public int Id
         {

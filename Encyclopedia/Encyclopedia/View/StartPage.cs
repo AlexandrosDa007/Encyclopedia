@@ -242,6 +242,9 @@ namespace UI
 
             newLeftPanel.Controls.Remove(afterLoginPanel);
             LemmaViewUserControl.Instance.ChangeLabelsToVisibleByValue(false);
+
+			usernameTextBox.Text = "";
+			passwordTextBox.Text = "";
         }
 
 		private void StartPage_Paint(object sender, PaintEventArgs e)

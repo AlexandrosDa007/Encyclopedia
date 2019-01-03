@@ -67,6 +67,7 @@ namespace Encyclopedia.View
 			feedbackLabel.Text = "The exit code was: " + exitCode;
 			feedbackLabel.ForeColor = Color.Black;
 
+			// fade out effect in feedbackLabel message
 			Timer timer1 = new Timer();
 			timer1.Tick += new EventHandler(timer1_Tick);
 			timer1.Start();
