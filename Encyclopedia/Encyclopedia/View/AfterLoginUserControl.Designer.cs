@@ -36,20 +36,19 @@
 			this.editedButton = new Bunifu.Framework.UI.BunifuFlatButton();
 			this.favouritesButton = new Bunifu.Framework.UI.BunifuFlatButton();
 			this.profileButton = new Bunifu.Framework.UI.BunifuFlatButton();
-			this.sideProfilePicture = new System.Windows.Forms.PictureBox();
 			this.connectUserLabel = new System.Windows.Forms.Label();
+			this.sideProfilePicture = new System.Windows.Forms.PictureBox();
 			this.FeedbackPanel.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.sideProfilePicture)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// FeedbackPanel
 			// 
-			this.FeedbackPanel.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
 			this.FeedbackPanel.Controls.Add(this.feedbackLabel);
-			this.FeedbackPanel.Location = new System.Drawing.Point(0, 746);
+			this.FeedbackPanel.Location = new System.Drawing.Point(0, 768);
 			this.FeedbackPanel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.FeedbackPanel.Name = "FeedbackPanel";
-			this.FeedbackPanel.Size = new System.Drawing.Size(317, 59);
+			this.FeedbackPanel.Size = new System.Drawing.Size(317, 37);
 			this.FeedbackPanel.TabIndex = 24;
 			this.FeedbackPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.FeedbackPanel_Paint);
 			// 
@@ -60,7 +59,7 @@
 			this.feedbackLabel.AutoSize = true;
 			this.feedbackLabel.Font = new System.Drawing.Font("Century Gothic", 10.01739F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
 			this.feedbackLabel.ForeColor = System.Drawing.Color.White;
-			this.feedbackLabel.Location = new System.Drawing.Point(25, 19);
+			this.feedbackLabel.Location = new System.Drawing.Point(13, 6);
 			this.feedbackLabel.Name = "feedbackLabel";
 			this.feedbackLabel.Size = new System.Drawing.Size(62, 21);
 			this.feedbackLabel.TabIndex = 0;
@@ -252,17 +251,6 @@
 			this.profileButton.TextFont = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
 			this.profileButton.Click += new System.EventHandler(this.profileButton_Click);
 			// 
-			// sideProfilePicture
-			// 
-			this.sideProfilePicture.Image = ((System.Drawing.Image)(resources.GetObject("sideProfilePicture.Image")));
-			this.sideProfilePicture.Location = new System.Drawing.Point(87, 101);
-			this.sideProfilePicture.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-			this.sideProfilePicture.Name = "sideProfilePicture";
-			this.sideProfilePicture.Size = new System.Drawing.Size(140, 140);
-			this.sideProfilePicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-			this.sideProfilePicture.TabIndex = 18;
-			this.sideProfilePicture.TabStop = false;
-			// 
 			// connectUserLabel
 			// 
 			this.connectUserLabel.Font = new System.Drawing.Font("Century Gothic", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
@@ -274,6 +262,17 @@
 			this.connectUserLabel.TabIndex = 17;
 			this.connectUserLabel.Text = "Welcome";
 			this.connectUserLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			// 
+			// sideProfilePicture
+			// 
+			this.sideProfilePicture.Image = ((System.Drawing.Image)(resources.GetObject("sideProfilePicture.Image")));
+			this.sideProfilePicture.Location = new System.Drawing.Point(87, 101);
+			this.sideProfilePicture.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+			this.sideProfilePicture.Name = "sideProfilePicture";
+			this.sideProfilePicture.Size = new System.Drawing.Size(140, 140);
+			this.sideProfilePicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+			this.sideProfilePicture.TabIndex = 18;
+			this.sideProfilePicture.TabStop = false;
 			// 
 			// AfterLoginUserControl
 			// 

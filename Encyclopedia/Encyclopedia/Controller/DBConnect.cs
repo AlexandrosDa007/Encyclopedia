@@ -260,6 +260,28 @@ namespace Encyclopedia.Controller
 			return roleArray;
 		}
 
+		public static string[] GetCategories()
+		{
+			List<string> categoryList = new List<string>();
+			// construct query
+			string selectQuery = "SELECT category_name FROM Category";
+			MySqlCommand cmd = new MySqlCommand(selectQuery, connection);
+			cmd.CommandTimeout = 500000;
+
+			// prepare and execute
+			cmd.Prepare();
+			MySqlDataReader dataReader = cmd.ExecuteReader();
+
+			while (dataReader.Read())
+			{
+				categoryList.Add(dataReader.GetString("category_name").Replace("_", " "));
+			}
+
+			string[] categoryArray = categoryList.ToArray();
+			dataReader.Close();
+			return categoryArray;
+		}
+
 		public static bool IsAccountUsernameUnique(string username)
 		{
 			bool isUnique = true;

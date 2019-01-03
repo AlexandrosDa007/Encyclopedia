@@ -37,7 +37,7 @@ namespace Encyclopedia.View
                 x.Visible = true;
             }
             st.newLeftPanel.Controls.Remove(this);
-        }
+		}
 
         private void contactsButton_Click(object sender, EventArgs e)
         {

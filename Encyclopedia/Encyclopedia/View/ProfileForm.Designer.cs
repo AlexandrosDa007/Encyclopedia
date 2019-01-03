@@ -73,8 +73,8 @@
 			// 
 			this.closePictureBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
 			this.closePictureBox.Image = ((System.Drawing.Image)(resources.GetObject("closePictureBox.Image")));
-			this.closePictureBox.Location = new System.Drawing.Point(879, 10);
-			this.closePictureBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+			this.closePictureBox.Location = new System.Drawing.Point(882, 22);
+			this.closePictureBox.Margin = new System.Windows.Forms.Padding(4);
 			this.closePictureBox.Name = "closePictureBox";
 			this.closePictureBox.Size = new System.Drawing.Size(45, 28);
 			this.closePictureBox.TabIndex = 0;
@@ -85,11 +85,10 @@
 			// 
 			this.topPanel.AutoSize = true;
 			this.topPanel.Controls.Add(this.closePictureBox);
-			this.topPanel.Dock = System.Windows.Forms.DockStyle.Top;
-			this.topPanel.Location = new System.Drawing.Point(0, 0);
-			this.topPanel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+			this.topPanel.Location = new System.Drawing.Point(1, 1);
+			this.topPanel.Margin = new System.Windows.Forms.Padding(4);
 			this.topPanel.Name = "topPanel";
-			this.topPanel.Size = new System.Drawing.Size(929, 42);
+			this.topPanel.Size = new System.Drawing.Size(927, 54);
 			this.topPanel.TabIndex = 57;
 			// 
 			// imagePathLabel
@@ -521,6 +520,7 @@
 			this.Name = "ProfileForm";
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "ProfileForm";
+			this.Paint += new System.Windows.Forms.PaintEventHandler(this.ProfileForm_Paint);
 			((System.ComponentModel.ISupportInitialize)(this.closePictureBox)).EndInit();
 			this.topPanel.ResumeLayout(false);
 			((System.ComponentModel.ISupportInitialize)(this.imagePB)).EndInit();

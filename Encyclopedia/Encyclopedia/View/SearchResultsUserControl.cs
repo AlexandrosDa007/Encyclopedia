@@ -30,7 +30,11 @@ namespace Encyclopedia.View
         public SearchResultsUserControl()
         {
             InitializeComponent();
-        }
+
+			ImageList list = new ImageList();
+			list.ImageSize = new Size(8, 48);
+			searchResultsListView.SmallImageList = list;
+		}
 
         public void AddToTheResults(string text, List<string> checkedFilters)
         {

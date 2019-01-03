@@ -27,5 +27,14 @@ namespace Encyclopedia.Controller
 
 			comboBox.Items.AddRange(roleArray);
 		}
+
+		// fills dynamically the parametered ListBox
+		public static void FillCategories(ListBox listBox)
+		{
+			listBox.Items.Clear();
+			String[] categoryArray = DBConnect.GetCategories();
+
+			listBox.Items.AddRange(categoryArray);
+		}
 	}
 }

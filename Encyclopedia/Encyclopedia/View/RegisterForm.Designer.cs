@@ -391,18 +391,17 @@
 			// 
 			this.topPanel.AutoSize = true;
 			this.topPanel.Controls.Add(this.closePictureBox);
-			this.topPanel.Dock = System.Windows.Forms.DockStyle.Top;
-			this.topPanel.Location = new System.Drawing.Point(0, 0);
+			this.topPanel.Location = new System.Drawing.Point(1, 1);
 			this.topPanel.Margin = new System.Windows.Forms.Padding(4);
 			this.topPanel.Name = "topPanel";
-			this.topPanel.Size = new System.Drawing.Size(840, 44);
+			this.topPanel.Size = new System.Drawing.Size(838, 51);
 			this.topPanel.TabIndex = 28;
 			// 
 			// closePictureBox
 			// 
 			this.closePictureBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
 			this.closePictureBox.Image = ((System.Drawing.Image)(resources.GetObject("closePictureBox.Image")));
-			this.closePictureBox.Location = new System.Drawing.Point(791, 13);
+			this.closePictureBox.Location = new System.Drawing.Point(793, 18);
 			this.closePictureBox.Margin = new System.Windows.Forms.Padding(4);
 			this.closePictureBox.Name = "closePictureBox";
 			this.closePictureBox.Size = new System.Drawing.Size(45, 27);
@@ -412,12 +411,13 @@
 			// 
 			// feedbackLabel
 			// 
+			this.feedbackLabel.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
 			this.feedbackLabel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
 			this.feedbackLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this.feedbackLabel.Font = new System.Drawing.Font("Century Gothic", 10.01739F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-			this.feedbackLabel.Location = new System.Drawing.Point(-2, 950);
+			this.feedbackLabel.Location = new System.Drawing.Point(1, 948);
 			this.feedbackLabel.Name = "feedbackLabel";
-			this.feedbackLabel.Size = new System.Drawing.Size(843, 30);
+			this.feedbackLabel.Size = new System.Drawing.Size(838, 30);
 			this.feedbackLabel.TabIndex = 29;
 			this.feedbackLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			// 
@@ -474,6 +474,7 @@
 			this.Name = "RegisterForm";
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
 			this.Text = "Registration Form";
+			this.Paint += new System.Windows.Forms.PaintEventHandler(this.RegisterForm_Paint);
 			this.genderGroupBox.ResumeLayout(false);
 			this.genderGroupBox.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)(this.imagePB)).EndInit();
