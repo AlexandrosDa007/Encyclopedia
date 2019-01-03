@@ -113,8 +113,11 @@ namespace Encyclopedia.View
                 genderFemaleRB.Checked = false;
             dateOfBirthDTP.Value = Account.User.DateOfBirth;
 
-            educationLevelCB.SelectedIndex = Account.User.EducationLevel.Id - 1;
-            roleCB.SelectedIndex = Account.User.Role.Id - 1;
+            if(Account.User.EducationLevel.Id != -999)
+                educationLevelCB.SelectedIndex = Account.User.EducationLevel.Id - 1;
+            if (Account.User.Role.Id != -999)
+                roleCB.SelectedIndex = Account.User.Role.Id - 1;
+
             descriptionRTB.Text = Account.User.Description;
             if (Account.User.Image == null)
             {
@@ -189,12 +192,36 @@ namespace Encyclopedia.View
                 okayToUpdate = 4;
             else
                 Account.User.Surname = surnameTextBox.Text;
-            Account.User.Tel = telTexBox.Text;
-            Account.User.EducationLevel.Name = educationLevelCB.GetItemText(educationLevelCB.SelectedItem);
-            Account.User.EducationLevel.Id = educationLevelCB.SelectedIndex + 1;
-            Account.User.Role.Name = roleCB.GetItemText(roleCB.SelectedItem);
-            Account.User.Role.Id = roleCB.SelectedIndex + 1;
-            Account.User.Description = descriptionRTB.Text;
+            if (telTexBox.Text == "" || telTexBox.Text == null)
+                Account.User.Tel = "";
+            else
+                Account.User.Tel = telTexBox.Text;
+            if(educationLevelCB.SelectedIndex != -1)
+            {
+                Account.User.EducationLevel.Name = educationLevelCB.GetItemText(educationLevelCB.SelectedItem);
+                Account.User.EducationLevel.Id = educationLevelCB.SelectedIndex + 1;
+                Console.WriteLine("debug");
+            }
+            else
+            {
+                Account.User.EducationLevel.Name = "";
+                Account.User.EducationLevel.Id = -999;
+            }
+
+            if (roleCB.SelectedIndex != -1)
+            {
+                Account.User.Role.Name = roleCB.GetItemText(roleCB.SelectedItem);
+                Account.User.Role.Id = roleCB.SelectedIndex + 1;
+            }
+            else
+            {
+                Account.User.Role.Name = "";
+                Account.User.Role.Id = -999;
+            }
+            if (descriptionRTB.Text == null || descriptionRTB.Text == "")
+                Account.User.Description = "";
+            else
+                Account.User.Description = descriptionRTB.Text;
             //check image
             if(imagePB != null)
             {
@@ -203,6 +230,10 @@ namespace Encyclopedia.View
                     imagePB.Image.Save(ms, imagePB.Image.RawFormat);
                     Account.User.Image = ms.ToArray();
                 }
+            }
+            else
+            {
+                Account.User.Image = null;
             }
             
             

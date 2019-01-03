@@ -514,11 +514,16 @@ namespace Encyclopedia.Controller
                 userName = dataReader[0].ToString();
                 userSurname = dataReader[1].ToString();
                 dateOfBirth = DateTime.Parse(dataReader[2].ToString());
-                gender = dataReader[3].ToString()[0];
-                telNumber = dataReader[4].ToString();
-                userRoleId = Convert.ToInt32(dataReader[5].ToString());
-                userEducationLevelId = Convert.ToInt32(dataReader[6].ToString());
-                userDescription = dataReader[7].ToString();
+                if (!dataReader.IsDBNull(3))
+                    gender = Char.Parse(dataReader["user_gender"].ToString());
+                if (!dataReader.IsDBNull(4))
+                    telNumber = dataReader[4].ToString();
+                if (!dataReader.IsDBNull(5))
+                    userRoleId = Convert.ToInt32(dataReader[5].ToString());
+                if (!dataReader.IsDBNull(6))
+                    userEducationLevelId = Convert.ToInt32(dataReader[6].ToString());
+                if (!dataReader.IsDBNull(7))
+                    userDescription = dataReader[7].ToString();
                 if(!dataReader.IsDBNull(8))
                     userImage = (byte[])dataReader["user_image"];
             }
@@ -1072,14 +1077,37 @@ namespace Encyclopedia.Controller
             cmd.Parameters.AddWithValue("@name", user.Name);
             cmd.Parameters.AddWithValue("@surname", user.Surname);
             cmd.Parameters.AddWithValue("@date", user.DateOfBirth);
-            cmd.Parameters.AddWithValue("@gender", user.Gender);
-            cmd.Parameters.AddWithValue("@tel", user.Tel);
-            cmd.Parameters.AddWithValue("@role", user.Role.Id);
-            cmd.Parameters.AddWithValue("@edu", user.EducationLevel.Id);
-            cmd.Parameters.AddWithValue("@description", user.Description);
-            cmd.Parameters.AddWithValue("@img", user.Image);
+            if(user.Gender.Equals('-'))
+                cmd.Parameters.AddWithValue("@gender", DBNull.Value);
+            else
+                cmd.Parameters.AddWithValue("@gender", user.Gender);
+
+            if(user.Tel.Equals("") || user.Tel == null || user.Tel.Equals("__________"))
+                cmd.Parameters.AddWithValue("@tel", DBNull.Value);
+            else
+                cmd.Parameters.AddWithValue("@tel", user.Tel);
+            if(user.Role.Id == -999)
+                cmd.Parameters.AddWithValue("@role", DBNull.Value);
+            else
+                cmd.Parameters.AddWithValue("@role", user.Role.Id);
+            if(user.EducationLevel.Id == -999)
+                cmd.Parameters.AddWithValue("@edu", DBNull.Value);
+            else
+                cmd.Parameters.AddWithValue("@edu", user.EducationLevel.Id);
+            if(user.Description == null || user.Description.Equals(""))
+                cmd.Parameters.AddWithValue("@description", DBNull.Value);
+            else
+                cmd.Parameters.AddWithValue("@description", user.Description);
+            if(user.Image == null)
+                cmd.Parameters.AddWithValue("@img", DBNull.Value);
+            else
+                cmd.Parameters.AddWithValue("@img", user.Image);
+
             cmd.Parameters.AddWithValue("@id", user.Id);
             cmd.Prepare();
+
+            Console.WriteLine("UserId: " + user.Id +" roleId: "+user.Role.Id+" eduId: "+user.EducationLevel.Id);
+
             int rowsAffected = cmd.ExecuteNonQuery();
 
 
