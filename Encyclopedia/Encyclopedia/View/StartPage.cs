@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
+using FreeTextBoxControls;
 
 namespace UI
 {
@@ -209,6 +210,7 @@ namespace UI
                 afterLoginPanel.Account = account;
                 afterLoginPanel.SetImage();
                 changePanelControls();
+                LemmaViewUserControl.Instance.ChangeLabelsToVisibleByValue(true);
             }
             else
             {
@@ -221,7 +223,7 @@ namespace UI
 
         private void changePanelControls()
         {
-            
+
             foreach (Control x in newLeftPanel.Controls)
             {
                 controlsBeforeLogin.Add(x);
@@ -229,6 +231,18 @@ namespace UI
             }
 
             leftPanel.Controls.Add(afterLoginPanel);
+        }
+
+        public void Logout()
+        {
+
+            foreach (Control x in controlsBeforeLogin)
+            {
+                x.Visible = true;
+            }
+
+            newLeftPanel.Controls.Remove(afterLoginPanel);
+            LemmaViewUserControl.Instance.ChangeLabelsToVisibleByValue(false);
         }
 
 		private void StartPage_Paint(object sender, PaintEventArgs e)
@@ -244,5 +258,10 @@ namespace UI
 			this.MaximumSize = new Size(workingRectangle.Width, workingRectangle.Height);
 			this.WindowState = FormWindowState.Maximized;
 		}
-	}
+
+        private void editPictureBox_Click(object sender, EventArgs e)
+        {
+            LemmaViewUserControl.Instance.SetLemmaData("Placebo");
+        }
+    }
 }

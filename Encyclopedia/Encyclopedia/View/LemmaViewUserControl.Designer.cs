@@ -63,7 +63,7 @@
             this.lemmaTitleLabel.Location = new System.Drawing.Point(27, 5);
             this.lemmaTitleLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lemmaTitleLabel.Name = "lemmaTitleLabel";
-            this.lemmaTitleLabel.Size = new System.Drawing.Size(113, 37);
+            this.lemmaTitleLabel.Size = new System.Drawing.Size(96, 28);
             this.lemmaTitleLabel.TabIndex = 34;
             this.lemmaTitleLabel.Text = "            ";
             // 
@@ -94,6 +94,7 @@
             this.editPictureBox.TabIndex = 39;
             this.editPictureBox.TabStop = false;
             this.editPictureBox.Visible = false;
+            this.editPictureBox.Click += new System.EventHandler(this.editPictureBox_Click);
             // 
             // sharePictureBox
             // 
@@ -139,7 +140,7 @@
             // 
             // LemmaViewUserControl
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Gainsboro;
             this.Controls.Add(this.printPictureBox);
@@ -149,6 +150,7 @@
             this.Controls.Add(this.favouritesPictureBox);
             this.Controls.Add(this.lemmaTitleLabel);
             this.Controls.Add(this.LemmaViewWebBrowser);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "LemmaViewUserControl";
             this.Size = new System.Drawing.Size(1036, 498);
             ((System.ComponentModel.ISupportInitialize)(this.favouritesPictureBox)).EndInit();

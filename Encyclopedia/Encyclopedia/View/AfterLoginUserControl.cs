@@ -30,13 +30,11 @@ namespace Encyclopedia.View
 		private void logoutButton_Click(object sender, EventArgs e)
         {
             //logout function
-            StartPage st = (StartPage)this.Parent.Parent;
 
-            foreach (Control x in st.controlsBeforeLogin)
-            {
-                x.Visible = true;
-            }
-            st.newLeftPanel.Controls.Remove(this);
+            StartPage st = (StartPage)this.Parent.Parent;
+            st.Logout();
+     
+           
 
             if (!st.mainPanel.Controls.Contains(Encyclopedia.View.LemmaOfTheDayUserControl.Instance))
             {

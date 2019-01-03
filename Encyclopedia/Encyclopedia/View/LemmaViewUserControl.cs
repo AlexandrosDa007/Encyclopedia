@@ -2,11 +2,15 @@
 using System.Text;
 using System.Windows.Forms;
 using Encyclopedia.Controller;
+using Encyclopedia.Model;
+using mshtml;
 
 namespace Encyclopedia.View
 {
     public partial class LemmaViewUserControl : UserControl
     {
+        public Lemma lemma;
+
         private static LemmaViewUserControl _instance;
 
         public static LemmaViewUserControl Instance
@@ -27,6 +31,18 @@ namespace Encyclopedia.View
             InitializeComponent();
             //start by having something as default --TO BE CHANGED
             //ChangeValue("Concept");
+            //SetLemmaData("Placebo");
+            
+
+
+        }
+
+        public void SetLemmaData(string lemmaTitle)
+        {
+            byte[] body = DBConnect.GetLemmaBodyByTitle(lemmaTitle);
+            int categoryId = DBConnect.GetLemmaCategoryByTitle(lemmaTitle);
+            lemma = new Lemma(lemmaTitle, body, categoryId);
+            
         }
 
         public void ChangeValue(string title)
@@ -72,5 +88,18 @@ namespace Encyclopedia.View
 			// print the document currently displayed in the WebBrowser
 			LemmaViewWebBrowser.Print();
 		}
+
+        private void editPictureBox_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        public void ChangeLabelsToVisibleByValue(bool value)
+        {
+            favouritesPictureBox.Visible = value;
+            sharePictureBox.Visible = value;
+            editPictureBox.Visible = value;
+        }
+
     }
 }
