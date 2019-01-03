@@ -37,11 +37,10 @@
             this.LemmaViewWebBrowser.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.LemmaViewWebBrowser.Location = new System.Drawing.Point(20, 90);
-            this.LemmaViewWebBrowser.Margin = new System.Windows.Forms.Padding(4);
-            this.LemmaViewWebBrowser.MinimumSize = new System.Drawing.Size(27, 25);
+            this.LemmaViewWebBrowser.Location = new System.Drawing.Point(15, 73);
+            this.LemmaViewWebBrowser.MinimumSize = new System.Drawing.Size(20, 20);
             this.LemmaViewWebBrowser.Name = "LemmaViewWebBrowser";
-            this.LemmaViewWebBrowser.Size = new System.Drawing.Size(986, 393);
+            this.LemmaViewWebBrowser.Size = new System.Drawing.Size(740, 319);
             this.LemmaViewWebBrowser.TabIndex = 23;
             // 
             // lemmaTitleLabel
@@ -49,22 +48,22 @@
             this.lemmaTitleLabel.AutoSize = true;
             this.lemmaTitleLabel.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
             this.lemmaTitleLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(53)))), ((int)(((byte)(65)))));
-            this.lemmaTitleLabel.Location = new System.Drawing.Point(13, 25);
-            this.lemmaTitleLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lemmaTitleLabel.Location = new System.Drawing.Point(10, 20);
             this.lemmaTitleLabel.Name = "lemmaTitleLabel";
-            this.lemmaTitleLabel.Size = new System.Drawing.Size(184, 37);
+            this.lemmaTitleLabel.Size = new System.Drawing.Size(148, 28);
             this.lemmaTitleLabel.TabIndex = 34;
             this.lemmaTitleLabel.Text = "Lemma title";
             // 
             // LemmaViewUserControl
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Gainsboro;
             this.Controls.Add(this.lemmaTitleLabel);
             this.Controls.Add(this.LemmaViewWebBrowser);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "LemmaViewUserControl";
-            this.Size = new System.Drawing.Size(1036, 498);
+            this.Size = new System.Drawing.Size(777, 405);
             this.ResumeLayout(false);
             this.PerformLayout();
 

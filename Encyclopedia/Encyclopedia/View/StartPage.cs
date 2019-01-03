@@ -4,6 +4,7 @@ using Encyclopedia.View;
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
+using FreeTextBoxControls;
 
 namespace UI
 {
@@ -233,7 +234,11 @@ namespace UI
 
         private void changePanelControls()
         {
-            
+
+            favouritesPictureBox.Visible = true;
+            editPictureBox.Visible = true;
+            sharePictureBox.Visible = true;
+
             foreach (Control x in newLeftPanel.Controls)
             {
                 controlsBeforeLogin.Add(x);
@@ -243,9 +248,28 @@ namespace UI
             leftPanel.Controls.Add(afterLoginPanel);
         }
 
+        public void Logout()
+        {
+            favouritesPictureBox.Visible = false;
+            editPictureBox.Visible = false;
+            sharePictureBox.Visible = false;
+
+            foreach (Control x in controlsBeforeLogin)
+            {
+                x.Visible = true;
+            }
+
+            newLeftPanel.Controls.Remove(afterLoginPanel);
+        }
+
 		private void FeedbackPanel_Paint(object sender, PaintEventArgs e)
 		{
 
 		}
-	}
+
+        private void editPictureBox_Click(object sender, EventArgs e)
+        {
+            LemmaViewUserControl.Instance.SetLemmaData("Placebo");
+        }
+    }
 }

@@ -9,12 +9,15 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using UI;
 using Encyclopedia.Controller;
+using Encyclopedia.Model;
+using mshtml;
 
 namespace Encyclopedia.View
 {
     public partial class LemmaViewUserControl : UserControl
     {
-        
+        public Lemma lemma;
+
         private static LemmaViewUserControl _instance;
 
         public static LemmaViewUserControl Instance
@@ -35,8 +38,19 @@ namespace Encyclopedia.View
             InitializeComponent();
             //start by having something as default --TO BE CHANGED
             //ChangeValue("Concept");
+            //SetLemmaData("Placebo");
+            
+
+
         }
 
+        public void SetLemmaData(string lemmaTitle)
+        {
+            byte[] body = DBConnect.GetLemmaBodyByTitle(lemmaTitle);
+            int categoryId = DBConnect.GetLemmaCategoryByTitle(lemmaTitle);
+            lemma = new Lemma(lemmaTitle, body, categoryId);
+            
+        }
 
         public void ChangeValue(string title)
         {
