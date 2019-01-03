@@ -408,7 +408,7 @@
             this.filterCheckedListBox.Location = new System.Drawing.Point(391, 173);
             this.filterCheckedListBox.Margin = new System.Windows.Forms.Padding(5);
             this.filterCheckedListBox.Name = "filterCheckedListBox";
-            this.filterCheckedListBox.Size = new System.Drawing.Size(275, 96);
+            this.filterCheckedListBox.Size = new System.Drawing.Size(275, 119);
             this.filterCheckedListBox.TabIndex = 4;
             // 
             // filtersLabel
