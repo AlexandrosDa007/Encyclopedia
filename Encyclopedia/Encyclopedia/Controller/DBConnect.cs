@@ -519,7 +519,8 @@ namespace Encyclopedia.Controller
                 userRoleId = Convert.ToInt32(dataReader[5].ToString());
                 userEducationLevelId = Convert.ToInt32(dataReader[6].ToString());
                 userDescription = dataReader[7].ToString();
-                userImage = (byte[])dataReader["user_image"];
+                if(!dataReader.IsDBNull(8))
+                    userImage = (byte[])dataReader["user_image"];
             }
             dataReader.Close();
             Role role = GetRoleById(userRoleId);

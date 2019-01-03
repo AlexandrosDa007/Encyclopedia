@@ -109,7 +109,8 @@ namespace Encyclopedia.View
 
         public void SetImage()
         {
-            sideProfilePicture.Image = (Bitmap)((new ImageConverter()).ConvertFrom(Account.User.Image));
+            if(Account.User.Image!=null)
+                sideProfilePicture.Image = (Bitmap)((new ImageConverter()).ConvertFrom(Account.User.Image));
         }
 
 		private void FeedbackPanel_Paint(object sender, PaintEventArgs e)
