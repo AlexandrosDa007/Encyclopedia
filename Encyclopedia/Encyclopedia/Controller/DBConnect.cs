@@ -502,7 +502,7 @@ namespace Encyclopedia.Controller
             string userName = "";
             string userSurname = "";
             DateTime dateOfBirth = new DateTime();
-            char gender = 'N';
+            char gender = '-';
             string telNumber = "";
             int userRoleId = -999;
             int userEducationLevelId = -999;
