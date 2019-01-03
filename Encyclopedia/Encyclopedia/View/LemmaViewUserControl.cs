@@ -72,5 +72,5 @@ namespace Encyclopedia.View
 			// print the document currently displayed in the WebBrowser
 			LemmaViewWebBrowser.Print();
 		}
-	}
+    }
 }

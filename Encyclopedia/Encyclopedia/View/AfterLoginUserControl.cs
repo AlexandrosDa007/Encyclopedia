@@ -37,15 +37,27 @@ namespace Encyclopedia.View
                 x.Visible = true;
             }
             st.newLeftPanel.Controls.Remove(this);
-		}
+
+            if (!st.mainPanel.Controls.Contains(Encyclopedia.View.LemmaOfTheDayUserControl.Instance))
+            {
+                st.mainPanel.Controls.Add(Encyclopedia.View.LemmaOfTheDayUserControl.Instance);
+                Encyclopedia.View.LemmaOfTheDayUserControl.Instance.Dock = DockStyle.Fill;
+                Encyclopedia.View.LemmaOfTheDayUserControl.Instance.BringToFront();
+
+            }
+            else
+            {
+                Encyclopedia.View.LemmaOfTheDayUserControl.Instance.BringToFront();
+            }
+        }
 
         private void contactsButton_Click(object sender, EventArgs e)
         {
 			StartPage startP = (StartPage)this.Parent.Parent;
 
-            if (!startP.Controls.Contains(ContactsUserControl.Instance))
+            if (!startP.mainPanel.Controls.Contains(ContactsUserControl.Instance))
             {
-				startP.searchPanel.Controls.Add(ContactsUserControl.Instance);
+				startP.mainPanel.Controls.Add(ContactsUserControl.Instance);
 				ContactsUserControl.Instance.Dock = DockStyle.Fill;
 				ContactsUserControl.Instance.BringToFront();
 				
@@ -58,9 +70,9 @@ namespace Encyclopedia.View
         {
 			StartPage startP = (StartPage)this.Parent.Parent;
 
-			if (!startP.Controls.Contains(EditedLemmataUserControl.Instance))
+			if (!startP.mainPanel.Controls.Contains(EditedLemmataUserControl.Instance))
             {
-				startP.searchPanel.Controls.Add(EditedLemmataUserControl.Instance);
+				startP.mainPanel.Controls.Add(EditedLemmataUserControl.Instance);
                 EditedLemmataUserControl.Instance.Dock = DockStyle.Fill;
                 EditedLemmataUserControl.Instance.BringToFront();
 
@@ -73,9 +85,9 @@ namespace Encyclopedia.View
         {
 			StartPage startP = (StartPage)this.Parent.Parent;
 
-			if (!startP.Controls.Contains(FavouriteLemmataUserControl.Instance))
+			if (!startP.mainPanel.Controls.Contains(FavouriteLemmataUserControl.Instance))
             {
-				startP.searchPanel.Controls.Add(FavouriteLemmataUserControl.Instance);
+				startP.mainPanel.Controls.Add(FavouriteLemmataUserControl.Instance);
                 FavouriteLemmataUserControl.Instance.Dock = DockStyle.Fill;
                 FavouriteLemmataUserControl.Instance.BringToFront();
 
@@ -106,5 +118,22 @@ namespace Encyclopedia.View
 		{
 
 		}
-	}
+
+        private void logoLabel_Click(object sender, EventArgs e)
+        {
+            StartPage startP = (StartPage)this.Parent.Parent;
+
+            if (!startP.mainPanel.Controls.Contains(Encyclopedia.View.LemmaOfTheDayUserControl.Instance))
+            {
+                startP.mainPanel.Controls.Add(Encyclopedia.View.LemmaOfTheDayUserControl.Instance);
+                Encyclopedia.View.LemmaOfTheDayUserControl.Instance.Dock = DockStyle.Fill;
+                Encyclopedia.View.LemmaOfTheDayUserControl.Instance.BringToFront();
+
+            }
+            else
+            {
+                Encyclopedia.View.LemmaOfTheDayUserControl.Instance.BringToFront();
+            }
+        }
+    }
 }
