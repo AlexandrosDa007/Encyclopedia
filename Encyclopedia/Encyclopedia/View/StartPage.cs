@@ -3,6 +3,7 @@ using Encyclopedia.Model;
 using Encyclopedia.View;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Windows.Forms;
 using FreeTextBoxControls;
 
@@ -27,7 +28,7 @@ namespace UI
         //Opens LemmaOfTheDayUserControl in mainPanel when application starts
         public StartPage()
         {
-            InitializeComponent();
+			InitializeComponent();
             if (!mainPanel.Controls.Contains(Encyclopedia.View.LemmaOfTheDayUserControl.Instance))
             {
                 mainPanel.Controls.Add(Encyclopedia.View.LemmaOfTheDayUserControl.Instance);
@@ -47,18 +48,12 @@ namespace UI
             this.Controls.Remove(leftPanel);
             //add the newLeftPanel
             this.Controls.Add(newLeftPanel);
+
+			DynamicUIControlsHandler.FillCategories(filterCheckedListBox);
         }
 
-        private void StartPage_Load(object sender, EventArgs e)
-        {
-            this.FormBorderStyle = FormBorderStyle.Sizable;
-            this.WindowState = FormWindowState.Maximized;
-            this.MaximumSize = this.Size;
-            this.FormBorderStyle = FormBorderStyle.None;
-        }
-
-        //Opens SearchResultsUserControl in mainPanel when popularButton is clicked
-        private void popularButton_Click(object sender, EventArgs e)
+		//Opens SearchResultsUserControl in mainPanel when popularButton is clicked
+		private void popularButton_Click(object sender, EventArgs e)
         {
             if (!mainPanel.Controls.Contains(Encyclopedia.View.SearchResultsUserControl.Instance))
             {
@@ -84,10 +79,7 @@ namespace UI
             else
             {
                 Encyclopedia.View.LemmaOfTheDayUserControl.Instance.BringToFront();
-                
             }
-                
-
         }
 
         //Opens SearchResultsUserControl in mainPanel when recentButton is clicked
@@ -133,9 +125,7 @@ namespace UI
             {
                 Encyclopedia.View.SearchResultsUserControl.Instance.BringToFront();
                 Search();
-                
             }
-                
         }
         */
         private void Search()
@@ -188,8 +178,6 @@ namespace UI
             RegisterForm registerForm = new RegisterForm();
             registerForm.ShowDialog();
         }
-
-        
 
         private void minimizePictureBox_Click(object sender, EventArgs e)
         {
@@ -262,9 +250,18 @@ namespace UI
             newLeftPanel.Controls.Remove(afterLoginPanel);
         }
 
-		private void FeedbackPanel_Paint(object sender, PaintEventArgs e)
+		private void StartPage_Paint(object sender, PaintEventArgs e)
 		{
+			
+		}
 
+		private void StartPage_Load(object sender, EventArgs e)
+		{
+			this.FormBorderStyle = FormBorderStyle.None;
+
+			Rectangle workingRectangle = Screen.PrimaryScreen.WorkingArea;
+			this.MaximumSize = new Size(workingRectangle.Width, workingRectangle.Height);
+			this.WindowState = FormWindowState.Maximized;
 		}
 
         private void editPictureBox_Click(object sender, EventArgs e)

@@ -48,7 +48,7 @@
 			// 
 			this.closePictureBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
 			this.closePictureBox.Image = ((System.Drawing.Image)(resources.GetObject("closePictureBox.Image")));
-			this.closePictureBox.Location = new System.Drawing.Point(987, 13);
+			this.closePictureBox.Location = new System.Drawing.Point(991, 17);
 			this.closePictureBox.Margin = new System.Windows.Forms.Padding(4);
 			this.closePictureBox.Name = "closePictureBox";
 			this.closePictureBox.Size = new System.Drawing.Size(45, 27);
@@ -64,7 +64,7 @@
 			this.topPanel.Location = new System.Drawing.Point(0, 0);
 			this.topPanel.Margin = new System.Windows.Forms.Padding(4);
 			this.topPanel.Name = "topPanel";
-			this.topPanel.Size = new System.Drawing.Size(1036, 44);
+			this.topPanel.Size = new System.Drawing.Size(1036, 48);
 			this.topPanel.TabIndex = 29;
 			// 
 			// contactsTabControl
@@ -72,10 +72,10 @@
 			this.contactsTabControl.Controls.Add(this.contactsTabPage);
 			this.contactsTabControl.Controls.Add(this.groupTabPage);
 			this.contactsTabControl.Font = new System.Drawing.Font("Century Gothic", 10.8F);
-			this.contactsTabControl.Location = new System.Drawing.Point(25, 62);
+			this.contactsTabControl.Location = new System.Drawing.Point(45, 62);
 			this.contactsTabControl.Name = "contactsTabControl";
 			this.contactsTabControl.SelectedIndex = 0;
-			this.contactsTabControl.Size = new System.Drawing.Size(977, 358);
+			this.contactsTabControl.Size = new System.Drawing.Size(944, 358);
 			this.contactsTabControl.TabIndex = 30;
 			// 
 			// contactsTabPage
@@ -85,7 +85,7 @@
 			this.contactsTabPage.Location = new System.Drawing.Point(4, 30);
 			this.contactsTabPage.Name = "contactsTabPage";
 			this.contactsTabPage.Padding = new System.Windows.Forms.Padding(3);
-			this.contactsTabPage.Size = new System.Drawing.Size(969, 324);
+			this.contactsTabPage.Size = new System.Drawing.Size(936, 324);
 			this.contactsTabPage.TabIndex = 0;
 			this.contactsTabPage.Text = "Contacts";
 			this.contactsTabPage.UseVisualStyleBackColor = true;
@@ -99,7 +99,7 @@
 			this.contactsCheckedListBox.FormattingEnabled = true;
 			this.contactsCheckedListBox.Location = new System.Drawing.Point(3, 3);
 			this.contactsCheckedListBox.Name = "contactsCheckedListBox";
-			this.contactsCheckedListBox.Size = new System.Drawing.Size(963, 318);
+			this.contactsCheckedListBox.Size = new System.Drawing.Size(930, 318);
 			this.contactsCheckedListBox.Sorted = true;
 			this.contactsCheckedListBox.TabIndex = 1;
 			// 
@@ -130,7 +130,7 @@
 			// sendButton
 			// 
 			this.sendButton.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-			this.sendButton.Location = new System.Drawing.Point(899, 439);
+			this.sendButton.Location = new System.Drawing.Point(895, 437);
 			this.sendButton.Name = "sendButton";
 			this.sendButton.Size = new System.Drawing.Size(90, 38);
 			this.sendButton.TabIndex = 2;

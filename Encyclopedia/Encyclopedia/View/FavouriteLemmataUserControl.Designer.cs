@@ -61,7 +61,7 @@
             this.favouriteTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 29.17903F));
             this.favouriteTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 23.73887F));
             this.favouriteTableLayoutPanel.Controls.Add(this.removeLabel, 2, 0);
-            this.favouriteTableLayoutPanel.Location = new System.Drawing.Point(25, 122);
+            this.favouriteTableLayoutPanel.Location = new System.Drawing.Point(35, 122);
             this.favouriteTableLayoutPanel.Margin = new System.Windows.Forms.Padding(4);
             this.favouriteTableLayoutPanel.Name = "favouriteTableLayoutPanel";
             this.favouriteTableLayoutPanel.RowCount = 8;
@@ -73,7 +73,7 @@
             this.favouriteTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.50107F));
             this.favouriteTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.50303F));
             this.favouriteTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.50303F));
-            this.favouriteTableLayoutPanel.Size = new System.Drawing.Size(958, 339);
+            this.favouriteTableLayoutPanel.Size = new System.Drawing.Size(958, 335);
             this.favouriteTableLayoutPanel.TabIndex = 1;
             // 
             // removeLabel
@@ -90,10 +90,11 @@
             // 
             // dateOfAdditionLabel
             // 
+            this.dateOfAdditionLabel.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.dateOfAdditionLabel.AutoSize = true;
             this.dateOfAdditionLabel.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
             this.dateOfAdditionLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(53)))), ((int)(((byte)(65)))));
-            this.dateOfAdditionLabel.Location = new System.Drawing.Point(474, 95);
+            this.dateOfAdditionLabel.Location = new System.Drawing.Point(488, 95);
             this.dateOfAdditionLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.dateOfAdditionLabel.Name = "dateOfAdditionLabel";
             this.dateOfAdditionLabel.Size = new System.Drawing.Size(167, 23);
@@ -102,10 +103,11 @@
             // 
             // removeFromFavouritesLabel
             // 
+            this.removeFromFavouritesLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.removeFromFavouritesLabel.AutoSize = true;
             this.removeFromFavouritesLabel.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
             this.removeFromFavouritesLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(53)))), ((int)(((byte)(65)))));
-            this.removeFromFavouritesLabel.Location = new System.Drawing.Point(742, 95);
+            this.removeFromFavouritesLabel.Location = new System.Drawing.Point(761, 95);
             this.removeFromFavouritesLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.removeFromFavouritesLabel.Name = "removeFromFavouritesLabel";
             this.removeFromFavouritesLabel.Size = new System.Drawing.Size(241, 23);
@@ -117,7 +119,7 @@
             this.myFavouriteLemmataLabel.AutoSize = true;
             this.myFavouriteLemmataLabel.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
             this.myFavouriteLemmataLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(53)))), ((int)(((byte)(65)))));
-            this.myFavouriteLemmataLabel.Location = new System.Drawing.Point(32, 95);
+            this.myFavouriteLemmataLabel.Location = new System.Drawing.Point(41, 95);
             this.myFavouriteLemmataLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.myFavouriteLemmataLabel.Name = "myFavouriteLemmataLabel";
             this.myFavouriteLemmataLabel.Size = new System.Drawing.Size(225, 23);

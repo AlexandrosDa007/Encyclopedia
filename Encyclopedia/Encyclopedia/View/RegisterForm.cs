@@ -117,5 +117,11 @@ namespace Encyclopedia.View
 				feedbackLabel.ForeColor = this.BackColor;
 			}
 		}
+
+		private void RegisterForm_Paint(object sender, PaintEventArgs e)
+		{
+			e.Graphics.DrawRectangle(new Pen(Color.Black, 2),
+							this.DisplayRectangle);
+		}
 	}
 }

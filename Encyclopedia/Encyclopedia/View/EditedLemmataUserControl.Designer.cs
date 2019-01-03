@@ -43,7 +43,7 @@
             this.myLemmataLabel.BackColor = System.Drawing.Color.Gainsboro;
             this.myLemmataLabel.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
             this.myLemmataLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(53)))), ((int)(((byte)(65)))));
-            this.myLemmataLabel.Location = new System.Drawing.Point(38, 100);
+            this.myLemmataLabel.Location = new System.Drawing.Point(52, 100);
             this.myLemmataLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.myLemmataLabel.Name = "myLemmataLabel";
             this.myLemmataLabel.Size = new System.Drawing.Size(134, 23);
@@ -52,11 +52,12 @@
             // 
             // removeFromEditedLabel
             // 
+            this.removeFromEditedLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.removeFromEditedLabel.AutoSize = true;
             this.removeFromEditedLabel.BackColor = System.Drawing.Color.Gainsboro;
             this.removeFromEditedLabel.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
             this.removeFromEditedLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(53)))), ((int)(((byte)(65)))));
-            this.removeFromEditedLabel.Location = new System.Drawing.Point(754, 100);
+            this.removeFromEditedLabel.Location = new System.Drawing.Point(770, 100);
             this.removeFromEditedLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.removeFromEditedLabel.Name = "removeFromEditedLabel";
             this.removeFromEditedLabel.Size = new System.Drawing.Size(210, 23);
@@ -65,11 +66,12 @@
             // 
             // dateOfAdditionLabel
             // 
+            this.dateOfAdditionLabel.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.dateOfAdditionLabel.AutoSize = true;
             this.dateOfAdditionLabel.BackColor = System.Drawing.Color.Gainsboro;
             this.dateOfAdditionLabel.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
             this.dateOfAdditionLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(53)))), ((int)(((byte)(65)))));
-            this.dateOfAdditionLabel.Location = new System.Drawing.Point(474, 100);
+            this.dateOfAdditionLabel.Location = new System.Drawing.Point(496, 100);
             this.dateOfAdditionLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.dateOfAdditionLabel.Name = "dateOfAdditionLabel";
             this.dateOfAdditionLabel.Size = new System.Drawing.Size(167, 23);
@@ -91,7 +93,7 @@
             this.favouriteTableLayoutPanel.Controls.Add(this.removeLabel, 2, 0);
             this.favouriteTableLayoutPanel.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
             this.favouriteTableLayoutPanel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(53)))), ((int)(((byte)(65)))));
-            this.favouriteTableLayoutPanel.Location = new System.Drawing.Point(33, 127);
+            this.favouriteTableLayoutPanel.Location = new System.Drawing.Point(41, 127);
             this.favouriteTableLayoutPanel.Margin = new System.Windows.Forms.Padding(4);
             this.favouriteTableLayoutPanel.Name = "favouriteTableLayoutPanel";
             this.favouriteTableLayoutPanel.RowCount = 8;
@@ -103,7 +105,7 @@
             this.favouriteTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.50107F));
             this.favouriteTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.50303F));
             this.favouriteTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.50303F));
-            this.favouriteTableLayoutPanel.Size = new System.Drawing.Size(936, 339);
+            this.favouriteTableLayoutPanel.Size = new System.Drawing.Size(949, 328);
             this.favouriteTableLayoutPanel.TabIndex = 6;
             // 
             // removeLabel
@@ -113,7 +115,7 @@
             this.removeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
             this.removeLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(126)))), ((int)(((byte)(49)))));
             this.removeLabel.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.removeLabel.Location = new System.Drawing.Point(791, 12);
+            this.removeLabel.Location = new System.Drawing.Point(803, 11);
             this.removeLabel.Name = "removeLabel";
             this.removeLabel.Size = new System.Drawing.Size(64, 20);
             this.removeLabel.TabIndex = 0;

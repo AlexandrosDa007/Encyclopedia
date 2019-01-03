@@ -260,6 +260,28 @@ namespace Encyclopedia.Controller
 			return roleArray;
 		}
 
+		public static string[] GetCategories()
+		{
+			List<string> categoryList = new List<string>();
+			// construct query
+			string selectQuery = "SELECT category_name FROM Category";
+			MySqlCommand cmd = new MySqlCommand(selectQuery, connection);
+			cmd.CommandTimeout = 500000;
+
+			// prepare and execute
+			cmd.Prepare();
+			MySqlDataReader dataReader = cmd.ExecuteReader();
+
+			while (dataReader.Read())
+			{
+				categoryList.Add(dataReader.GetString("category_name").Replace("_", " "));
+			}
+
+			string[] categoryArray = categoryList.ToArray();
+			dataReader.Close();
+			return categoryArray;
+		}
+
 		public static bool IsAccountUsernameUnique(string username)
 		{
 			bool isUnique = true;
@@ -560,32 +582,132 @@ namespace Encyclopedia.Controller
 
         public static int Insert(Category category)
         {
-            //code to insert new category
-            return 1;
+            string categoryName = category.Name;
+            
+            //Create prepared statement string
+            string insertCategory = "INSERT INTO " +
+                "Category (category_name ) " +
+                "VALUES(@categoryName) ";
+
+            MySqlCommand cmd = new MySqlCommand(insertCategory, connection);
+            cmd.CommandTimeout = 500000;
+            // add values to the parameters
+            cmd.Parameters.AddWithValue("@categoryName", categoryName);
+
+            // prepare and execute
+            cmd.Prepare();
+            int rowsAffected = cmd.ExecuteNonQuery();
+
+            return rowsAffected; // if rowsAffected equals to 1, then the insertion completed successfully
         }
 
         public static int Insert(Contact contact)
         {
-            //code to insert new contact
-            return 1;
+            User user = contact.User;
+            User contactUser = contact.ContactUser;
+            ContactGroup contactGroup = contact.ContactGroup;
+
+            int userID = user.Id;
+            int contactID = contactUser.Id;
+            int groupID = contactGroup.Id;
+
+
+            //Create prepared statement string
+            string insertContact = "INSERT INTO " +
+                "Contact (user_id ,contact_id ,group_id  ) " +
+                "VALUES(@userID,@contactID,@groupID) ";
+
+            MySqlCommand cmd = new MySqlCommand(insertContact, connection);
+            cmd.CommandTimeout = 500000;
+            // add values to the parameters
+            cmd.Parameters.AddWithValue("@userID", userID);
+            cmd.Parameters.AddWithValue("@contactID", contactID);
+            cmd.Parameters.AddWithValue("@groupID", groupID);
+
+            // prepare and execute
+            cmd.Prepare();
+            int rowsAffected = cmd.ExecuteNonQuery();
+
+            return rowsAffected; // if rowsAffected equals to 1, then the insertion completed successfully
         }
 
         public static int Insert(ContactGroup contactGroup)
         {
-            //code to insert contactgroup
-            return 1;
+            string contactGroupName = contactGroup.Name;
+            User owner = contactGroup.Owner;
+
+            int ownerID = owner.Id;
+
+            //Create prepared statement string
+            string insertContactGroup = "INSERT INTO " +
+                "Contact_Group (group_name,owner_id) " +
+                "VALUES(@contactGroupName,@ownerID) ";
+
+            MySqlCommand cmd = new MySqlCommand(insertContactGroup, connection);
+            cmd.CommandTimeout = 500000;
+            // add values to the parameters
+            cmd.Parameters.AddWithValue("@contactGroupName", contactGroupName);
+            cmd.Parameters.AddWithValue("@ownerID", ownerID);
+
+            // prepare and execute
+            cmd.Prepare();
+            int rowsAffected = cmd.ExecuteNonQuery();
+
+            return rowsAffected; // if rowsAffected equals to 1, then the insertion completed successfully
         }
 
         public static int Insert(EditedLemma editedLemma)
         {
-            //code to insert editedLemma
-            return 1;
+            Lemma originalLemma = editedLemma.OriginalLemma;
+            User editor = editedLemma.Editor;
+            string editedBody = editedLemma.Body;
+            DateTime createdAt = editedLemma.CreatedAt;
+            DateTime updatedAt = editedLemma.UpdatedAt;
+
+            int editorID = editor.Id;
+            string lemmaTitle = originalLemma.Title;
+
+
+            //Create prepared statement string
+            string insertEditedLemma = "INSERT INTO " +
+                "Edited_Lemma (lemma_title,editor_id ,edited_lemma_body ,edited_lemma_created_at ,edited_lemma_updated_at ) " +
+                "VALUES(@lemmaTitle,@editorID,@editedBody,@createdAt,@updatedAt) ";
+
+            MySqlCommand cmd = new MySqlCommand(insertEditedLemma, connection);
+            cmd.CommandTimeout = 500000;
+            // add values to the parameters
+            cmd.Parameters.AddWithValue("@lemmaTitle", lemmaTitle);
+            cmd.Parameters.AddWithValue("@editorID", editorID);
+            cmd.Parameters.AddWithValue("@editedBody", editedBody);
+            cmd.Parameters.AddWithValue("@createdAt", createdAt);
+            cmd.Parameters.AddWithValue("@updatedAt", updatedAt);
+
+            // prepare and execute
+            cmd.Prepare();
+            int rowsAffected = cmd.ExecuteNonQuery();
+
+            return rowsAffected; // if rowsAffected equals to 1, then the insertion completed successfully
         }
 
         public static int Insert(EducationLevel educationLevel)
         {
-            //code to insert educationLevel
-            return 1;
+            string educationLevelName = educationLevel.Name;
+
+            //Create prepared statement string
+            string insertEducationLevel = "INSERT INTO " +
+                "Education_Level (education_level_name ) " +
+                "VALUES(@educationLevelName) ";
+
+            MySqlCommand cmd = new MySqlCommand(insertEducationLevel, connection);
+            cmd.CommandTimeout = 500000;
+            // add values to the parameters
+            cmd.Parameters.AddWithValue("@educationLevelName", educationLevelName);
+
+            // prepare and execute
+            cmd.Prepare();
+            int rowsAffected = cmd.ExecuteNonQuery();
+
+            return rowsAffected; // if rowsAffected equals to 1, then the insertion completed successfully
         }
 
         public static int Insert(FavoriteLemma favoriteLemma)
@@ -619,20 +741,85 @@ namespace Encyclopedia.Controller
 
         public static int Insert(Lemma lemma)
         {
-            //code to insert lemma
-            return 1;
+            string lemmaTitle = lemma.Title;
+            string lemmaBody = lemma.Body;
+            int categoryID = lemma.Category;
+
+
+            //Create prepared statement string
+            string insertLemma = "INSERT INTO " +
+                "Lemma (lemma_title,lemma_body,category_id) " +
+                "VALUES(@lemmaTitle,@lemmaBody,@categoryID) ";
+
+            MySqlCommand cmd = new MySqlCommand(insertLemma, connection);
+            cmd.CommandTimeout = 500000;
+            // add values to the parameters
+            cmd.Parameters.AddWithValue("@lemmaTitle", lemmaTitle);
+            cmd.Parameters.AddWithValue("@lemmaBody", lemmaBody);
+            cmd.Parameters.AddWithValue("@categoryID", categoryID);
+
+            // prepare and execute
+            cmd.Prepare();
+            int rowsAffected = cmd.ExecuteNonQuery();
+
+            return rowsAffected; // if rowsAffected equals to 1, then the insertion completed successfully
         }
 
         public static int Insert(Role role)
         {
-            //code to insert role
-            return 1;
+            string roleName = role.Name;
+
+            //Create prepared statement string
+            string insertRole = "INSERT INTO " +
+                "Role (role_name) " +
+                "VALUES(@roleName) ";
+
+            MySqlCommand cmd = new MySqlCommand(insertRole, connection);
+            cmd.CommandTimeout = 500000;
+            // add values to the parameters
+            cmd.Parameters.AddWithValue("@roleName", roleName);
+
+            // prepare and execute
+            cmd.Prepare();
+            int rowsAffected = cmd.ExecuteNonQuery();
+
+            return rowsAffected; // if rowsAffected equals to 1, then the insertion completed successfully
         }
 
         public static int Insert(SharedLemma sharedLemma)
         {
-            //code to insert sharedLemma
-            return 1;
+            //Get object properties into local variables
+            Lemma lemma = sharedLemma.Lemma;
+            User sender = sharedLemma.Sender;
+            User receiver = sharedLemma.Receiver;
+            DateTime sendingDate = sharedLemma.SendingDate;
+            Boolean ifEditedLemma = sharedLemma.IfEditedLemma;
+            string additionalNotes = sharedLemma.AdditionalNotes;
+
+            string lemmaTitle = lemma.Title;
+            int senderID = sender.Id;
+            int receiverID = receiver.Id;
+
+            //Create prepared statement string
+            string insertSharedLemma = "INSERT INTO " +
+                "Shared_Lemma (sender_id,receiver_id,lemma_title,if_edited_lemma,sending_date,additional_notes ) " +
+                "VALUES(@senderID, @receiverID, @lemmaTitle,@ifEditedLemma,@sendingDate,@additionalNotes) ";
+
+            MySqlCommand cmd = new MySqlCommand(insertSharedLemma, connection);
+            cmd.CommandTimeout = 500000;
+            // add values to the parameters
+            cmd.Parameters.AddWithValue("@senderID", senderID);
+            cmd.Parameters.AddWithValue("@receiverID", receiverID);
+            cmd.Parameters.AddWithValue("@lemmaTitle", lemmaTitle);
+            cmd.Parameters.AddWithValue("@ifEditedLemma", ifEditedLemma);
+            cmd.Parameters.AddWithValue("@sendingDate", sendingDate);
+            cmd.Parameters.AddWithValue("@additionalNotes", additionalNotes);
+
+            // prepare and execute
+            cmd.Prepare();
+            int rowsAffected = cmd.ExecuteNonQuery();
+
+            return rowsAffected; // if rowsAffected equals to 1, then the insertion completed successfully
         }
 
 		public static int Insert(User user, Account account)

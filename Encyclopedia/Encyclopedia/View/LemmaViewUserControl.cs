@@ -1,13 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Drawing;
-using System.Data;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using UI;
 using Encyclopedia.Controller;
 using Encyclopedia.Model;
 using mshtml;
@@ -54,8 +47,46 @@ namespace Encyclopedia.View
 
         public void ChangeValue(string title)
         {
+			string titleStyle = " style=\"display: block; " +
+				"font-size: 3em;" +
+				"margin-top: 0.67em; " +
+				"margin-bottom: 0.67em; " +
+				"margin-left: 0; " +
+				"margin-right: 0; " +
+				"font-weight: bold;\"";
+
             //change the web browser to display the lemma_body from the title given
-            LemmaViewWebBrowser.DocumentText = Encoding.UTF8.GetString(DBConnect.GetLemmaBodyByTitle(title));
+            LemmaViewWebBrowser.DocumentText = "<h1" + titleStyle + ">" + title.Replace("_", " ") + "</h1>" + Encoding.UTF8.GetString(DBConnect.GetLemmaBodyByTitle(title));
         }
+
+		private void savePictureBox_Click(object sender, EventArgs e)
+		{
+			try
+			{
+				SaveFileDialog savefile = new SaveFileDialog();
+				// set a default file name
+				savefile.FileName = "somelemmma";
+				// set filters - this can be done in properties as well
+				savefile.Filter = "Pdf Files|*.pdf";
+
+				if (savefile.ShowDialog() == DialogResult.OK)
+				{
+					string path = savefile.FileName;
+					string lemmaTitle = "American_Literature_(academic_discipline)";
+					PDF.exportToPDF(lemmaTitle, path);
+				}
+			}
+			catch (ArgumentOutOfRangeException ex)
+			{
+				// show the exception message in order to inform the user
+				Console.WriteLine(ex.Message);
+			}
+		}
+
+		private void printPictureBox_Click(object sender, EventArgs e)
+		{
+			// print the document currently displayed in the WebBrowser
+			LemmaViewWebBrowser.Print();
+		}
     }
 }

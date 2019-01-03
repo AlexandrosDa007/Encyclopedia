@@ -63,6 +63,9 @@
     <Reference Include="ICSharpCode.SharpZipLib, Version=0.86.0.518, Culture=neutral, PublicKeyToken=1b03e6acf1164f73, processorArchitecture=MSIL">
       <HintPath>..\packages\SharpZipLib.0.86.0\lib\20\ICSharpCode.SharpZipLib.dll</HintPath>
     </Reference>
+    <Reference Include="IronPdf, Version=4.4.9.15720, Culture=neutral, PublicKeyToken=94e1c31412563c75, processorArchitecture=MSIL">
+      <HintPath>..\packages\IronPdf.4.4.9\lib\net40\IronPdf.dll</HintPath>
+    </Reference>
     <Reference Include="Lucene.Net, Version=3.0.3.0, Culture=neutral, PublicKeyToken=85089178b9ac3181, processorArchitecture=MSIL">
       <HintPath>..\packages\Lucene.Net.3.0.3\lib\NET40\Lucene.Net.dll</HintPath>
     </Reference>
@@ -80,6 +83,7 @@
     <Reference Include="System.DirectoryServices" />
     <Reference Include="System.Management" />
     <Reference Include="System.Transactions" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -96,7 +100,9 @@
     <Compile Include="Controller\Favorite.cs" />
     <Compile Include="Controller\LoginHandler.cs" />
     <Compile Include="Controller\DynamicUIControlsHandler.cs" />
+    <Compile Include="Controller\Message.cs" />
     <Compile Include="Controller\PasswordUtilities.cs" />
+    <Compile Include="Controller\PDF.cs" />
     <Compile Include="Controller\Random.cs" />
     <Compile Include="Controller\Search.cs" />
     <Compile Include="Controller\UserHandler.cs" />
@@ -205,6 +211,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="View\AfterLoginUserControl.resx">
       <DependentUpon>AfterLoginUserControl.cs</DependentUpon>
@@ -292,6 +299,9 @@
       <Isolated>False</Isolated>
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\default_avatar.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
