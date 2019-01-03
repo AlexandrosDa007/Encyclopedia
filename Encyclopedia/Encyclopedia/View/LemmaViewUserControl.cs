@@ -88,5 +88,18 @@ namespace Encyclopedia.View
 			// print the document currently displayed in the WebBrowser
 			LemmaViewWebBrowser.Print();
 		}
+
+        private void editPictureBox_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        public void ChangeLabelsToVisibleByValue(bool value)
+        {
+            favouritesPictureBox.Visible = value;
+            sharePictureBox.Visible = value;
+            editPictureBox.Visible = value;
+        }
+
     }
 }

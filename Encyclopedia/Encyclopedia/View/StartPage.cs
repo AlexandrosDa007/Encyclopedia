@@ -210,6 +210,7 @@ namespace UI
                 afterLoginPanel.Account = account;
                 afterLoginPanel.SetImage();
                 changePanelControls();
+                LemmaViewUserControl.Instance.ChangeLabelsToVisibleByValue(true);
             }
             else
             {
@@ -223,10 +224,6 @@ namespace UI
         private void changePanelControls()
         {
 
-            favouritesPictureBox.Visible = true;
-            editPictureBox.Visible = true;
-            sharePictureBox.Visible = true;
-
             foreach (Control x in newLeftPanel.Controls)
             {
                 controlsBeforeLogin.Add(x);
@@ -238,9 +235,6 @@ namespace UI
 
         public void Logout()
         {
-            favouritesPictureBox.Visible = false;
-            editPictureBox.Visible = false;
-            sharePictureBox.Visible = false;
 
             foreach (Control x in controlsBeforeLogin)
             {
@@ -248,6 +242,7 @@ namespace UI
             }
 
             newLeftPanel.Controls.Remove(afterLoginPanel);
+            LemmaViewUserControl.Instance.ChangeLabelsToVisibleByValue(false);
         }
 
 		private void StartPage_Paint(object sender, PaintEventArgs e)
