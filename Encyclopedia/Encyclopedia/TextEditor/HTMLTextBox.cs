@@ -7,7 +7,7 @@ using System.Text;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
 
-namespace McDull.Windows.Forms
+namespace Testing
 {
     /// <summary>
     /// Provides a user control that allows the user to edit HTML page.

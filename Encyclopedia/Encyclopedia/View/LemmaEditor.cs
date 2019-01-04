@@ -16,6 +16,7 @@ namespace Encyclopedia.View
     public partial class LemmaEditor : Form
     {
         public Lemma lemma;
+        public int mode;
 
         public WebBrowser WebBrowser
         {
@@ -25,10 +26,12 @@ namespace Encyclopedia.View
             }
         }
 
-        public LemmaEditor(Lemma lemma)
+        public LemmaEditor(Lemma lemma, int mode)
         {
             InitializeComponent();
             this.lemma = lemma;
+            this.mode = mode;
+            lemmaTitleLabel.Text = lemma.Title + " - Edited By '" + StartPage.account.User.Name + "'";
         }
 
         private void cancelButton_Click(object sender, EventArgs e)
@@ -41,28 +44,49 @@ namespace Encyclopedia.View
             htmlTextBox1.WebBrowser.Document.Body.InnerHtml = lemma.Body;
         }
 
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-            Close();
-        }
 
         private void saveButton_Click(object sender, EventArgs e)
         {
-            byte[] newBody = Encoding.UTF8.GetBytes(htmlTextBox1.WebBrowser.Document.Body.InnerHtml);
-            Account account = StartPage.account;
-            //make EditedLemma
+            //Determine if we are creating a new edited Lemma or updating one
             
-            EditedLemma editedLemma = new EditedLemma(lemma,account.User,newBody, DateTime.Now, DateTime.Now);
-            //TODO: fix dateTime update
-            
-            int res = DBConnect.Insert(editedLemma);
-            if(res == 1)
-                MessageBox.Show("EditedLemma insert successfull!!");
+            //if new one
+            if(mode == 0)
+            {
+                byte[] newBody = Encoding.UTF8.GetBytes(htmlTextBox1.WebBrowser.Document.Body.InnerHtml);
+                Account account = StartPage.account;
+                //make EditedLemma
+                EditedLemma editedLemma = new EditedLemma(lemma.Title, account.User, newBody, DateTime.Now, DateTime.Now);
+
+                int res = DBConnect.Insert(editedLemma);
+                if (res == 1)
+                {
+                    MessageBox.Show("EditedLemma insert successfull!!");
+                    Close();
+                }
+                else
+                {
+                    MessageBox.Show("Something went wrong!!");
+                }
+            }else if(mode == 1)
+            {
+                //if updating existing one
+            }
+
+
+            StartPage.editedLemmaList = DBConnect.GetEditedLemmasByUser(StartPage.account.User);
+            EditedLemmataUserControl.Instance.editedLemmas = StartPage.editedLemmaList;
+            EditedLemmataUserControl.Instance.SetLemmas();
         }
 
         private void closePictureBox_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void LemmaEditor_Paint(object sender, PaintEventArgs e)
+        {
+            e.Graphics.DrawRectangle(new Pen(Color.Black, 2),
+                            this.DisplayRectangle);
         }
     }
 }

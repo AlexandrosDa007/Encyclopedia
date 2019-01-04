@@ -1,4 +1,4 @@
-namespace McDull.Windows.Forms
+namespace Testing
 {
     partial class HTMLTextBox
     {
@@ -31,7 +31,7 @@ namespace McDull.Windows.Forms
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(HTMLTextBox));
             this.toolStripToolBar = new System.Windows.Forms.ToolStrip();
             this.toolStripComboBoxName = new System.Windows.Forms.ToolStripComboBox();
-            this.toolStripComboBoxSize = new McDull.Windows.Forms.HTMLTextBox.ToolStripComboBoxEx();
+            this.toolStripComboBoxSize = new Testing.HTMLTextBox.ToolStripComboBoxEx();
             this.toolStripButtonBold = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonItalic = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonUnderline = new System.Windows.Forms.ToolStripButton();

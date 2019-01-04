@@ -32,15 +32,18 @@
             this.saveButton = new System.Windows.Forms.Button();
             this.cancelButton = new System.Windows.Forms.Button();
             this.revertButton = new System.Windows.Forms.Button();
-            this.htmlTextBox1 = new McDull.Windows.Forms.HTMLTextBox();
             this.closePictureBox = new System.Windows.Forms.PictureBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.htmlTextBox1 = new Testing.HTMLTextBox();
+            this.lemmaTitleLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.closePictureBox)).BeginInit();
             this.SuspendLayout();
             // 
             // saveButton
             // 
             this.saveButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.saveButton.Location = new System.Drawing.Point(558, 617);
+            this.saveButton.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
+            this.saveButton.Location = new System.Drawing.Point(762, 761);
             this.saveButton.Name = "saveButton";
             this.saveButton.Size = new System.Drawing.Size(84, 40);
             this.saveButton.TabIndex = 1;
@@ -51,7 +54,8 @@
             // cancelButton
             // 
             this.cancelButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.cancelButton.Location = new System.Drawing.Point(659, 617);
+            this.cancelButton.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
+            this.cancelButton.Location = new System.Drawing.Point(868, 761);
             this.cancelButton.Name = "cancelButton";
             this.cancelButton.Size = new System.Drawing.Size(76, 40);
             this.cancelButton.TabIndex = 2;
@@ -62,7 +66,8 @@
             // revertButton
             // 
             this.revertButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.revertButton.Location = new System.Drawing.Point(59, 617);
+            this.revertButton.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
+            this.revertButton.Location = new System.Drawing.Point(60, 761);
             this.revertButton.Name = "revertButton";
             this.revertButton.Size = new System.Drawing.Size(79, 40);
             this.revertButton.TabIndex = 3;
@@ -70,21 +75,11 @@
             this.revertButton.UseVisualStyleBackColor = true;
             this.revertButton.Click += new System.EventHandler(this.revertButton_Click);
             // 
-            // htmlTextBox1
-            // 
-            this.htmlTextBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.htmlTextBox1.Location = new System.Drawing.Point(12, 31);
-            this.htmlTextBox1.Name = "htmlTextBox1";
-            this.htmlTextBox1.Size = new System.Drawing.Size(786, 569);
-            this.htmlTextBox1.TabIndex = 0;
-            // 
             // closePictureBox
             // 
             this.closePictureBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.closePictureBox.Image = ((System.Drawing.Image)(resources.GetObject("closePictureBox.Image")));
-            this.closePictureBox.Location = new System.Drawing.Point(764, -3);
+            this.closePictureBox.Location = new System.Drawing.Point(970, 9);
             this.closePictureBox.Name = "closePictureBox";
             this.closePictureBox.Size = new System.Drawing.Size(34, 28);
             this.closePictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
@@ -92,12 +87,43 @@
             this.closePictureBox.TabStop = false;
             this.closePictureBox.Click += new System.EventHandler(this.closePictureBox_Click);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
+            this.label1.Location = new System.Drawing.Point(12, 9);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(102, 19);
+            this.label1.TabIndex = 7;
+            this.label1.Text = "Lemma Title";
+            // 
+            // htmlTextBox1
+            // 
+            this.htmlTextBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.htmlTextBox1.Location = new System.Drawing.Point(12, 81);
+            this.htmlTextBox1.Name = "htmlTextBox1";
+            this.htmlTextBox1.Size = new System.Drawing.Size(992, 663);
+            this.htmlTextBox1.TabIndex = 0;
+            // 
+            // lemmaTitleLabel
+            // 
+            this.lemmaTitleLabel.AutoSize = true;
+            this.lemmaTitleLabel.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
+            this.lemmaTitleLabel.Location = new System.Drawing.Point(13, 42);
+            this.lemmaTitleLabel.Name = "lemmaTitleLabel";
+            this.lemmaTitleLabel.Size = new System.Drawing.Size(0, 19);
+            this.lemmaTitleLabel.TabIndex = 8;
+            // 
             // LemmaEditor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(53)))), ((int)(((byte)(65)))));
-            this.ClientSize = new System.Drawing.Size(810, 669);
+            this.BackColor = System.Drawing.Color.Gainsboro;
+            this.ClientSize = new System.Drawing.Size(1016, 813);
+            this.Controls.Add(this.lemmaTitleLabel);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.closePictureBox);
             this.Controls.Add(this.revertButton);
             this.Controls.Add(this.cancelButton);
@@ -107,17 +133,21 @@
             this.Name = "LemmaEditor";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "LemmaEditor";
+            this.Paint += new System.Windows.Forms.PaintEventHandler(this.LemmaEditor_Paint);
             ((System.ComponentModel.ISupportInitialize)(this.closePictureBox)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
 
-        private McDull.Windows.Forms.HTMLTextBox htmlTextBox1;
+        private Testing.HTMLTextBox htmlTextBox1;
         private System.Windows.Forms.Button saveButton;
         private System.Windows.Forms.Button cancelButton;
         private System.Windows.Forms.Button revertButton;
         private System.Windows.Forms.PictureBox closePictureBox;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lemmaTitleLabel;
     }
 }

@@ -3,7 +3,6 @@ using System.Text;
 using System.Windows.Forms;
 using Encyclopedia.Controller;
 using Encyclopedia.Model;
-using McDull.Windows.Forms;
 using mshtml;
 using UI;
 
@@ -12,8 +11,13 @@ namespace Encyclopedia.View
     public partial class LemmaViewUserControl : UserControl
     {
         public Lemma lemma;
+        public EditedLemma editedLemma;
 
         private StartPage startPage;
+        public enum Mode
+        {
+            RawLemma,EditedLemma
+        }
 
         private static LemmaViewUserControl _instance;
 
@@ -36,21 +40,29 @@ namespace Encyclopedia.View
             //start by having something as default --TO BE CHANGED
             //ChangeValue("Concept");
             //SetLemmaData("Placebo");
-
+            
 
         }
 
-        public void SetLemmaData(string lemmaTitle)
+        public void SetLemmaData(string lemmaTitle,Mode mode)
         {
-            byte[] body = DBConnect.GetLemmaBodyByTitle(lemmaTitle);
-            int categoryId = DBConnect.GetLemmaCategoryByTitle(lemmaTitle);
-            lemma = new Lemma(lemmaTitle, body, categoryId);
+            if (mode == Mode.RawLemma)
+            {
+                byte[] body = DBConnect.GetLemmaBodyByTitle(lemmaTitle);
+                int categoryId = DBConnect.GetLemmaCategoryByTitle(lemmaTitle);
+                lemma = new Lemma(lemmaTitle, body, categoryId);
+            }
+            else
+            {
+                editedLemma = DBConnect.GetEditedLemmaByUserAndTitle(lemmaTitle, StartPage.account.User);
+            }
+            
             
         }
 
-        public void ChangeValue(string title)
+        public void ChangeValue(string title, Mode mode)
         {
-            SetLemmaData(title);
+            SetLemmaData(title, mode);
 			string titleStyle = " style=\"display: block; " +
 				"font-size: 3em;" +
 				"margin-top: 0.67em; " +
@@ -60,7 +72,19 @@ namespace Encyclopedia.View
 				"font-weight: bold;\"";
 
             //change the web browser to display the lemma_body from the title given
-            LemmaViewWebBrowser.DocumentText = "<h1" + titleStyle + ">" + title.Replace("_", " ") + "</h1>" + lemma.Body;
+            if (mode == Mode.RawLemma)
+            {
+                LemmaViewWebBrowser.DocumentText = "<h1" + titleStyle + ">" + title.Replace("_", " ") + "</h1>" + lemma.Body;
+                
+            }
+            else
+            {
+                LemmaViewWebBrowser.DocumentText = "<h1" + titleStyle + ">" + title.Replace("_", " ") + "</h1>" + editedLemma.Body;
+                
+            }
+                
+            
+                
         }
 
 		private void savePictureBox_Click(object sender, EventArgs e)
@@ -97,7 +121,10 @@ namespace Encyclopedia.View
         {
             //take input from html
             string lemmaBody = LemmaViewWebBrowser.Document.Body.InnerHtml;
-            LemmaEditor lemmaEditor = new LemmaEditor(lemma);
+            //if creating a new Lemma or updating one
+            //0 new | 1 updating existing
+            int mode = 0;
+            LemmaEditor lemmaEditor = new LemmaEditor(lemma,mode);
             lemmaEditor.ShowDialog();        
         }
 

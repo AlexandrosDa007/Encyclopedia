@@ -82,7 +82,8 @@ namespace Encyclopedia.Controller
             return false;
         }
 
-        //Select
+        
+        #region Select Statements
         public static Byte[] GetLemmaBodyByTitle(string lemmaTitle)
         {
             Byte[] lemmaBody = new byte[10000];
@@ -584,7 +585,62 @@ namespace Encyclopedia.Controller
             return educationLevel;
         }
 
-		//insert
+        public static List<EditedLemma> GetEditedLemmasByUser(User user)
+        {
+            List<EditedLemma> list = new List<EditedLemma>();
+            string selectQuery = "SELECT lemma_title ,edited_lemma_created_at from Edited_Lemma where editor_id = @id";
+            MySqlCommand cmd = new MySqlCommand(selectQuery, connection);
+            cmd.CommandTimeout = 500000;
+            cmd.Parameters.AddWithValue("@id", user.Id);
+            cmd.Prepare();
+            MySqlDataReader dataReader = cmd.ExecuteReader();
+
+            string lemmaTitle = "";
+            DateTime createdAt = new DateTime();
+            
+            while (dataReader.Read())
+            {
+                lemmaTitle = dataReader.GetString("lemma_title");
+                createdAt = dataReader.GetDateTime("edited_lemma_created_at");
+                EditedLemma editedLemma = new EditedLemma(lemmaTitle, user, null, createdAt, DateTime.Now);
+                list.Add(editedLemma);
+            }
+            dataReader.Close();
+
+            return list;
+        }
+
+        public static EditedLemma GetEditedLemmaByUserAndTitle(string lemmaTitle, User user)
+        {
+            EditedLemma editedLemma;
+            string selectQuery = "SELECT edited_lemma_body,edited_lemma_created_at,edited_lemma_updated_at FROM Edited_Lemma WHERE editor_id = @id AND lemma_title = @title";
+            MySqlCommand cmd = new MySqlCommand(selectQuery, connection);
+            cmd.CommandTimeout = 500000;
+            cmd.Parameters.AddWithValue("@id", user.Id);
+            cmd.Parameters.AddWithValue("@title", lemmaTitle);
+            cmd.Prepare();
+
+            byte[] body = null;
+            DateTime createdAt = new DateTime();
+            DateTime updatedAt = new DateTime();
+            MySqlDataReader dataReader = cmd.ExecuteReader();
+            while (dataReader.Read())
+            {
+                body = Encoding.UTF8.GetBytes(dataReader.GetString("edited_lemma_body"));
+                createdAt = dataReader.GetDateTime("edited_lemma_created_at");
+                updatedAt = dataReader.GetDateTime("edited_lemma_updated_at");
+            }
+            dataReader.Close();
+            
+
+            editedLemma = new EditedLemma(lemmaTitle, user, body, createdAt, updatedAt);
+            return editedLemma;
+        }
+
+
+        #endregion
+
+        #region Insert Statements
 
         public static int Insert(Category category)
         {
@@ -664,14 +720,13 @@ namespace Encyclopedia.Controller
 
         public static int Insert(EditedLemma editedLemma)
         {
-            Lemma originalLemma = editedLemma.OriginalLemma;
+            string lemmaTitle = editedLemma.LemmaTitle;
             User editor = editedLemma.Editor;
             string editedBody = editedLemma.Body;
             DateTime createdAt = editedLemma.CreatedAt;
             DateTime updatedAt = editedLemma.UpdatedAt;
 
             int editorID = editor.Id;
-            string lemmaTitle = originalLemma.Title;
 
 
             //Create prepared statement string
@@ -963,64 +1018,77 @@ namespace Encyclopedia.Controller
 			return rowsAffected; // if rowsAffected equals to 1, then the insertion completed successfully
 		}
 
-		//delete
+        #endregion
 
-        public void Delete(Category category)
+        #region Delete Statements
+
+        public static void Delete(Category category)
         {
             //code to Delete new category
         }
 
-        public void Delete(Contact contact)
+        public static void Delete(Contact contact)
         {
             //code to Delete new contact
         }
 
-        public void Delete(ContactGroup contactGroup)
+        public static void Delete(ContactGroup contactGroup)
         {
             //code to Delete contactgroup
         }
 
-        public void Delete(EditedLemma editedLemma)
+        public static int Delete(EditedLemma editedLemma, User user)
         {
-            //code to Delete editedLemma
+            string query = "DELETE FROM Edited_Lemma WHERE editor_id = @id AND lemma_title = @title";
+            MySqlCommand cmd = new MySqlCommand(query, connection);
+            cmd.Parameters.AddWithValue("@id", user.Id);
+            cmd.Parameters.AddWithValue("@title", editedLemma.LemmaTitle);
+            cmd.Prepare();
+            cmd.CommandTimeout = 500000;
+
+            int rowsAffected = cmd.ExecuteNonQuery();
+
+
+            return rowsAffected;
         }
 
-        public void Delete(EducationLevel educationLevel)
+        public static void Delete(EducationLevel educationLevel)
         {
             //code to Delete educationLevel
         }
 
-        public void Delete(FavoriteLemma favoriteLemma)
+        public static void Delete(FavoriteLemma favoriteLemma)
         {
             //code to Delete favoriteLemma
         }
 
-        public void Delete(Lemma lemma)
+        public static void Delete(Lemma lemma)
         {
             //code to Delete lemma
         }
 
-        public void Delete(Role role)
+        public static void Delete(Role role)
         {
             //code to Delete role
         }
 
-        public void Delete(SharedLemma sharedLemma)
+        public static void Delete(SharedLemma sharedLemma)
         {
             //code to Delete sharedLemma
         }
 
-        public void Delete(User user)
+        public static void Delete(User user)
         {
 			//code to Delete user
 		}
 
-		public void Delete(Account account)
+		public static void Delete(Account account)
 		{
 			//code to Delete new account
 		}
+        #endregion
 
-		//update
+        #region Update Statements
 
         public static void Update(Category category)
         {
@@ -1129,6 +1197,6 @@ namespace Encyclopedia.Controller
             return rowsAffected;
         }
 	}
+    #endregion
 
-    
 }

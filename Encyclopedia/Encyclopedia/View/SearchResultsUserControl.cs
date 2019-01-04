@@ -95,9 +95,9 @@ namespace Encyclopedia.View
             Encyclopedia.View.LemmaViewUserControl.Instance.Dock = DockStyle.Fill;
             Encyclopedia.View.LemmaViewUserControl.Instance.BringToFront();
             //search for the lemma_body
-            Encyclopedia.View.LemmaViewUserControl.Instance.ChangeValue(toSearch);
+            Encyclopedia.View.LemmaViewUserControl.Instance.ChangeValue(toSearch, LemmaViewUserControl.Mode.RawLemma);
         }
 
-
+        
     }
 }

@@ -20,6 +20,8 @@ namespace UI
         //a public variable to hold everything --- used instead of private Panel leftPanel
         public Panel newLeftPanel;
 
+        //stores the edited Lemma of the user
+        public static List<EditedLemma> editedLemmaList;
 
         //list with filters to be checked
         public List<string> filterList = new List<string>();     
@@ -205,11 +207,13 @@ namespace UI
 				//User Exists
 				//change the left panel to the new AfterLoginUserControl
 				account = DBConnect.GetAccountByUsername(username);
+                editedLemmaList = DBConnect.GetEditedLemmasByUser(account.User);
 				afterLoginPanel = new AfterLoginUserControl();
                 afterLoginPanel.Account = account;
                 afterLoginPanel.SetImage();
                 changePanelControls();
                 LemmaViewUserControl.Instance.ChangeLabelsToVisibleByValue(true);
+
             }
             else
             {
@@ -258,9 +262,6 @@ namespace UI
 			this.WindowState = FormWindowState.Maximized;
 		}
 
-        private void editPictureBox_Click(object sender, EventArgs e)
-        {
-            LemmaViewUserControl.Instance.SetLemmaData("Placebo");
-        }
+        
     }
 }
