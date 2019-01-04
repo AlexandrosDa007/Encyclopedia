@@ -40,7 +40,7 @@ namespace Encyclopedia.View
 
         }
 
-        private void SetLemmaData(string lemmaTitle)
+        public void SetLemmaData(string lemmaTitle)
         {
             byte[] body = DBConnect.GetLemmaBodyByTitle(lemmaTitle);
             int categoryId = DBConnect.GetLemmaCategoryByTitle(lemmaTitle);

@@ -467,7 +467,7 @@ namespace McDull.Windows.Forms
         private void webBrowserBody_Navigated(object sender, WebBrowserNavigatedEventArgs e)
         {
             Encyclopedia.View.LemmaEditor lemmaEditor = (Encyclopedia.View.LemmaEditor)this.Parent;
-            webBrowserBody.Document.Body.InnerHtml = lemmaEditor.lemmaBody;
+            webBrowserBody.Document.Body.InnerHtml = lemmaEditor.lemma.Body;
         }
     }
 }

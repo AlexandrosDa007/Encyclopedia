@@ -1,4 +1,5 @@
-﻿using Encyclopedia.Model;
+﻿using Encyclopedia.Controller;
+using Encyclopedia.Model;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -51,8 +52,17 @@ namespace Encyclopedia.View
             Account account = StartPage.account;
             //make EditedLemma
             
-            EditedLemma editedLemma = new EditedLemma(lemma,account.User,newBody,new DateTime().Date, new DateTime().Date);
-            //TODO: insert to database - fix dateTime update
+            EditedLemma editedLemma = new EditedLemma(lemma,account.User,newBody, DateTime.Now, DateTime.Now);
+            //TODO: fix dateTime update
+            
+            int res = DBConnect.Insert(editedLemma);
+            if(res == 1)
+                MessageBox.Show("EditedLemma insert successfull!!");
+        }
+
+        private void closePictureBox_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }
