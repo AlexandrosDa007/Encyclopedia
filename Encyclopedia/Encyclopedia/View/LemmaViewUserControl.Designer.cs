@@ -28,148 +28,132 @@
         /// </summary>
         private void InitializeComponent()
         {
-			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LemmaViewUserControl));
-			this.LemmaViewWebBrowser = new System.Windows.Forms.WebBrowser();
-			this.lemmaTitleLabel = new System.Windows.Forms.Label();
-			this.favouritesPictureBox = new System.Windows.Forms.PictureBox();
-			this.editPictureBox = new System.Windows.Forms.PictureBox();
-			this.sharePictureBox = new System.Windows.Forms.PictureBox();
-			this.savePictureBox = new System.Windows.Forms.PictureBox();
-			this.printPictureBox = new System.Windows.Forms.PictureBox();
-			((System.ComponentModel.ISupportInitialize)(this.favouritesPictureBox)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.editPictureBox)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.sharePictureBox)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.savePictureBox)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.printPictureBox)).BeginInit();
-			this.SuspendLayout();
-			// 
-			// LemmaViewWebBrowser
-			// 
-			this.LemmaViewWebBrowser.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LemmaViewUserControl));
+            this.LemmaViewWebBrowser = new System.Windows.Forms.WebBrowser();
+            this.lemmaTitleLabel = new System.Windows.Forms.Label();
+            this.printButton = new System.Windows.Forms.Button();
+            this.saveButton = new System.Windows.Forms.Button();
+            this.shareButton = new System.Windows.Forms.Button();
+            this.editButton = new System.Windows.Forms.Button();
+            this.favouritesButton = new System.Windows.Forms.Button();
+            this.SuspendLayout();
+            // 
+            // LemmaViewWebBrowser
+            // 
+            this.LemmaViewWebBrowser.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-			this.LemmaViewWebBrowser.Location = new System.Drawing.Point(44, 70);
-			this.LemmaViewWebBrowser.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
-			this.LemmaViewWebBrowser.MinimumSize = new System.Drawing.Size(36, 31);
-			this.LemmaViewWebBrowser.Name = "LemmaViewWebBrowser";
-			this.LemmaViewWebBrowser.Size = new System.Drawing.Size(1284, 494);
-			this.LemmaViewWebBrowser.TabIndex = 23;
-			// 
-			// lemmaTitleLabel
-			// 
-			this.lemmaTitleLabel.AutoSize = true;
-			this.lemmaTitleLabel.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-			this.lemmaTitleLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(53)))), ((int)(((byte)(65)))));
-			this.lemmaTitleLabel.Location = new System.Drawing.Point(36, 6);
-			this.lemmaTitleLabel.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
-			this.lemmaTitleLabel.Name = "lemmaTitleLabel";
-			this.lemmaTitleLabel.Size = new System.Drawing.Size(111, 36);
-			this.lemmaTitleLabel.TabIndex = 34;
-			this.lemmaTitleLabel.Text = "            ";
-			// 
-			// favouritesPictureBox
-			// 
-			this.favouritesPictureBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-			this.favouritesPictureBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-			this.favouritesPictureBox.Image = ((System.Drawing.Image)(resources.GetObject("favouritesPictureBox.Image")));
-			this.favouritesPictureBox.Location = new System.Drawing.Point(1053, 2);
-			this.favouritesPictureBox.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
-			this.favouritesPictureBox.Name = "favouritesPictureBox";
-			this.favouritesPictureBox.Size = new System.Drawing.Size(45, 45);
-			this.favouritesPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-			this.favouritesPictureBox.TabIndex = 38;
-			this.favouritesPictureBox.TabStop = false;
-			this.favouritesPictureBox.Visible = false;
-			// 
-			// editPictureBox
-			// 
-			this.editPictureBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-			this.editPictureBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-			this.editPictureBox.Image = ((System.Drawing.Image)(resources.GetObject("editPictureBox.Image")));
-			this.editPictureBox.Location = new System.Drawing.Point(1106, 2);
-			this.editPictureBox.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
-			this.editPictureBox.Name = "editPictureBox";
-			this.editPictureBox.Size = new System.Drawing.Size(45, 45);
-			this.editPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-			this.editPictureBox.TabIndex = 39;
-			this.editPictureBox.TabStop = false;
-			this.editPictureBox.Visible = false;
-			this.editPictureBox.Click += new System.EventHandler(this.editPictureBox_Click);
-			// 
-			// sharePictureBox
-			// 
-			this.sharePictureBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-			this.sharePictureBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-			this.sharePictureBox.Image = ((System.Drawing.Image)(resources.GetObject("sharePictureBox.Image")));
-			this.sharePictureBox.Location = new System.Drawing.Point(1159, 2);
-			this.sharePictureBox.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
-			this.sharePictureBox.Name = "sharePictureBox";
-			this.sharePictureBox.Size = new System.Drawing.Size(45, 45);
-			this.sharePictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-			this.sharePictureBox.TabIndex = 40;
-			this.sharePictureBox.TabStop = false;
-			this.sharePictureBox.Visible = false;
-			// 
-			// savePictureBox
-			// 
-			this.savePictureBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-			this.savePictureBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-			this.savePictureBox.Image = ((System.Drawing.Image)(resources.GetObject("savePictureBox.Image")));
-			this.savePictureBox.Location = new System.Drawing.Point(1230, 2);
-			this.savePictureBox.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
-			this.savePictureBox.Name = "savePictureBox";
-			this.savePictureBox.Size = new System.Drawing.Size(45, 45);
-			this.savePictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-			this.savePictureBox.TabIndex = 41;
-			this.savePictureBox.TabStop = false;
-			this.savePictureBox.Click += new System.EventHandler(this.savePictureBox_Click);
-			// 
-			// printPictureBox
-			// 
-			this.printPictureBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-			this.printPictureBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-			this.printPictureBox.Image = ((System.Drawing.Image)(resources.GetObject("printPictureBox.Image")));
-			this.printPictureBox.Location = new System.Drawing.Point(1283, 2);
-			this.printPictureBox.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
-			this.printPictureBox.Name = "printPictureBox";
-			this.printPictureBox.Size = new System.Drawing.Size(45, 45);
-			this.printPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-			this.printPictureBox.TabIndex = 42;
-			this.printPictureBox.TabStop = false;
-			this.printPictureBox.Click += new System.EventHandler(this.printPictureBox_Click);
-			// 
-			// LemmaViewUserControl
-			// 
-			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
-			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.BackColor = System.Drawing.Color.Gainsboro;
-			this.Controls.Add(this.printPictureBox);
-			this.Controls.Add(this.savePictureBox);
-			this.Controls.Add(this.sharePictureBox);
-			this.Controls.Add(this.editPictureBox);
-			this.Controls.Add(this.favouritesPictureBox);
-			this.Controls.Add(this.lemmaTitleLabel);
-			this.Controls.Add(this.LemmaViewWebBrowser);
-			this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-			this.Name = "LemmaViewUserControl";
-			this.Size = new System.Drawing.Size(1381, 613);
-			((System.ComponentModel.ISupportInitialize)(this.favouritesPictureBox)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.editPictureBox)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.sharePictureBox)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.savePictureBox)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.printPictureBox)).EndInit();
-			this.ResumeLayout(false);
-			this.PerformLayout();
+            this.LemmaViewWebBrowser.Location = new System.Drawing.Point(44, 70);
+            this.LemmaViewWebBrowser.Margin = new System.Windows.Forms.Padding(5);
+            this.LemmaViewWebBrowser.MinimumSize = new System.Drawing.Size(36, 31);
+            this.LemmaViewWebBrowser.Name = "LemmaViewWebBrowser";
+            this.LemmaViewWebBrowser.Size = new System.Drawing.Size(1284, 494);
+            this.LemmaViewWebBrowser.TabIndex = 23;
+            // 
+            // lemmaTitleLabel
+            // 
+            this.lemmaTitleLabel.AutoSize = true;
+            this.lemmaTitleLabel.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
+            this.lemmaTitleLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(53)))), ((int)(((byte)(65)))));
+            this.lemmaTitleLabel.Location = new System.Drawing.Point(36, 6);
+            this.lemmaTitleLabel.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.lemmaTitleLabel.Name = "lemmaTitleLabel";
+            this.lemmaTitleLabel.Size = new System.Drawing.Size(113, 37);
+            this.lemmaTitleLabel.TabIndex = 34;
+            this.lemmaTitleLabel.Text = "            ";
+            // 
+            // printButton
+            // 
+            this.printButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.printButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("printButton.BackgroundImage")));
+            this.printButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.printButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.printButton.Location = new System.Drawing.Point(1282, 4);
+            this.printButton.Name = "printButton";
+            this.printButton.Size = new System.Drawing.Size(57, 57);
+            this.printButton.TabIndex = 43;
+            this.printButton.UseVisualStyleBackColor = true;
+            this.printButton.Click += new System.EventHandler(this.printButton_Click);
+            // 
+            // saveButton
+            // 
+            this.saveButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.saveButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("saveButton.BackgroundImage")));
+            this.saveButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.saveButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.saveButton.Location = new System.Drawing.Point(1219, 4);
+            this.saveButton.Name = "saveButton";
+            this.saveButton.Size = new System.Drawing.Size(57, 57);
+            this.saveButton.TabIndex = 44;
+            this.saveButton.UseVisualStyleBackColor = true;
+            this.saveButton.Click += new System.EventHandler(this.saveButton_Click);
+            // 
+            // shareButton
+            // 
+            this.shareButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.shareButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("shareButton.BackgroundImage")));
+            this.shareButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.shareButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.shareButton.Location = new System.Drawing.Point(1147, 5);
+            this.shareButton.Name = "shareButton";
+            this.shareButton.Size = new System.Drawing.Size(57, 57);
+            this.shareButton.TabIndex = 45;
+            this.shareButton.UseVisualStyleBackColor = true;
+            this.shareButton.Click += new System.EventHandler(this.shareButton_Click);
+            // 
+            // editButton
+            // 
+            this.editButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.editButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("editButton.BackgroundImage")));
+            this.editButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.editButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.editButton.Location = new System.Drawing.Point(1084, 5);
+            this.editButton.Name = "editButton";
+            this.editButton.Size = new System.Drawing.Size(57, 57);
+            this.editButton.TabIndex = 46;
+            this.editButton.UseVisualStyleBackColor = true;
+            this.editButton.Click += new System.EventHandler(this.editButton_Click);
+            // 
+            // favouritesButton
+            // 
+            this.favouritesButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.favouritesButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("favouritesButton.BackgroundImage")));
+            this.favouritesButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.favouritesButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.favouritesButton.Location = new System.Drawing.Point(1021, 6);
+            this.favouritesButton.Name = "favouritesButton";
+            this.favouritesButton.Size = new System.Drawing.Size(57, 57);
+            this.favouritesButton.TabIndex = 47;
+            this.favouritesButton.UseVisualStyleBackColor = true;
+            this.favouritesButton.Click += new System.EventHandler(this.favouritesButton_Click);
+            // 
+            // LemmaViewUserControl
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.Gainsboro;
+            this.Controls.Add(this.favouritesButton);
+            this.Controls.Add(this.editButton);
+            this.Controls.Add(this.shareButton);
+            this.Controls.Add(this.saveButton);
+            this.Controls.Add(this.printButton);
+            this.Controls.Add(this.lemmaTitleLabel);
+            this.Controls.Add(this.LemmaViewWebBrowser);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Name = "LemmaViewUserControl";
+            this.Size = new System.Drawing.Size(1381, 613);
+            this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
         private System.Windows.Forms.Label lemmaTitleLabel;
-		private System.Windows.Forms.PictureBox favouritesPictureBox;
-		private System.Windows.Forms.PictureBox editPictureBox;
-		private System.Windows.Forms.PictureBox sharePictureBox;
-		private System.Windows.Forms.PictureBox savePictureBox;
-		private System.Windows.Forms.PictureBox printPictureBox;
 		private System.Windows.Forms.WebBrowser LemmaViewWebBrowser;
-	}
+        private System.Windows.Forms.Button printButton;
+        private System.Windows.Forms.Button saveButton;
+        private System.Windows.Forms.Button shareButton;
+        private System.Windows.Forms.Button editButton;
+        private System.Windows.Forms.Button favouritesButton;
+    }
 }
