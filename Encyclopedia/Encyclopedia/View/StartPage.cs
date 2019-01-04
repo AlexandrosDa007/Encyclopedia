@@ -215,6 +215,9 @@ namespace UI
             {
                 //User doesnt Exists
                 //change the feedback label -- just for demo
+                Timer timer1 = new Timer();
+                timer1.Tick += new EventHandler(timer1_Tick);
+                timer1.Start();
                 feedbackLabel.Text = "USER DOESNT EXISTS";
             }
             
@@ -264,6 +267,29 @@ namespace UI
         private void editPictureBox_Click(object sender, EventArgs e)
         {
             LemmaViewUserControl.Instance.SetLemmaData("Placebo");
+        }
+
+        private void searchTextBox_Enter(object sender, EventArgs e)
+        {
+            if (searchTextBox.Text.Trim() != "" || searchTextBox.Text != null)
+
+            {
+
+                searchTextBox.Text = "";
+
+            }
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            int fadingSpeed = 5;
+            feedbackLabel.ForeColor = Color.FromArgb(feedbackLabel.ForeColor.R + fadingSpeed, feedbackLabel.ForeColor.G + fadingSpeed, feedbackLabel.ForeColor.B + fadingSpeed);
+
+            if (feedbackLabel.ForeColor.R >= this.BackColor.R)
+            {
+                ((Timer)sender).Stop();
+                feedbackLabel.ForeColor = this.BackColor;
+            }
         }
     }
 }

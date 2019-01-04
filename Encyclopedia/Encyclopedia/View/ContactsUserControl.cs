@@ -59,5 +59,16 @@ namespace Encyclopedia.View
 				}
 			}
 		}
-	}
+
+        private void searchContactsTextBox_Enter(object sender, System.EventArgs e)
+        {
+            if (searchContactsTextBox.Text.Trim() != "" || searchContactsTextBox.Text != null)
+
+            {
+
+                searchContactsTextBox.Text = "";
+
+            }
+        }
+    }
 }

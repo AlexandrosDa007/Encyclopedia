@@ -71,7 +71,7 @@ namespace Encyclopedia.View
                 EditedLemmataUserControl.Instance.BringToFront();
             }
             else
-                FavouriteLemmataUserControl.Instance.BringToFront();
+                EditedLemmataUserControl.Instance.BringToFront();
         }
 
         private void favouritesButton_Click(object sender, EventArgs e)

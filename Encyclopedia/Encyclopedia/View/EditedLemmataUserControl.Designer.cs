@@ -57,7 +57,7 @@
             this.removeFromEditedLabel.BackColor = System.Drawing.Color.Gainsboro;
             this.removeFromEditedLabel.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
             this.removeFromEditedLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(53)))), ((int)(((byte)(65)))));
-            this.removeFromEditedLabel.Location = new System.Drawing.Point(770, 100);
+            this.removeFromEditedLabel.Location = new System.Drawing.Point(761, 100);
             this.removeFromEditedLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.removeFromEditedLabel.Name = "removeFromEditedLabel";
             this.removeFromEditedLabel.Size = new System.Drawing.Size(210, 23);

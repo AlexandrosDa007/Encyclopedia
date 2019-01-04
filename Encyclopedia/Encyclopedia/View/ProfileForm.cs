@@ -29,66 +29,6 @@ namespace Encyclopedia.View
             UpdatedSuccessfully = false;
         }
 
-        private void imagePathTB_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void imagePathLabel_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void descriptionRTB_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void descriptionLabel_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void roleCB_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void professionLabel_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void educationLevelCB_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void educationLabel_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void dateOfBirthDTP_ValueChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void dateOfBirthLabel_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void genderFemaleRB_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void genderMaleRB_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void closePictureBox_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -173,7 +113,7 @@ namespace Encyclopedia.View
 
         private void saveButton_Click_1(object sender, EventArgs e)
         {
-            feedbackLabel.Text = "";
+            feedbackLabel1.Text = "";
             //if 0 then every check is passed | 3 - name empty | 4 - surname empty
             //5 - password empty | 6 - password doesnt match | 7 - password invalid | 8 - something went wrong in database
             int okayToUpdate = 0;
@@ -271,7 +211,7 @@ namespace Encyclopedia.View
                             UpdatedSuccessfully = true;
                             Console.WriteLine("Debug Account updated succeded");
                             MessageBox.Show("Account updated successfully");
-                            feedbackLabel.Text = "";
+                            feedbackLabel1.Text = "";
                             this.Close();
                         }
                             
@@ -292,7 +232,25 @@ namespace Encyclopedia.View
                 okayToUpdate = 6;
             }
 
+            feedbackLabel1.ForeColor = Color.Black;
+
+            // fade out effect in feedbackLabel message
+            Timer timer1 = new Timer();
+            timer1.Tick += new EventHandler(timer1_Tick);
+            timer1.Start();
+
             updateFeedbackLabel(okayToUpdate);
+        }
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            int fadingSpeed = 5;
+            feedbackLabel1.ForeColor = Color.FromArgb(feedbackLabel1.ForeColor.R + fadingSpeed, feedbackLabel1.ForeColor.G + fadingSpeed, feedbackLabel1.ForeColor.B + fadingSpeed);
+
+            if (feedbackLabel1.ForeColor.R >= this.BackColor.R)
+            {
+                ((Timer)sender).Stop();
+                feedbackLabel1.ForeColor = this.BackColor;
+            }
         }
 
         private void updateFeedbackLabel(int errorCode)
@@ -300,22 +258,22 @@ namespace Encyclopedia.View
             switch (errorCode)
             {
                 case 3:
-                    feedbackLabel.Text = "*Name can't be empty!";
+                    feedbackLabel1.Text = "*Name can't be empty!";
                     break;
                 case 4:
-                    feedbackLabel.Text = "*Surname can't be empty!";
+                    feedbackLabel1.Text = "*Surname can't be empty!";
                     break;
                 case 5:
-                    feedbackLabel.Text = "*Password can't be empty!";
+                    feedbackLabel1.Text = "*Password can't be empty!";
                     break;
                 case 6:
-                    feedbackLabel.Text = "*Password doesn't match!";
+                    feedbackLabel1.Text = "*Password doesn't match!";
                     break;
                 case 7:
-                    feedbackLabel.Text = "*Password must be at least 8 characters long\n with at least one letter and one digit!";
+                    feedbackLabel1.Text = "*Password must be at least 8 characters long\n with at least one letter and one digit!";
                     break;
                 case 8:
-                    feedbackLabel.Text = "*Connection error please try again!";
+                    feedbackLabel1.Text = "*Connection error please try again!";
                     break;
             }
         }

@@ -64,8 +64,61 @@ namespace Encyclopedia.View
 
 			// show error messages if any
 			Console.WriteLine("The exit code was: " + exitCode);
-			feedbackLabel.Text = "The exit code was: " + exitCode;
-			feedbackLabel.ForeColor = Color.Black;
+            switch (exitCode)
+            {
+                case 2:
+                    feedbackLabel.Text = "The exit code was: " + exitCode + " Something went wrong with the User insertion in the database - Database Problem!";
+                    break;
+                case 3:
+                    feedbackLabel.Text = "The exit code was: " + exitCode + " Something went wrong with the Account insertion in the database - Database Problem!";
+                    break;
+                case 10:
+                    feedbackLabel.Text = "The exit code was: " + exitCode + " Name isn't valid!";
+                    break;
+                case 11:
+                    feedbackLabel.Text = "The exit code was: " + exitCode + " Surname isn't valid!";
+                    break;
+                case 12:
+                    feedbackLabel.Text = "The exit code was: " + exitCode + " Date of birth isn't valid!";
+                    break;
+                case 13:
+                    feedbackLabel.Text = "The exit code was: " + exitCode + " Gender isn't valid!";
+                    break;
+                case 14:
+                    feedbackLabel.Text = "The exit code was: " + exitCode + " Telephone number isn't valid!";
+                    break;
+                case 15:
+                    feedbackLabel.Text = "The exit code was: " + exitCode + " Description isn't valid!";
+                    break;
+                case 16:
+                    feedbackLabel.Text = "The exit code was: " + exitCode + " Image isn't valid!";
+                    break;
+                case 20:
+                    feedbackLabel.Text = "The exit code was: " + exitCode + " The inserted email is used before!";
+                    break;
+                case 21:
+                    feedbackLabel.Text = "The exit code was: " + exitCode + " This username is already used, Try Again!";
+                    break;
+                case 22:
+                    feedbackLabel.Text = "The exit code was: " + exitCode + " Password does not match the confirm password!";
+                    break;
+                case 23:
+                    feedbackLabel.Text = "The exit code was: " + exitCode + " Password must contain at least 8 characters, one number and one letter";
+                    break;
+                case 24:
+                    feedbackLabel.Text = "The exit code was: " + exitCode + " Username isn't valid!";
+                    break;
+                case 25:
+                    feedbackLabel.Text = "The exit code was: " + exitCode;
+                    break;
+                case 26:
+                    feedbackLabel.Text = "The exit code was: " + exitCode + " Email form can't be empty!";
+                    break;
+                case 27:
+                    feedbackLabel.Text = "The exit code was: " + exitCode + " Invalid email address, wrong format!";
+                    break;
+            }
+            feedbackLabel.ForeColor = Color.Black;
 
 			// fade out effect in feedbackLabel message
 			Timer timer1 = new Timer();
@@ -124,5 +177,29 @@ namespace Encyclopedia.View
 			e.Graphics.DrawRectangle(new Pen(Color.Black, 2),
 							this.DisplayRectangle);
 		}
-	}
+    }
+
+    //private void updateFeedbackLabel(int errorCode)
+    //{
+    //    switch (exitCode)
+    //    {
+    //        case 3:
+    //            feedbackLabel.Text = "*Name can't be empty!";
+    //            break;
+    //        case 4:
+    //            feedbackLabel.Text = "*Surname can't be empty!";
+    //            break;
+    //        case 5:
+    //            feedbackLabel.Text = "*Password can't be empty!";
+    //            break;
+    //        case 6:
+    //            feedbackLabel.Text = "*Password doesn't match!";
+    //            break;
+    //        case 7:
+    //            feedbackLabel.Text = "*Password must be at least 8 characters long\n with at least one letter and one digit!";
+    //            break;
+    //        case 8:
+    //            feedbackLabel.Text = "*Connection error please try again!";
+    //            break;
+    //    }
 }

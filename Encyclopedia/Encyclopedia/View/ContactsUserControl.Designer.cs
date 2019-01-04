@@ -60,6 +60,7 @@
             this.searchContactsTextBox.Size = new System.Drawing.Size(417, 41);
             this.searchContactsTextBox.TabIndex = 18;
             this.searchContactsTextBox.Text = " Search contacts";
+            this.searchContactsTextBox.Enter += new System.EventHandler(this.searchContactsTextBox_Enter);
             // 
             // searchContactsButton
             // 
@@ -76,6 +77,9 @@
             // 
             // contactsTabControl
             // 
+            this.contactsTabControl.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.contactsTabControl.Controls.Add(this.contactsTabPage);
             this.contactsTabControl.Controls.Add(this.groupTabPage);
             this.contactsTabControl.Controls.Add(this.tabPage1);
