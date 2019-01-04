@@ -37,18 +37,16 @@
             this.groupTabPage = new System.Windows.Forms.TabPage();
             this.groupListView = new System.Windows.Forms.ListView();
             this.createGroupButton = new System.Windows.Forms.Button();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.refreshButton = new System.Windows.Forms.Button();
-            this.contactsMainPanel = new System.Windows.Forms.Panel();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.contactsSearchResultsListView = new System.Windows.Forms.ListView();
             this.titleHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.refreshButton = new System.Windows.Forms.Button();
             this.contactsTabControl.SuspendLayout();
             this.contactsTabPage.SuspendLayout();
             this.groupTabPage.SuspendLayout();
-            this.panel1.SuspendLayout();
-            this.contactsMainPanel.SuspendLayout();
             this.tabPage1.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // searchContactsTextBox
@@ -82,7 +80,7 @@
             this.contactsTabControl.Controls.Add(this.groupTabPage);
             this.contactsTabControl.Controls.Add(this.tabPage1);
             this.contactsTabControl.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-            this.contactsTabControl.Location = new System.Drawing.Point(24, 27);
+            this.contactsTabControl.Location = new System.Drawing.Point(21, 108);
             this.contactsTabControl.Name = "contactsTabControl";
             this.contactsTabControl.Padding = new System.Drawing.Point(15, 10);
             this.contactsTabControl.SelectedIndex = 0;
@@ -97,7 +95,7 @@
             this.contactsTabPage.Location = new System.Drawing.Point(4, 46);
             this.contactsTabPage.Name = "contactsTabPage";
             this.contactsTabPage.Padding = new System.Windows.Forms.Padding(3);
-            this.contactsTabPage.Size = new System.Drawing.Size(943, 312);
+            this.contactsTabPage.Size = new System.Drawing.Size(974, 303);
             this.contactsTabPage.TabIndex = 0;
             this.contactsTabPage.Text = "Contacts";
             this.contactsTabPage.UseVisualStyleBackColor = true;
@@ -112,7 +110,7 @@
             this.contactsListView.Margin = new System.Windows.Forms.Padding(15, 15, 3, 3);
             this.contactsListView.MultiSelect = false;
             this.contactsListView.Name = "contactsListView";
-            this.contactsListView.Size = new System.Drawing.Size(937, 306);
+            this.contactsListView.Size = new System.Drawing.Size(968, 297);
             this.contactsListView.Sorting = System.Windows.Forms.SortOrder.Ascending;
             this.contactsListView.TabIndex = 0;
             this.contactsListView.TileSize = new System.Drawing.Size(300, 120);
@@ -127,7 +125,7 @@
             this.groupTabPage.Location = new System.Drawing.Point(4, 46);
             this.groupTabPage.Name = "groupTabPage";
             this.groupTabPage.Padding = new System.Windows.Forms.Padding(3);
-            this.groupTabPage.Size = new System.Drawing.Size(943, 312);
+            this.groupTabPage.Size = new System.Drawing.Size(974, 303);
             this.groupTabPage.TabIndex = 1;
             this.groupTabPage.Text = "Groups";
             this.groupTabPage.UseVisualStyleBackColor = true;
@@ -160,34 +158,6 @@
             this.createGroupButton.TabIndex = 18;
             this.createGroupButton.Text = "Create Group";
             this.createGroupButton.UseVisualStyleBackColor = true;
-            // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.refreshButton);
-            this.panel1.Location = new System.Drawing.Point(664, 28);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(97, 43);
-            this.panel1.TabIndex = 19;
-            // 
-            // refreshButton
-            // 
-            this.refreshButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("refreshButton.BackgroundImage")));
-            this.refreshButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.refreshButton.Location = new System.Drawing.Point(0, 0);
-            this.refreshButton.Name = "refreshButton";
-            this.refreshButton.Size = new System.Drawing.Size(47, 40);
-            this.refreshButton.TabIndex = 3;
-            this.refreshButton.UseVisualStyleBackColor = true;
-            this.refreshButton.Click += new System.EventHandler(this.refreshButton_Click);
-            // 
-            // contactsMainPanel
-            // 
-            this.contactsMainPanel.Controls.Add(this.contactsTabControl);
-            this.contactsMainPanel.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.contactsMainPanel.Location = new System.Drawing.Point(0, 93);
-            this.contactsMainPanel.Name = "contactsMainPanel";
-            this.contactsMainPanel.Size = new System.Drawing.Size(1036, 405);
-            this.contactsMainPanel.TabIndex = 20;
             // 
             // tabPage1
             // 
@@ -224,24 +194,42 @@
             this.titleHeader.Text = "";
             this.titleHeader.Width = 1400;
             // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.refreshButton);
+            this.panel1.Location = new System.Drawing.Point(664, 28);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(97, 43);
+            this.panel1.TabIndex = 19;
+            // 
+            // refreshButton
+            // 
+            this.refreshButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("refreshButton.BackgroundImage")));
+            this.refreshButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.refreshButton.Location = new System.Drawing.Point(0, 0);
+            this.refreshButton.Name = "refreshButton";
+            this.refreshButton.Size = new System.Drawing.Size(47, 40);
+            this.refreshButton.TabIndex = 3;
+            this.refreshButton.UseVisualStyleBackColor = true;
+            this.refreshButton.Click += new System.EventHandler(this.refreshButton_Click);
+            // 
             // ContactsUserControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Gainsboro;
+            this.Controls.Add(this.contactsTabControl);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.searchContactsTextBox);
             this.Controls.Add(this.searchContactsButton);
-            this.Controls.Add(this.contactsMainPanel);
             this.Name = "ContactsUserControl";
             this.Size = new System.Drawing.Size(1036, 498);
             this.contactsTabControl.ResumeLayout(false);
             this.contactsTabPage.ResumeLayout(false);
             this.groupTabPage.ResumeLayout(false);
             this.groupTabPage.PerformLayout();
-            this.panel1.ResumeLayout(false);
-            this.contactsMainPanel.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
+            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -259,7 +247,6 @@
 		private System.Windows.Forms.Button refreshButton;
 		private System.Windows.Forms.Panel panel1;
 		private System.Windows.Forms.ListView groupListView;
-        private System.Windows.Forms.Panel contactsMainPanel;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.ListView contactsSearchResultsListView;
         private System.Windows.Forms.ColumnHeader titleHeader;
