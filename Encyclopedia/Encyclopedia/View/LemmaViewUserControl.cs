@@ -32,8 +32,6 @@ namespace Encyclopedia.View
             //start by having something as default --TO BE CHANGED
             //ChangeValue("Concept");
             //SetLemmaData("Placebo");
-            
-
 
         }
 
@@ -58,41 +56,6 @@ namespace Encyclopedia.View
             //change the web browser to display the lemma_body from the title given
             LemmaViewWebBrowser.DocumentText = "<h1" + titleStyle + ">" + title.Replace("_", " ") + "</h1>" + Encoding.UTF8.GetString(DBConnect.GetLemmaBodyByTitle(title));
         }
-
-		//private void savePictureBox_Click(object sender, EventArgs e)
-		//{
-		//	try
-		//	{
-		//		SaveFileDialog savefile = new SaveFileDialog();
-		//		// set a default file name
-		//		savefile.FileName = "somelemmma";
-		//		// set filters - this can be done in properties as well
-		//		savefile.Filter = "Pdf Files|*.pdf";
-
-		//		if (savefile.ShowDialog() == DialogResult.OK)
-		//		{
-		//			string path = savefile.FileName;
-		//			string lemmaTitle = "American_Literature_(academic_discipline)";
-		//			PDF.exportToPDF(lemmaTitle, path);
-		//		}
-		//	}
-		//	catch (ArgumentOutOfRangeException ex)
-		//	{
-		//		// show the exception message in order to inform the user
-		//		Console.WriteLine(ex.Message);
-		//	}
-		//}
-
-		//private void printPictureBox_Click(object sender, EventArgs e)
-		//{
-		//	// print the document currently displayed in the WebBrowser
-		//	LemmaViewWebBrowser.Print();
-		//}
-
-        //private void editPictureBox_Click(object sender, EventArgs e)
-        //{
-
-        //}
 
         public void ChangeLabelsToVisibleByValue(bool value)
         {

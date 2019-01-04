@@ -99,6 +99,7 @@
             this.shareButton.Size = new System.Drawing.Size(57, 57);
             this.shareButton.TabIndex = 45;
             this.shareButton.UseVisualStyleBackColor = true;
+            this.shareButton.Visible = false;
             this.shareButton.Click += new System.EventHandler(this.shareButton_Click);
             // 
             // editButton
@@ -112,6 +113,7 @@
             this.editButton.Size = new System.Drawing.Size(57, 57);
             this.editButton.TabIndex = 46;
             this.editButton.UseVisualStyleBackColor = true;
+            this.editButton.Visible = false;
             this.editButton.Click += new System.EventHandler(this.editButton_Click);
             // 
             // favouritesButton
@@ -125,6 +127,7 @@
             this.favouritesButton.Size = new System.Drawing.Size(57, 57);
             this.favouritesButton.TabIndex = 47;
             this.favouritesButton.UseVisualStyleBackColor = true;
+            this.favouritesButton.Visible = false;
             this.favouritesButton.Click += new System.EventHandler(this.favouritesButton_Click);
             // 
             // LemmaViewUserControl
