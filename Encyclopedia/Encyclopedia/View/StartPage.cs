@@ -218,7 +218,7 @@ namespace UI
                 Timer timer1 = new Timer();
                 timer1.Tick += new EventHandler(timer1_Tick);
                 timer1.Start();
-                feedbackLabel.Text = "USER DOESNT EXISTS";
+                feedbackLabel.Text = "Wrong username or password, please try again";
             }
             
         }
