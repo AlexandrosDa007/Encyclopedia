@@ -94,7 +94,7 @@ namespace Encyclopedia.View
                 {
                     // check if the file size isn't bigger than 16 MB approx. (measured in bytes)
                     long imageLength = new FileInfo(openFileDialog1.FileName).Length;
-                    if (imageLength > 16250215)
+                    if (imageLength > 1000000)
                     {
                         throw new ArgumentOutOfRangeException(nameof(imageLength));
                     }
@@ -103,11 +103,17 @@ namespace Encyclopedia.View
                     imagePB.Image = Image.FromFile(openFileDialog1.FileName);
                 }
             }
-            catch (ArgumentOutOfRangeException ex)
+            catch (ArgumentOutOfRangeException)
             {
-                // show the exception message in order to inform the user
-                Console.WriteLine(ex.Message);
-            }
+				// show the exception message in order to inform the user
+				feedbackLabel1.Text = "The chosen image size is too big. Please choose one up to 1MB.";
+				feedbackLabel1.ForeColor = Color.Black;
+
+				// fade out effect in feedbackLabel message
+				Timer timer1 = new Timer();
+				timer1.Tick += new EventHandler(timer1_Tick);
+				timer1.Start();
+			}
         }
 
 
