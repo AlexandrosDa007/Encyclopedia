@@ -13,6 +13,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 
@@ -38,8 +39,8 @@ namespace Encyclopedia.Controller
             //initialize all static components
             directory = new RAMDirectory();
             lemmaList = new List<Lemma>();
-            
 
+            
 
             //Analyzer object used to analyze text based search
             Analyzer analyzer = new StandardAnalyzer(Lucene.Net.Util.Version.LUCENE_30);
@@ -49,7 +50,7 @@ namespace Encyclopedia.Controller
             //Seting similarity -- Used to make the text based search retrive relavant
             //used in scoring system
             writer.SetSimilarity(new DefaultSimilarity());
-
+            
             //get all lemmata
             lemmaList = DBConnect.GetAllLemma();
 
@@ -141,6 +142,12 @@ namespace Encyclopedia.Controller
 
             //the list is always with order by score
             return list;
+        }
+
+        public static void Doo()
+        {
+            
+            
         }
 
 
