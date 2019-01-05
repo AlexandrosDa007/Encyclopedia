@@ -36,6 +36,18 @@ namespace Encyclopedia.View
 			searchResultsListView.SmallImageList = list;
 		}
 
+        public void AddRecentLemmas()
+        {
+            searchResultsListView.Items.Clear();
+
+            StartPage.recentLemmas.Reverse();
+            foreach(string title in StartPage.recentLemmas)
+            {
+                searchResultsListView.Items.Insert(searchResultsListView.Items.Count, title);
+            }
+            StartPage.recentLemmas.Reverse();
+        }
+
         public void AddToTheResults(string text, List<string> checkedFilters)
         {
             //clear the list

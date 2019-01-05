@@ -13,6 +13,9 @@ namespace UI
 		// stores the account of the logged-in user
 		public static Account account = null;
 
+        //stores the recent lemmas of the guest or user
+        public static List<string> recentLemmas = new List<string>();
+
 		//a list with all the controls to be hidden when login is successfull
 		public List<Control> controlsBeforeLogin = new List<Control>();
         //the new leftpanel 
@@ -97,6 +100,8 @@ namespace UI
             }
             else
                 Encyclopedia.View.SearchResultsUserControl.Instance.BringToFront();
+
+            SearchResultsUserControl.Instance.AddRecentLemmas();
         }
         /*
         private void filterCheckedListBox_SelectedIndexChanged(object sender, EventArgs e)

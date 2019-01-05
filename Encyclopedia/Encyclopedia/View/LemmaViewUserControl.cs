@@ -72,7 +72,8 @@ namespace Encyclopedia.View
             if (mode == 0)
             {
                 LemmaViewWebBrowser.DocumentText = "<h1" + titleStyle + ">" + title.Replace("_", " ") + "</h1>" + lemma.Body;
-                
+                if(!StartPage.recentLemmas.Contains(lemma.Title))
+                    StartPage.recentLemmas.Add(lemma.Title);
             }
             else
             {
