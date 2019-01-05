@@ -40,10 +40,14 @@ namespace Encyclopedia.View
 
         public void SetLemmas()
         {
+            Console.WriteLine("3ekinisa twra");
             editedTableLayoutPanel.Controls.Clear();
             int i = 0;
-            editedTableLayoutPanel.RowCount = editedLemmas.Count;
-            Console.WriteLine("Row:" + editedTableLayoutPanel.RowCount);
+            if (editedLemmas.Count < 3)
+                editedTableLayoutPanel.RowCount = 3 + 1;
+            else
+                editedTableLayoutPanel.RowCount = editedLemmas.Count + 1;
+            Console.WriteLine("teleiwse to clear");
             foreach(EditedLemma e in editedLemmas)
             {
 
@@ -59,7 +63,9 @@ namespace Encyclopedia.View
                 editedTableLayoutPanel.Controls.Add(removeLabel, 2, i);
                 i++;
             }
-            
+
+            Console.WriteLine("teleiwse to add");
+            editedTableLayoutPanel.Controls.Add(new Label() { Text = "" },0,i);
         }
 
         private Label setLabelData(string labelString, bool isRemoveLabel)
@@ -103,6 +109,7 @@ namespace Encyclopedia.View
             {
                 //now remove and update
                 editedLemmas.Remove(toBeRemoved);
+                StartPage.editedLemmaList = editedLemmas;
                 SetLemmas();
             }
 
@@ -117,7 +124,7 @@ namespace Encyclopedia.View
             
             LemmaViewUserControl.Instance.Dock = DockStyle.Fill;
             LemmaViewUserControl.Instance.BringToFront();
-            LemmaViewUserControl.Instance.ChangeValue(((Label)sender).Text, LemmaViewUserControl.Mode.EditedLemma);
+            LemmaViewUserControl.Instance.ChangeValue(((Label)sender).Text, 1);
 
         }
 

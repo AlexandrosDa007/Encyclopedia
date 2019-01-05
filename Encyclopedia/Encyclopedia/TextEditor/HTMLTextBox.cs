@@ -467,7 +467,10 @@ namespace Testing
         private void webBrowserBody_Navigated(object sender, WebBrowserNavigatedEventArgs e)
         {
             Encyclopedia.View.LemmaEditor lemmaEditor = (Encyclopedia.View.LemmaEditor)this.Parent;
-            webBrowserBody.Document.Body.InnerHtml = lemmaEditor.lemma.Body;
+            if(lemmaEditor.mode == 0)
+                webBrowserBody.Document.Body.InnerHtml = lemmaEditor.lemma.Body;
+            else if(lemmaEditor.mode == 1)
+                webBrowserBody.Document.Body.InnerHtml = lemmaEditor.editedLemma.Body;
         }
     }
 }

@@ -14,10 +14,7 @@ namespace Encyclopedia.View
         public EditedLemma editedLemma;
 
         private StartPage startPage;
-        public enum Mode
-        {
-            RawLemma,EditedLemma
-        }
+        public int mode;
 
         private static LemmaViewUserControl _instance;
 
@@ -44,9 +41,9 @@ namespace Encyclopedia.View
 
         }
 
-        public void SetLemmaData(string lemmaTitle,Mode mode)
+        public void SetLemmaData(string lemmaTitle,int mode)
         {
-            if (mode == Mode.RawLemma)
+            if (mode == 0)
             {
                 byte[] body = DBConnect.GetLemmaBodyByTitle(lemmaTitle);
                 int categoryId = DBConnect.GetLemmaCategoryByTitle(lemmaTitle);
@@ -60,8 +57,9 @@ namespace Encyclopedia.View
             
         }
 
-        public void ChangeValue(string title, Mode mode)
+        public void ChangeValue(string title, int mode)
         {
+            this.mode = mode;
             SetLemmaData(title, mode);
 			string titleStyle = " style=\"display: block; " +
 				"font-size: 3em;" +
@@ -72,7 +70,7 @@ namespace Encyclopedia.View
 				"font-weight: bold;\"";
 
             //change the web browser to display the lemma_body from the title given
-            if (mode == Mode.RawLemma)
+            if (mode == 0)
             {
                 LemmaViewWebBrowser.DocumentText = "<h1" + titleStyle + ">" + title.Replace("_", " ") + "</h1>" + lemma.Body;
                 
@@ -119,13 +117,46 @@ namespace Encyclopedia.View
 
         private void editPictureBox_Click(object sender, EventArgs e)
         {
+            if(mode == 0)
+            {
+                foreach(EditedLemma ed in StartPage.editedLemmaList)
+                {
+                    if (ed.LemmaTitle.Equals(lemma.Title))
+                    {
+                        MessageBox.Show("You already edited this lemma\nCheck your Edited Lemma Tab!");
+                        return;
+                    }
+                }
+
+            }
+            else if(mode == 1)
+            {
+                foreach (EditedLemma ed in StartPage.editedLemmaList)
+                {
+                    if (ed.LemmaTitle.Equals(editedLemma.LemmaTitle))
+                    {
+                        MessageBox.Show("You already edited this lemma\nCheck your Edited Lemma Tab!");
+                        return;
+                    }
+                }
+            }
+
             //take input from html
             string lemmaBody = LemmaViewWebBrowser.Document.Body.InnerHtml;
             //if creating a new Lemma or updating one
             //0 new | 1 updating existing
-            int mode = 0;
-            LemmaEditor lemmaEditor = new LemmaEditor(lemma,mode);
-            lemmaEditor.ShowDialog();        
+            if(mode == 0)
+            {
+                LemmaEditor lemmaEditor = new LemmaEditor(lemma, mode);
+                lemmaEditor.ShowDialog();
+            }
+            else if(mode == 1)
+            {
+                LemmaEditor lemmaEditor = new LemmaEditor(editedLemma, mode);
+                lemmaEditor.ShowDialog();
+            }
+
+                 
         }
 
         public void ChangeLabelsToVisibleByValue(bool value)

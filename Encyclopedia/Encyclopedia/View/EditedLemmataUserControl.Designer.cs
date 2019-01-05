@@ -92,6 +92,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.editedTableLayoutPanel.AutoScroll = true;
             this.editedTableLayoutPanel.AutoScrollMinSize = new System.Drawing.Size(0, 200);
+            this.editedTableLayoutPanel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.editedTableLayoutPanel.BackColor = System.Drawing.Color.Gainsboro;
             this.editedTableLayoutPanel.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Inset;
             this.editedTableLayoutPanel.ColumnCount = 3;
@@ -119,7 +120,7 @@
             this.editedTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
             this.editedTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
             this.editedTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
-            this.editedTableLayoutPanel.Size = new System.Drawing.Size(705, 263);
+            this.editedTableLayoutPanel.Size = new System.Drawing.Size(705, 251);
             this.editedTableLayoutPanel.TabIndex = 6;
             // 
             // EditedLemmataUserControl

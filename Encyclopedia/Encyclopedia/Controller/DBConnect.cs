@@ -634,6 +634,7 @@ namespace Encyclopedia.Controller
             
 
             editedLemma = new EditedLemma(lemmaTitle, user, body, createdAt, updatedAt);
+            Console.WriteLine(editedLemma.LemmaTitle);
             return editedLemma;
         }
 
@@ -1105,9 +1106,20 @@ namespace Encyclopedia.Controller
             //code to Update contactgroup
         }
 
-        public static void Update(EditedLemma editedLemma)
+        public static int Update(EditedLemma editedLemma, User user)
         {
-            //code to Update editedLemma
+            string query = "UPDATE Edited_Lemma SET edited_lemma_body = @body" +
+                ",edited_lemma_updated_at = @update WHERE lemma_title = @title AND  editor_id = @id";
+            MySqlCommand cmd = new MySqlCommand(query, connection);
+            cmd.CommandTimeout = 500000;
+            cmd.Parameters.AddWithValue("@body", Encoding.UTF8.GetBytes(editedLemma.Body));
+            cmd.Parameters.AddWithValue("@update", editedLemma.UpdatedAt);
+            cmd.Parameters.AddWithValue("@title", editedLemma.LemmaTitle);
+            cmd.Parameters.AddWithValue("@id", user.Id);
+            cmd.Prepare();
+
+            int rowsAffected = cmd.ExecuteNonQuery();
+            return rowsAffected;
         }
 
         public static void Update(EducationLevel educationLevel)
@@ -1174,8 +1186,7 @@ namespace Encyclopedia.Controller
             cmd.Parameters.AddWithValue("@id", user.Id);
             cmd.Prepare();
 
-            Console.WriteLine("UserId: " + user.Id +" roleId: "+user.Role.Id+" eduId: "+user.EducationLevel.Id);
-
+            
             int rowsAffected = cmd.ExecuteNonQuery();
 
 

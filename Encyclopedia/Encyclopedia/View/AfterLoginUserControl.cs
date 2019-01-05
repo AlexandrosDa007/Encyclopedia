@@ -67,8 +67,7 @@ namespace Encyclopedia.View
         private void editedButton_Click(object sender, EventArgs e)
         {
 			StartPage startP = (StartPage)this.Parent.Parent;
-            EditedLemmataUserControl.Instance.editedLemmas = StartPage.editedLemmaList;
-            EditedLemmataUserControl.Instance.SetLemmas();
+            
             if (!startP.mainPanel.Controls.Contains(EditedLemmataUserControl.Instance))
             {
 				startP.mainPanel.Controls.Add(EditedLemmataUserControl.Instance);

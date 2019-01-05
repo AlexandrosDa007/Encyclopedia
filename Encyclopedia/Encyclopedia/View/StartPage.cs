@@ -208,7 +208,9 @@ namespace UI
 				//change the left panel to the new AfterLoginUserControl
 				account = DBConnect.GetAccountByUsername(username);
                 editedLemmaList = DBConnect.GetEditedLemmasByUser(account.User);
-				afterLoginPanel = new AfterLoginUserControl();
+                EditedLemmataUserControl.Instance.editedLemmas = StartPage.editedLemmaList;
+                EditedLemmataUserControl.Instance.SetLemmas();
+                afterLoginPanel = new AfterLoginUserControl();
                 afterLoginPanel.Account = account;
                 afterLoginPanel.SetImage();
                 changePanelControls();
