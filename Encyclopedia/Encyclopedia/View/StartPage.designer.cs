@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(StartPage));
             this.leftPanel = new System.Windows.Forms.Panel();
+            this.feedbackLabel = new System.Windows.Forms.Label();
             this.logoPanel = new System.Windows.Forms.Panel();
             this.logoPictureBox = new System.Windows.Forms.PictureBox();
             this.logoLabel = new System.Windows.Forms.Label();
@@ -54,7 +55,6 @@
             this.dateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.filterCheckedListBox = new System.Windows.Forms.CheckedListBox();
             this.filtersLabel = new System.Windows.Forms.Label();
-            this.feedbackLabel = new System.Windows.Forms.Label();
             this.leftPanel.SuspendLayout();
             this.logoPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.logoPictureBox)).BeginInit();
@@ -83,28 +83,21 @@
             this.leftPanel.Size = new System.Drawing.Size(238, 640);
             this.leftPanel.TabIndex = 0;
             // 
-            // FeedbackPanel
-            // 
-            this.FeedbackPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.FeedbackPanel.Controls.Add(this.feedbackLabel);
-            this.FeedbackPanel.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.FeedbackPanel.Location = new System.Drawing.Point(0, 610);
-            this.FeedbackPanel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.FeedbackPanel.Name = "FeedbackPanel";
-            this.FeedbackPanel.Size = new System.Drawing.Size(238, 30);
-            this.FeedbackPanel.TabIndex = 17;
-            // 
             // feedbackLabel
             // 
             this.feedbackLabel.AutoSize = true;
+            this.feedbackLabel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.feedbackLabel.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.feedbackLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.feedbackLabel.Font = new System.Drawing.Font("Century Gothic", 10.01739F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
             this.feedbackLabel.ForeColor = System.Drawing.Color.White;
-            this.feedbackLabel.Location = new System.Drawing.Point(10, 5);
+            this.feedbackLabel.Location = new System.Drawing.Point(0, 619);
             this.feedbackLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.feedbackLabel.Name = "feedbackLabel";
-            this.feedbackLabel.Size = new System.Drawing.Size(49, 19);
-            this.feedbackLabel.TabIndex = 0;
+            this.feedbackLabel.Size = new System.Drawing.Size(51, 21);
+            this.feedbackLabel.TabIndex = 30;
             this.feedbackLabel.Text = "          ";
+            this.feedbackLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // logoPanel
             // 
@@ -178,7 +171,7 @@
             // usernameTextBox
             // 
             this.usernameTextBox.Location = new System.Drawing.Point(88, 123);
-            this.usernameTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.usernameTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.usernameTextBox.Name = "usernameTextBox";
             this.usernameTextBox.Size = new System.Drawing.Size(139, 20);
             this.usernameTextBox.TabIndex = 1;
@@ -188,7 +181,7 @@
             this.loginButton.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
             this.loginButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(53)))), ((int)(((byte)(65)))));
             this.loginButton.Location = new System.Drawing.Point(66, 232);
-            this.loginButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.loginButton.Margin = new System.Windows.Forms.Padding(4);
             this.loginButton.Name = "loginButton";
             this.loginButton.Size = new System.Drawing.Size(100, 28);
             this.loginButton.TabIndex = 4;
@@ -211,7 +204,7 @@
             // passwordTextBox
             // 
             this.passwordTextBox.Location = new System.Drawing.Point(88, 164);
-            this.passwordTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.passwordTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.passwordTextBox.Name = "passwordTextBox";
             this.passwordTextBox.PasswordChar = '•';
             this.passwordTextBox.Size = new System.Drawing.Size(139, 20);
@@ -283,7 +276,7 @@
             this.recentButton.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
             this.recentButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(53)))), ((int)(((byte)(65)))));
             this.recentButton.Location = new System.Drawing.Point(410, 41);
-            this.recentButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.recentButton.Margin = new System.Windows.Forms.Padding(4);
             this.recentButton.Name = "recentButton";
             this.recentButton.Size = new System.Drawing.Size(190, 31);
             this.recentButton.TabIndex = 10;
@@ -298,7 +291,7 @@
             this.popularButton.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
             this.popularButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(53)))), ((int)(((byte)(65)))));
             this.popularButton.Location = new System.Drawing.Point(162, 41);
-            this.popularButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.popularButton.Margin = new System.Windows.Forms.Padding(4);
             this.popularButton.Name = "popularButton";
             this.popularButton.Size = new System.Drawing.Size(188, 31);
             this.popularButton.TabIndex = 9;
@@ -334,7 +327,7 @@
             this.searchTextBox.Font = new System.Drawing.Font("Century Gothic", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
             this.searchTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(126)))), ((int)(((byte)(49)))));
             this.searchTextBox.Location = new System.Drawing.Point(162, 93);
-            this.searchTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.searchTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.searchTextBox.Name = "searchTextBox";
             this.searchTextBox.Size = new System.Drawing.Size(324, 34);
             this.searchTextBox.TabIndex = 16;
@@ -348,7 +341,7 @@
             this.searchButton.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
             this.searchButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(53)))), ((int)(((byte)(65)))));
             this.searchButton.Location = new System.Drawing.Point(490, 93);
-            this.searchButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.searchButton.Margin = new System.Windows.Forms.Padding(4);
             this.searchButton.Name = "searchButton";
             this.searchButton.Size = new System.Drawing.Size(110, 33);
             this.searchButton.TabIndex = 15;
@@ -363,7 +356,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.mainPanel.AutoScroll = true;
             this.mainPanel.Location = new System.Drawing.Point(0, 249);
-            this.mainPanel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.mainPanel.Margin = new System.Windows.Forms.Padding(2);
             this.mainPanel.Name = "mainPanel";
             this.mainPanel.Size = new System.Drawing.Size(779, 391);
             this.mainPanel.TabIndex = 12;
@@ -399,7 +392,7 @@
             this.filterCheckedListBox.Items.AddRange(new object[] {
             " "});
             this.filterCheckedListBox.Location = new System.Drawing.Point(293, 141);
-            this.filterCheckedListBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.filterCheckedListBox.Margin = new System.Windows.Forms.Padding(4);
             this.filterCheckedListBox.Name = "filterCheckedListBox";
             this.filterCheckedListBox.Size = new System.Drawing.Size(207, 80);
             this.filterCheckedListBox.TabIndex = 4;
@@ -416,18 +409,6 @@
             this.filtersLabel.Size = new System.Drawing.Size(49, 19);
             this.filtersLabel.TabIndex = 3;
             this.filtersLabel.Text = "Filters:";
-            // 
-            // feedbackLabel
-            // 
-            this.feedbackLabel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.feedbackLabel.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.feedbackLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.feedbackLabel.Font = new System.Drawing.Font("Century Gothic", 10.01739F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-            this.feedbackLabel.Location = new System.Drawing.Point(0, 731);
-            this.feedbackLabel.Name = "feedbackLabel";
-            this.feedbackLabel.Size = new System.Drawing.Size(317, 57);
-            this.feedbackLabel.TabIndex = 30;
-            this.feedbackLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // StartPage
             // 

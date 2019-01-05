@@ -270,10 +270,7 @@ namespace UI
 			this.WindowState = FormWindowState.Maximized;
 		}
 
-        private void editPictureBox_Click(object sender, EventArgs e)
-        {
-            LemmaViewUserControl.Instance.SetLemmaData("Placebo");
-        }
+        
 
         private void searchTextBox_Enter(object sender, EventArgs e)
         {
