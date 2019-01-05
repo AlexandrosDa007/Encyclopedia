@@ -135,7 +135,8 @@ namespace Encyclopedia.View
                 {
                     if (ed.LemmaTitle.Equals(editedLemma.LemmaTitle))
                     {
-                        MessageBox.Show("You already edited this lemma\nCheck your Edited Lemma Tab!");
+                        LemmaEditor lemmaEditor = new LemmaEditor(editedLemma, mode);
+                        lemmaEditor.ShowDialog();
                         return;
                     }
                 }

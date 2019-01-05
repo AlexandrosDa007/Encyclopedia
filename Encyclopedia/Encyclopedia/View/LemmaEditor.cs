@@ -54,7 +54,7 @@ namespace Encyclopedia.View
         {
             if(mode == 0)
                 htmlTextBox1.WebBrowser.Document.Body.InnerHtml = lemma.Body;
-            else if(mode == 0)
+            else if(mode == 1)
             {
                 htmlTextBox1.WebBrowser.Document.Body.InnerHtml = editedLemma.Body;
             }
