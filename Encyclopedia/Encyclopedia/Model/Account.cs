@@ -96,9 +96,16 @@ namespace Encyclopedia.Model
             }
             set
             {
-				MailAddress m = new MailAddress(value); // this line will determine if the email is in valid format
+				if (value.Length == 0)
+				{
+					throw new ArgumentOutOfRangeException(nameof(email));
+				}
+				else
+				{
+					MailAddress m = new MailAddress(value); // this line will determine if the email is in valid format
 
-				email = value ?? throw new ArgumentNullException(nameof(email));
+					email = value ?? throw new ArgumentNullException(nameof(email));
+				}
             }
         }
 

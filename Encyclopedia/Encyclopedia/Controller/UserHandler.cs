@@ -217,7 +217,7 @@ namespace Encyclopedia.Controller
 					case "passwordSalt":
 						dict.Add("exitCode", "25"); // same as the above because it references to the same problem regarding the salt
 						break;
-					case "email":  // null email input string
+					case "email":  // null or empty email input string
 						dict.Add("exitCode", "26");
 						break;
 				}
