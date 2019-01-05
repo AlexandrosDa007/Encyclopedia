@@ -19,7 +19,11 @@ namespace Encyclopedia
         static void Main()
         {
             //comment because database issues
-            DBConnect.Initialize();
+            if (!DBConnect.Initialize())
+            {
+                MessageBox.Show("There was a problem with the server.\nPlease make sure you are connected to the internet!");
+                return;
+            }
             //this takes a long time - 4min 
             //Search.CreateIndex();
             Application.EnableVisualStyles();
