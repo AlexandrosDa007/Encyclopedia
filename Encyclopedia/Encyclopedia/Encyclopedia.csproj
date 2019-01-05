@@ -121,6 +121,12 @@
     <Compile Include="Model\User.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TextEditor\HTMLTextBox.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="TextEditor\HTMLTextBox.designer.cs">
+      <DependentUpon>HTMLTextBox.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\AfterLoginUserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -150,6 +156,12 @@
     </Compile>
     <Compile Include="View\FavouriteLemmataUserControl.Designer.cs">
       <DependentUpon>FavouriteLemmataUserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\LemmaEditor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\LemmaEditor.Designer.cs">
+      <DependentUpon>LemmaEditor.cs</DependentUpon>
     </Compile>
     <Compile Include="View\LemmaOfTheDayUserControl.cs">
       <SubType>UserControl</SubType>
@@ -210,6 +222,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="TextEditor\HTMLTextBox.resx">
+      <DependentUpon>HTMLTextBox.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\AfterLoginUserControl.resx">
       <DependentUpon>AfterLoginUserControl.cs</DependentUpon>
     </EmbeddedResource>
@@ -224,6 +239,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\FavouriteLemmataUserControl.resx">
       <DependentUpon>FavouriteLemmataUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\LemmaEditor.resx">
+      <DependentUpon>LemmaEditor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\LemmaOfTheDayUserControl.resx">
       <DependentUpon>LemmaOfTheDayUserControl.cs</DependentUpon>

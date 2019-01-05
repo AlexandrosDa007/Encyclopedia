@@ -6,32 +6,35 @@ namespace Encyclopedia.Model
     public class EditedLemma
     {
         // fields
-        private Lemma originalLemma;
+        private string lemmaTitle;
         private User editor;
         private String editedBody;
         private DateTime createdAt;
         private DateTime updatedAt;
 
         // constructor
-        public EditedLemma(Lemma originalLemma, User editor, Byte[] editedBodyInBytes, DateTime createdAt, DateTime updatedAt)
+        public EditedLemma(string lemmaTitle, User editor, Byte[] editedBodyInBytes, DateTime createdAt, DateTime updatedAt)
         {
-            OriginalLemma = originalLemma;
+            LemmaTitle = lemmaTitle;
             Editor = editor;
-            this.editedBody = Encoding.UTF8.GetString(editedBodyInBytes) ?? throw new ArgumentNullException(nameof(editedBodyInBytes));
+            if (editedBodyInBytes == null)
+                this.editedBody = null;
+            else
+                this.editedBody = Encoding.UTF8.GetString(editedBodyInBytes) ?? throw new ArgumentNullException(nameof(editedBodyInBytes));
             CreatedAt = createdAt;
             UpdatedAt = updatedAt;
         }
 
         // setters and getters
-        public Lemma OriginalLemma
+        public string LemmaTitle
         {
             get
             {
-                return originalLemma;
+                return lemmaTitle;
             }
             set
             {
-				originalLemma = value ?? throw new ArgumentNullException(nameof(originalLemma));
+                lemmaTitle = value ?? throw new ArgumentNullException(nameof(lemmaTitle));
             }
         }
 

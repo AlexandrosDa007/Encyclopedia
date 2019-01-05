@@ -4,12 +4,17 @@ using System.Windows.Forms;
 using Encyclopedia.Controller;
 using Encyclopedia.Model;
 using mshtml;
+using UI;
 
 namespace Encyclopedia.View
 {
     public partial class LemmaViewUserControl : UserControl
     {
         public Lemma lemma;
+        public EditedLemma editedLemma;
+
+        private StartPage startPage;
+        public int mode;
 
         private static LemmaViewUserControl _instance;
 
@@ -35,16 +40,26 @@ namespace Encyclopedia.View
 
         }
 
-        public void SetLemmaData(string lemmaTitle)
+        public void SetLemmaData(string lemmaTitle,int mode)
         {
-            byte[] body = DBConnect.GetLemmaBodyByTitle(lemmaTitle);
-            int categoryId = DBConnect.GetLemmaCategoryByTitle(lemmaTitle);
-            lemma = new Lemma(lemmaTitle, body, categoryId);
+            if (mode == 0)
+            {
+                byte[] body = DBConnect.GetLemmaBodyByTitle(lemmaTitle);
+                int categoryId = DBConnect.GetLemmaCategoryByTitle(lemmaTitle);
+                lemma = new Lemma(lemmaTitle, body, categoryId);
+            }
+            else
+            {
+                editedLemma = DBConnect.GetEditedLemmaByUserAndTitle(lemmaTitle, StartPage.account.User);
+            }
+            
             
         }
 
-        public void ChangeValue(string title)
+        public void ChangeValue(string title, int mode)
         {
+            this.mode = mode;
+            SetLemmaData(title, mode);
 			string titleStyle = " style=\"display: block; " +
 				"font-size: 3em;" +
 				"margin-top: 0.67em; " +
@@ -54,7 +69,19 @@ namespace Encyclopedia.View
 				"font-weight: bold;\"";
 
             //change the web browser to display the lemma_body from the title given
-            LemmaViewWebBrowser.DocumentText = "<h1" + titleStyle + ">" + title.Replace("_", " ") + "</h1>" + Encoding.UTF8.GetString(DBConnect.GetLemmaBodyByTitle(title));
+            if (mode == 0)
+            {
+                LemmaViewWebBrowser.DocumentText = "<h1" + titleStyle + ">" + title.Replace("_", " ") + "</h1>" + lemma.Body;
+                
+            }
+            else
+            {
+                LemmaViewWebBrowser.DocumentText = "<h1" + titleStyle + ">" + title.Replace("_", " ") + "</h1>" + editedLemma.Body;
+                
+            }
+                
+            
+                
         }
 
         public void ChangeLabelsToVisibleByValue(bool value)
@@ -101,7 +128,47 @@ namespace Encyclopedia.View
 
         private void editButton_Click(object sender, EventArgs e)
         {
+            if(mode == 0)
+            {
+                foreach(EditedLemma ed in StartPage.editedLemmaList)
+                {
+                    if (ed.LemmaTitle.Equals(lemma.Title))
+                    {
+                        MessageBox.Show("You already edited this lemma\nCheck your Edited Lemma Tab!");
+                        return;
+                    }
+                }
 
+            }
+            else if(mode == 1)
+            {
+                foreach (EditedLemma ed in StartPage.editedLemmaList)
+                {
+                    if (ed.LemmaTitle.Equals(editedLemma.LemmaTitle))
+                    {
+                        LemmaEditor lemmaEditor = new LemmaEditor(editedLemma, mode);
+                        lemmaEditor.ShowDialog();
+                        return;
+                    }
+                }
+            }
+
+            //take input from html
+            string lemmaBody = LemmaViewWebBrowser.Document.Body.InnerHtml;
+            //if creating a new Lemma or updating one
+            //0 new | 1 updating existing
+            if(mode == 0)
+            {
+                LemmaEditor lemmaEditor = new LemmaEditor(lemma, mode);
+                lemmaEditor.ShowDialog();
+            }
+            else if(mode == 1)
+            {
+                LemmaEditor lemmaEditor = new LemmaEditor(editedLemma, mode);
+                lemmaEditor.ShowDialog();
+            }
+
+                 
         }
 
         private void favouritesButton_Click(object sender, EventArgs e)

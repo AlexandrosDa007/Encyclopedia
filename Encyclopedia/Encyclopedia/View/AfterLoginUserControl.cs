@@ -63,8 +63,8 @@ namespace Encyclopedia.View
         private void editedButton_Click(object sender, EventArgs e)
         {
 			StartPage startP = (StartPage)this.Parent.Parent;
-
-			if (!startP.mainPanel.Controls.Contains(EditedLemmataUserControl.Instance))
+            
+            if (!startP.mainPanel.Controls.Contains(EditedLemmataUserControl.Instance))
             {
 				startP.mainPanel.Controls.Add(EditedLemmataUserControl.Instance);
                 EditedLemmataUserControl.Instance.Dock = DockStyle.Fill;
@@ -72,6 +72,8 @@ namespace Encyclopedia.View
             }
             else
                 EditedLemmataUserControl.Instance.BringToFront();
+            
+            
         }
 
         private void favouritesButton_Click(object sender, EventArgs e)
