@@ -1,4 +1,6 @@
 ﻿using Encyclopedia.Controller;
+using Encyclopedia.Model;
+using System.Collections.Generic;
 using System.Windows.Forms;
 
 namespace Encyclopedia.View
@@ -8,6 +10,9 @@ namespace Encyclopedia.View
         private static ContactsUserControl _instance;
 		private bool contactsFilled = false;
 		private bool groupsFilled = false;
+
+		List<User> contactList = null;
+		List<ContactGroup> groupList = null;
 
         public static ContactsUserControl Instance
         {
@@ -36,14 +41,14 @@ namespace Encyclopedia.View
 			UpdateTabControl(false);
 		}
 
-		public void UpdateTabControl(bool refresh)
+		private void UpdateTabControl(bool refresh)
 		{
 			if (UI.StartPage.account != null)
 			{
 				// update the tab that is selected
 				if (contactsTabControl.SelectedTab == contactsTabControl.TabPages["contactsTabPage"])
 				{
-					if (refresh || !contactsFilled)
+					if (refresh || !contactsFilled || contactList == null)
 					{
 						ContactHandler.FillContacts(contactsListView, UI.StartPage.account);
 						contactsFilled = true;
@@ -51,7 +56,7 @@ namespace Encyclopedia.View
 				}
 				else if (contactsTabControl.SelectedTab == contactsTabControl.TabPages["groupTabPage"])
 				{
-					if (refresh || !groupsFilled)
+					if (refresh || !groupsFilled || groupList == null)
 					{
 						ContactHandler.FillGroups(groupListView, UI.StartPage.account);
 						groupsFilled = true;

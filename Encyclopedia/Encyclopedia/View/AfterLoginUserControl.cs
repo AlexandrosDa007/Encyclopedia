@@ -24,6 +24,8 @@ namespace Encyclopedia.View
 			if (StartPage.account != null)
 			{
 				connectUserLabel.Text = "Welcome " + StartPage.account.Username + "!";
+
+				//ContactsUserControl.Instance;
 			}
 		}
 

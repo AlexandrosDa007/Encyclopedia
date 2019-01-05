@@ -276,7 +276,7 @@ namespace Encyclopedia.View
                     feedbackLabel1.Text = "The exit code was: " + errorCode + " Password doesn't match!";
                     break;
                 case 7:
-                    feedbackLabel1.Text = "The exit code was: " + errorCode + " Password must be at least 8 characters long\n with at least one letter and one digit!";
+                    feedbackLabel1.Text = "The exit code was: " + errorCode + " Password must be at least 8 characters long\nwith at least one letter and one digit!";
                     break;
                 case 8:
                     feedbackLabel1.Text = "The exit code was: " + errorCode + " Connection error please try again!";
