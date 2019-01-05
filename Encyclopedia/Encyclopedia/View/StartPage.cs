@@ -213,12 +213,14 @@ namespace UI
             }
             else
             {
-                //User doesnt Exists
-                //change the feedback label -- just for demo
-                Timer timer1 = new Timer();
+				//User doesnt Exists
+				//change the feedback label -- just for demo
+				feedbackLabel.Text = "Wrong username or password, please try again.";
+				feedbackLabel.ForeColor = Color.White;
+
+				Timer timer1 = new Timer();
                 timer1.Tick += new EventHandler(timer1_Tick);
                 timer1.Start();
-                feedbackLabel.Text = "Wrong username or password, please try again";
             }
             
         }
@@ -248,6 +250,7 @@ namespace UI
 
 			usernameTextBox.Text = "";
 			passwordTextBox.Text = "";
+			feedbackLabel.Text = "";
         }
 
 		private void StartPage_Paint(object sender, PaintEventArgs e)
@@ -282,13 +285,13 @@ namespace UI
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            int fadingSpeed = 5;
-            feedbackLabel.ForeColor = Color.FromArgb(feedbackLabel.ForeColor.R + fadingSpeed, feedbackLabel.ForeColor.G + fadingSpeed, feedbackLabel.ForeColor.B + fadingSpeed);
-
-            if (feedbackLabel.ForeColor.R >= this.BackColor.R)
+            int fadingSpeed = 8;
+            feedbackLabel.ForeColor = Color.FromArgb(feedbackLabel.ForeColor.R - fadingSpeed, feedbackLabel.ForeColor.G - fadingSpeed, feedbackLabel.ForeColor.B - fadingSpeed);
+			
+            if (feedbackLabel.ForeColor.B <= feedbackLabel.BackColor.B)
             {
                 ((Timer)sender).Stop();
-                feedbackLabel.ForeColor = this.BackColor;
+                feedbackLabel.ForeColor = feedbackLabel.BackColor;
             }
         }
     }
