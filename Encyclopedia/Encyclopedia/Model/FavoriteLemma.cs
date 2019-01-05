@@ -5,28 +5,28 @@ namespace Encyclopedia.Model
     public class FavoriteLemma
     {
         // fields
-        private Lemma lemma;
+        private string lemmaTitle;
         private User user;
         private DateTime createdAt;
 
         // constructor
-        public FavoriteLemma(Lemma lemma, User user, DateTime createdAt)
+        public FavoriteLemma(string lemmaTitle, User user, DateTime createdAt)
         {
-            Lemma = lemma;
+            Title = lemmaTitle;
             User = user;
             CreatedAt = createdAt;
         }
 
         // setters and getters
-        public Lemma Lemma
+        public string Title
         {
             get
             {
-                return lemma;
+                return lemmaTitle;
             }
             set
             {
-				lemma = value ?? throw new ArgumentNullException(nameof(lemma));
+                lemmaTitle = value ?? throw new ArgumentNullException(nameof(lemmaTitle));
 			}
         }
 

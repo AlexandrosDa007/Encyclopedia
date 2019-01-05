@@ -1,9 +1,11 @@
 ﻿using Encyclopedia.Model;
+using Encyclopedia.View;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace Encyclopedia.Controller
 {
@@ -22,20 +24,22 @@ namespace Encyclopedia.Controller
             DateTime dateOfBirth = DBConnect.GetUserDateOfBirthByID(userID);
             User user = new User(userID, userName, userSurname, dateOfBirth);
 
-            DateTime createdAt = new DateTime();
+            DateTime createdAt = DateTime.Now;
 
             //Create a FavoriteLemma object with the above properties.
-            FavoriteLemma fLemma = new FavoriteLemma(lemma,user, createdAt);
+            FavoriteLemma fLemma = new FavoriteLemma(lemma.Title,user, createdAt);
 
             //Insert the favorite lemma to DB.
             int result = DBConnect.Insert(fLemma);
             if (result == 1)//If  result=1 then everything is OK.
             {
-                Console.WriteLine("Favorite lemma successfully added to the Database!");
+                MessageBox.Show("Favorite Lemma Added Successfully!");
+                FavouriteLemmataUserControl.Instance.favoriteLemmas.Add(fLemma);
+                FavouriteLemmataUserControl.Instance.SetLemmas();
             }
             else // If result!=1 then something went wrong.
             {
-                Console.WriteLine("There was a problem inserting this Favorite lemma into Database.");
+                MessageBox.Show("Lemma wasn't added to Favorites!");
             }
         }
     }

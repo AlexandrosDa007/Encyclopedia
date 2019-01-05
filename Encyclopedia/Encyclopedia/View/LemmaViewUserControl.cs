@@ -173,7 +173,10 @@ namespace Encyclopedia.View
 
         private void favouritesButton_Click(object sender, EventArgs e)
         {
-
+            if (mode == 0)
+                Favorite.addToFavorites(StartPage.account.User.Id, lemma.Title);
+            else
+                MessageBox.Show("You can't add a Lemma you edited in your favorites!");
         }
     }
 }

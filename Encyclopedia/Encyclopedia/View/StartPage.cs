@@ -22,6 +22,8 @@ namespace UI
 
         //stores the edited Lemma of the user
         public static List<EditedLemma> editedLemmaList;
+        //stores the favourite Lemma of the user
+        public static List<FavoriteLemma> favoriteLemmaList;
 
         //list with filters to be checked
         public List<string> filterList = new List<string>();     
@@ -205,11 +207,18 @@ namespace UI
             if (doesUserExist)
             {
 				//User Exists
-				//change the left panel to the new AfterLoginUserControl
+			    //get some static properties
 				account = DBConnect.GetAccountByUsername(username);
                 editedLemmaList = DBConnect.GetEditedLemmasByUser(account.User);
+                favoriteLemmaList = DBConnect.GetFavoriteLemmasByUser(account.User);
+
+                //set up edited lemmas and favorites Lemmas 
                 EditedLemmataUserControl.Instance.editedLemmas = StartPage.editedLemmaList;
                 EditedLemmataUserControl.Instance.SetLemmas();
+                FavouriteLemmataUserControl.Instance.favoriteLemmas = StartPage.favoriteLemmaList;
+                FavouriteLemmataUserControl.Instance.SetLemmas();
+
+                //show after login panel
                 afterLoginPanel = new AfterLoginUserControl();
                 afterLoginPanel.Account = account;
                 afterLoginPanel.SetImage();

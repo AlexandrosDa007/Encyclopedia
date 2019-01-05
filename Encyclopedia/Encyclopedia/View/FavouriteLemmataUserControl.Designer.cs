@@ -29,12 +29,10 @@
         private void InitializeComponent()
         {
             this.favouriteLemmataLabel = new System.Windows.Forms.Label();
-            this.favouriteTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
-            this.removeLabel = new System.Windows.Forms.Label();
             this.dateOfAdditionLabel = new System.Windows.Forms.Label();
             this.removeFromFavouritesLabel = new System.Windows.Forms.Label();
             this.myFavouriteLemmataLabel = new System.Windows.Forms.Label();
-            this.favouriteTableLayoutPanel.SuspendLayout();
+            this.favoriteTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.SuspendLayout();
             // 
             // favouriteLemmataLabel
@@ -45,48 +43,9 @@
             this.favouriteLemmataLabel.Location = new System.Drawing.Point(29, 32);
             this.favouriteLemmataLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.favouriteLemmataLabel.Name = "favouriteLemmataLabel";
-            this.favouriteLemmataLabel.Size = new System.Drawing.Size(295, 37);
+            this.favouriteLemmataLabel.Size = new System.Drawing.Size(236, 28);
             this.favouriteLemmataLabel.TabIndex = 0;
             this.favouriteLemmataLabel.Text = "Favourite Lemmata";
-            // 
-            // favouriteTableLayoutPanel
-            // 
-            this.favouriteTableLayoutPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.favouriteTableLayoutPanel.AutoScroll = true;
-            this.favouriteTableLayoutPanel.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Inset;
-            this.favouriteTableLayoutPanel.ColumnCount = 3;
-            this.favouriteTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 46.88427F));
-            this.favouriteTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 29.17903F));
-            this.favouriteTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 23.73887F));
-            this.favouriteTableLayoutPanel.Controls.Add(this.removeLabel, 2, 0);
-            this.favouriteTableLayoutPanel.Location = new System.Drawing.Point(35, 122);
-            this.favouriteTableLayoutPanel.Margin = new System.Windows.Forms.Padding(4);
-            this.favouriteTableLayoutPanel.Name = "favouriteTableLayoutPanel";
-            this.favouriteTableLayoutPanel.RowCount = 8;
-            this.favouriteTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.49857F));
-            this.favouriteTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.49857F));
-            this.favouriteTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.49857F));
-            this.favouriteTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.49857F));
-            this.favouriteTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.49857F));
-            this.favouriteTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.50107F));
-            this.favouriteTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.50303F));
-            this.favouriteTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.50303F));
-            this.favouriteTableLayoutPanel.Size = new System.Drawing.Size(958, 335);
-            this.favouriteTableLayoutPanel.TabIndex = 1;
-            // 
-            // removeLabel
-            // 
-            this.removeLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.removeLabel.AutoSize = true;
-            this.removeLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(126)))), ((int)(((byte)(49)))));
-            this.removeLabel.Location = new System.Drawing.Point(805, 11);
-            this.removeLabel.Name = "removeLabel";
-            this.removeLabel.Size = new System.Drawing.Size(74, 21);
-            this.removeLabel.TabIndex = 0;
-            this.removeLabel.Text = "remove";
-            this.removeLabel.Visible = false;
             // 
             // dateOfAdditionLabel
             // 
@@ -97,7 +56,7 @@
             this.dateOfAdditionLabel.Location = new System.Drawing.Point(488, 95);
             this.dateOfAdditionLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.dateOfAdditionLabel.Name = "dateOfAdditionLabel";
-            this.dateOfAdditionLabel.Size = new System.Drawing.Size(167, 23);
+            this.dateOfAdditionLabel.Size = new System.Drawing.Size(132, 19);
             this.dateOfAdditionLabel.TabIndex = 2;
             this.dateOfAdditionLabel.Text = "Date of addition";
             // 
@@ -110,7 +69,7 @@
             this.removeFromFavouritesLabel.Location = new System.Drawing.Point(761, 95);
             this.removeFromFavouritesLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.removeFromFavouritesLabel.Name = "removeFromFavouritesLabel";
-            this.removeFromFavouritesLabel.Size = new System.Drawing.Size(241, 23);
+            this.removeFromFavouritesLabel.Size = new System.Drawing.Size(189, 19);
             this.removeFromFavouritesLabel.TabIndex = 3;
             this.removeFromFavouritesLabel.Text = "Remove from favourites";
             // 
@@ -122,27 +81,63 @@
             this.myFavouriteLemmataLabel.Location = new System.Drawing.Point(41, 95);
             this.myFavouriteLemmataLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.myFavouriteLemmataLabel.Name = "myFavouriteLemmataLabel";
-            this.myFavouriteLemmataLabel.Size = new System.Drawing.Size(225, 23);
+            this.myFavouriteLemmataLabel.Size = new System.Drawing.Size(179, 19);
             this.myFavouriteLemmataLabel.TabIndex = 4;
             this.myFavouriteLemmataLabel.Text = "My favourite lemmata";
             // 
+            // favoriteTableLayoutPanel
+            // 
+            this.favoriteTableLayoutPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.favoriteTableLayoutPanel.AutoScroll = true;
+            this.favoriteTableLayoutPanel.AutoScrollMinSize = new System.Drawing.Size(0, 200);
+            this.favoriteTableLayoutPanel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.favoriteTableLayoutPanel.BackColor = System.Drawing.Color.Gainsboro;
+            this.favoriteTableLayoutPanel.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Inset;
+            this.favoriteTableLayoutPanel.ColumnCount = 3;
+            this.favoriteTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 48.58241F));
+            this.favoriteTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 28.35176F));
+            this.favoriteTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 23.06583F));
+            this.favoriteTableLayoutPanel.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
+            this.favoriteTableLayoutPanel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(53)))), ((int)(((byte)(65)))));
+            this.favoriteTableLayoutPanel.GrowStyle = System.Windows.Forms.TableLayoutPanelGrowStyle.FixedSize;
+            this.favoriteTableLayoutPanel.Location = new System.Drawing.Point(45, 117);
+            this.favoriteTableLayoutPanel.Name = "favoriteTableLayoutPanel";
+            this.favoriteTableLayoutPanel.RowCount = 15;
+            this.favoriteTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
+            this.favoriteTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
+            this.favoriteTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
+            this.favoriteTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
+            this.favoriteTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
+            this.favoriteTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
+            this.favoriteTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
+            this.favoriteTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
+            this.favoriteTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
+            this.favoriteTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
+            this.favoriteTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
+            this.favoriteTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
+            this.favoriteTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
+            this.favoriteTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
+            this.favoriteTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
+            this.favoriteTableLayoutPanel.Size = new System.Drawing.Size(905, 344);
+            this.favoriteTableLayoutPanel.TabIndex = 7;
+            // 
             // FavouriteLemmataUserControl
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Gainsboro;
+            this.Controls.Add(this.favoriteTableLayoutPanel);
             this.Controls.Add(this.myFavouriteLemmataLabel);
             this.Controls.Add(this.removeFromFavouritesLabel);
             this.Controls.Add(this.dateOfAdditionLabel);
-            this.Controls.Add(this.favouriteTableLayoutPanel);
             this.Controls.Add(this.favouriteLemmataLabel);
             this.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
             this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(53)))), ((int)(((byte)(65)))));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FavouriteLemmataUserControl";
             this.Size = new System.Drawing.Size(1036, 498);
-            this.favouriteTableLayoutPanel.ResumeLayout(false);
-            this.favouriteTableLayoutPanel.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -151,10 +146,9 @@
         #endregion
 
         private System.Windows.Forms.Label favouriteLemmataLabel;
-        private System.Windows.Forms.TableLayoutPanel favouriteTableLayoutPanel;
         private System.Windows.Forms.Label dateOfAdditionLabel;
         private System.Windows.Forms.Label removeFromFavouritesLabel;
         private System.Windows.Forms.Label myFavouriteLemmataLabel;
-        private System.Windows.Forms.Label removeLabel;
+        private System.Windows.Forms.TableLayoutPanel favoriteTableLayoutPanel;
     }
 }

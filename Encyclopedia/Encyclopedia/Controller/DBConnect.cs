@@ -662,6 +662,30 @@ namespace Encyclopedia.Controller
             return editedLemma;
         }
 
+        public static List<FavoriteLemma> GetFavoriteLemmasByUser(User user)
+        {
+            List<FavoriteLemma> list = new List<FavoriteLemma>();
+            string selectQuery = "SELECT lemma_title,favorite_lemma_created_at FROM Favorite_Lemma WHERE user_id = @id";
+            MySqlCommand cmd = new MySqlCommand(selectQuery, connection);
+            cmd.CommandTimeout = 500000;
+            cmd.Parameters.AddWithValue("@id", user.Id);
+            cmd.Prepare();
+            MySqlDataReader dataReader = cmd.ExecuteReader();
+
+            string lemmaTitle = "";
+            DateTime createdAt = new DateTime();
+            while (dataReader.Read())
+            {
+                lemmaTitle = dataReader.GetString("lemma_title");
+                createdAt = dataReader.GetDateTime("favorite_lemma_created_at");
+                FavoriteLemma editedLemma = new FavoriteLemma(lemmaTitle,user,createdAt);
+                list.Add(editedLemma);
+            }
+            dataReader.Close();
+
+            return list;
+        }
+
 
         #endregion
 
@@ -799,11 +823,10 @@ namespace Encyclopedia.Controller
         public static int Insert(FavoriteLemma favoriteLemma)
         {
             //Get object properties into local variables
-            Lemma lemma = favoriteLemma.Lemma;
             User user = favoriteLemma.User;
             DateTime createdAt = favoriteLemma.CreatedAt;
 
-            string lemmaTitle = lemma.Title;
+            string lemmaTitle = favoriteLemma.Title;
             int userID = user.Id;
 
             //Create prepared statement string
@@ -1082,9 +1105,19 @@ namespace Encyclopedia.Controller
             //code to Delete educationLevel
         }
 
-        public static void Delete(FavoriteLemma favoriteLemma)
+        public static int Delete(FavoriteLemma favoriteLemma, User user)
         {
-            //code to Delete favoriteLemma
+            string query = "DELETE FROM Favorite_Lemma WHERE user_id = @id AND lemma_title = @title";
+            MySqlCommand cmd = new MySqlCommand(query, connection);
+            cmd.Parameters.AddWithValue("@id", user.Id);
+            cmd.Parameters.AddWithValue("@title", favoriteLemma.Title);
+            cmd.Prepare();
+            cmd.CommandTimeout = 500000;
+
+            int rowsAffected = cmd.ExecuteNonQuery();
+
+
+            return rowsAffected;
         }
 
         public static void Delete(Lemma lemma)
