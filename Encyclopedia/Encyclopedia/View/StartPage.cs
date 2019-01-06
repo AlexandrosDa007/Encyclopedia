@@ -28,11 +28,16 @@ namespace UI
         //stores the favourite Lemma of the user
         public static List<FavoriteLemma> favoriteLemmaList;
 
-        //list with filters to be checked
-        public List<string> filterList = new List<string>();     
-        
-        //Opens LemmaOfTheDayUserControl in mainPanel when application starts
-        public StartPage()
+		// stores the contacts of the logged-in user
+		public static List<User> contactList = null;
+		// stores the contact groups of the logged-in user
+		public static List<string> groupList = null;
+
+		//list with filters to be checked
+		public List<string> filterList = new List<string>();
+
+		//Opens LemmaOfTheDayUserControl in mainPanel when application starts
+		public StartPage()
         {
 			InitializeComponent();
             if (!mainPanel.Controls.Contains(Encyclopedia.View.LemmaOfTheDayUserControl.Instance))
@@ -56,7 +61,7 @@ namespace UI
             this.Controls.Add(newLeftPanel);
 
 			DynamicUIControlsHandler.FillCategories(filterCheckedListBox);
-        }
+		}
 
 		//Opens SearchResultsUserControl in mainPanel when popularButton is clicked
 		private void popularButton_Click(object sender, EventArgs e)
@@ -216,15 +221,22 @@ namespace UI
 				account = DBConnect.GetAccountByUsername(username);
                 editedLemmaList = DBConnect.GetEditedLemmasByUser(account.User);
                 favoriteLemmaList = DBConnect.GetFavoriteLemmasByUser(account.User);
+				contactList = DBConnect.GetContacts(account.User.Id);
+				groupList = DBConnect.GetContactGroups(account.User.Id);
 
-                //set up edited lemmas and favorites Lemmas 
-                EditedLemmataUserControl.Instance.editedLemmas = StartPage.editedLemmaList;
+				//set up edited lemmas and favorites Lemmas 
+				EditedLemmataUserControl.Instance.editedLemmas = StartPage.editedLemmaList;
                 EditedLemmataUserControl.Instance.SetLemmas();
                 FavouriteLemmataUserControl.Instance.favoriteLemmas = StartPage.favoriteLemmaList;
                 FavouriteLemmataUserControl.Instance.SetLemmas();
 
-                //show after login panel
-                afterLoginPanel = new AfterLoginUserControl();
+				// set up contacts and contact groups
+				ContactsUserControl.Instance.contactList = StartPage.contactList;
+				ContactsUserControl.Instance.groupList = StartPage.groupList;
+				ContactsUserControl.Instance.UpdateTabControl();
+
+				//show after login panel
+				afterLoginPanel = new AfterLoginUserControl();
                 afterLoginPanel.Account = account;
                 afterLoginPanel.SetImage();
                 changePanelControls();

@@ -136,12 +136,6 @@
     <Compile Include="View\AfterLoginUserControl.Designer.cs">
       <DependentUpon>AfterLoginUserControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\ContactsSearchResultsUserControl.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="View\ContactsSearchResultsUserControl.Designer.cs">
-      <DependentUpon>ContactsSearchResultsUserControl.cs</DependentUpon>
-    </Compile>
     <Compile Include="View\ContactsUserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -230,9 +224,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\AfterLoginUserControl.resx">
       <DependentUpon>AfterLoginUserControl.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="View\ContactsSearchResultsUserControl.resx">
-      <DependentUpon>ContactsSearchResultsUserControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\ContactsUserControl.resx">
       <DependentUpon>ContactsUserControl.cs</DependentUpon>

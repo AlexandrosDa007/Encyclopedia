@@ -43,11 +43,11 @@
 			this.LemmaViewWebBrowser.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-			this.LemmaViewWebBrowser.Location = new System.Drawing.Point(33, 57);
-			this.LemmaViewWebBrowser.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-			this.LemmaViewWebBrowser.MinimumSize = new System.Drawing.Size(27, 25);
+			this.LemmaViewWebBrowser.Location = new System.Drawing.Point(44, 70);
+			this.LemmaViewWebBrowser.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+			this.LemmaViewWebBrowser.MinimumSize = new System.Drawing.Size(36, 31);
 			this.LemmaViewWebBrowser.Name = "LemmaViewWebBrowser";
-			this.LemmaViewWebBrowser.Size = new System.Drawing.Size(963, 401);
+			this.LemmaViewWebBrowser.Size = new System.Drawing.Size(1284, 494);
 			this.LemmaViewWebBrowser.TabIndex = 23;
 			// 
 			// lemmaTitleLabel
@@ -55,10 +55,10 @@
 			this.lemmaTitleLabel.AutoSize = true;
 			this.lemmaTitleLabel.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
 			this.lemmaTitleLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(53)))), ((int)(((byte)(65)))));
-			this.lemmaTitleLabel.Location = new System.Drawing.Point(27, 5);
-			this.lemmaTitleLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+			this.lemmaTitleLabel.Location = new System.Drawing.Point(36, 6);
+			this.lemmaTitleLabel.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
 			this.lemmaTitleLabel.Name = "lemmaTitleLabel";
-			this.lemmaTitleLabel.Size = new System.Drawing.Size(96, 28);
+			this.lemmaTitleLabel.Size = new System.Drawing.Size(111, 36);
 			this.lemmaTitleLabel.TabIndex = 34;
 			this.lemmaTitleLabel.Text = "            ";
 			// 
@@ -67,11 +67,10 @@
 			this.printButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
 			this.printButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("printButton.BackgroundImage")));
 			this.printButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-			this.printButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-			this.printButton.Location = new System.Drawing.Point(950, 4);
-			this.printButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+			this.printButton.Location = new System.Drawing.Point(1275, 8);
+			this.printButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.printButton.Name = "printButton";
-			this.printButton.Size = new System.Drawing.Size(46, 46);
+			this.printButton.Size = new System.Drawing.Size(53, 53);
 			this.printButton.TabIndex = 5;
 			this.printButton.UseVisualStyleBackColor = true;
 			this.printButton.Click += new System.EventHandler(this.printButton_Click);
@@ -81,11 +80,10 @@
 			this.saveButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
 			this.saveButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("saveButton.BackgroundImage")));
 			this.saveButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-			this.saveButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-			this.saveButton.Location = new System.Drawing.Point(900, 5);
-			this.saveButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+			this.saveButton.Location = new System.Drawing.Point(1216, 8);
+			this.saveButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.saveButton.Name = "saveButton";
-			this.saveButton.Size = new System.Drawing.Size(46, 46);
+			this.saveButton.Size = new System.Drawing.Size(53, 53);
 			this.saveButton.TabIndex = 4;
 			this.saveButton.UseVisualStyleBackColor = true;
 			this.saveButton.Click += new System.EventHandler(this.saveButton_Click);
@@ -95,10 +93,10 @@
 			this.shareButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
 			this.shareButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("shareButton.BackgroundImage")));
 			this.shareButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-			this.shareButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-			this.shareButton.Location = new System.Drawing.Point(849, 5);
+			this.shareButton.Location = new System.Drawing.Point(1156, 8);
+			this.shareButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
 			this.shareButton.Name = "shareButton";
-			this.shareButton.Size = new System.Drawing.Size(46, 46);
+			this.shareButton.Size = new System.Drawing.Size(53, 53);
 			this.shareButton.TabIndex = 3;
 			this.shareButton.UseVisualStyleBackColor = true;
 			this.shareButton.Visible = false;
@@ -109,11 +107,10 @@
 			this.editButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
 			this.editButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("editButton.BackgroundImage")));
 			this.editButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-			this.editButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-			this.editButton.Location = new System.Drawing.Point(798, 5);
-			this.editButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+			this.editButton.Location = new System.Drawing.Point(1096, 8);
+			this.editButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.editButton.Name = "editButton";
-			this.editButton.Size = new System.Drawing.Size(46, 46);
+			this.editButton.Size = new System.Drawing.Size(53, 53);
 			this.editButton.TabIndex = 2;
 			this.editButton.UseVisualStyleBackColor = true;
 			this.editButton.Visible = false;
@@ -124,11 +121,10 @@
 			this.favouritesButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
 			this.favouritesButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("favouritesButton.BackgroundImage")));
 			this.favouritesButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-			this.favouritesButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-			this.favouritesButton.Location = new System.Drawing.Point(748, 5);
-			this.favouritesButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+			this.favouritesButton.Location = new System.Drawing.Point(1037, 8);
+			this.favouritesButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.favouritesButton.Name = "favouritesButton";
-			this.favouritesButton.Size = new System.Drawing.Size(46, 46);
+			this.favouritesButton.Size = new System.Drawing.Size(53, 53);
 			this.favouritesButton.TabIndex = 0;
 			this.favouritesButton.UseVisualStyleBackColor = true;
 			this.favouritesButton.Visible = false;
@@ -136,7 +132,7 @@
 			// 
 			// LemmaViewUserControl
 			// 
-			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.BackColor = System.Drawing.Color.Gainsboro;
 			this.Controls.Add(this.favouritesButton);
@@ -146,9 +142,9 @@
 			this.Controls.Add(this.printButton);
 			this.Controls.Add(this.lemmaTitleLabel);
 			this.Controls.Add(this.LemmaViewWebBrowser);
-			this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+			this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.Name = "LemmaViewUserControl";
-			this.Size = new System.Drawing.Size(1036, 498);
+			this.Size = new System.Drawing.Size(1381, 613);
 			this.ResumeLayout(false);
 			this.PerformLayout();
 

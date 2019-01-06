@@ -8,11 +8,9 @@ namespace Encyclopedia.View
     public partial class ContactsUserControl : UserControl
     {
         private static ContactsUserControl _instance;
-		private bool contactsFilled = false;
-		private bool groupsFilled = false;
 
-		List<User> contactList = null;
-		List<ContactGroup> groupList = null;
+		public List<User> contactList = null;
+		public List<string> groupList = null;
 
         public static ContactsUserControl Instance
         {
@@ -27,40 +25,25 @@ namespace Encyclopedia.View
         public ContactsUserControl()
         {
             InitializeComponent();
-
-			UpdateTabControl(false);
         }
-
-		private void refreshButton_Click(object sender, System.EventArgs e)
-		{
-			UpdateTabControl(true);
-		}
 
 		private void contactsTabControl_SelectedIndexChanged(object sender, System.EventArgs e)
 		{
-			UpdateTabControl(false);
+			UpdateTabControl();
 		}
 
-		private void UpdateTabControl(bool refresh)
+		public void UpdateTabControl()
 		{
 			if (UI.StartPage.account != null)
 			{
 				// update the tab that is selected
 				if (contactsTabControl.SelectedTab == contactsTabControl.TabPages["contactsTabPage"])
 				{
-					if (refresh || !contactsFilled || contactList == null)
-					{
-						ContactHandler.FillContacts(contactsListView, UI.StartPage.account);
-						contactsFilled = true;
-					}
+					ContactHandler.FillContacts(contactsListView, contactList);
 				}
 				else if (contactsTabControl.SelectedTab == contactsTabControl.TabPages["groupTabPage"])
 				{
-					if (refresh || !groupsFilled || groupList == null)
-					{
-						ContactHandler.FillGroups(groupListView, UI.StartPage.account);
-						groupsFilled = true;
-					}
+					ContactHandler.FillGroups(groupListView, groupList);
 				}
 			}
 		}

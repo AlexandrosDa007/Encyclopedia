@@ -9,14 +9,13 @@ namespace Encyclopedia.Controller
 	class ContactHandler
 	{
 		// fills dynamically the parametered ListView
-		public static void FillContacts(ListView listView, Account account)
+		public static void FillContacts(ListView listView, List<User> contacts)
 		{
-			// empty the list view
+			// empty the listview
 			//listView.LargeImageList = null;
 			listView.Items.Clear();
 
-			// get the user's contacts
-			List<User> contacts = DBConnect.GetContacts(account.User.Id);
+			// initialize the listview item array
 			ListViewItem[] contactNames = new ListViewItem[contacts.Count];
 
 			// adjust image properties
@@ -40,25 +39,25 @@ namespace Encyclopedia.Controller
 				}
 				else
 				{
+					// otherwise add the default avatar image to the image list
 					contactImages.Images.Add(contactItem.ImageKey, Properties.Resources.default_avatar);
 				}
 			}
 
-			// put in the list view the items and their images
+			// put in the listview the items and their images
 			listView.Items.AddRange(contactNames);
 			
 			listView.LargeImageList = contactImages;
 		}
 
 		// fills dynamically the parametered ListView
-		public static void FillGroups(ListView listView, Account account)
+		public static void FillGroups(ListView listView, List<string> groups)
 		{
-			// empty the list view
+			// empty the listview
 			//listView.LargeImageList = null;
 			listView.Items.Clear();
-
-			// get the user's contact groups
-			List<string> groups = DBConnect.GetContactGroups(account.User.Id);
+			
+			// initialize the listview item array
 			ListViewItem[] groupNames = new ListViewItem[groups.Count];
 
 			// adjust image properties
@@ -73,11 +72,11 @@ namespace Encyclopedia.Controller
 				ListViewItem groupItem = new ListViewItem(groupName, i);
 				groupNames[i++] = groupItem;
 
-				// add the default image to the image list
+				// add the default group image to the image list
 				groupImages.Images.Add(Properties.Resources.default_group_avatar);
 			}
 
-			// put in the list view the items and their images
+			// put in the listview the items and their images
 			listView.Items.AddRange(groupNames);
 
 			listView.LargeImageList = groupImages;
