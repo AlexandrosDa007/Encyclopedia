@@ -53,6 +53,7 @@
             this.nameTextBox = new System.Windows.Forms.TextBox();
             this.contactProfileLabel = new System.Windows.Forms.Label();
             this.addButton = new System.Windows.Forms.Button();
+            this.removeButton = new System.Windows.Forms.Button();
             this.topPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.closePictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imagePB)).BeginInit();
@@ -339,7 +340,7 @@
             // 
             this.addButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.addButton.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-            this.addButton.Location = new System.Drawing.Point(571, 725);
+            this.addButton.Location = new System.Drawing.Point(576, 739);
             this.addButton.Name = "addButton";
             this.addButton.Size = new System.Drawing.Size(151, 33);
             this.addButton.TabIndex = 75;
@@ -347,12 +348,25 @@
             this.addButton.UseVisualStyleBackColor = true;
             this.addButton.Visible = false;
             // 
+            // removeButton
+            // 
+            this.removeButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.removeButton.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
+            this.removeButton.Location = new System.Drawing.Point(536, 700);
+            this.removeButton.Name = "removeButton";
+            this.removeButton.Size = new System.Drawing.Size(191, 33);
+            this.removeButton.TabIndex = 76;
+            this.removeButton.Text = "Remove contact";
+            this.removeButton.UseVisualStyleBackColor = true;
+            this.removeButton.Visible = false;
+            // 
             // ContactsProfileForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Gainsboro;
             this.ClientSize = new System.Drawing.Size(800, 810);
+            this.Controls.Add(this.removeButton);
             this.Controls.Add(this.addButton);
             this.Controls.Add(this.contactProfileLabel);
             this.Controls.Add(this.educationLabel);
@@ -413,5 +427,6 @@
         private System.Windows.Forms.TextBox nameTextBox;
         private System.Windows.Forms.Label contactProfileLabel;
         private System.Windows.Forms.Button addButton;
+        private System.Windows.Forms.Button removeButton;
     }
 }
