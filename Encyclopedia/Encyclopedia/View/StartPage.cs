@@ -1,4 +1,5 @@
-﻿using Encyclopedia.Controller;
+﻿using Encyclopedia;
+using Encyclopedia.Controller;
 using Encyclopedia.Model;
 using Encyclopedia.View;
 using System;
@@ -10,6 +11,8 @@ namespace UI
 {
     public partial class StartPage : Form
     {
+        public static List<Lemma> allLemas = new List<Lemma>();
+
 		// stores the account of the logged-in user
 		public static Account account = null;
 
@@ -171,6 +174,14 @@ namespace UI
 
         private void searchButton_Click(object sender, EventArgs e)
         {
+            //Check if fetching all lemmas is finished then write to index
+            //then make flag false - this only happens once every time the application starts
+            if (Program.isFetchLemmasThreadFinished)
+            {
+                Encyclopedia.Controller.Search.WriteToDirectory();
+                Program.isFetchLemmasThreadFinished = false;
+            }
+
             if (!mainPanel.Controls.Contains(Encyclopedia.View.SearchResultsUserControl.Instance))
             {
                 mainPanel.Controls.Add(Encyclopedia.View.SearchResultsUserControl.Instance);
@@ -184,6 +195,7 @@ namespace UI
             Search();
             //clear the filter list
             filterList.Clear();
+            
         }
 
         private void newUserLinkLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)

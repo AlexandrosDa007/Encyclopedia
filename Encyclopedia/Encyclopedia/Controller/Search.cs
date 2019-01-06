@@ -13,20 +13,20 @@ using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
-
+using UI;
 
 namespace Encyclopedia.Controller
 {
     class Search
     {
         //static variable for directory -- holding in memory
-        public static RAMDirectory directory;
-        //List to be returned with lemma
-        public static List<Lemma> lemmaList;
+        //public static RAMDirectory directory;
 
         public static SimpleFSDirectory dir = new SimpleFSDirectory(new System.IO.DirectoryInfo("../../LuceneDocuments"), null);
 
+        public static List<Lemma> firstLemmas;
 
         /*
          * Static method for Creating Index or Directory 
@@ -36,10 +36,10 @@ namespace Encyclopedia.Controller
         public static void CreateIndex()
         {
             //initialize all static components
-            directory = new RAMDirectory();
-            lemmaList = new List<Lemma>();
-            
+            //directory = new RAMDirectory();
+            firstLemmas = new List<Lemma>();
 
+            
 
             //Analyzer object used to analyze text based search
             Analyzer analyzer = new StandardAnalyzer(Lucene.Net.Util.Version.LUCENE_30);
@@ -50,11 +50,11 @@ namespace Encyclopedia.Controller
             //used in scoring system
             writer.SetSimilarity(new DefaultSimilarity());
 
-            //get all lemmata
-            lemmaList = DBConnect.GetAllLemma();
+            //get First 500 lemmas
+            firstLemmas = DBConnect.GetFirstLemmas();
 
             //Iterate in dataset 
-            foreach(Lemma lemma in lemmaList)
+            foreach(Lemma lemma in firstLemmas)
             {
                 
                 //Use Lucene Document for assign fields
@@ -142,6 +142,41 @@ namespace Encyclopedia.Controller
             //the list is always with order by score
             return list;
         }
+
+        public static void WriteToDirectory()
+        {
+            //Analyzer object used to analyze text based search
+            Analyzer analyzer = new StandardAnalyzer(Lucene.Net.Util.Version.LUCENE_30);
+            //Writer object used to write the directory or the "Index"
+            IndexWriter writer = new IndexWriter(dir, analyzer, new IndexWriter.MaxFieldLength(1000));
+
+            //Seting similarity -- Used to make the text based search retrive relavant
+            //used in scoring system
+            writer.SetSimilarity(new DefaultSimilarity());
+            
+            //Iterate in dataset 
+            foreach (Lemma lemma in StartPage.allLemas)
+            {
+
+                //Use Lucene Document for assign fields
+                Document document = new Document();
+
+                //Adding the fields in the document
+                //Dont analyze category_id because it doesnt matter in the search
+                document.Add(new Field("lemma_title", lemma.Title, Field.Store.YES, Field.Index.ANALYZED));
+                document.Add(new Field("lemma_body", lemma.Body, Field.Store.YES, Field.Index.ANALYZED));
+                document.Add(new Field("category_id", lemma.Category.ToString(), Field.Store.YES, Field.Index.NOT_ANALYZED));
+
+                //add the documents in the writer
+                writer.AddDocument(document);
+
+            }
+
+            //Closing the writer -- IF writer remains open the search cant be completed
+            writer.Dispose();
+        }
+
+        
 
 
     }

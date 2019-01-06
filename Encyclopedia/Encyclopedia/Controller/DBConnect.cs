@@ -13,10 +13,10 @@ namespace Encyclopedia.Controller
         public static MySqlConnection connection;
 
 
-        public static void Initialize()
+        public static bool Initialize()
         {
             connection = new MySqlConnection(Encyclopedia.Properties.Settings.Default.Connection);
-            OpenConnection();
+            return OpenConnection();
         }
 
         //open connection to database
@@ -68,8 +68,11 @@ namespace Encyclopedia.Controller
 
         public static bool LoginValidation(String username, String password)
         {
-            string query = "SELECT account_username,account_salted_password_hash FROM Account WHERE account_username='"+username+ "' AND account_salted_password_hash='" + password+"'";
+            string query = "SELECT account_username,account_salted_password_hash FROM Account WHERE account_username= @username AND account_salted_password_hash= @pass";
             MySqlCommand cmd = new MySqlCommand(query, connection);
+            cmd.Parameters.AddWithValue("@username", username);
+            cmd.Parameters.AddWithValue("@pass", password);
+            cmd.Prepare();
             MySqlDataReader dataReader = cmd.ExecuteReader();
             int i = 0;
             while (dataReader.Read())
@@ -87,8 +90,11 @@ namespace Encyclopedia.Controller
         public static Byte[] GetLemmaBodyByTitle(string lemmaTitle)
         {
             Byte[] lemmaBody = new byte[10000];
-            string query = "SELECT lemma_body FROM Lemma WHERE lemma_title = '" + lemmaTitle + "'";
+            string query = "SELECT lemma_body FROM Lemma WHERE lemma_title = @title";
             MySqlCommand cmd = new MySqlCommand(query, connection);
+            cmd.Parameters.AddWithValue("@title", lemmaTitle);
+            cmd.Prepare();
+
             MySqlDataReader dataReader = cmd.ExecuteReader();
             while (dataReader.Read())
             {
@@ -119,10 +125,32 @@ namespace Encyclopedia.Controller
             return lemmaList;
         }
 
+        public static List<Lemma> GetFirstLemmas()
+        {
+            List<Lemma> lemmaList = new List<Lemma>();
+
+            string query = "SELECT * FROM Lemma ORDER BY lemma_title LIMIT 500";
+            MySqlCommand cmd = new MySqlCommand(query, connection);
+            cmd.CommandTimeout = 500000;
+            MySqlDataReader dataReader = cmd.ExecuteReader();
+            int i = 0;
+            while (dataReader.Read())
+            {
+                Console.WriteLine(i);
+                Lemma lemma = new Lemma(dataReader[0].ToString(), Encoding.UTF8.GetBytes(dataReader[1].ToString()), Convert.ToInt32(dataReader[2].ToString()));
+                lemmaList.Add(lemma);
+                i++;
+            }
+            dataReader.Close();
+            return lemmaList;
+        }
+
         public static List<string> GetLemmaTitleByCategoryName(string categoryName)
         {
-            string query = "SELECT category_id FROM Category WHERE category_name = '" + categoryName + "'";
+            string query = "SELECT category_id FROM Category WHERE category_name = @cat";
             MySqlCommand cmd = new MySqlCommand(query, connection);
+            cmd.Parameters.AddWithValue("@cat", categoryName);
+            cmd.Prepare();
             cmd.CommandTimeout = 500000;
             MySqlDataReader dataReader = cmd.ExecuteReader();
             int id = -1;
@@ -136,8 +164,10 @@ namespace Encyclopedia.Controller
 
             dataReader.Close();
 
-            query = "SELECT lemma_title FROM Lemma L JOIN Category C ON L.category_id = C.category_id WHERE C.category_id = " + category.Id;
+            query = "SELECT lemma_title FROM Lemma L JOIN Category C ON L.category_id = C.category_id WHERE C.category_id = @id";
             cmd = new MySqlCommand(query, connection);
+            cmd.Parameters.AddWithValue("@id", category.Id);
+            cmd.Prepare();
             cmd.CommandTimeout = 500000;
             
             dataReader = cmd.ExecuteReader();
@@ -157,8 +187,10 @@ namespace Encyclopedia.Controller
 			List<int> categoryIdList = new List<int>();
 			foreach (string name in categoryNameList)
 			{
-				string query = "SELECT category_id from Category WHERE category_name = '" + name + "'";
+				string query = "SELECT category_id from Category WHERE category_name = @name";
 				MySqlCommand cmd = new MySqlCommand(query, connection);
+                cmd.Parameters.AddWithValue("@name", name);
+                cmd.Prepare();
 				cmd.CommandTimeout = 500000;
 				MySqlDataReader dataReader = cmd.ExecuteReader();
 				while (dataReader.Read())
@@ -389,8 +421,10 @@ namespace Encyclopedia.Controller
 		public static int GetLemmaCategoryByTitle(string lemmaTitle)
         {
             int lemmaCategory=-1;
-            string query = "SELECT category_id FROM Lemma WHERE lemma_title = '" + lemmaTitle + "'";
+            string query = "SELECT category_id FROM Lemma WHERE lemma_title = @title";
             MySqlCommand cmd = new MySqlCommand(query, connection);
+            cmd.Parameters.AddWithValue("@title", lemmaTitle);
+            cmd.Prepare();
             MySqlDataReader dataReader = cmd.ExecuteReader();
             while (dataReader.Read())
             {
