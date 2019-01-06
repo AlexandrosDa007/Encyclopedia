@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Encyclopedia.View
 {
-    public partial class CreateGroupForm : Form
+    public partial class ContactsProfileForm : Form
     {
-        public CreateGroupForm()
+        public ContactsProfileForm()
         {
             InitializeComponent();
         }

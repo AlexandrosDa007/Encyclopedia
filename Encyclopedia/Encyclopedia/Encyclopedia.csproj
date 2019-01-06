@@ -160,6 +160,12 @@
     <Compile Include="View\FavouriteLemmataUserControl.Designer.cs">
       <DependentUpon>FavouriteLemmataUserControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\ContactsProfileForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\ContactsProfileForm.Designer.cs">
+      <DependentUpon>ContactsProfileForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\LemmaEditor.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -242,6 +248,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\FavouriteLemmataUserControl.resx">
       <DependentUpon>FavouriteLemmataUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\ContactsProfileForm.resx">
+      <DependentUpon>ContactsProfileForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\LemmaEditor.resx">
       <DependentUpon>LemmaEditor.cs</DependentUpon>

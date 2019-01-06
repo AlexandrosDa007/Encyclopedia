@@ -51,6 +51,7 @@
             this.closePictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.closePictureBox.TabIndex = 0;
             this.closePictureBox.TabStop = false;
+            this.closePictureBox.Click += new System.EventHandler(this.closePictureBox_Click);
             // 
             // topPanel
             // 

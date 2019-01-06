@@ -39,7 +39,6 @@
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.contactsSearchResultsListView = new System.Windows.Forms.ListView();
             this.titleHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.editGroupButton = new System.Windows.Forms.Button();
             this.contactsTabControl.SuspendLayout();
             this.contactsTabPage.SuspendLayout();
             this.groupTabPage.SuspendLayout();
@@ -122,7 +121,6 @@
             // 
             // groupTabPage
             // 
-            this.groupTabPage.Controls.Add(this.editGroupButton);
             this.groupTabPage.Controls.Add(this.groupListView);
             this.groupTabPage.Controls.Add(this.createGroupButton);
             this.groupTabPage.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
@@ -144,7 +142,7 @@
             this.groupListView.Margin = new System.Windows.Forms.Padding(15, 15, 3, 2);
             this.groupListView.MultiSelect = false;
             this.groupListView.Name = "groupListView";
-            this.groupListView.Size = new System.Drawing.Size(937, 247);
+            this.groupListView.Size = new System.Drawing.Size(968, 247);
             this.groupListView.Sorting = System.Windows.Forms.SortOrder.Ascending;
             this.groupListView.TabIndex = 19;
             this.groupListView.TileSize = new System.Drawing.Size(300, 120);
@@ -201,19 +199,6 @@
             this.titleHeader.Text = "";
             this.titleHeader.Width = 1400;
             // 
-            // editGroupButton
-            // 
-            this.editGroupButton.AutoSize = true;
-            this.editGroupButton.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-            this.editGroupButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(53)))), ((int)(((byte)(65)))));
-            this.editGroupButton.Location = new System.Drawing.Point(209, 14);
-            this.editGroupButton.Margin = new System.Windows.Forms.Padding(5);
-            this.editGroupButton.Name = "editGroupButton";
-            this.editGroupButton.Size = new System.Drawing.Size(184, 38);
-            this.editGroupButton.TabIndex = 20;
-            this.editGroupButton.Text = "Edit Group";
-            this.editGroupButton.UseVisualStyleBackColor = true;
-            // 
             // ContactsUserControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -248,6 +233,5 @@
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.ListView contactsSearchResultsListView;
         private System.Windows.Forms.ColumnHeader titleHeader;
-        private System.Windows.Forms.Button editGroupButton;
     }
 }
