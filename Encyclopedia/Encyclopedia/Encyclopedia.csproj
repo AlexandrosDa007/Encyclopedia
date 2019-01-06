@@ -315,5 +315,14 @@
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </COMReference>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\FavoriteClicked.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\favoriteClicked.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\favoriteNotClicked.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -120,6 +120,7 @@ namespace Encyclopedia.View
             LemmaViewUserControl.Instance.Dock = DockStyle.Fill;
             LemmaViewUserControl.Instance.BringToFront();
             LemmaViewUserControl.Instance.ChangeValue(((Label)sender).Text, 1);
+            LemmaViewUserControl.Instance.isFavorite = false;
 
         }
 

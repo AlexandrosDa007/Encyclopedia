@@ -118,7 +118,9 @@ namespace Encyclopedia.View
             LemmaViewUserControl.Instance.Dock = DockStyle.Fill;
             LemmaViewUserControl.Instance.BringToFront();
             //send mode = 0 so its treated as a raw lemma if we edit that it will go to editedLemmalist
+            LemmaViewUserControl.Instance.isFavorite = true;
             LemmaViewUserControl.Instance.ChangeValue(((Label)sender).Text, 0);
+            
 
         }
 

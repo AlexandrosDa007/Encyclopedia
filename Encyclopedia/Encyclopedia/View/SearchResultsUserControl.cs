@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using Encyclopedia.Controller;
 using Lucene.Net.Documents;
 using UI;
+using Encyclopedia.Model;
 
 namespace Encyclopedia.View
 {
@@ -107,7 +108,28 @@ namespace Encyclopedia.View
             Encyclopedia.View.LemmaViewUserControl.Instance.Dock = DockStyle.Fill;
             Encyclopedia.View.LemmaViewUserControl.Instance.BringToFront();
             //search for the lemma_body
-            Encyclopedia.View.LemmaViewUserControl.Instance.ChangeValue(toSearch,0);
+            
+
+            //if user is connected
+            if(StartPage.account != null)
+            {
+                LemmaViewUserControl.Instance.isFavorite = false;
+                foreach (FavoriteLemma f in StartPage.favoriteLemmaList)
+                {
+                    if (f.Title.Equals(toSearch))
+                    {
+                        LemmaViewUserControl.Instance.isFavorite = true;
+                        Encyclopedia.View.LemmaViewUserControl.Instance.ChangeValue(toSearch, 0);
+                        return;
+                    }
+                    else
+                    {
+                        LemmaViewUserControl.Instance.isFavorite = false;
+                    }
+                }
+            }
+            Encyclopedia.View.LemmaViewUserControl.Instance.ChangeValue(toSearch, 0);
+
         }
 
         

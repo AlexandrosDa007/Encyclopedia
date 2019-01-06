@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 using Encyclopedia.Controller;
@@ -10,11 +11,16 @@ namespace Encyclopedia.View
 {
     public partial class LemmaViewUserControl : UserControl
     {
+        public Image favoriteClicked = Encyclopedia.Properties.Resources.favoriteClicked;
+        public Image favoriteNotClicked = Encyclopedia.Properties.Resources.favoriteNotClicked;
+
         public Lemma lemma;
         public EditedLemma editedLemma;
 
         private StartPage startPage;
         public int mode;
+
+        public bool isFavorite;
 
         private static LemmaViewUserControl _instance;
 
@@ -58,6 +64,11 @@ namespace Encyclopedia.View
 
         public void ChangeValue(string title, int mode)
         {
+            
+            if (isFavorite)
+                favouritesButton.BackgroundImage = favoriteClicked;
+            else
+                favouritesButton.BackgroundImage = favoriteNotClicked;
             this.mode = mode;
             SetLemmaData(title, mode);
 			string titleStyle = " style=\"display: block; " +
@@ -174,8 +185,39 @@ namespace Encyclopedia.View
 
         private void favouritesButton_Click(object sender, EventArgs e)
         {
+            if (isFavorite)
+            {
+                foreach(FavoriteLemma f in StartPage.favoriteLemmaList)
+                {
+                    if (f.Title.Equals(lemma.Title))
+                    {
+                        int result = DBConnect.Delete(f, StartPage.account.User);
+                        if (result != 1)
+                        {
+                            MessageBox.Show("Something went wrong with removing that Lemma");
+                        }
+                        else
+                        {
+                            //now remove and update
+                            FavouriteLemmataUserControl.Instance.favoriteLemmas.Remove(f);
+                            StartPage.favoriteLemmaList = FavouriteLemmataUserControl.Instance.favoriteLemmas;
+                            FavouriteLemmataUserControl.Instance.SetLemmas();
+                            isFavorite = false;
+                            favouritesButton.BackgroundImage = favoriteNotClicked;
+                            Console.WriteLine("Egine");
+                        } 
+                        return;
+                    }
+                }
+            }
+
             if (mode == 0)
+            {
                 Favorite.addToFavorites(StartPage.account.User.Id, lemma.Title);
+                isFavorite = true;
+                favouritesButton.BackgroundImage = favoriteClicked;
+
+            }
             else
                 MessageBox.Show("You can't add a Lemma you edited in your favorites!");
         }
