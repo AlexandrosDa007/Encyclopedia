@@ -166,6 +166,7 @@
 			this.forgotPasswordLinkLabel.TabStop = true;
 			this.forgotPasswordLinkLabel.Text = "Forgot password?";
 			this.forgotPasswordLinkLabel.VisitedLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+			this.forgotPasswordLinkLabel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.forgotPasswordLinkLabel_LinkClicked);
 			// 
 			// usernameTextBox
 			// 

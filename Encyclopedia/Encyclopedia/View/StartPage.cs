@@ -322,5 +322,18 @@ namespace UI
                 feedbackLabel.ForeColor = feedbackLabel.BackColor;
             }
         }
-    }
+
+		private void forgotPasswordLinkLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+		{/*
+			int exitCode = UserHandler.SendTempPasswordToAccountEmail(emailTextBox);
+			if (exitCode == 0)
+			{
+				MessageBox.Show("  A temporary password was sent to your email.\n");
+			}
+			else
+			{
+				MessageBox.Show("  Something went wrong. Please try again.\n");
+			}*/
+		}
+	}
 }
