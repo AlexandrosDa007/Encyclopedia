@@ -125,6 +125,26 @@ namespace Encyclopedia.Controller
             return lemmaList;
         }
 
+        public static List<Lemma> GetFirstLemmas()
+        {
+            List<Lemma> lemmaList = new List<Lemma>();
+
+            string query = "SELECT * FROM Lemma ORDER BY lemma_title LIMIT 500";
+            MySqlCommand cmd = new MySqlCommand(query, connection);
+            cmd.CommandTimeout = 500000;
+            MySqlDataReader dataReader = cmd.ExecuteReader();
+            int i = 0;
+            while (dataReader.Read())
+            {
+                Console.WriteLine(i);
+                Lemma lemma = new Lemma(dataReader[0].ToString(), Encoding.UTF8.GetBytes(dataReader[1].ToString()), Convert.ToInt32(dataReader[2].ToString()));
+                lemmaList.Add(lemma);
+                i++;
+            }
+            dataReader.Close();
+            return lemmaList;
+        }
+
         public static List<string> GetLemmaTitleByCategoryName(string categoryName)
         {
             string query = "SELECT category_id FROM Category WHERE category_name = @cat";

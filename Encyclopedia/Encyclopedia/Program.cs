@@ -1,17 +1,27 @@
 ﻿using Encyclopedia.Controller;
+using Encyclopedia.Model;
 using Encyclopedia.View;
+using Lucene.Net.Analysis;
+using Lucene.Net.Analysis.Standard;
 using Lucene.Net.Documents;
+using Lucene.Net.Index;
+using Lucene.Net.Search;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using UI;
 
 namespace Encyclopedia
 {
     static class Program
     {
+        public static Thread fetchLemmasThread;
+        public static bool isFetchLemmasThreadFinished = false;
+
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
@@ -26,11 +36,23 @@ namespace Encyclopedia
             }
             //this takes a long time - 4min 
             //Search.CreateIndex();
-
+            //fetchLemmasThread = new Thread(FetchAllLemmas);
+            //fetchLemmasThread.Start();
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new UI.StartPage());
             //Favorite.addToFavorites(5, "World_energy_consumption");//Example of adding a favorite lemma to DB.
+        }
+
+        public static void FetchAllLemmas()
+        {
+            StartPage.allLemas = DBConnect.GetAllLemma();
+            foreach (Lemma l in Search.firstLemmas)
+            {
+                StartPage.allLemas.Remove(l);
+            }
+
+            isFetchLemmasThreadFinished = true;
         }
 
 
