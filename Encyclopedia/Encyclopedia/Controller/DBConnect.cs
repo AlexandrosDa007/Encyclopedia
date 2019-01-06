@@ -720,6 +720,28 @@ namespace Encyclopedia.Controller
             return list;
         }
 
+        public static Account GetAccountByUser(User user)
+        {
+            Account account = new Account();
+            string selectQuery = "SELECT account_username, account_email FROM Account WHERE account_id = @id";
+            MySqlCommand cmd = new MySqlCommand(selectQuery, connection);
+            cmd.CommandTimeout = 500000;
+            cmd.Parameters.AddWithValue("@id", user.Id);
+            cmd.Prepare();
+            MySqlDataReader dataReader = cmd.ExecuteReader();
+
+
+            while (dataReader.Read())
+            {
+                account.User = user;
+                account.Email = dataReader.GetString("account_email");
+                account.Username = dataReader.GetString("account_username");
+            }
+            dataReader.Close();
+
+            return account;
+        }
+
 
         #endregion
 
@@ -1109,9 +1131,19 @@ namespace Encyclopedia.Controller
             //code to Delete new category
         }
 
-        public static void Delete(Contact contact)
+        public static int Delete(Contact contact)
         {
-            //code to Delete new contact
+            string query = "DELETE FROM Contact WHERE user_id = @userId AND contact_id = @contId";
+            MySqlCommand cmd = new MySqlCommand(query, connection);
+            cmd.Parameters.AddWithValue("@userId", contact.User.Id);
+            cmd.Parameters.AddWithValue("@contId", contact.ContactUser.Id);
+            cmd.Prepare();
+            cmd.CommandTimeout = 500000;
+
+            int rowsAffected = cmd.ExecuteNonQuery();
+
+
+            return rowsAffected;
         }
 
         public static void Delete(ContactGroup contactGroup)

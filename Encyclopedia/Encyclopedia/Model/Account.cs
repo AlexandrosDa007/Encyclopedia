@@ -24,6 +24,11 @@ namespace Encyclopedia.Model
             CreatedAt = createdAt;
         }
 
+        public Account()
+        {
+
+        }
+
         // setters and getters
         public User User
         {

@@ -50,10 +50,10 @@
             this.searchContactsTextBox.BackColor = System.Drawing.Color.Silver;
             this.searchContactsTextBox.Font = new System.Drawing.Font("Century Gothic", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
             this.searchContactsTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(126)))), ((int)(((byte)(49)))));
-            this.searchContactsTextBox.Location = new System.Drawing.Point(21, 28);
-            this.searchContactsTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.searchContactsTextBox.Location = new System.Drawing.Point(16, 23);
+            this.searchContactsTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.searchContactsTextBox.Name = "searchContactsTextBox";
-            this.searchContactsTextBox.Size = new System.Drawing.Size(366, 41);
+            this.searchContactsTextBox.Size = new System.Drawing.Size(276, 34);
             this.searchContactsTextBox.TabIndex = 18;
             this.searchContactsTextBox.Text = " Search contacts";
             this.searchContactsTextBox.Enter += new System.EventHandler(this.searchContactsTextBox_Enter);
@@ -63,10 +63,10 @@
             this.searchContactsButton.AutoSize = true;
             this.searchContactsButton.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
             this.searchContactsButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(53)))), ((int)(((byte)(65)))));
-            this.searchContactsButton.Location = new System.Drawing.Point(395, 26);
-            this.searchContactsButton.Margin = new System.Windows.Forms.Padding(5);
+            this.searchContactsButton.Location = new System.Drawing.Point(296, 21);
+            this.searchContactsButton.Margin = new System.Windows.Forms.Padding(4);
             this.searchContactsButton.Name = "searchContactsButton";
-            this.searchContactsButton.Size = new System.Drawing.Size(147, 41);
+            this.searchContactsButton.Size = new System.Drawing.Size(110, 33);
             this.searchContactsButton.TabIndex = 17;
             this.searchContactsButton.Text = "Search";
             this.searchContactsButton.UseVisualStyleBackColor = true;
@@ -80,12 +80,12 @@
             this.contactsTabControl.Controls.Add(this.groupTabPage);
             this.contactsTabControl.Controls.Add(this.tabPage1);
             this.contactsTabControl.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-            this.contactsTabControl.Location = new System.Drawing.Point(21, 108);
-            this.contactsTabControl.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.contactsTabControl.Location = new System.Drawing.Point(16, 88);
+            this.contactsTabControl.Margin = new System.Windows.Forms.Padding(2);
             this.contactsTabControl.Name = "contactsTabControl";
             this.contactsTabControl.Padding = new System.Drawing.Point(15, 10);
             this.contactsTabControl.SelectedIndex = 0;
-            this.contactsTabControl.Size = new System.Drawing.Size(981, 353);
+            this.contactsTabControl.Size = new System.Drawing.Size(736, 287);
             this.contactsTabControl.TabIndex = 19;
             this.contactsTabControl.SelectedIndexChanged += new System.EventHandler(this.contactsTabControl_SelectedIndexChanged);
             // 
@@ -93,11 +93,11 @@
             // 
             this.contactsTabPage.Controls.Add(this.contactsListView);
             this.contactsTabPage.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-            this.contactsTabPage.Location = new System.Drawing.Point(4, 46);
-            this.contactsTabPage.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.contactsTabPage.Location = new System.Drawing.Point(4, 44);
+            this.contactsTabPage.Margin = new System.Windows.Forms.Padding(2);
             this.contactsTabPage.Name = "contactsTabPage";
-            this.contactsTabPage.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.contactsTabPage.Size = new System.Drawing.Size(973, 303);
+            this.contactsTabPage.Padding = new System.Windows.Forms.Padding(2);
+            this.contactsTabPage.Size = new System.Drawing.Size(728, 239);
             this.contactsTabPage.TabIndex = 0;
             this.contactsTabPage.Text = "Contacts";
             this.contactsTabPage.UseVisualStyleBackColor = true;
@@ -108,27 +108,28 @@
             this.contactsListView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.contactsListView.Font = new System.Drawing.Font("Century Gothic", 13.77391F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
             this.contactsListView.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(53)))), ((int)(((byte)(65)))));
-            this.contactsListView.Location = new System.Drawing.Point(3, 2);
-            this.contactsListView.Margin = new System.Windows.Forms.Padding(15, 15, 3, 2);
+            this.contactsListView.Location = new System.Drawing.Point(2, 2);
+            this.contactsListView.Margin = new System.Windows.Forms.Padding(11, 12, 2, 2);
             this.contactsListView.MultiSelect = false;
             this.contactsListView.Name = "contactsListView";
-            this.contactsListView.Size = new System.Drawing.Size(967, 299);
+            this.contactsListView.Size = new System.Drawing.Size(724, 235);
             this.contactsListView.Sorting = System.Windows.Forms.SortOrder.Ascending;
             this.contactsListView.TabIndex = 0;
             this.contactsListView.TileSize = new System.Drawing.Size(300, 120);
             this.contactsListView.UseCompatibleStateImageBehavior = false;
             this.contactsListView.View = System.Windows.Forms.View.Tile;
+            this.contactsListView.DoubleClick += new System.EventHandler(this.contactsListView_DoubleClick);
             // 
             // groupTabPage
             // 
             this.groupTabPage.Controls.Add(this.groupListView);
             this.groupTabPage.Controls.Add(this.createGroupButton);
             this.groupTabPage.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-            this.groupTabPage.Location = new System.Drawing.Point(4, 46);
-            this.groupTabPage.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupTabPage.Location = new System.Drawing.Point(4, 44);
+            this.groupTabPage.Margin = new System.Windows.Forms.Padding(2);
             this.groupTabPage.Name = "groupTabPage";
-            this.groupTabPage.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupTabPage.Size = new System.Drawing.Size(973, 303);
+            this.groupTabPage.Padding = new System.Windows.Forms.Padding(2);
+            this.groupTabPage.Size = new System.Drawing.Size(728, 239);
             this.groupTabPage.TabIndex = 1;
             this.groupTabPage.Text = "Groups";
             this.groupTabPage.UseVisualStyleBackColor = true;
@@ -138,11 +139,11 @@
             this.groupListView.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.groupListView.Font = new System.Drawing.Font("Century Gothic", 13.14783F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
             this.groupListView.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(53)))), ((int)(((byte)(65)))));
-            this.groupListView.Location = new System.Drawing.Point(5, 52);
-            this.groupListView.Margin = new System.Windows.Forms.Padding(15, 15, 3, 2);
+            this.groupListView.Location = new System.Drawing.Point(4, 42);
+            this.groupListView.Margin = new System.Windows.Forms.Padding(11, 12, 2, 2);
             this.groupListView.MultiSelect = false;
             this.groupListView.Name = "groupListView";
-            this.groupListView.Size = new System.Drawing.Size(968, 247);
+            this.groupListView.Size = new System.Drawing.Size(726, 201);
             this.groupListView.Sorting = System.Windows.Forms.SortOrder.Ascending;
             this.groupListView.TabIndex = 19;
             this.groupListView.TileSize = new System.Drawing.Size(300, 120);
@@ -154,10 +155,10 @@
             this.createGroupButton.AutoSize = true;
             this.createGroupButton.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
             this.createGroupButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(53)))), ((int)(((byte)(65)))));
-            this.createGroupButton.Location = new System.Drawing.Point(15, 14);
-            this.createGroupButton.Margin = new System.Windows.Forms.Padding(5);
+            this.createGroupButton.Location = new System.Drawing.Point(11, 11);
+            this.createGroupButton.Margin = new System.Windows.Forms.Padding(4);
             this.createGroupButton.Name = "createGroupButton";
-            this.createGroupButton.Size = new System.Drawing.Size(184, 38);
+            this.createGroupButton.Size = new System.Drawing.Size(138, 31);
             this.createGroupButton.TabIndex = 18;
             this.createGroupButton.Text = "Create Group";
             this.createGroupButton.UseVisualStyleBackColor = true;
@@ -165,11 +166,11 @@
             // tabPage1
             // 
             this.tabPage1.Controls.Add(this.contactsSearchResultsListView);
-            this.tabPage1.Location = new System.Drawing.Point(4, 46);
-            this.tabPage1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tabPage1.Location = new System.Drawing.Point(4, 44);
+            this.tabPage1.Margin = new System.Windows.Forms.Padding(2);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tabPage1.Size = new System.Drawing.Size(973, 303);
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(2);
+            this.tabPage1.Size = new System.Drawing.Size(728, 239);
             this.tabPage1.TabIndex = 2;
             this.tabPage1.Text = "Search results";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -185,12 +186,11 @@
             this.contactsSearchResultsListView.Font = new System.Drawing.Font("Century Gothic", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
             this.contactsSearchResultsListView.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(53)))), ((int)(((byte)(65)))));
             this.contactsSearchResultsListView.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.None;
-            this.contactsSearchResultsListView.Location = new System.Drawing.Point(3, 2);
-            this.contactsSearchResultsListView.Margin = new System.Windows.Forms.Padding(4);
+            this.contactsSearchResultsListView.Location = new System.Drawing.Point(2, 2);
             this.contactsSearchResultsListView.MultiSelect = false;
             this.contactsSearchResultsListView.Name = "contactsSearchResultsListView";
             this.contactsSearchResultsListView.ShowGroups = false;
-            this.contactsSearchResultsListView.Size = new System.Drawing.Size(967, 299);
+            this.contactsSearchResultsListView.Size = new System.Drawing.Size(724, 235);
             this.contactsSearchResultsListView.TabIndex = 4;
             this.contactsSearchResultsListView.UseCompatibleStateImageBehavior = false;
             // 
@@ -201,15 +201,15 @@
             // 
             // ContactsUserControl
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Gainsboro;
             this.Controls.Add(this.contactsTabControl);
             this.Controls.Add(this.searchContactsTextBox);
             this.Controls.Add(this.searchContactsButton);
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "ContactsUserControl";
-            this.Size = new System.Drawing.Size(1036, 498);
+            this.Size = new System.Drawing.Size(777, 405);
             this.contactsTabControl.ResumeLayout(false);
             this.contactsTabPage.ResumeLayout(false);
             this.groupTabPage.ResumeLayout(false);

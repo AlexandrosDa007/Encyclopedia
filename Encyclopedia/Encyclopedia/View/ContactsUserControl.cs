@@ -1,5 +1,6 @@
 ﻿using Encyclopedia.Controller;
 using Encyclopedia.Model;
+using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
 
@@ -58,5 +59,28 @@ namespace Encyclopedia.View
 
             }
         }
+
+        private void contactsListView_DoubleClick(object sender, System.EventArgs e)
+        {
+            string userNameAndSurname = contactsListView.SelectedItems[0].Text;
+            string userName = userNameAndSurname.Split(new[] { ' ' }, 2)[0];
+            User contactUser = null;
+            foreach(User u in contactList)
+            {
+                if (u.Name.Equals(userName))
+                {
+                    contactUser = u;
+                }
+            }
+
+            Account contactAccount = DBConnect.GetAccountByUser(contactUser);
+
+            //Open a ContactsProfileForm
+            ContactsProfileForm form = new ContactsProfileForm(contactAccount);
+            form.Show();
+
+        }
+
+        
     }
 }
