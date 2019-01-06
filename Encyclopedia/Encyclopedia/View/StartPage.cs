@@ -34,7 +34,7 @@ namespace UI
 		// stores the contacts of the logged-in user
 		public static List<User> contactList = null;
 		// stores the contact groups of the logged-in user
-		public static List<string> groupList = null;
+		public static List<ContactGroup> groupList = null;
 
 		//list with filters to be checked
 		public List<string> filterList = new List<string>();

@@ -11,7 +11,7 @@ namespace Encyclopedia.View
         private static ContactsUserControl _instance;
 
 		public List<User> contactList = null;
-		public List<string> groupList = null;
+		public List<ContactGroup> groupList = null;
 
         public static ContactsUserControl Instance
         {
@@ -81,6 +81,9 @@ namespace Encyclopedia.View
 
         }
 
-        
-    }
+		private void createGroupButton_Click(object sender, EventArgs e)
+		{
+
+		}
+	}
 }

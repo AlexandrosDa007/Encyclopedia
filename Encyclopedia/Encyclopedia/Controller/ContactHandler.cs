@@ -51,7 +51,7 @@ namespace Encyclopedia.Controller
 		}
 
 		// fills dynamically the parametered ListView
-		public static void FillGroups(ListView listView, List<string> groups)
+		public static void FillGroups(ListView listView, List<ContactGroup> groups)
 		{
 			// empty the listview
 			//listView.LargeImageList = null;
@@ -66,10 +66,10 @@ namespace Encyclopedia.Controller
 			groupImages.ColorDepth = ColorDepth.Depth8Bit;
 
 			int i = 0;
-			foreach (string groupName in groups)
+			foreach (ContactGroup group in groups)
 			{
 				// add contact item
-				ListViewItem groupItem = new ListViewItem(groupName, i);
+				ListViewItem groupItem = new ListViewItem(group.Name, i);
 				groupNames[i++] = groupItem;
 
 				// add the default group image to the image list

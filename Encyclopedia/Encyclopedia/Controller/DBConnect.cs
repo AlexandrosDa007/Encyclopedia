@@ -394,12 +394,15 @@ namespace Encyclopedia.Controller
 			return contactList;
 		}
 
-		public static List<string> GetContactGroups(int userId)
+		public static List<ContactGroup> GetContactGroups(int userId)
 		{
-			List<string> groupList = new List<string>();
+			List<ContactGroup> groupList = new List<ContactGroup>();
 
+			// get user
+			User user = GetUserByAccountId(userId);
+			
 			// construct query
-			string selectId = "SELECT group_name FROM Contact_Group WHERE owner_id = @user";
+			string selectId = "SELECT * FROM Contact_Group WHERE owner_id = @user";
 			MySqlCommand select = new MySqlCommand(selectId, connection);
 			select.Parameters.AddWithValue("@user", userId);
 			select.CommandTimeout = 500000;
@@ -411,7 +414,8 @@ namespace Encyclopedia.Controller
 			while (dataReader.Read())
 			{
 				// add the groups
-				groupList.Add(dataReader.GetString("group_name"));
+				ContactGroup group = new ContactGroup(dataReader.GetInt32("group_id"), dataReader.GetString("group_name"), user);
+				groupList.Add(group);
 			}
 
 			dataReader.Close();
