@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Mail;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
@@ -10,6 +11,29 @@ namespace Encyclopedia.Controller
 {
     class UserHandler
     {
+		public static int SendTempPasswordToAccountEmail(string emailAddress)
+		{
+			try
+			{
+				MailMessage mail = new MailMessage("you@yourcompany.com", emailAddress);
+				SmtpClient client = new SmtpClient();
+				client.Port = 25;
+				client.DeliveryMethod = SmtpDeliveryMethod.Network;
+				client.UseDefaultCredentials = false;
+				client.Host = "smtp.gmail.com";
+
+				mail.Subject = "Encyclopedia Reset Forgotten Password";
+				mail.Body = "this is my test email body";
+				client.Send(mail);
+			}
+			catch (Exception)
+			{
+				return 2;
+			}
+
+			return 0;
+		}
+
         public static int RegisterUserAccount(string name, string surname, DateTime dateOfBirth, char gender, string tel, string roleName, string educationLevelName, string description, Byte[] image, string username, string password, string passwordConfirmation, string email)
         {
 			// check the input regarding the User
