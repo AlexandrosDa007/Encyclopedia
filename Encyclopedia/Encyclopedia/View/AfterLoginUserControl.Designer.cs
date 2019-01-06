@@ -67,7 +67,7 @@
 			this.logoutButton.IconZoom = 90D;
 			this.logoutButton.IsTab = false;
 			this.logoutButton.Location = new System.Drawing.Point(0, 662);
-			this.logoutButton.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+			this.logoutButton.Margin = new System.Windows.Forms.Padding(5);
 			this.logoutButton.Name = "logoutButton";
 			this.logoutButton.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(53)))), ((int)(((byte)(65)))));
 			this.logoutButton.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(92)))), ((int)(((byte)(127)))));
@@ -104,7 +104,7 @@
 			this.contactsButton.IconZoom = 90D;
 			this.contactsButton.IsTab = false;
 			this.contactsButton.Location = new System.Drawing.Point(0, 565);
-			this.contactsButton.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+			this.contactsButton.Margin = new System.Windows.Forms.Padding(5);
 			this.contactsButton.Name = "contactsButton";
 			this.contactsButton.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(53)))), ((int)(((byte)(65)))));
 			this.contactsButton.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(92)))), ((int)(((byte)(127)))));
@@ -141,7 +141,7 @@
 			this.editedButton.IconZoom = 90D;
 			this.editedButton.IsTab = false;
 			this.editedButton.Location = new System.Drawing.Point(0, 492);
-			this.editedButton.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+			this.editedButton.Margin = new System.Windows.Forms.Padding(5);
 			this.editedButton.Name = "editedButton";
 			this.editedButton.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(53)))), ((int)(((byte)(65)))));
 			this.editedButton.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(92)))), ((int)(((byte)(127)))));
@@ -178,7 +178,7 @@
 			this.favouritesButton.IconZoom = 90D;
 			this.favouritesButton.IsTab = false;
 			this.favouritesButton.Location = new System.Drawing.Point(0, 418);
-			this.favouritesButton.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+			this.favouritesButton.Margin = new System.Windows.Forms.Padding(5);
 			this.favouritesButton.Name = "favouritesButton";
 			this.favouritesButton.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(53)))), ((int)(((byte)(65)))));
 			this.favouritesButton.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(92)))), ((int)(((byte)(127)))));
@@ -215,7 +215,7 @@
 			this.profileButton.IconZoom = 90D;
 			this.profileButton.IsTab = false;
 			this.profileButton.Location = new System.Drawing.Point(0, 346);
-			this.profileButton.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+			this.profileButton.Margin = new System.Windows.Forms.Padding(5);
 			this.profileButton.Name = "profileButton";
 			this.profileButton.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(53)))), ((int)(((byte)(65)))));
 			this.profileButton.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(92)))), ((int)(((byte)(127)))));
@@ -250,14 +250,14 @@
 			this.logoPanel.Dock = System.Windows.Forms.DockStyle.Top;
 			this.logoPanel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(126)))), ((int)(((byte)(49)))));
 			this.logoPanel.Location = new System.Drawing.Point(0, 0);
-			this.logoPanel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+			this.logoPanel.Margin = new System.Windows.Forms.Padding(4);
 			this.logoPanel.Name = "logoPanel";
 			this.logoPanel.Size = new System.Drawing.Size(323, 75);
 			this.logoPanel.TabIndex = 25;
 			// 
 			// logoPictureBox
 			// 
-			this.logoPictureBox.Image = ((System.Drawing.Image)(resources.GetObject("logoPictureBox.Image")));
+			this.logoPictureBox.Image = global::Encyclopedia.Properties.Resources.logo;
 			this.logoPictureBox.Location = new System.Drawing.Point(28, 0);
 			this.logoPictureBox.Margin = new System.Windows.Forms.Padding(0);
 			this.logoPictureBox.Name = "logoPictureBox";
