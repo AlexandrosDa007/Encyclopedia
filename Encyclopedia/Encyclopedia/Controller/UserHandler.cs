@@ -15,14 +15,16 @@ namespace Encyclopedia.Controller
 		{
 			try
 			{
-				MailMessage mail = new MailMessage("you@yourcompany.com", emailAddress);
+				MailMessage mail = new MailMessage("encyclopedia.noreply@gmail.com", emailAddress);
 				SmtpClient client = new SmtpClient();
 				client.Port = 25;
 				client.DeliveryMethod = SmtpDeliveryMethod.Network;
 				client.UseDefaultCredentials = false;
+				client.Credentials = new System.Net.NetworkCredential("encyclopedia.noreply", "mpla123P");
 				client.Host = "smtp.gmail.com";
 
-				mail.Subject = "Encyclopedia Reset Forgotten Password";
+				mail.Subject = "Encyclopedia Password Recovery";
+				mail.IsBodyHtml = true;
 				mail.Body = "this is my test email body";
 				client.Send(mail);
 			}
