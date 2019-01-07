@@ -36,11 +36,12 @@
             // searchResultsLabel
             // 
             this.searchResultsLabel.AutoSize = true;
-            this.searchResultsLabel.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
+            this.searchResultsLabel.Font = new System.Drawing.Font("Century Gothic", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
             this.searchResultsLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(53)))), ((int)(((byte)(65)))));
-            this.searchResultsLabel.Location = new System.Drawing.Point(20, 0);
+            this.searchResultsLabel.Location = new System.Drawing.Point(27, 0);
+            this.searchResultsLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.searchResultsLabel.Name = "searchResultsLabel";
-            this.searchResultsLabel.Size = new System.Drawing.Size(184, 28);
+            this.searchResultsLabel.Size = new System.Drawing.Size(309, 47);
             this.searchResultsLabel.TabIndex = 2;
             this.searchResultsLabel.Text = "Search Results ";
             // 
@@ -56,11 +57,12 @@
             this.searchResultsListView.Font = new System.Drawing.Font("Century Gothic", 18.15652F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
             this.searchResultsListView.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(53)))), ((int)(((byte)(65)))));
             this.searchResultsListView.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.None;
-            this.searchResultsListView.Location = new System.Drawing.Point(25, 46);
+            this.searchResultsListView.Location = new System.Drawing.Point(33, 57);
+            this.searchResultsListView.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.searchResultsListView.MultiSelect = false;
             this.searchResultsListView.Name = "searchResultsListView";
             this.searchResultsListView.ShowGroups = false;
-            this.searchResultsListView.Size = new System.Drawing.Size(721, 322);
+            this.searchResultsListView.Size = new System.Drawing.Size(961, 396);
             this.searchResultsListView.TabIndex = 1;
             this.searchResultsListView.TileSize = new System.Drawing.Size(500, 70);
             this.searchResultsListView.UseCompatibleStateImageBehavior = false;
@@ -74,13 +76,14 @@
             // 
             // SearchResultsUserControl
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Gainsboro;
             this.Controls.Add(this.searchResultsListView);
             this.Controls.Add(this.searchResultsLabel);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "SearchResultsUserControl";
-            this.Size = new System.Drawing.Size(777, 405);
+            this.Size = new System.Drawing.Size(1036, 498);
             this.ResumeLayout(false);
             this.PerformLayout();
 
