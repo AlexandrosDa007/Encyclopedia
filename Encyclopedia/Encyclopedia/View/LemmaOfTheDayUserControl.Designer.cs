@@ -28,31 +28,18 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.monthCalendar = new System.Windows.Forms.MonthCalendar();
             this.lemmaOfTheDayLabel = new System.Windows.Forms.Label();
             this.lemmaOfTheDayWebBrowser = new System.Windows.Forms.WebBrowser();
             this.SuspendLayout();
-            // 
-            // monthCalendar
-            // 
-            this.monthCalendar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.monthCalendar.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-            this.monthCalendar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(53)))), ((int)(((byte)(65)))));
-            this.monthCalendar.Location = new System.Drawing.Point(761, 57);
-            this.monthCalendar.Margin = new System.Windows.Forms.Padding(12, 11, 12, 11);
-            this.monthCalendar.Name = "monthCalendar";
-            this.monthCalendar.TabIndex = 20;
-            this.monthCalendar.TitleBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(126)))), ((int)(((byte)(49)))));
             // 
             // lemmaOfTheDayLabel
             // 
             this.lemmaOfTheDayLabel.AutoSize = true;
             this.lemmaOfTheDayLabel.Font = new System.Drawing.Font("Century Gothic", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
             this.lemmaOfTheDayLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(53)))), ((int)(((byte)(65)))));
-            this.lemmaOfTheDayLabel.Location = new System.Drawing.Point(27, 0);
-            this.lemmaOfTheDayLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lemmaOfTheDayLabel.Location = new System.Drawing.Point(20, 0);
             this.lemmaOfTheDayLabel.Name = "lemmaOfTheDayLabel";
-            this.lemmaOfTheDayLabel.Size = new System.Drawing.Size(373, 47);
+            this.lemmaOfTheDayLabel.Size = new System.Drawing.Size(298, 38);
             this.lemmaOfTheDayLabel.TabIndex = 18;
             this.lemmaOfTheDayLabel.Text = "Lemma of the day";
             // 
@@ -61,33 +48,28 @@
             this.lemmaOfTheDayWebBrowser.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.lemmaOfTheDayWebBrowser.Location = new System.Drawing.Point(33, 57);
-            this.lemmaOfTheDayWebBrowser.Margin = new System.Windows.Forms.Padding(4);
-            this.lemmaOfTheDayWebBrowser.MinimumSize = new System.Drawing.Size(27, 25);
+            this.lemmaOfTheDayWebBrowser.Location = new System.Drawing.Point(25, 46);
+            this.lemmaOfTheDayWebBrowser.MinimumSize = new System.Drawing.Size(20, 20);
             this.lemmaOfTheDayWebBrowser.Name = "lemmaOfTheDayWebBrowser";
-            this.lemmaOfTheDayWebBrowser.Size = new System.Drawing.Size(697, 406);
+            this.lemmaOfTheDayWebBrowser.Size = new System.Drawing.Size(723, 330);
             this.lemmaOfTheDayWebBrowser.TabIndex = 21;
             // 
             // LemmaOfTheDayUserControl
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Gainsboro;
             this.Controls.Add(this.lemmaOfTheDayWebBrowser);
-            this.Controls.Add(this.monthCalendar);
             this.Controls.Add(this.lemmaOfTheDayLabel);
             this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(53)))), ((int)(((byte)(65)))));
-            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "LemmaOfTheDayUserControl";
-            this.Size = new System.Drawing.Size(1036, 498);
+            this.Size = new System.Drawing.Size(777, 405);
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.MonthCalendar monthCalendar;
         private System.Windows.Forms.Label lemmaOfTheDayLabel;
         private System.Windows.Forms.WebBrowser lemmaOfTheDayWebBrowser;
     }
