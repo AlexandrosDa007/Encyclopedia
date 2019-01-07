@@ -198,6 +198,12 @@
     <Compile Include="View\LemmaViewUserControl.Designer.cs">
       <DependentUpon>LemmaViewUserControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\ResetAccountForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\ResetAccountForm.Designer.cs">
+      <DependentUpon>ResetAccountForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\SearchBar.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -274,6 +280,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\RegisterForm.resx">
       <DependentUpon>RegisterForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\ResetAccountForm.resx">
+      <DependentUpon>ResetAccountForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\SearchBar.resx">
       <DependentUpon>SearchBar.cs</DependentUpon>
