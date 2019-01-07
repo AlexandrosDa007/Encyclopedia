@@ -49,8 +49,9 @@ namespace Encyclopedia.View
             else
                 imagePB.Image = Encyclopedia.Properties.Resources.default_avatar;
 
+            addButton.Visible = true;
             //check if user is in my contacts
-            foreach(User u in StartPage.contactList)
+            foreach (User u in StartPage.contactList)
             {
                 if (u.Id == account.User.Id)
                 {
