@@ -92,7 +92,7 @@
             this.educationLabel.Location = new System.Drawing.Point(100, 471);
             this.educationLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.educationLabel.Name = "educationLabel";
-            this.educationLabel.Size = new System.Drawing.Size(123, 20);
+            this.educationLabel.Size = new System.Drawing.Size(152, 22);
             this.educationLabel.TabIndex = 73;
             this.educationLabel.Text = "Education level";
             // 
@@ -103,7 +103,7 @@
             this.professionLabel.Location = new System.Drawing.Point(150, 518);
             this.professionLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.professionLabel.Name = "professionLabel";
-            this.professionLabel.Size = new System.Drawing.Size(82, 20);
+            this.professionLabel.Size = new System.Drawing.Size(98, 22);
             this.professionLabel.TabIndex = 72;
             this.professionLabel.Text = "Profession";
             // 
@@ -114,7 +114,7 @@
             this.descriptionLabel.Location = new System.Drawing.Point(139, 565);
             this.descriptionLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.descriptionLabel.Name = "descriptionLabel";
-            this.descriptionLabel.Size = new System.Drawing.Size(91, 20);
+            this.descriptionLabel.Size = new System.Drawing.Size(111, 22);
             this.descriptionLabel.TabIndex = 71;
             this.descriptionLabel.Text = "Description";
             // 
@@ -125,7 +125,7 @@
             this.dateOfBirthLabel.Location = new System.Drawing.Point(124, 428);
             this.dateOfBirthLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.dateOfBirthLabel.Name = "dateOfBirthLabel";
-            this.dateOfBirthLabel.Size = new System.Drawing.Size(104, 20);
+            this.dateOfBirthLabel.Size = new System.Drawing.Size(130, 22);
             this.dateOfBirthLabel.TabIndex = 70;
             this.dateOfBirthLabel.Text = "Date of birth ";
             // 
@@ -136,7 +136,7 @@
             this.surnameLabel.Location = new System.Drawing.Point(157, 181);
             this.surnameLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.surnameLabel.Name = "surnameLabel";
-            this.surnameLabel.Size = new System.Drawing.Size(76, 20);
+            this.surnameLabel.Size = new System.Drawing.Size(96, 22);
             this.surnameLabel.TabIndex = 69;
             this.surnameLabel.Text = "Surname ";
             // 
@@ -147,7 +147,7 @@
             this.emailLabel.Location = new System.Drawing.Point(189, 256);
             this.emailLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.emailLabel.Name = "emailLabel";
-            this.emailLabel.Size = new System.Drawing.Size(50, 20);
+            this.emailLabel.Size = new System.Drawing.Size(61, 22);
             this.emailLabel.TabIndex = 68;
             this.emailLabel.Text = "Email ";
             // 
@@ -158,7 +158,7 @@
             this.usernameLabel.Location = new System.Drawing.Point(146, 300);
             this.usernameLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.usernameLabel.Name = "usernameLabel";
-            this.usernameLabel.Size = new System.Drawing.Size(87, 20);
+            this.usernameLabel.Size = new System.Drawing.Size(106, 22);
             this.usernameLabel.TabIndex = 67;
             this.usernameLabel.Text = "Username ";
             // 
@@ -169,7 +169,7 @@
             this.nameLabel.Location = new System.Drawing.Point(180, 143);
             this.nameLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.nameLabel.Name = "nameLabel";
-            this.nameLabel.Size = new System.Drawing.Size(57, 20);
+            this.nameLabel.Size = new System.Drawing.Size(71, 22);
             this.nameLabel.TabIndex = 66;
             this.nameLabel.Text = "Name ";
             // 
@@ -183,7 +183,7 @@
             this.roleCB.Location = new System.Drawing.Point(282, 515);
             this.roleCB.Margin = new System.Windows.Forms.Padding(2);
             this.roleCB.Name = "roleCB";
-            this.roleCB.Size = new System.Drawing.Size(213, 27);
+            this.roleCB.Size = new System.Drawing.Size(213, 29);
             this.roleCB.TabIndex = 64;
             // 
             // educationLevelCB
@@ -196,7 +196,7 @@
             this.educationLevelCB.Location = new System.Drawing.Point(282, 468);
             this.educationLevelCB.Margin = new System.Windows.Forms.Padding(2);
             this.educationLevelCB.Name = "educationLevelCB";
-            this.educationLevelCB.Size = new System.Drawing.Size(213, 27);
+            this.educationLevelCB.Size = new System.Drawing.Size(213, 29);
             this.educationLevelCB.TabIndex = 63;
             // 
             // imagePB
@@ -220,7 +220,7 @@
             this.dateOfBirthDTP.MaxDate = new System.DateTime(2200, 12, 31, 0, 0, 0, 0);
             this.dateOfBirthDTP.MinDate = new System.DateTime(1900, 1, 1, 0, 0, 0, 0);
             this.dateOfBirthDTP.Name = "dateOfBirthDTP";
-            this.dateOfBirthDTP.Size = new System.Drawing.Size(213, 24);
+            this.dateOfBirthDTP.Size = new System.Drawing.Size(213, 28);
             this.dateOfBirthDTP.TabIndex = 61;
             this.dateOfBirthDTP.Value = new System.DateTime(1990, 1, 1, 0, 0, 0, 0);
             // 
@@ -259,7 +259,7 @@
             this.genderFemaleRB.Location = new System.Drawing.Point(121, 29);
             this.genderFemaleRB.Margin = new System.Windows.Forms.Padding(2);
             this.genderFemaleRB.Name = "genderFemaleRB";
-            this.genderFemaleRB.Size = new System.Drawing.Size(78, 23);
+            this.genderFemaleRB.Size = new System.Drawing.Size(91, 25);
             this.genderFemaleRB.TabIndex = 8;
             this.genderFemaleRB.Text = "Female";
             this.genderFemaleRB.UseVisualStyleBackColor = true;
@@ -271,7 +271,7 @@
             this.genderMaleRB.Location = new System.Drawing.Point(121, 0);
             this.genderMaleRB.Margin = new System.Windows.Forms.Padding(2);
             this.genderMaleRB.Name = "genderMaleRB";
-            this.genderMaleRB.Size = new System.Drawing.Size(62, 23);
+            this.genderMaleRB.Size = new System.Drawing.Size(74, 25);
             this.genderMaleRB.TabIndex = 7;
             this.genderMaleRB.Text = "Male";
             this.genderMaleRB.UseVisualStyleBackColor = true;
@@ -286,7 +286,7 @@
             this.usernameTextBox.MaxLength = 40;
             this.usernameTextBox.Name = "usernameTextBox";
             this.usernameTextBox.ReadOnly = true;
-            this.usernameTextBox.Size = new System.Drawing.Size(213, 24);
+            this.usernameTextBox.Size = new System.Drawing.Size(213, 28);
             this.usernameTextBox.TabIndex = 59;
             // 
             // emailTextBox
@@ -298,7 +298,7 @@
             this.emailTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.emailTextBox.MaxLength = 60;
             this.emailTextBox.Name = "emailTextBox";
-            this.emailTextBox.Size = new System.Drawing.Size(213, 24);
+            this.emailTextBox.Size = new System.Drawing.Size(213, 28);
             this.emailTextBox.TabIndex = 58;
             // 
             // surnameTextBox
@@ -310,7 +310,7 @@
             this.surnameTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.surnameTextBox.MaxLength = 50;
             this.surnameTextBox.Name = "surnameTextBox";
-            this.surnameTextBox.Size = new System.Drawing.Size(213, 24);
+            this.surnameTextBox.Size = new System.Drawing.Size(213, 28);
             this.surnameTextBox.TabIndex = 57;
             // 
             // nameTextBox
@@ -322,18 +322,18 @@
             this.nameTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.nameTextBox.MaxLength = 40;
             this.nameTextBox.Name = "nameTextBox";
-            this.nameTextBox.Size = new System.Drawing.Size(213, 24);
+            this.nameTextBox.Size = new System.Drawing.Size(213, 28);
             this.nameTextBox.TabIndex = 56;
             // 
             // contactProfileLabel
             // 
             this.contactProfileLabel.AutoSize = true;
-            this.contactProfileLabel.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
+            this.contactProfileLabel.Font = new System.Drawing.Font("Century Gothic", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
             this.contactProfileLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(53)))), ((int)(((byte)(65)))));
-            this.contactProfileLabel.Location = new System.Drawing.Point(47, 61);
+            this.contactProfileLabel.Location = new System.Drawing.Point(44, 57);
             this.contactProfileLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.contactProfileLabel.Name = "contactProfileLabel";
-            this.contactProfileLabel.Size = new System.Drawing.Size(185, 28);
+            this.contactProfileLabel.Size = new System.Drawing.Size(310, 47);
             this.contactProfileLabel.TabIndex = 74;
             this.contactProfileLabel.Text = "Contact profile";
             // 
@@ -348,7 +348,6 @@
             this.addButton.Text = "Add contact";
             this.addButton.UseVisualStyleBackColor = true;
             this.addButton.Visible = false;
-            this.addButton.Click += new System.EventHandler(this.addButton_Click);
             // 
             // removeButton
             // 
