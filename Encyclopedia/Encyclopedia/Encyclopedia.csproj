@@ -204,12 +204,6 @@
     <Compile Include="View\ResetAccountForm.Designer.cs">
       <DependentUpon>ResetAccountForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\SearchBar.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="View\SearchBar.Designer.cs">
-      <DependentUpon>SearchBar.cs</DependentUpon>
-    </Compile>
     <Compile Include="View\SendForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -283,9 +277,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\ResetAccountForm.resx">
       <DependentUpon>ResetAccountForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="View\SearchBar.resx">
-      <DependentUpon>SearchBar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\SendForm.resx">
       <DependentUpon>SendForm.cs</DependentUpon>

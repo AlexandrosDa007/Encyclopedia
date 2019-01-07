@@ -75,6 +75,8 @@ namespace UI
             }
             else
                 Encyclopedia.View.SearchResultsUserControl.Instance.BringToFront();
+
+			SearchResultsUserControl.Instance.AddPopularLemmata();
         }
 
         //Opens LemmaOfTheDayUserControl in mainPanel when Logo is clicked

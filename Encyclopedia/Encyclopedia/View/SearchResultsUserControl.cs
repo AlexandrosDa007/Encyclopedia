@@ -49,6 +49,20 @@ namespace Encyclopedia.View
             StartPage.recentLemmas.Reverse();
         }
 
+		public void AddPopularLemmata()
+		{
+			searchResultsListView.Items.Clear();
+
+			// get the 10 most popular lemmata
+			List<string> popularLemmataTitles = DBConnect.GetPopularLemmata();
+
+			foreach (string lemmaTitle in popularLemmataTitles)
+			{
+				// fill the searchResultsListView with the popular lemma titles
+				searchResultsListView.Items.Add(lemmaTitle);
+			}
+		}
+
         public void AddToTheResults(string text, List<string> checkedFilters)
         {
             //clear the list

@@ -465,6 +465,30 @@ namespace Encyclopedia.Controller
 			return matchingAccountsList;
 		}
 
+		public static List<string> GetPopularLemmata()
+		{
+			List<string> popularLemmataList = new List<string>();
+
+			// construct query
+			string query = "SELECT count(*) AS popularity, lemma_title FROM Favorite_Lemma " +
+				"GROUP BY lemma_title ORDER BY popularity DESC LIMIT 10";
+			MySqlCommand cmd = new MySqlCommand(query, connection);
+			cmd.CommandTimeout = 500000;
+
+			// prepare and execute
+			cmd.Prepare();
+			MySqlDataReader dataReader = cmd.ExecuteReader();
+
+			while (dataReader.Read())
+			{
+				// add the lemma titles
+				popularLemmataList.Add(dataReader.GetString("lemma_title"));
+			}
+
+			dataReader.Close();
+			return popularLemmataList;
+		}
+
 		public static int GetLemmaCategoryByTitle(string lemmaTitle)
         {
             int lemmaCategory=-1;
