@@ -61,7 +61,12 @@ namespace Encyclopedia.View
 			// the exitCode must be equal to 0, otherwise something went wrong
 			// the error range is | from 10 to 16 related to the User | from 20 to 27 related to the Account | 2 and 3 related to Database problem
             int exitCode = UserHandler.RegisterUserAccount(name, surname, dateOfBirth, gender, tel, roleName, educationLevelName, description, imageData, username, password, passwordConfirmation, email);
-
+            if (exitCode == 0)
+            {
+                MessageBox.Show("Registered Successfully!");
+                Close();
+            }
+                
 			// show error messages if any
 			Console.WriteLine("The exit code was: " + exitCode);
             switch (exitCode)
