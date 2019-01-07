@@ -53,6 +53,7 @@
             this.mainPanel = new System.Windows.Forms.Panel();
             this.filterCheckedListBox = new System.Windows.Forms.CheckedListBox();
             this.filtersLabel = new System.Windows.Forms.Label();
+            this.clearFilterButton = new System.Windows.Forms.Button();
             this.leftPanel.SuspendLayout();
             this.logoPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.logoPictureBox)).BeginInit();
@@ -299,6 +300,7 @@
             // 
             this.searchPanel.AutoSize = true;
             this.searchPanel.BackColor = System.Drawing.Color.Gainsboro;
+            this.searchPanel.Controls.Add(this.clearFilterButton);
             this.searchPanel.Controls.Add(this.searchTextBox);
             this.searchPanel.Controls.Add(this.searchButton);
             this.searchPanel.Controls.Add(this.mainPanel);
@@ -381,6 +383,21 @@
             this.filtersLabel.TabIndex = 3;
             this.filtersLabel.Text = "Filters:";
             // 
+            // clearFilterButton
+            // 
+            this.clearFilterButton.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.clearFilterButton.AutoSize = true;
+            this.clearFilterButton.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
+            this.clearFilterButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(53)))), ((int)(((byte)(65)))));
+            this.clearFilterButton.Location = new System.Drawing.Point(215, 169);
+            this.clearFilterButton.Margin = new System.Windows.Forms.Padding(4);
+            this.clearFilterButton.Name = "clearFilterButton";
+            this.clearFilterButton.Size = new System.Drawing.Size(70, 33);
+            this.clearFilterButton.TabIndex = 17;
+            this.clearFilterButton.Text = "Clear";
+            this.clearFilterButton.UseVisualStyleBackColor = true;
+            this.clearFilterButton.Click += new System.EventHandler(this.clearFilterButton_Click);
+            // 
             // StartPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -436,6 +453,7 @@
         public System.Windows.Forms.Panel mainPanel;
 		public System.Windows.Forms.Panel searchPanel;
         private System.Windows.Forms.Label feedbackLabel;
+        private System.Windows.Forms.Button clearFilterButton;
     }
 }
 

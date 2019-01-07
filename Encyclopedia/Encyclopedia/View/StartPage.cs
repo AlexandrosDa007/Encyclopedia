@@ -322,5 +322,13 @@ namespace UI
                 feedbackLabel.ForeColor = feedbackLabel.BackColor;
             }
         }
+
+        private void clearFilterButton_Click(object sender, EventArgs e)
+        {
+            for(int i = 0; i < filterCheckedListBox.Items.Count; i++)
+            {
+                filterCheckedListBox.SetItemChecked(i, false);
+            }
+        }
     }
 }
