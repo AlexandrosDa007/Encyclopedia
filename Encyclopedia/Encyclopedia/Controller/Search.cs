@@ -24,7 +24,7 @@ namespace Encyclopedia.Controller
         //static variable for directory -- holding in memory
         //public static RAMDirectory directory;
 
-        public static SimpleFSDirectory dir = new SimpleFSDirectory(new System.IO.DirectoryInfo("../../LuceneDocuments"), null);
+        public static SimpleFSDirectory dir;
 
         public static List<Lemma> firstLemmas;
 
@@ -39,13 +39,13 @@ namespace Encyclopedia.Controller
             //directory = new RAMDirectory();
             firstLemmas = new List<Lemma>();
 
-            
+            dir = new SimpleFSDirectory(new System.IO.DirectoryInfo("../../LuceneDocuments"), null);
 
             //Analyzer object used to analyze text based search
             Analyzer analyzer = new StandardAnalyzer(Lucene.Net.Util.Version.LUCENE_30);
             //Writer object used to write the directory or the "Index"
             IndexWriter writer = new IndexWriter(dir, analyzer, new IndexWriter.MaxFieldLength(1000));
-
+            writer.DeleteAll();
             //Seting similarity -- Used to make the text based search retrive relavant
             //used in scoring system
             writer.SetSimilarity(new DefaultSimilarity());
