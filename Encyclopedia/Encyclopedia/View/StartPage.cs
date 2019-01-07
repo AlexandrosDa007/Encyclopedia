@@ -239,7 +239,6 @@ namespace UI
             else
             {
 				//User doesnt Exists
-				//change the feedback label -- just for demo
 				feedbackLabel.Text = "Wrong username or password, please try again.";
 				feedbackLabel.ForeColor = Color.White;
 
@@ -314,6 +313,31 @@ namespace UI
                 feedbackLabel.ForeColor = feedbackLabel.BackColor;
             }
         }
+
+		private void forgotPasswordLinkLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+		{
+			string email = "stavroula4ever@gmail.com";
+			string username = "Tso";
+
+			int exitCode = UserHandler.SendTempPasswordToAccountEmail(username, email);
+			if (exitCode == 0)
+			{
+				MessageBox.Show("  A temporary password was sent to your email!\n");
+			}
+			else if (exitCode == 1)
+			{
+				MessageBox.Show("  Please insert a username first (at least two characters) and try again.\n");
+			}
+			else if (exitCode == 2)
+			{
+				MessageBox.Show("  Invalid email format. Please check for any mistakes and try again.\n");
+			}
+			else
+			{
+				MessageBox.Show("  Something went wrong. Please try again.\n");
+			}
+		}
+	}
 
         private void clearFilterButton_Click(object sender, EventArgs e)
         {

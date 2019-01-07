@@ -1446,18 +1446,42 @@ namespace Encyclopedia.Controller
             return rowsAffected;
         }
 
+		public static int CheckAccountMatchAndUpdate(string username, string email, string tempPassword)
+		{
+			Account account = new Account();
+
+			// configure account details
+			account.Username = username;
+			account.Email = email;
+			// create and set up password salt and salted password hash
+			string salt = PasswordUtilities.CreateSalt(16);
+			string passwordHashed = PasswordUtilities.GenerateSHA256Hash(tempPassword, salt);
+			account.PasswordSalt = salt;
+			account.SaltedPasswordHash = passwordHashed;
+
+			// if rowsAffectedAccount equals to 1, then the update completed successfully
+			int rowsAffectedAccount = Update(account);
+			if (rowsAffectedAccount != 1)
+			{
+				return 3;
+			}
+
+			// if the method doesn't return 0, something went wrong with the database
+			return 0;
+		}
+
 		public static int Update(Account account)
 		{
-            string query = "UPDATE Account SET account_salted_password_hash = @pass,account_password_salt = @salt WHERE account_email = @email";
+            string query = "UPDATE Account SET account_salted_password_hash = @pass, account_password_salt = @salt WHERE account_username = @username AND account_email = @email";
             MySqlCommand cmd = new MySqlCommand(query, connection);
             cmd.CommandTimeout = 500000;
-            cmd.Parameters.AddWithValue("@pass", account.SaltedPasswordHash);
             cmd.Parameters.AddWithValue("@salt", account.PasswordSalt);
+			cmd.Parameters.AddWithValue("@pass", account.SaltedPasswordHash);
+			cmd.Parameters.AddWithValue("@username", account.Username);
             cmd.Parameters.AddWithValue("@email", account.Email);
             cmd.Prepare();
             int rowsAffected = cmd.ExecuteNonQuery();
-
-
+			
             return rowsAffected;
         }
 	}

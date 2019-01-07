@@ -140,7 +140,6 @@ namespace Encyclopedia.View
             {
                 Account.User.EducationLevel.Name = educationLevelCB.GetItemText(educationLevelCB.SelectedItem);
                 Account.User.EducationLevel.Id = educationLevelCB.SelectedIndex + 1;
-                Console.WriteLine("debug");
             }
             else
             {
@@ -205,11 +204,16 @@ namespace Encyclopedia.View
                     if(okayToUpdate == 0)
                     {
                         //try to update
+
                         //make password hash and create salt
                         string salt = PasswordUtilities.CreateSalt(16);
                         string passwordHashed = PasswordUtilities.GenerateSHA256Hash(pass, salt);
                         Account.PasswordSalt = salt;
                         Account.SaltedPasswordHash = passwordHashed;
+
+						// set up account username for interoperability purposes
+						Account.Username = usernameTextBox.Text;
+
                         int accountAffected = DBConnect.Update(Account);
                         int userAffected = DBConnect.Update(Account.User);
                         if (accountAffected == 1 && userAffected == 1)

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Mail;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
@@ -10,7 +11,80 @@ namespace Encyclopedia.Controller
 {
     class UserHandler
     {
-        public static int RegisterUserAccount(string name, string surname, DateTime dateOfBirth, char gender, string tel, string roleName, string educationLevelName, string description, Byte[] image, string username, string password, string passwordConfirmation, string email)
+		public static int SendTempPasswordToAccountEmail(string username, string emailAddress)
+		{
+			try
+			{
+				// check empty strings
+				if (username.Length < 2)
+					return 1;
+				if (emailAddress.Length == 0)
+					return 2;
+
+				// configure and check receiver's email address
+				MailAddress toAddress = new MailAddress(emailAddress, username);
+				
+				// get the temporary password
+				string tempPassword = PasswordUtilities.CreateSalt(16);
+				// check if the account details match to an existing account and update if so
+				int exitCode = DBConnect.CheckAccountMatchAndUpdate(username, emailAddress, tempPassword);
+				if (exitCode != 0)
+				{
+					return exitCode;
+				}
+				else
+				{
+					// the account updated successfully, continue with the email sending
+					SendEmail(toAddress, username, tempPassword);
+				}
+
+				return 0;
+			}
+			catch (FormatException)
+			{
+				// invalid provided receiver's email format
+				return 2;
+			}
+			catch (Exception)
+			{
+				// general error related to email sending process
+				return 4;
+			}
+		}
+
+		private static void SendEmail(MailAddress toAddress, string username, string tempPassword)
+		{
+			// configure sender's email address
+			MailAddress fromAddress = new MailAddress("encyclopedia.noreply@gmail.com", "EncyclopediaSupport Team4");
+			const string fromPassword = "mpla123P";  // ideally it should be encrypted
+
+			// configure SMTP client properties
+			SmtpClient client = new SmtpClient();
+			client.Host = "smtp.gmail.com";
+			client.Port = 587;
+			client.EnableSsl = true;
+			client.DeliveryMethod = SmtpDeliveryMethod.Network;
+			client.UseDefaultCredentials = false;
+			client.Credentials = new System.Net.NetworkCredential(fromAddress.Address, fromPassword);
+
+			// configure email message
+			MailMessage mailMessage = new MailMessage(fromAddress, toAddress);
+			mailMessage.Subject = "Encyclopedia Account Password Reset";
+			mailMessage.IsBodyHtml = true;
+			string htmlBody = "<h3>Greetings " + username + ",</h3>" +
+				"<p>This email was sent because you requested your account password recovery in Encyclopedia App.</p></br></br>" +
+				"<p>Your password was reset to the following temporary: </p></br></br>" +
+				"<p style=\"text-decoration: underline dotted;\"><b>" + tempPassword + "</b></p></br></br>" +
+				"<p>It can be used to log into your account and update your password.</p></br></br></br>" +
+				"<p>King Regards,</br>" +
+				"Encyclopedia Team.</p>";
+			mailMessage.Body = htmlBody;
+
+			// send password recovery email
+			client.Send(mailMessage);
+		}
+
+		public static int RegisterUserAccount(string name, string surname, DateTime dateOfBirth, char gender, string tel, string roleName, string educationLevelName, string description, Byte[] image, string username, string password, string passwordConfirmation, string email)
         {
 			// check the input regarding the User
 			// check if an education level was selected and if it was, find and construct an EducationLevel object
@@ -79,8 +153,6 @@ namespace Encyclopedia.Controller
 				}
 			}
         }
-
-
 
 		private static EducationLevel FindEducationLevel(string educationLevelName)
 		{

@@ -76,7 +76,7 @@ namespace Encyclopedia.View
                 int res = DBConnect.Insert(editedLemma);
                 if (res == 1)
                 {
-                    MessageBox.Show("EditedLemma insert successfull!!");
+                    MessageBox.Show("  The edited lemma \"" + lemma.Title + "\" was saved successfully to your account!\n");
                     StartPage.editedLemmaList = DBConnect.GetEditedLemmasByUser(StartPage.account.User);
                     EditedLemmataUserControl.Instance.editedLemmas = StartPage.editedLemmaList;
                     EditedLemmataUserControl.Instance.SetLemmas();
@@ -84,7 +84,7 @@ namespace Encyclopedia.View
                 }
                 else
                 {
-                    MessageBox.Show("Something went wrong!!");
+                    MessageBox.Show("  Something went wrong! Please try again.\n");
                 }
             }else if(mode == 1)
             {
@@ -96,7 +96,7 @@ namespace Encyclopedia.View
                 int res = DBConnect.Update(editedLemma, StartPage.account.User);
                 if (res == 1)
                 {
-                    MessageBox.Show("EditedLemma insert successfull!!");
+                    MessageBox.Show("  The edited lemma \"" + lemma.Title + "\" was saved successfully to your account!\n");
                     StartPage.editedLemmaList = DBConnect.GetEditedLemmasByUser(StartPage.account.User);
                     EditedLemmataUserControl.Instance.editedLemmas = StartPage.editedLemmaList;
                     EditedLemmataUserControl.Instance.SetLemmas();
@@ -104,7 +104,7 @@ namespace Encyclopedia.View
                 }
                 else
                 {
-                    MessageBox.Show("Something went wrong!!");
+                    MessageBox.Show("  Something went wrong! Please try again.\n");
                 }
             }
 
