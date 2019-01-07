@@ -264,22 +264,22 @@ namespace Encyclopedia.View
             switch (errorCode)
             {
                 case 3:
-                    feedbackLabel1.Text = "The exit code was: " + errorCode + " Name can't be empty!";
+                    feedbackLabel1.Text = "Name can't be empty!";
                     break;
                 case 4:
-                    feedbackLabel1.Text = "The exit code was: " + errorCode + " Surname can't be empty!";
+                    feedbackLabel1.Text = "Surname can't be empty!";
                     break;
                 case 5:
-                    feedbackLabel1.Text = "The exit code was: " + errorCode + " Password can't be empty!";
+                    feedbackLabel1.Text = "Password can't be empty!";
                     break;
                 case 6:
-                    feedbackLabel1.Text = "The exit code was: " + errorCode + " Password doesn't match!";
+                    feedbackLabel1.Text = "Password doesn't match!";
                     break;
                 case 7:
-                    feedbackLabel1.Text = "The exit code was: " + errorCode + " Password must be at least 8 characters long\nwith at least one letter and one digit!";
+                    feedbackLabel1.Text = "Password must be at least 8 characters long\nwith at least one letter and one digit!";
                     break;
                 case 8:
-                    feedbackLabel1.Text = "The exit code was: " + errorCode + " Connection error please try again!";
+                    feedbackLabel1.Text = "Connection error please try again!";
                     break;
             }
         }
