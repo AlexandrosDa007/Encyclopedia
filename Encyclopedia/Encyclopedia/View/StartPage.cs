@@ -242,7 +242,6 @@ namespace UI
                 afterLoginPanel.SetImage();
                 changePanelControls();
                 LemmaViewUserControl.Instance.ChangeLabelsToVisibleByValue(true);
-
             }
             else
             {

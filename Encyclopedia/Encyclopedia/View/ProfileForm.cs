@@ -43,8 +43,8 @@ namespace Encyclopedia.View
             usernameTextBox.Text = Account.Username;
             if (Account.User.Gender == 'M')
                 genderMaleRB.Checked = true;
-            else if (Account.User.Gender == 'F')
-                genderFemaleRB.Checked = false;
+            if (Account.User.Gender == 'F')
+                genderFemaleRB.Checked = true;
             dateOfBirthDTP.Value = Account.User.DateOfBirth;
 
             if(Account.User.EducationLevel.Id != -999)

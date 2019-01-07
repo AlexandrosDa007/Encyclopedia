@@ -32,7 +32,7 @@ namespace Encyclopedia.View
             usernameTextBox.Text = account.Username;
             if (account.User.Gender.Equals('M'))
                 genderMaleRB.Checked = true;
-            else if (account.User.Gender.Equals('F'))
+            if (account.User.Gender.Equals('F'))
                 genderFemaleRB.Checked = true;
             dateOfBirthDTP.Value = account.User.DateOfBirth;
             if (account.User.EducationLevel.Id == -999)
