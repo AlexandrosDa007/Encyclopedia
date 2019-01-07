@@ -103,18 +103,18 @@ namespace Encyclopedia.View
 
         private void saveButton_Click(object sender, EventArgs e)
         {
+            string lemmaTitle = lemma.Title;
             try
             {
                 SaveFileDialog savefile = new SaveFileDialog();
                 // set a default file name
-                savefile.FileName = "somelemmma";
+                savefile.FileName = lemmaTitle;
                 // set filters - this can be done in properties as well
                 savefile.Filter = "Pdf Files|*.pdf";
 
                 if (savefile.ShowDialog() == DialogResult.OK)
                 {
                     string path = savefile.FileName;
-                    string lemmaTitle = "American_Literature_(academic_discipline)";
                     PDF.exportToPDF(lemmaTitle, path);
                 }
             }
