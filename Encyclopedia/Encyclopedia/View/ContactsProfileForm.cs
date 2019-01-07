@@ -122,5 +122,7 @@ namespace Encyclopedia.View
                 Close();
             }
         }
+
+        
     }
 }

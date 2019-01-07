@@ -78,7 +78,7 @@ namespace Encyclopedia.View
 
             // Open a ContactsProfileForm
             ContactsProfileForm form = new ContactsProfileForm(contactAccount);
-            form.Show();
+            form.ShowDialog();
         }
 
 		private void createGroupButton_Click(object sender, EventArgs e)
@@ -109,7 +109,7 @@ namespace Encyclopedia.View
                 Console.WriteLine("ha");
 
             ContactsProfileForm form = new ContactsProfileForm(contactAccount);
-            form.Show();
+            form.ShowDialog();
 
             Console.WriteLine(clickedText);
 

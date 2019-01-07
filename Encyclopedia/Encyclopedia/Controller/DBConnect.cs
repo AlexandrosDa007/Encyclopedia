@@ -925,7 +925,6 @@ namespace Encyclopedia.Controller
             // prepare and execute
             cmd.Prepare();
             int rowsAffected = cmd.ExecuteNonQuery();
-
             return rowsAffected; // if rowsAffected equals to 1, then the insertion completed successfully
         }
 
