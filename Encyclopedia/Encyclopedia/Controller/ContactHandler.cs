@@ -93,19 +93,22 @@ namespace Encyclopedia.Controller
 			
 			foreach (Account account in matchingAccounts)
 			{
-				// add user account item name and surname
-				ListViewItem accountItem = listView.Items.Add(account.User.Name + " " + account.User.Surname);
-				accountItem.UseItemStyleForSubItems = false;
+				if (account.User.Id != UI.StartPage.account.User.Id)
+				{
+					// add user account item name and surname
+					ListViewItem accountItem = listView.Items.Add(account.User.Name + " " + account.User.Surname);
+					accountItem.UseItemStyleForSubItems = false;
 
-				// add user account subitem username
-				ListViewItem.ListViewSubItem accountSubItem = accountItem.SubItems.Add(account.Username);
-				accountSubItem.ForeColor = Color.LightSlateGray;
-				accountSubItem.Font = new Font("Century Gothic", 12, FontStyle.Regular);
+					// add user account subitem username
+					ListViewItem.ListViewSubItem accountSubItem = accountItem.SubItems.Add(account.Username);
+					accountSubItem.ForeColor = Color.LightSlateGray;
+					accountSubItem.Font = new Font("Century Gothic", 12, FontStyle.Regular);
 
-				// add user account subitem email
-				accountSubItem = accountItem.SubItems.Add(account.Email);
-				accountSubItem.ForeColor = Color.LightSlateGray;
-				accountSubItem.Font = new Font("Century Gothic", 12, FontStyle.Regular);
+					// add user account subitem email
+					accountSubItem = accountItem.SubItems.Add(account.Email);
+					accountSubItem.ForeColor = Color.LightSlateGray;
+					accountSubItem.Font = new Font("Century Gothic", 12, FontStyle.Regular);
+				}
 			}
 		}
 	}
