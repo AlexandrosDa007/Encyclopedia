@@ -73,10 +73,10 @@ namespace Encyclopedia.Controller
 			mailMessage.IsBodyHtml = true;
 			string htmlBody = "<h3>Greetings " + username + ",</h3>" +
 				"<p>This email was sent because you requested your account password recovery in Encyclopedia App.</p></br></br>" +
-				"<p>Your password was reset to the following temporary: </p></br></br>" +
+				"<p>Your password was reset to the following temporary one: </p></br></br>" +
 				"<p style=\"text-decoration: underline dotted;\"><b>" + tempPassword + "</b></p></br></br>" +
 				"<p>It can be used to log into your account and update your password.</p></br></br></br>" +
-				"<p>King Regards,</br>" +
+				"<p>Kind Regards,</br>" +
 				"Encyclopedia Team.</p>";
 			mailMessage.Body = htmlBody;
 

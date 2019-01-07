@@ -1,5 +1,4 @@
-﻿using Encyclopedia;
-using Encyclopedia.Controller;
+﻿using Encyclopedia.Controller;
 using Encyclopedia.Model;
 using Encyclopedia.View;
 using System;
@@ -314,37 +313,18 @@ namespace UI
             }
         }
 
-		private void forgotPasswordLinkLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+		private void clearFilterButton_Click(object sender, EventArgs e)
 		{
-			string email = "stavroula4ever@gmail.com";
-			string username = "Tso";
-
-			int exitCode = UserHandler.SendTempPasswordToAccountEmail(username, email);
-			if (exitCode == 0)
+			for (int i = 0; i < filterCheckedListBox.Items.Count; i++)
 			{
-				MessageBox.Show("  A temporary password was sent to your email!\n");
-			}
-			else if (exitCode == 1)
-			{
-				MessageBox.Show("  Please insert a username first (at least two characters) and try again.\n");
-			}
-			else if (exitCode == 2)
-			{
-				MessageBox.Show("  Invalid email format. Please check for any mistakes and try again.\n");
-			}
-			else
-			{
-				MessageBox.Show("  Something went wrong. Please try again.\n");
+				filterCheckedListBox.SetItemChecked(i, false);
 			}
 		}
-	}
 
-        private void clearFilterButton_Click(object sender, EventArgs e)
-        {
-            for(int i = 0; i < filterCheckedListBox.Items.Count; i++)
-            {
-                filterCheckedListBox.SetItemChecked(i, false);
-            }
-        }
-    }
+		private void forgotPasswordLinkLabel_Click(object sender, EventArgs e)
+		{
+			ResetAccountForm resetForm = new ResetAccountForm();
+			resetForm.ShowDialog();
+		}
+	}
 }
