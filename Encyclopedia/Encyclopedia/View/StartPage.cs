@@ -165,14 +165,7 @@ namespace UI
 
         private void searchButton_Click(object sender, EventArgs e)
         {
-            //Check if fetching all lemmas is finished then write to index
-            //then make flag false - this only happens once every time the application starts
-            if (Program.isFetchLemmasThreadFinished)
-            {
-                Encyclopedia.Controller.Search.WriteToDirectory();
-                Program.isFetchLemmasThreadFinished = false;
-            }
-
+            
             if (!mainPanel.Controls.Contains(Encyclopedia.View.SearchResultsUserControl.Instance))
             {
                 mainPanel.Controls.Add(Encyclopedia.View.SearchResultsUserControl.Instance);
