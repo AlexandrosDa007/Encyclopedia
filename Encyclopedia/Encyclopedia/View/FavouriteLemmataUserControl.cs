@@ -124,6 +124,6 @@ namespace Encyclopedia.View
 
         }
 
-
+       
     }
 }
