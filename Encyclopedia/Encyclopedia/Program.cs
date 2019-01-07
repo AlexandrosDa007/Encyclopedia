@@ -33,7 +33,7 @@ namespace Encyclopedia
                 return;
             }
             //this takes a long time - 4min 
-            //Search.CreateIndex();
+            Search.CreateIndex();
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new UI.StartPage());

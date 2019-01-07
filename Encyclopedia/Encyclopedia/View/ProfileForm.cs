@@ -220,7 +220,7 @@ namespace Encyclopedia.View
                         {
                             UpdatedSuccessfully = true;
                             Console.WriteLine("Debug Account updated succeded");
-                            MessageBox.Show("Account updated successfully");
+                            MessageBox.Show("  Account updated successfully!\n");
                             feedbackLabel1.Text = "";
                             this.Close();
                         }
