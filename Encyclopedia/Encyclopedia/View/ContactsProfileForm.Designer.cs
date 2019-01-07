@@ -39,8 +39,6 @@
             this.emailLabel = new System.Windows.Forms.Label();
             this.usernameLabel = new System.Windows.Forms.Label();
             this.nameLabel = new System.Windows.Forms.Label();
-            this.roleCB = new System.Windows.Forms.ComboBox();
-            this.educationLevelCB = new System.Windows.Forms.ComboBox();
             this.imagePB = new System.Windows.Forms.PictureBox();
             this.dateOfBirthDTP = new System.Windows.Forms.DateTimePicker();
             this.descriptionRTB = new System.Windows.Forms.RichTextBox();
@@ -54,6 +52,8 @@
             this.contactProfileLabel = new System.Windows.Forms.Label();
             this.addButton = new System.Windows.Forms.Button();
             this.removeButton = new System.Windows.Forms.Button();
+            this.educationLevelTextBox = new System.Windows.Forms.TextBox();
+            this.roleLevelTextBox = new System.Windows.Forms.TextBox();
             this.topPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.closePictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imagePB)).BeginInit();
@@ -172,32 +172,6 @@
             this.nameLabel.Size = new System.Drawing.Size(57, 20);
             this.nameLabel.TabIndex = 66;
             this.nameLabel.Text = "Name ";
-            // 
-            // roleCB
-            // 
-            this.roleCB.BackColor = System.Drawing.SystemColors.Window;
-            this.roleCB.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.roleCB.Enabled = false;
-            this.roleCB.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.roleCB.FormattingEnabled = true;
-            this.roleCB.Location = new System.Drawing.Point(282, 515);
-            this.roleCB.Margin = new System.Windows.Forms.Padding(2);
-            this.roleCB.Name = "roleCB";
-            this.roleCB.Size = new System.Drawing.Size(213, 27);
-            this.roleCB.TabIndex = 64;
-            // 
-            // educationLevelCB
-            // 
-            this.educationLevelCB.BackColor = System.Drawing.SystemColors.Window;
-            this.educationLevelCB.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.educationLevelCB.Enabled = false;
-            this.educationLevelCB.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.educationLevelCB.FormattingEnabled = true;
-            this.educationLevelCB.Location = new System.Drawing.Point(282, 468);
-            this.educationLevelCB.Margin = new System.Windows.Forms.Padding(2);
-            this.educationLevelCB.Name = "educationLevelCB";
-            this.educationLevelCB.Size = new System.Drawing.Size(213, 27);
-            this.educationLevelCB.TabIndex = 63;
             // 
             // imagePB
             // 
@@ -363,12 +337,40 @@
             this.removeButton.Visible = false;
             this.removeButton.Click += new System.EventHandler(this.removeButton_Click);
             // 
+            // educationLevelTextBox
+            // 
+            this.educationLevelTextBox.BackColor = System.Drawing.SystemColors.Window;
+            this.educationLevelTextBox.Enabled = false;
+            this.educationLevelTextBox.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.educationLevelTextBox.Location = new System.Drawing.Point(282, 467);
+            this.educationLevelTextBox.Margin = new System.Windows.Forms.Padding(2);
+            this.educationLevelTextBox.MaxLength = 40;
+            this.educationLevelTextBox.Name = "educationLevelTextBox";
+            this.educationLevelTextBox.ReadOnly = true;
+            this.educationLevelTextBox.Size = new System.Drawing.Size(213, 24);
+            this.educationLevelTextBox.TabIndex = 77;
+            // 
+            // roleLevelTextBox
+            // 
+            this.roleLevelTextBox.BackColor = System.Drawing.SystemColors.Window;
+            this.roleLevelTextBox.Enabled = false;
+            this.roleLevelTextBox.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.roleLevelTextBox.Location = new System.Drawing.Point(282, 514);
+            this.roleLevelTextBox.Margin = new System.Windows.Forms.Padding(2);
+            this.roleLevelTextBox.MaxLength = 40;
+            this.roleLevelTextBox.Name = "roleLevelTextBox";
+            this.roleLevelTextBox.ReadOnly = true;
+            this.roleLevelTextBox.Size = new System.Drawing.Size(213, 24);
+            this.roleLevelTextBox.TabIndex = 78;
+            // 
             // ContactsProfileForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.Gainsboro;
             this.ClientSize = new System.Drawing.Size(800, 727);
+            this.Controls.Add(this.roleLevelTextBox);
+            this.Controls.Add(this.educationLevelTextBox);
             this.Controls.Add(this.removeButton);
             this.Controls.Add(this.addButton);
             this.Controls.Add(this.contactProfileLabel);
@@ -380,8 +382,6 @@
             this.Controls.Add(this.emailLabel);
             this.Controls.Add(this.usernameLabel);
             this.Controls.Add(this.nameLabel);
-            this.Controls.Add(this.roleCB);
-            this.Controls.Add(this.educationLevelCB);
             this.Controls.Add(this.imagePB);
             this.Controls.Add(this.dateOfBirthDTP);
             this.Controls.Add(this.descriptionRTB);
@@ -418,8 +418,6 @@
         private System.Windows.Forms.Label emailLabel;
         private System.Windows.Forms.Label usernameLabel;
         private System.Windows.Forms.Label nameLabel;
-        private System.Windows.Forms.ComboBox roleCB;
-        private System.Windows.Forms.ComboBox educationLevelCB;
         private System.Windows.Forms.PictureBox imagePB;
         private System.Windows.Forms.DateTimePicker dateOfBirthDTP;
         private System.Windows.Forms.RichTextBox descriptionRTB;
@@ -433,5 +431,7 @@
         private System.Windows.Forms.Label contactProfileLabel;
         private System.Windows.Forms.Button addButton;
         private System.Windows.Forms.Button removeButton;
+        private System.Windows.Forms.TextBox educationLevelTextBox;
+        private System.Windows.Forms.TextBox roleLevelTextBox;
     }
 }

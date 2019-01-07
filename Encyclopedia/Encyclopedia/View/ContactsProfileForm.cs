@@ -36,13 +36,13 @@ namespace Encyclopedia.View
                 genderFemaleRB.Checked = true;
             dateOfBirthDTP.Value = account.User.DateOfBirth;
             if (account.User.EducationLevel.Id == -999)
-                educationLevelCB.SelectedText = "";
+                educationLevelTextBox.Text = "";
             else
-                educationLevelCB.SelectedText = DBConnect.GetEducationLevelById(account.User.EducationLevel.Id).Name;
+                educationLevelTextBox.Text = DBConnect.GetEducationLevelById(account.User.EducationLevel.Id).Name;
             if (account.User.Role.Id == -999)
-                roleCB.SelectedText = "";
+                roleLevelTextBox.Text = "";
             else
-                roleCB.SelectedText = DBConnect.GetRoleById(account.User.Role.Id).Name;
+                roleLevelTextBox.Text = DBConnect.GetRoleById(account.User.Role.Id).Name;
             descriptionRTB.Text = account.User.Description;
             if (account.User.Image != null)
                 imagePB.Image = (Bitmap)((new ImageConverter()).ConvertFrom(account.User.Image));
