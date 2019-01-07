@@ -17,7 +17,7 @@ namespace Encyclopedia.View
         public Lemma lemma;
         public EditedLemma editedLemma;
 
-        private StartPage startPage;
+        //private StartPage startPage;
         public int mode;
 
         public bool isFavorite;
@@ -31,19 +31,15 @@ namespace Encyclopedia.View
                 if (_instance == null)
                     _instance = new LemmaViewUserControl();
                 return _instance;
-
             }
         }
 
         public LemmaViewUserControl()
         {
-            //init the database connection -- not the best place here
-
             InitializeComponent();
             //start by having something as default --TO BE CHANGED
             //ChangeValue("Concept");
             //SetLemmaData("Placebo");
-
         }
 
         public void SetLemmaData(string lemmaTitle,int mode)
@@ -58,19 +54,18 @@ namespace Encyclopedia.View
             {
                 editedLemma = DBConnect.GetEditedLemmaByUserAndTitle(lemmaTitle, StartPage.account.User);
             }
-            
-            
         }
 
         public void ChangeValue(string title, int mode)
         {
-            
             if (isFavorite)
                 favouritesButton.BackgroundImage = favoriteClicked;
             else
                 favouritesButton.BackgroundImage = favoriteNotClicked;
+
             this.mode = mode;
             SetLemmaData(title, mode);
+
 			string titleStyle = " style=\"display: block; " +
 				"font-size: 3em;" +
 				"margin-top: 0.67em; " +
@@ -91,9 +86,6 @@ namespace Encyclopedia.View
                 LemmaViewWebBrowser.DocumentText = "<h1" + titleStyle + ">" + title.Replace("_", " ") + "</h1>" + editedLemma.Body;
                 
             }
-                
-            
-                
         }
 
         public void ChangeLabelsToVisibleByValue(bool value)
@@ -135,7 +127,8 @@ namespace Encyclopedia.View
 
         private void shareButton_Click(object sender, EventArgs e)
         {
-
+			SendForm sendForm = new SendForm();
+			sendForm.ShowDialog();
         }
 
         private void editButton_Click(object sender, EventArgs e)
@@ -150,7 +143,6 @@ namespace Encyclopedia.View
                         return;
                     }
                 }
-
             }
             else if(mode == 1)
             {
@@ -179,8 +171,6 @@ namespace Encyclopedia.View
                 LemmaEditor lemmaEditor = new LemmaEditor(editedLemma, mode);
                 lemmaEditor.ShowDialog();
             }
-
-                 
         }
 
         private void favouritesButton_Click(object sender, EventArgs e)

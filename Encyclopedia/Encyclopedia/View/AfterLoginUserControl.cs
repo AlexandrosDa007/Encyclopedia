@@ -24,8 +24,6 @@ namespace Encyclopedia.View
 			if (StartPage.account != null)
 			{
 				connectUserLabel.Text = "Welcome " + StartPage.account.Username + "!";
-
-				//ContactsUserControl.Instance;
 			}
 		}
 
@@ -74,8 +72,6 @@ namespace Encyclopedia.View
             }
             else
                 EditedLemmataUserControl.Instance.BringToFront();
-            
-            
         }
 
         private void favouritesButton_Click(object sender, EventArgs e)

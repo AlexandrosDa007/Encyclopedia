@@ -13,7 +13,7 @@ namespace Encyclopedia.Controller
         //lemmaTitle: the lemma of  the title to be send.
         //receivers: array with the IDs of the receivers.
         //additional notes: a string with extra notes from the user.
-        public static void sendMessage(int userID,string lemmaTitle,int[] receivers,string additionalNotes)
+        public static int sendMessage(int userID,string lemmaTitle,int[] receivers,string additionalNotes)
         {
             //Get the properties needed for the creation of Lemma object
             byte[] lemmaBody = DBConnect.GetLemmaBodyByTitle(lemmaTitle);
@@ -28,6 +28,7 @@ namespace Encyclopedia.Controller
 
             DateTime sendingDate = new DateTime();
 
+			int result = 0;
             for (int i=0; i< receivers.Length; i++)
             {
                 int receiverID = receivers[i];
@@ -38,9 +39,12 @@ namespace Encyclopedia.Controller
                 User receiver = new User(receiverID, receiverName, receiverSurname, receiverdateOfBirth);
 
                 //Create SharedLemma object
-                SharedLemma sharedLemma = new SharedLemma(sender, receiver,lemma,'1',sendingDate,additionalNotes);
-                int result = DBConnect.Insert(sharedLemma);
-            }
-        }
+                SharedLemma sharedLemma = new SharedLemma(sender, receiver, lemma, '1', sendingDate, additionalNotes);
+                result += DBConnect.Insert(sharedLemma);
+			}
+
+			// the result must be equal to the receivers.Length if all of the insertions were successful
+			return result;
+		}
     }
 }

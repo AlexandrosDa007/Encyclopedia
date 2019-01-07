@@ -52,7 +52,7 @@ namespace Encyclopedia.View
                 Label title = setLabelData(e.LemmaTitle,false);
                 title.Click += new EventHandler(this.titleClick);
                 Label updatedAt = setLabelData(e.UpdatedAt.ToShortDateString(),false);
-                updatedAt.Font = new System.Drawing.Font("Century Gothic", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
+                updatedAt.Font = new System.Drawing.Font("Century Gothic", 22F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
                 Label removeLabel = setLabelData("Remove", true);
                 removeLabel.Click += new EventHandler(this.removeClick);
 
@@ -67,7 +67,7 @@ namespace Encyclopedia.View
 
         private Label setLabelData(string labelString, bool isRemoveLabel)
         {
-            Font style = new System.Drawing.Font("Century Gothic", 24F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(161)));      
+            Font style = new System.Drawing.Font("Century Gothic", 22F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(161)));      
             Label newLabel = new Label();
             if (isRemoveLabel)
                 newLabel.ForeColor = Color.Orange;

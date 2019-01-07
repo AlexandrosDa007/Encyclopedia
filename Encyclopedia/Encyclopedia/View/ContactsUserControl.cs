@@ -75,15 +75,26 @@ namespace Encyclopedia.View
 
             Account contactAccount = DBConnect.GetAccountByUser(contactUser);
 
-            //Open a ContactsProfileForm
+            // Open a ContactsProfileForm
             ContactsProfileForm form = new ContactsProfileForm(contactAccount);
             form.Show();
-
         }
 
 		private void createGroupButton_Click(object sender, EventArgs e)
 		{
 
+		}
+
+		private void searchContactsButton_Click(object sender, EventArgs e)
+		{
+			// get the search string
+			string searchString = searchContactsTextBox.Text;
+
+			// fill the tab/listview with the matching user accounts
+			ContactHandler.FillContactSearchResults(contactsSearchResultsListView, searchString);
+
+			// set focus on the search results tab
+			contactsTabControl.SelectedTab = contactsTabControl.TabPages["searchContactsResultTabPage"];
 		}
 	}
 }

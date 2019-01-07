@@ -48,7 +48,6 @@ namespace UI
                 mainPanel.Controls.Add(Encyclopedia.View.LemmaOfTheDayUserControl.Instance);
                 Encyclopedia.View.LemmaOfTheDayUserControl.Instance.Dock = DockStyle.Fill;
                 Encyclopedia.View.LemmaOfTheDayUserControl.Instance.BringToFront();
-                
             }
             else
             {
@@ -74,7 +73,6 @@ namespace UI
                 mainPanel.Controls.Add(Encyclopedia.View.SearchResultsUserControl.Instance);
                 Encyclopedia.View.SearchResultsUserControl.Instance.Dock = DockStyle.Fill;
                 Encyclopedia.View.SearchResultsUserControl.Instance.BringToFront();
-
             }
             else
                 Encyclopedia.View.SearchResultsUserControl.Instance.BringToFront();
@@ -88,7 +86,6 @@ namespace UI
                 mainPanel.Controls.Add(Encyclopedia.View.LemmaOfTheDayUserControl.Instance);
                 Encyclopedia.View.LemmaOfTheDayUserControl.Instance.Dock = DockStyle.Fill;
                 Encyclopedia.View.LemmaOfTheDayUserControl.Instance.BringToFront();
-                
             }
             else
             {
@@ -104,7 +101,6 @@ namespace UI
                 mainPanel.Controls.Add(Encyclopedia.View.SearchResultsUserControl.Instance);
                 Encyclopedia.View.SearchResultsUserControl.Instance.Dock = DockStyle.Fill;
                 Encyclopedia.View.SearchResultsUserControl.Instance.BringToFront();
-
             }
             else
                 Encyclopedia.View.SearchResultsUserControl.Instance.BringToFront();
@@ -119,7 +115,6 @@ namespace UI
                 mainPanel.Controls.Add(Encyclopedia.View.SearchResultsUserControl.Instance);
                 Encyclopedia.View.SearchResultsUserControl.Instance.Dock = DockStyle.Fill;
                 Encyclopedia.View.SearchResultsUserControl.Instance.BringToFront();
-
             }
             else
                 Encyclopedia.View.SearchResultsUserControl.Instance.BringToFront();
@@ -135,7 +130,6 @@ namespace UI
                 Encyclopedia.View.SearchResultsUserControl.Instance.Dock = DockStyle.Fill;
                 Encyclopedia.View.SearchResultsUserControl.Instance.BringToFront();
                 Search();
-
             }
             else
             {
@@ -153,9 +147,7 @@ namespace UI
             }
 
             Encyclopedia.View.SearchResultsUserControl.Instance.AddToTheResults(searchTextBox.Text, filterList);
-
         }
-
 
         //Opens SearchResultsUserControl in mainPanel when we choose a date
         private void dateTimePicker_ValueChanged(object sender, EventArgs e)
@@ -165,7 +157,6 @@ namespace UI
                 mainPanel.Controls.Add(Encyclopedia.View.SearchResultsUserControl.Instance);
                 Encyclopedia.View.SearchResultsUserControl.Instance.Dock = DockStyle.Fill;
                 Encyclopedia.View.SearchResultsUserControl.Instance.BringToFront();
-
             }
             else
                 Encyclopedia.View.SearchResultsUserControl.Instance.BringToFront();
@@ -187,7 +178,6 @@ namespace UI
                 mainPanel.Controls.Add(Encyclopedia.View.SearchResultsUserControl.Instance);
                 Encyclopedia.View.SearchResultsUserControl.Instance.Dock = DockStyle.Fill;
                 Encyclopedia.View.SearchResultsUserControl.Instance.BringToFront();
-
             }
             else
                 Encyclopedia.View.SearchResultsUserControl.Instance.BringToFront();
@@ -195,7 +185,6 @@ namespace UI
             Search();
             //clear the filter list
             filterList.Clear();
-            
         }
 
         private void newUserLinkLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -310,8 +299,6 @@ namespace UI
 			this.MaximumSize = new Size(workingRectangle.Width, workingRectangle.Height);
 			this.WindowState = FormWindowState.Maximized;
 		}
-
-        
 
         private void searchTextBox_Enter(object sender, EventArgs e)
         {

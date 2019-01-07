@@ -8,7 +8,7 @@ namespace Encyclopedia.Controller
 {
 	class ContactHandler
 	{
-		// fills dynamically the parametered ListView
+		// fills dynamically the parametered ListView with the user's contacts
 		public static void FillContacts(ListView listView, List<User> contacts)
 		{
 			// empty the listview
@@ -50,7 +50,7 @@ namespace Encyclopedia.Controller
 			listView.LargeImageList = contactImages;
 		}
 
-		// fills dynamically the parametered ListView
+		// fills dynamically the parametered ListView with the user's contact groups
 		public static void FillGroups(ListView listView, List<ContactGroup> groups)
 		{
 			// empty the listview
@@ -68,7 +68,7 @@ namespace Encyclopedia.Controller
 			int i = 0;
 			foreach (ContactGroup group in groups)
 			{
-				// add contact item
+				// add group item
 				ListViewItem groupItem = new ListViewItem(group.Name, i);
 				groupNames[i++] = groupItem;
 
@@ -80,6 +80,33 @@ namespace Encyclopedia.Controller
 			listView.Items.AddRange(groupNames);
 
 			listView.LargeImageList = groupImages;
+		}
+
+		// fills dynamically the parametered ListView with the matching user accounts based on the search string provided
+		public static void FillContactSearchResults(ListView listView, string searchString)
+		{
+			// empty the listview
+			listView.Items.Clear();
+
+			// get the matching user accounts
+			List<Account> matchingAccounts = DBConnect.GetSearchMatchingAccounts(searchString);
+			
+			foreach (Account account in matchingAccounts)
+			{
+				// add user account item name and surname
+				ListViewItem accountItem = listView.Items.Add(account.User.Name + " " + account.User.Surname);
+				accountItem.UseItemStyleForSubItems = false;
+
+				// add user account subitem username
+				ListViewItem.ListViewSubItem accountSubItem = accountItem.SubItems.Add(account.Username);
+				accountSubItem.ForeColor = Color.LightSlateGray;
+				accountSubItem.Font = new Font("Century Gothic", 12, FontStyle.Regular);
+
+				// add user account subitem email
+				accountSubItem = accountItem.SubItems.Add(account.Email);
+				accountSubItem.ForeColor = Color.LightSlateGray;
+				accountSubItem.Font = new Font("Century Gothic", 12, FontStyle.Regular);
+			}
 		}
 	}
 }

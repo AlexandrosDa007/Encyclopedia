@@ -8,11 +8,6 @@ namespace Encyclopedia.Model
         // fields
         private String title;
         private String body;
-		//Changed the category to integer
-		// !! It MUST be instance of Category, that's the point of MVC.
-		// You can construct the object like "new Category(id, "")",
-		// it doesn't really matter (even thought the main point is to preserve consistency and uphold the constraints) but it has to be type of Category.
-		// Change it back whenever you can.
         private int categoryId;
 
         // constructor

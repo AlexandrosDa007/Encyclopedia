@@ -422,6 +422,48 @@ namespace Encyclopedia.Controller
 			return groupList;
 		}
 
+		public static List<Account> GetSearchMatchingAccounts(string searchString)
+		{
+			List<Account> matchingAccountsList = new List<Account>();
+
+			// adjust search pattern
+			string searchPattern = "%" + searchString + "%";
+
+			// construct query
+			string selectId = "SELECT user_id, user_name, user_surname, account_username, account_email " +
+				"FROM User INNER JOIN Account on user_id = account_id " +
+				"WHERE user_name LIKE @searchPattern OR user_surname LIKE @searchPattern OR account_username LIKE @searchPattern OR account_email LIKE @searchPattern " +
+				"ORDER BY user_name, user_surname";
+			MySqlCommand select = new MySqlCommand(selectId, connection);
+			select.Parameters.AddWithValue("@searchPattern", searchPattern);
+			select.CommandTimeout = 500000;
+
+			// prepare and execute
+			select.Prepare();
+			MySqlDataReader dataReader = select.ExecuteReader();
+
+			// add the matching user accounts
+			while (dataReader.Read())
+			{
+				// configure the matching user's details
+				User user = new User();
+				user.Id = dataReader.GetInt32("user_id");
+				user.Name = dataReader.GetString("user_name");
+				user.Surname = dataReader.GetString("user_surname");
+
+				// configure the matching account's details
+				Account account = new Account();
+				account.User = user;
+				account.Username = dataReader.GetString("account_username");
+				account.Email = dataReader.GetString("account_email");
+
+				matchingAccountsList.Add(account);
+			}
+
+			dataReader.Close();
+			return matchingAccountsList;
+		}
+
 		public static int GetLemmaCategoryByTitle(string lemmaTitle)
         {
             int lemmaCategory=-1;

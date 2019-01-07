@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+			this.components = new System.ComponentModel.Container();
 			this.searchContactsTextBox = new System.Windows.Forms.TextBox();
 			this.searchContactsButton = new System.Windows.Forms.Button();
 			this.contactsTabControl = new System.Windows.Forms.TabControl();
@@ -36,13 +37,16 @@
 			this.groupTabPage = new System.Windows.Forms.TabPage();
 			this.groupListView = new System.Windows.Forms.ListView();
 			this.createGroupButton = new System.Windows.Forms.Button();
-			this.tabPage1 = new System.Windows.Forms.TabPage();
+			this.searchContactsResultTabPage = new System.Windows.Forms.TabPage();
 			this.contactsSearchResultsListView = new System.Windows.Forms.ListView();
-			this.titleHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+			this.nameSurname = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+			this.username = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+			this.email = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+			this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
 			this.contactsTabControl.SuspendLayout();
 			this.contactsTabPage.SuspendLayout();
 			this.groupTabPage.SuspendLayout();
-			this.tabPage1.SuspendLayout();
+			this.searchContactsResultTabPage.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// searchContactsTextBox
@@ -56,6 +60,7 @@
 			this.searchContactsTextBox.Size = new System.Drawing.Size(367, 39);
 			this.searchContactsTextBox.TabIndex = 18;
 			this.searchContactsTextBox.Text = " Search contacts";
+			this.toolTip1.SetToolTip(this.searchContactsTextBox, "Search users by name, surname, username or email.");
 			this.searchContactsTextBox.Enter += new System.EventHandler(this.searchContactsTextBox_Enter);
 			// 
 			// searchContactsButton
@@ -64,12 +69,14 @@
 			this.searchContactsButton.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
 			this.searchContactsButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(53)))), ((int)(((byte)(65)))));
 			this.searchContactsButton.Location = new System.Drawing.Point(395, 26);
-			this.searchContactsButton.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+			this.searchContactsButton.Margin = new System.Windows.Forms.Padding(5);
 			this.searchContactsButton.Name = "searchContactsButton";
 			this.searchContactsButton.Size = new System.Drawing.Size(147, 41);
 			this.searchContactsButton.TabIndex = 17;
 			this.searchContactsButton.Text = "Search";
+			this.toolTip1.SetToolTip(this.searchContactsButton, "Search users by name, surname, username or email.");
 			this.searchContactsButton.UseVisualStyleBackColor = true;
+			this.searchContactsButton.Click += new System.EventHandler(this.searchContactsButton_Click);
 			// 
 			// contactsTabControl
 			// 
@@ -78,7 +85,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
 			this.contactsTabControl.Controls.Add(this.contactsTabPage);
 			this.contactsTabControl.Controls.Add(this.groupTabPage);
-			this.contactsTabControl.Controls.Add(this.tabPage1);
+			this.contactsTabControl.Controls.Add(this.searchContactsResultTabPage);
 			this.contactsTabControl.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
 			this.contactsTabControl.Location = new System.Drawing.Point(21, 108);
 			this.contactsTabControl.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -156,7 +163,7 @@
 			this.createGroupButton.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
 			this.createGroupButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(53)))), ((int)(((byte)(65)))));
 			this.createGroupButton.Location = new System.Drawing.Point(15, 14);
-			this.createGroupButton.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+			this.createGroupButton.Margin = new System.Windows.Forms.Padding(5);
 			this.createGroupButton.Name = "createGroupButton";
 			this.createGroupButton.Size = new System.Drawing.Size(184, 38);
 			this.createGroupButton.TabIndex = 18;
@@ -164,17 +171,17 @@
 			this.createGroupButton.UseVisualStyleBackColor = true;
 			this.createGroupButton.Click += new System.EventHandler(this.createGroupButton_Click);
 			// 
-			// tabPage1
+			// searchContactsResultTabPage
 			// 
-			this.tabPage1.Controls.Add(this.contactsSearchResultsListView);
-			this.tabPage1.Location = new System.Drawing.Point(4, 45);
-			this.tabPage1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-			this.tabPage1.Name = "tabPage1";
-			this.tabPage1.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-			this.tabPage1.Size = new System.Drawing.Size(973, 304);
-			this.tabPage1.TabIndex = 2;
-			this.tabPage1.Text = "Search results";
-			this.tabPage1.UseVisualStyleBackColor = true;
+			this.searchContactsResultTabPage.Controls.Add(this.contactsSearchResultsListView);
+			this.searchContactsResultTabPage.Location = new System.Drawing.Point(4, 45);
+			this.searchContactsResultTabPage.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+			this.searchContactsResultTabPage.Name = "searchContactsResultTabPage";
+			this.searchContactsResultTabPage.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+			this.searchContactsResultTabPage.Size = new System.Drawing.Size(973, 304);
+			this.searchContactsResultTabPage.TabIndex = 2;
+			this.searchContactsResultTabPage.Text = "Search results";
+			this.searchContactsResultTabPage.UseVisualStyleBackColor = true;
 			// 
 			// contactsSearchResultsListView
 			// 
@@ -182,24 +189,28 @@
 			this.contactsSearchResultsListView.AutoArrange = false;
 			this.contactsSearchResultsListView.BorderStyle = System.Windows.Forms.BorderStyle.None;
 			this.contactsSearchResultsListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.titleHeader});
+            this.nameSurname,
+            this.username,
+            this.email});
 			this.contactsSearchResultsListView.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.contactsSearchResultsListView.Font = new System.Drawing.Font("Century Gothic", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
+			this.contactsSearchResultsListView.Font = new System.Drawing.Font("Century Gothic", 13.77391F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
 			this.contactsSearchResultsListView.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(53)))), ((int)(((byte)(65)))));
 			this.contactsSearchResultsListView.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.None;
 			this.contactsSearchResultsListView.Location = new System.Drawing.Point(3, 2);
-			this.contactsSearchResultsListView.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+			this.contactsSearchResultsListView.Margin = new System.Windows.Forms.Padding(4);
 			this.contactsSearchResultsListView.MultiSelect = false;
 			this.contactsSearchResultsListView.Name = "contactsSearchResultsListView";
 			this.contactsSearchResultsListView.ShowGroups = false;
 			this.contactsSearchResultsListView.Size = new System.Drawing.Size(967, 300);
 			this.contactsSearchResultsListView.TabIndex = 4;
+			this.contactsSearchResultsListView.TileSize = new System.Drawing.Size(285, 120);
 			this.contactsSearchResultsListView.UseCompatibleStateImageBehavior = false;
+			this.contactsSearchResultsListView.View = System.Windows.Forms.View.Tile;
 			// 
-			// titleHeader
+			// nameSurname
 			// 
-			this.titleHeader.Text = "";
-			this.titleHeader.Width = 1400;
+			this.nameSurname.Text = "";
+			this.nameSurname.Width = 1400;
 			// 
 			// ContactsUserControl
 			// 
@@ -216,7 +227,7 @@
 			this.contactsTabPage.ResumeLayout(false);
 			this.groupTabPage.ResumeLayout(false);
 			this.groupTabPage.PerformLayout();
-			this.tabPage1.ResumeLayout(false);
+			this.searchContactsResultTabPage.ResumeLayout(false);
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -232,8 +243,11 @@
         private System.Windows.Forms.Button createGroupButton;
         private System.Windows.Forms.ListView contactsListView;
 		private System.Windows.Forms.ListView groupListView;
-        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.TabPage searchContactsResultTabPage;
         private System.Windows.Forms.ListView contactsSearchResultsListView;
-        private System.Windows.Forms.ColumnHeader titleHeader;
-    }
+        private System.Windows.Forms.ColumnHeader nameSurname;
+		private System.Windows.Forms.ColumnHeader username;
+		private System.Windows.Forms.ColumnHeader email;
+		private System.Windows.Forms.ToolTip toolTip1;
+	}
 }

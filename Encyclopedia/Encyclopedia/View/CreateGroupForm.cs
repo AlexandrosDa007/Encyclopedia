@@ -21,5 +21,11 @@ namespace Encyclopedia.View
         {
             this.Close();
         }
-    }
+
+		private void CreateGroupForm_Paint(object sender, PaintEventArgs e)
+		{
+			e.Graphics.DrawRectangle(new Pen(Color.Black, 2),
+							this.DisplayRectangle);
+		}
+	}
 }

@@ -49,6 +49,12 @@ namespace Encyclopedia.Model
             Image = null;
         }
 
+		// utility constructor
+		public User()
+		{
+
+		}
+
 		// setters and getters
 		public int Id
         {
