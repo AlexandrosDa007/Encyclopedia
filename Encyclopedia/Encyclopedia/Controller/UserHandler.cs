@@ -19,8 +19,9 @@ namespace Encyclopedia.Controller
 				SmtpClient client = new SmtpClient();
 				client.Port = 25;
 				client.DeliveryMethod = SmtpDeliveryMethod.Network;
+				client.EnableSsl = true;
 				client.UseDefaultCredentials = false;
-				client.Credentials = new System.Net.NetworkCredential("encyclopedia.noreply", "mpla123P");
+				client.Credentials = new System.Net.NetworkCredential("ΟΜΑΔΑ4 ΑΔΟΠΣΕ", "mpla123P");
 				client.Host = "smtp.gmail.com";
 
 				mail.Subject = "Encyclopedia Password Recovery";
