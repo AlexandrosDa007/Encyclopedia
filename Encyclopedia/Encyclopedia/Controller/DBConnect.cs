@@ -87,6 +87,7 @@ namespace Encyclopedia.Controller
 
         
         #region Select Statements
+
         public static Byte[] GetLemmaBodyByTitle(string lemmaTitle)
         {
             Byte[] lemmaBody = new byte[10000];
@@ -788,6 +789,83 @@ namespace Encyclopedia.Controller
             return account;
         }
 
+       public static Account GetAccountByEmail(string email)
+        {
+            Account account = new Account();
+            string selectQuery = "SELECT account_username FROM Account WHERE account_email = @email";
+            MySqlCommand cmd = new MySqlCommand(selectQuery, connection);
+            cmd.CommandTimeout = 500000;
+            cmd.Parameters.AddWithValue("@email", email);
+            cmd.Prepare();
+
+            MySqlDataReader dataReader = cmd.ExecuteReader();
+
+            while (dataReader.Read())
+            {
+                account.Email = email;
+                account.Username = dataReader.GetString("account_username");
+            }
+            dataReader.Close();
+
+            return account;
+
+        }
+
+        public static User GetUserByAccountUsername(string username)
+        {
+
+            User user = new User();
+            string selectQuery = "SELECT "+"user_id,user_name,user_surname,user_date_of_birth,user_gender,user_tel,"+
+                "user_role_id,user_education_level_id,user_description,user_image"+
+                " FROM User U JOIN Account A ON U.user_id = A.account_id WHERE A.account_username = @username";
+            MySqlCommand cmd = new MySqlCommand(selectQuery, connection);
+            cmd.CommandTimeout = 500000;
+            cmd.Parameters.AddWithValue("@username", username);
+            cmd.Prepare();
+
+            MySqlDataReader dataReader = cmd.ExecuteReader();
+
+            string desc = "";
+            while (dataReader.Read())
+            {
+                user.Id = dataReader.GetInt32("user_id");
+                user.Name = dataReader.GetString("user_name");
+                user.Surname = dataReader.GetString("user_surname");
+                user.DateOfBirth = dataReader.GetDateTime("user_date_of_birth");
+                if (dataReader.IsDBNull(4))
+                    user.Gender = '-';
+                else
+                    user.Gender = dataReader.GetChar("user_gender");
+                if (dataReader.IsDBNull(5))
+                    user.Tel = "";
+                else
+                    user.Tel = dataReader.GetString("user_tel");
+                if (dataReader.IsDBNull(6))
+                    user.Role = new Role(-999, "");
+                else
+                    user.Role = new Role(dataReader.GetInt32("user_role_id"),"");
+                if (dataReader.IsDBNull(7))
+                    user.EducationLevel = new EducationLevel(-999, "");
+                else
+                    user.EducationLevel = new EducationLevel(dataReader.GetInt32("user_education_level_id"),"");
+                if (!dataReader.IsDBNull(8))
+                   desc = dataReader.GetString("user_description");
+
+                if (dataReader.IsDBNull(9))
+                    user.Image = null;
+                else
+                    user.Image = (byte[])dataReader["user_image"];
+            }
+            dataReader.Close();
+            user.Description = desc;
+            if (user.EducationLevel.Id != -999)
+                user.EducationLevel = DBConnect.GetEducationLevelById(user.EducationLevel.Id);
+            if (user.Role.Id != -999)
+                user.Role = DBConnect.GetRoleById(user.Role.Id);
+
+            return user;
+        }
+
 
         #endregion
 
@@ -818,11 +896,15 @@ namespace Encyclopedia.Controller
         {
             User user = contact.User;
             User contactUser = contact.ContactUser;
-            ContactGroup contactGroup = contact.ContactGroup;
+            ContactGroup contactGroup = null;
+            if(contact.ContactGroup!=null)
+                contactGroup = contact.ContactGroup;
 
             int userID = user.Id;
             int contactID = contactUser.Id;
-            int groupID = contactGroup.Id;
+            int groupID = -999;
+            if(contact.ContactGroup!=null)
+                groupID = contactGroup.Id;
 
 
             //Create prepared statement string
@@ -835,7 +917,10 @@ namespace Encyclopedia.Controller
             // add values to the parameters
             cmd.Parameters.AddWithValue("@userID", userID);
             cmd.Parameters.AddWithValue("@contactID", contactID);
-            cmd.Parameters.AddWithValue("@groupID", groupID);
+            if (groupID != -999)
+                cmd.Parameters.AddWithValue("@groupID", groupID);
+            else
+                cmd.Parameters.AddWithValue("@groupID", DBNull.Value);
 
             // prepare and execute
             cmd.Prepare();

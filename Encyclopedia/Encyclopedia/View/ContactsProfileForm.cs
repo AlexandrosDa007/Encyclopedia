@@ -49,9 +49,21 @@ namespace Encyclopedia.View
             else
                 imagePB.Image = Encyclopedia.Properties.Resources.default_avatar;
 
-            removeButton.Visible = true;
-
-
+            //check if user is in my contacts
+            foreach(User u in StartPage.contactList)
+            {
+                if (u.Id == account.User.Id)
+                {
+                    removeButton.Visible = true;
+                    addButton.Visible = false;
+                    break;
+                }
+                else
+                {
+                    addButton.Visible = true;
+                    
+                }
+            }
         }
 
         private void closePictureBox_Click(object sender, EventArgs e)
@@ -66,7 +78,16 @@ namespace Encyclopedia.View
             if(res == 1)
             {
                 MessageBox.Show("Contact Removed!");
-                StartPage.contactList.Remove(account.User);
+                foreach(User u in StartPage.contactList)
+                {
+                    if(account.User.Id == u.Id)
+                    {
+                        StartPage.contactList.Remove(u);
+                        break;
+                    }
+
+                }
+                
                 ContactsUserControl.Instance.contactList = StartPage.contactList;
                 ContactsUserControl.Instance.UpdateTabControl();
                 Close();
@@ -83,5 +104,23 @@ namespace Encyclopedia.View
 			e.Graphics.DrawRectangle(new Pen(Color.Black, 2),
 							this.DisplayRectangle);
 		}
-	}
+
+        private void addButton_Click(object sender, EventArgs e)
+        {
+            int res = DBConnect.Insert(new Contact(StartPage.account.User, account.User));
+            if(res == 1)
+            {
+                MessageBox.Show("User added to contacts!");
+                StartPage.contactList.Add(account.User);
+                ContactsUserControl.Instance.contactList = StartPage.contactList;
+                ContactsUserControl.Instance.UpdateTabControl();
+                Close();
+            }
+            else
+            {
+                MessageBox.Show("Something went wrong!!");
+                Close();
+            }
+        }
+    }
 }

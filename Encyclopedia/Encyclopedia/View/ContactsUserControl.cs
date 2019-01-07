@@ -3,6 +3,7 @@ using Encyclopedia.Model;
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
+using UI;
 
 namespace Encyclopedia.View
 {
@@ -96,5 +97,23 @@ namespace Encyclopedia.View
 			// set focus on the search results tab
 			contactsTabControl.SelectedTab = contactsTabControl.TabPages["searchContactsResultTabPage"];
 		}
-	}
+
+        private void contactsSearchResultsListView_DoubleClick(object sender, EventArgs e)
+        {
+            string clickedText = contactsSearchResultsListView.SelectedItems[0].SubItems[2].Text;
+
+            Account contactAccount = DBConnect.GetAccountByEmail(clickedText);
+            contactAccount.User = DBConnect.GetUserByAccountUsername(contactAccount.Username);
+
+            if (contactAccount.User.Image == null)
+                Console.WriteLine("ha");
+
+            ContactsProfileForm form = new ContactsProfileForm(contactAccount);
+            form.Show();
+
+            Console.WriteLine(clickedText);
+
+
+        }
+    }
 }
