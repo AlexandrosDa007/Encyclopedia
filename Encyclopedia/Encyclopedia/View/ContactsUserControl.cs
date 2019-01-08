@@ -41,11 +41,11 @@ namespace Encyclopedia.View
 				// update the tab that is selected
 				if (contactsTabControl.SelectedTab == contactsTabControl.TabPages["contactsTabPage"])
 				{
-					ContactHandler.FillContacts(contactsListView, contactList);
+					ContactAndGroupHandler.FillContacts(contactsListView, contactList);
 				}
 				else if (contactsTabControl.SelectedTab == contactsTabControl.TabPages["groupTabPage"])
 				{
-					ContactHandler.FillGroups(groupListView, groupList);
+					ContactAndGroupHandler.FillGroups(groupListView, groupList);
 				}
 			}
 		}
@@ -93,7 +93,7 @@ namespace Encyclopedia.View
 			string searchString = searchContactsTextBox.Text;
 
 			// fill the tab/listview with the matching user accounts
-			ContactHandler.FillContactSearchResults(contactsSearchResultsListView, searchString);
+			ContactAndGroupHandler.FillContactSearchResults(contactsSearchResultsListView, searchString);
 
 			// set focus on the search results tab
 			contactsTabControl.SelectedTab = contactsTabControl.TabPages["searchContactsResultTabPage"];

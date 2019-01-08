@@ -6,12 +6,12 @@ using Encyclopedia.Model;
 
 namespace Encyclopedia.Controller
 {
-	class ContactHandler
+	class ContactAndGroupHandler
 	{
 		public static Dictionary<int, bool> CheckContactGroupMembers(ContactGroup group, List<User> contacts)
 		{
 			Dictionary<int, bool> ifGroupMembers = new Dictionary<int, bool>();
-			List<int> groupMembers = DBConnect.GetContactGroupMembers(group);
+			List<int> groupMembers = DBConnect.GetContactGroupMembers(group, UI.StartPage.account.User.Id);
 
 			foreach (User contact in contacts)
 			{
