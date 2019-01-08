@@ -53,12 +53,11 @@ namespace Encyclopedia.View
         #region Private methods
         private Label setLabelData(string labelString, bool isRemoveLabel)
         {
-            Font style = new System.Drawing.Font("Century Gothic", 22F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(161)));      
+            Font style = new System.Drawing.Font("Century Gothic", 17F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(161)));      
             Label newLabel = new Label();
             if (isRemoveLabel)
                 newLabel.ForeColor = Color.Orange;
             
-                
             newLabel.Text = labelString;
             newLabel.Font = style;
             newLabel.Dock = DockStyle.Fill;

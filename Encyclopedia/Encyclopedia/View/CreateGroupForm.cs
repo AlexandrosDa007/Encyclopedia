@@ -70,6 +70,31 @@ namespace Encyclopedia.View
 
 		private void saveGroupButton_Click(object sender, EventArgs e)
 		{
+			string groupName = groupNameTextBox.Text;
+
+			if (group == null)
+			{
+				int i = 0;
+				int[] memberIds = new int[contactsCheckedListBox.CheckedItems.Count];
+
+				CheckedListBox.CheckedItemCollection checkedContacts = contactsCheckedListBox.CheckedItems;
+				foreach (object contactItem in checkedContacts)
+				{
+					string contactName = (contactItem as string).Split(new[] { ' ' }, 2)[0];
+					string contactSurname = (contactItem as string).Split(new[] { ' ' }, 2)[1];
+
+					foreach (User contact in ContactsUserControl.Instance.contactList)
+					{
+						if (contact.Name.Equals(contactName) && contact.Surname.Equals(contactSurname))
+						{
+							memberIds[i++] = contact.Id;
+							break;
+						}
+					}
+				}
+
+				//ContactHandler.CreateNewGroup(groupName, memberIds);
+			}
 
 		}
 	}

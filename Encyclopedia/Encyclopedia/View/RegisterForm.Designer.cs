@@ -525,7 +525,5 @@
         private System.Windows.Forms.Panel topPanel;
         private System.Windows.Forms.PictureBox closePictureBox;
 		private System.Windows.Forms.Label feedbackLabel;
-		private System.Windows.Forms.ToolTip imageToolTip;
-		private System.Windows.Forms.ToolTip imageToolTip2;
 	}
 }

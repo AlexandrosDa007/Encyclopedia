@@ -70,7 +70,7 @@ namespace Encyclopedia.View
             int exitCode = UserHandler.RegisterUserAccount(name, surname, dateOfBirth, gender, tel, roleName, educationLevelName, description, imageData, username, password, passwordConfirmation, email);
             if (exitCode == 0)
             {
-                MessageBox.Show("Registered Successfully!");
+                MessageBox.Show("  Registered Successfully!\n");
                 Close();
             }
                 

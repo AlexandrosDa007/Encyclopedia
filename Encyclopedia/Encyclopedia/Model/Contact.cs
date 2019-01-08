@@ -10,22 +10,9 @@ namespace Encyclopedia.Model
         #region Private variables
         private User user;
         private User contact;
-        private ContactGroup contactGroup;
         #endregion
 
-        #region Constructors
-        public Contact(User user, User contact, ContactGroup contactGroup)
-        {
-            if (user.Id != contact.Id)
-            {
-                this.user = user ?? throw new ArgumentNullException(nameof(user));
-                this.contact = contact ?? throw new ArgumentNullException(nameof(contact));
-            }
-            else
-                throw new ArgumentException("The user cannot be contacts with himself.");
-            ContactGroup = contactGroup ?? throw new ArgumentNullException(nameof(contactGroup));
-        }
-        // constructor with null values
+        // default constructor
         public Contact(User user, User contact)
         {
             if (user.Id != contact.Id)
@@ -35,8 +22,6 @@ namespace Encyclopedia.Model
             }
             else
                 throw new ArgumentException("The user cannot be contacts with himself.");
-
-            ContactGroup = null;
         }
         #endregion
 
@@ -73,23 +58,8 @@ namespace Encyclopedia.Model
                     throw new ArgumentException("The user cannot be contacts with himself.");
             }
         }
-        public ContactGroup ContactGroup
-        {
-            get
-            {
-                return contactGroup;
-            }
-            set
-            {
-                contactGroup = value;
-            }
-        }
-        #endregion
 
-        /// <summary>
-        /// Overrides the ToString method.
-        /// </summary>
-        /// <returns></returns>
+        // overrided ToString
         public override string ToString()
         {
             return base.ToString();

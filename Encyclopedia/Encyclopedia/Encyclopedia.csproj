@@ -118,6 +118,7 @@
     <Compile Include="Model\Category.cs" />
     <Compile Include="Model\Contact.cs" />
     <Compile Include="Model\ContactGroup.cs" />
+    <Compile Include="Model\ContactGroupMember.cs" />
     <Compile Include="Model\EditedLemma.cs" />
     <Compile Include="Model\EducationLevel.cs" />
     <Compile Include="Model\FavoriteLemma.cs" />

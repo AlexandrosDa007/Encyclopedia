@@ -83,7 +83,7 @@ namespace Encyclopedia.View
                 Label title = setLabelData(f.Title, false);
                 title.Click += new EventHandler(this.titleClick);
                 Label updatedAt = setLabelData(f.CreatedAt.ToShortDateString(), false);
-                updatedAt.Font = new System.Drawing.Font("Century Gothic", 22F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
+                updatedAt.Font = new System.Drawing.Font("Century Gothic", 17F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
                 Label removeLabel = setLabelData("Remove", true);
                 removeLabel.Click += new EventHandler(this.removeClick);
 
