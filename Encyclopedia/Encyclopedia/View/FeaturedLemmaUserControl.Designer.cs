@@ -1,6 +1,6 @@
 ﻿namespace Encyclopedia.View
 {
-    partial class LemmaOfTheDayUserControl
+    partial class FeaturedLemmaUserControl
     {
         /// <summary> 
         /// Required designer variable.
@@ -28,49 +28,52 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.lemmaOfTheDayLabel = new System.Windows.Forms.Label();
+            this.featuredLemmaLabel = new System.Windows.Forms.Label();
             this.lemmaOfTheDayWebBrowser = new System.Windows.Forms.WebBrowser();
             this.SuspendLayout();
             // 
-            // lemmaOfTheDayLabel
+            // featuredLemmaLabel
             // 
-            this.lemmaOfTheDayLabel.AutoSize = true;
-            this.lemmaOfTheDayLabel.Font = new System.Drawing.Font("Century Gothic", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-            this.lemmaOfTheDayLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(53)))), ((int)(((byte)(65)))));
-            this.lemmaOfTheDayLabel.Location = new System.Drawing.Point(20, 0);
-            this.lemmaOfTheDayLabel.Name = "lemmaOfTheDayLabel";
-            this.lemmaOfTheDayLabel.Size = new System.Drawing.Size(298, 38);
-            this.lemmaOfTheDayLabel.TabIndex = 18;
-            this.lemmaOfTheDayLabel.Text = "Lemma of the day";
+            this.featuredLemmaLabel.AutoSize = true;
+            this.featuredLemmaLabel.Font = new System.Drawing.Font("Century Gothic", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
+            this.featuredLemmaLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(53)))), ((int)(((byte)(65)))));
+            this.featuredLemmaLabel.Location = new System.Drawing.Point(27, 0);
+            this.featuredLemmaLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.featuredLemmaLabel.Name = "featuredLemmaLabel";
+            this.featuredLemmaLabel.Size = new System.Drawing.Size(341, 47);
+            this.featuredLemmaLabel.TabIndex = 18;
+            this.featuredLemmaLabel.Text = "Featured lemma";
             // 
             // lemmaOfTheDayWebBrowser
             // 
             this.lemmaOfTheDayWebBrowser.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.lemmaOfTheDayWebBrowser.Location = new System.Drawing.Point(25, 46);
-            this.lemmaOfTheDayWebBrowser.MinimumSize = new System.Drawing.Size(20, 20);
+            this.lemmaOfTheDayWebBrowser.Location = new System.Drawing.Point(33, 57);
+            this.lemmaOfTheDayWebBrowser.Margin = new System.Windows.Forms.Padding(4);
+            this.lemmaOfTheDayWebBrowser.MinimumSize = new System.Drawing.Size(27, 25);
             this.lemmaOfTheDayWebBrowser.Name = "lemmaOfTheDayWebBrowser";
-            this.lemmaOfTheDayWebBrowser.Size = new System.Drawing.Size(723, 330);
+            this.lemmaOfTheDayWebBrowser.Size = new System.Drawing.Size(964, 406);
             this.lemmaOfTheDayWebBrowser.TabIndex = 21;
             // 
-            // LemmaOfTheDayUserControl
+            // FeaturedLemmaUserControl
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Gainsboro;
             this.Controls.Add(this.lemmaOfTheDayWebBrowser);
-            this.Controls.Add(this.lemmaOfTheDayLabel);
+            this.Controls.Add(this.featuredLemmaLabel);
             this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(53)))), ((int)(((byte)(65)))));
-            this.Name = "LemmaOfTheDayUserControl";
-            this.Size = new System.Drawing.Size(777, 405);
+            this.Margin = new System.Windows.Forms.Padding(4);
+            this.Name = "FeaturedLemmaUserControl";
+            this.Size = new System.Drawing.Size(1036, 498);
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-        private System.Windows.Forms.Label lemmaOfTheDayLabel;
+        private System.Windows.Forms.Label featuredLemmaLabel;
         private System.Windows.Forms.WebBrowser lemmaOfTheDayWebBrowser;
     }
 }

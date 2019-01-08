@@ -6,23 +6,23 @@ using System.Text;
 
 namespace Encyclopedia.View
 {
-    public partial class LemmaOfTheDayUserControl : UserControl
+    public partial class FeaturedLemmaUserControl : UserControl
     {
-        private static LemmaOfTheDayUserControl _instance;
+        private static FeaturedLemmaUserControl _instance;
 
 
-        public static LemmaOfTheDayUserControl Instance
+        public static FeaturedLemmaUserControl Instance
         {
             get
             {
                 
                 if (_instance == null)
-                    _instance = new LemmaOfTheDayUserControl();
+                    _instance = new FeaturedLemmaUserControl();
                 return _instance;
 
             }
         }
-        public LemmaOfTheDayUserControl()
+        public FeaturedLemmaUserControl()
         {
             //init the database connection -- not the best place here
             

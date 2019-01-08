@@ -175,11 +175,11 @@
     <Compile Include="View\LemmaEditor.Designer.cs">
       <DependentUpon>LemmaEditor.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\LemmaOfTheDayUserControl.cs">
+    <Compile Include="View\FeaturedLemmaUserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="View\LemmaOfTheDayUserControl.Designer.cs">
-      <DependentUpon>LemmaOfTheDayUserControl.cs</DependentUpon>
+    <Compile Include="View\FeaturedLemmaUserControl.Designer.cs">
+      <DependentUpon>FeaturedLemmaUserControl.cs</DependentUpon>
     </Compile>
     <Compile Include="View\ProfileForm.cs">
       <SubType>Form</SubType>
@@ -264,8 +264,8 @@
     <EmbeddedResource Include="View\LemmaEditor.resx">
       <DependentUpon>LemmaEditor.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\LemmaOfTheDayUserControl.resx">
-      <DependentUpon>LemmaOfTheDayUserControl.cs</DependentUpon>
+    <EmbeddedResource Include="View\FeaturedLemmaUserControl.resx">
+      <DependentUpon>FeaturedLemmaUserControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\LemmaViewUserControl.resx">
       <DependentUpon>LemmaViewUserControl.cs</DependentUpon>
