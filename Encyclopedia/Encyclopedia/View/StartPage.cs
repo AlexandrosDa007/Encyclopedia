@@ -328,5 +328,6 @@ namespace UI
 			ResetAccountForm resetForm = new ResetAccountForm();
 			resetForm.ShowDialog();
 		}
-	}
+
+    }
 }

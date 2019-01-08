@@ -55,7 +55,7 @@
             this.mainPanel = new System.Windows.Forms.Panel();
             this.filterCheckedListBox = new System.Windows.Forms.CheckedListBox();
             this.filtersLabel = new System.Windows.Forms.Label();
-            this.searchToolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.startPageToolTip = new System.Windows.Forms.ToolTip(this.components);
             this.leftPanel.SuspendLayout();
             this.logoPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.logoPictureBox)).BeginInit();
@@ -135,6 +135,7 @@
             this.logoLabel.TabIndex = 1;
             this.logoLabel.Text = "Encyclopedia";
             this.logoLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.startPageToolTip.SetToolTip(this.logoLabel, "Home page");
             this.logoLabel.Click += new System.EventHandler(this.logoLabel_Click);
             // 
             // newUserLinkLabel
@@ -150,6 +151,7 @@
             this.newUserLinkLabel.TabIndex = 5;
             this.newUserLinkLabel.TabStop = true;
             this.newUserLinkLabel.Text = "New user";
+            this.startPageToolTip.SetToolTip(this.newUserLinkLabel, "Click to register");
             this.newUserLinkLabel.VisitedLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.newUserLinkLabel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.newUserLinkLabel_LinkClicked);
             // 
@@ -166,6 +168,7 @@
             this.forgotPasswordLinkLabel.TabStop = true;
             this.forgotPasswordLinkLabel.Text = "Forgot password?";
             this.forgotPasswordLinkLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.startPageToolTip.SetToolTip(this.forgotPasswordLinkLabel, "Click to reset your password");
             this.forgotPasswordLinkLabel.VisitedLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.forgotPasswordLinkLabel.Click += new System.EventHandler(this.forgotPasswordLinkLabel_Click);
             // 
@@ -176,6 +179,7 @@
             this.usernameTextBox.Name = "usernameTextBox";
             this.usernameTextBox.Size = new System.Drawing.Size(184, 22);
             this.usernameTextBox.TabIndex = 1;
+            this.startPageToolTip.SetToolTip(this.usernameTextBox, "Enter your username");
             // 
             // loginButton
             // 
@@ -187,6 +191,7 @@
             this.loginButton.Size = new System.Drawing.Size(133, 34);
             this.loginButton.TabIndex = 4;
             this.loginButton.Text = "Login";
+            this.startPageToolTip.SetToolTip(this.loginButton, "Click to login");
             this.loginButton.UseVisualStyleBackColor = true;
             this.loginButton.Click += new System.EventHandler(this.loginButton_Click);
             // 
@@ -210,6 +215,7 @@
             this.passwordTextBox.PasswordChar = '•';
             this.passwordTextBox.Size = new System.Drawing.Size(184, 22);
             this.passwordTextBox.TabIndex = 2;
+            this.startPageToolTip.SetToolTip(this.passwordTextBox, "Enter your password");
             // 
             // passwordLabel
             // 
@@ -258,6 +264,7 @@
             this.minimizePictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.minimizePictureBox.TabIndex = 1;
             this.minimizePictureBox.TabStop = false;
+            this.startPageToolTip.SetToolTip(this.minimizePictureBox, "Minimize");
             this.minimizePictureBox.Click += new System.EventHandler(this.minimizePictureBox_Click);
             // 
             // closePictureBox
@@ -271,6 +278,7 @@
             this.closePictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.closePictureBox.TabIndex = 0;
             this.closePictureBox.TabStop = false;
+            this.startPageToolTip.SetToolTip(this.closePictureBox, "Close Encyclopedia");
             this.closePictureBox.Click += new System.EventHandler(this.closePictureBox_Click);
             // 
             // recentButton
@@ -285,6 +293,7 @@
             this.recentButton.Size = new System.Drawing.Size(253, 38);
             this.recentButton.TabIndex = 10;
             this.recentButton.Text = "Recent Lemmata";
+            this.startPageToolTip.SetToolTip(this.recentButton, "Click to see the lemmata you visited recently");
             this.recentButton.UseVisualStyleBackColor = true;
             this.recentButton.Click += new System.EventHandler(this.recentButton_Click);
             // 
@@ -300,6 +309,7 @@
             this.popularButton.Size = new System.Drawing.Size(251, 38);
             this.popularButton.TabIndex = 9;
             this.popularButton.Text = "Popular Lemmata";
+            this.startPageToolTip.SetToolTip(this.popularButton, "Click to see lemmata other users prefer");
             this.popularButton.UseVisualStyleBackColor = true;
             this.popularButton.Click += new System.EventHandler(this.popularButton_Click);
             // 
@@ -335,6 +345,7 @@
             this.clearFilterButton.Size = new System.Drawing.Size(146, 31);
             this.clearFilterButton.TabIndex = 17;
             this.clearFilterButton.Text = "Clear Filters";
+            this.startPageToolTip.SetToolTip(this.clearFilterButton, "Click to clear filters");
             this.clearFilterButton.UseVisualStyleBackColor = true;
             this.clearFilterButton.Click += new System.EventHandler(this.clearFilterButton_Click);
             // 
@@ -351,7 +362,7 @@
             this.searchTextBox.Size = new System.Drawing.Size(431, 41);
             this.searchTextBox.TabIndex = 16;
             this.searchTextBox.Text = " Search";
-            this.searchToolTip.SetToolTip(this.searchTextBox, "Enter at least three characters.");
+            this.startPageToolTip.SetToolTip(this.searchTextBox, "Enter at least three characters.");
             this.searchTextBox.Enter += new System.EventHandler(this.searchTextBox_Enter);
             // 
             // searchButton
@@ -366,7 +377,7 @@
             this.searchButton.Size = new System.Drawing.Size(147, 41);
             this.searchButton.TabIndex = 15;
             this.searchButton.Text = "Search";
-            this.searchToolTip.SetToolTip(this.searchButton, "Enter at least three characters.");
+            this.startPageToolTip.SetToolTip(this.searchButton, "Enter at least three characters.");
             this.searchButton.UseVisualStyleBackColor = true;
             this.searchButton.Click += new System.EventHandler(this.searchButton_Click);
             // 
@@ -394,6 +405,7 @@
             this.filterCheckedListBox.Name = "filterCheckedListBox";
             this.filterCheckedListBox.Size = new System.Drawing.Size(275, 119);
             this.filterCheckedListBox.TabIndex = 4;
+            this.startPageToolTip.SetToolTip(this.filterCheckedListBox, "Click to pick filters");
             // 
             // filtersLabel
             // 
@@ -465,7 +477,7 @@
 		public System.Windows.Forms.Panel searchPanel;
         private System.Windows.Forms.Label feedbackLabel;
         private System.Windows.Forms.Button clearFilterButton;
-		private System.Windows.Forms.ToolTip searchToolTip;
+		private System.Windows.Forms.ToolTip startPageToolTip;
 	}
 }
 

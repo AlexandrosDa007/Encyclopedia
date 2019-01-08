@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CreateGroupForm));
             this.closePictureBox = new System.Windows.Forms.PictureBox();
             this.topPanel = new System.Windows.Forms.Panel();
@@ -37,6 +38,7 @@
             this.groupNameTextBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
+            this.createGroupToolTip = new System.Windows.Forms.ToolTip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.closePictureBox)).BeginInit();
             this.topPanel.SuspendLayout();
             this.SuspendLayout();
@@ -52,6 +54,7 @@
             this.closePictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.closePictureBox.TabIndex = 0;
             this.closePictureBox.TabStop = false;
+            this.createGroupToolTip.SetToolTip(this.closePictureBox, "Close form ");
             this.closePictureBox.Click += new System.EventHandler(this.closePictureBox_Click);
             // 
             // topPanel
@@ -99,6 +102,7 @@
             this.saveGroupButton.Size = new System.Drawing.Size(148, 38);
             this.saveGroupButton.TabIndex = 2;
             this.saveGroupButton.Text = "Save group";
+            this.createGroupToolTip.SetToolTip(this.saveGroupButton, "Save your group");
             this.saveGroupButton.UseVisualStyleBackColor = true;
             this.saveGroupButton.Click += new System.EventHandler(this.saveGroupButton_Click);
             // 
@@ -110,6 +114,7 @@
             this.groupNameTextBox.Name = "groupNameTextBox";
             this.groupNameTextBox.Size = new System.Drawing.Size(412, 34);
             this.groupNameTextBox.TabIndex = 1;
+            this.createGroupToolTip.SetToolTip(this.groupNameTextBox, "Pick a group name");
             // 
             // label1
             // 
@@ -132,6 +137,7 @@
             this.button1.Size = new System.Drawing.Size(148, 38);
             this.button1.TabIndex = 36;
             this.button1.Text = "Delete group";
+            this.createGroupToolTip.SetToolTip(this.button1, "Delete group");
             this.button1.UseVisualStyleBackColor = true;
             // 
             // CreateGroupForm
@@ -169,5 +175,6 @@
         private System.Windows.Forms.TextBox groupNameTextBox;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.ToolTip createGroupToolTip;
     }
 }
