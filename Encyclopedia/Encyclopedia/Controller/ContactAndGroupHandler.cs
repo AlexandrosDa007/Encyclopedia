@@ -8,11 +8,30 @@ namespace Encyclopedia.Controller
 {
 	class ContactAndGroupHandler
 	{
+		public static ContactGroup CreateNewGroup(string groupName, int[] groupMembers)
+		{
+			// configure ContactGroup Object
+			ContactGroup group = new ContactGroup(-1, groupName, UI.StartPage.account.User);
+
+			// try to insert the new group and its contact members
+			int groupId = DBConnect.InsertNewGroupAndMembers(group, groupMembers);
+			// if the returned groupId is anything but -1, the group created successfully
+			if (groupId != -1)
+			{
+				group.Id = groupId;
+			}
+
+			return group;
+		}
+
 		public static Dictionary<int, bool> CheckContactGroupMembers(ContactGroup group, List<User> contacts)
 		{
 			Dictionary<int, bool> ifGroupMembers = new Dictionary<int, bool>();
+
+			// get the selected group's members
 			List<int> groupMembers = DBConnect.GetContactGroupMembers(group, UI.StartPage.account.User.Id);
 
+			// define which of the user's contacts are in this group
 			foreach (User contact in contacts)
 			{
 				if (groupMembers.Contains(contact.Id))

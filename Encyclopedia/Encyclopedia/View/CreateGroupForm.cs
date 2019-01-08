@@ -93,7 +93,21 @@ namespace Encyclopedia.View
 					}
 				}
 
-				//ContactAndGroupHandler.CreateNewGroup(groupName, memberIds);
+				ContactGroup newGroup = ContactAndGroupHandler.CreateNewGroup(groupName, memberIds);
+				if (newGroup.Id != -1)
+				{
+					ContactsUserControl.Instance.GroupList.Add(newGroup);
+
+					DialogResult dialogResult = MessageBox.Show("  Your new group \"" + groupName + "\" created successfully!");
+					if (dialogResult == DialogResult.OK)
+					{
+						ContactsUserControl.Instance.UpdateTabControl();
+					}
+				}
+				else
+				{
+					MessageBox.Show("  Something went wrong with the group creation. Please try again.\n");
+				}
 			}
 
 		}

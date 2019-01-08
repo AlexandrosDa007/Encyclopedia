@@ -474,11 +474,12 @@ namespace Encyclopedia.Controller
 			dataReader.Close();
 			return groupList;
 		}
-        /// <summary>
-        /// Get a list of contact Ids that are in the group given.
-        /// </summary>
-        /// <param name="group"></param>
-        /// <returns></returns>
+		/// <summary>
+		/// Get a list of contact Ids that are in the user's group given.
+		/// </summary>
+		/// <param name="group"></param>
+		/// <param name="ownerId"></param>
+		/// <returns></returns>
 		public static List<int> GetContactGroupMembers(ContactGroup group, int ownerId)
 		{
 			List<int> groupMembersList = new List<int>();
@@ -1101,12 +1102,50 @@ namespace Encyclopedia.Controller
             int rowsAffected = cmd.ExecuteNonQuery();
             return rowsAffected; // if rowsAffected equals to 1, then the insertion completed successfully
         }
-        /// <summary>
-        /// Insert a ContactGroup in the database.
-        /// </summary>
-        /// <param name="contactGroup"></param>
-        /// <returns></returns>
-        public static int Insert(ContactGroup contactGroup)
+		/// <summary>
+		/// Insert a ContactGroup and its contact members in the database.
+		/// </summary>
+		/// <param name="group"></param>
+		/// <param name="groupMembers"></param>
+		/// <returns></returns>
+		public static int InsertNewGroupAndMembers(ContactGroup group, int[] groupMembers)
+		{
+			int groupId = Insert(group);
+
+			// if the groupId remained -1, it means that the insertion was unsuccessful
+			if (groupId != -1)
+			{
+				group.Id = groupId;
+
+				foreach (int contactId in groupMembers)
+				{
+					User contact = new User();
+					contact.Id = contactId;
+
+					ContactGroupMember groupMember = new ContactGroupMember(group, contact);
+
+					// if rowsAffectedMember equals to 1, then the insertion completed successfully
+					int rowsAffectedMember = Insert(groupMember);
+					if (rowsAffectedMember != 1)
+					{
+						return -1;
+					}
+				}
+			}
+			else
+			{
+				return groupId;
+			}
+
+			// if the method doesn't return 0, something went wrong with the database
+			return groupId;
+		}
+		/// <summary>
+		/// Insert a ContactGroup in the database.
+		/// </summary>
+		/// <param name="contactGroup"></param>
+		/// <returns></returns>
+		public static int Insert(ContactGroup contactGroup)
         {
             string contactGroupName = contactGroup.Name;
             User owner = contactGroup.Owner;
@@ -1126,16 +1165,47 @@ namespace Encyclopedia.Controller
 
             // prepare and execute
             cmd.Prepare();
-            int rowsAffected = cmd.ExecuteNonQuery();
+			int rowsAffected = cmd.ExecuteNonQuery();
 
-            return rowsAffected; // if rowsAffected equals to 1, then the insertion completed successfully
+			int lastInsertedUserId = -1;
+			// if rowsAffected equals to 1, then the insertion completed successfully
+			if (rowsAffected == 1)
+			{
+				lastInsertedUserId = (int)cmd.LastInsertedId;
+			}
+
+			return lastInsertedUserId;
         }
-        /// <summary>
-        /// Insert an EditedLemma in the database.
-        /// </summary>
-        /// <param name="editedLemma"></param>
-        /// <returns></returns>
-        public static int Insert(EditedLemma editedLemma)
+		/// <summary>
+		/// Insert a ContactGroupMember in the database.
+		/// </summary>
+		/// <param name="groupMember"></param>
+		/// <returns></returns>
+		public static int Insert(ContactGroupMember groupMember)
+		{
+			//Create prepared statement string
+			string insertContactGroupMember = "INSERT INTO " +
+				"Contact_Group_Member (group_id, contact_id) " +
+				"VALUES(@contactGroupId, @contactId) ";
+			MySqlCommand cmd = new MySqlCommand(insertContactGroupMember, connection);
+			cmd.CommandTimeout = 500000;
+
+			// add values to the parameters
+			cmd.Parameters.AddWithValue("@contactGroupId", groupMember.Group.Id);
+			cmd.Parameters.AddWithValue("@contactId", groupMember.Contact.Id);
+
+			// prepare and execute
+			cmd.Prepare();
+			int rowsAffected = cmd.ExecuteNonQuery();
+			
+			return rowsAffected;
+		}
+		/// <summary>
+		/// Insert an EditedLemma in the database.
+		/// </summary>
+		/// <param name="editedLemma"></param>
+		/// <returns></returns>
+		public static int Insert(EditedLemma editedLemma)
         {
             string lemmaTitle = editedLemma.LemmaTitle;
             User editor = editedLemma.Editor;
