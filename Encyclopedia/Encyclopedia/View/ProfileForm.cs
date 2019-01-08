@@ -19,11 +19,12 @@ namespace Encyclopedia.View
     {
         #region Properties
         public Account Account { set; get; }
+        public UI.StartPage st { set; get; }
         public bool UpdatedSuccessfully { set; get; }
         #endregion
 
         #region Constructors
-        public ProfileForm(Account account)
+        public ProfileForm(Account account,UI.StartPage st)
         {
             InitializeComponent();
 
@@ -31,6 +32,7 @@ namespace Encyclopedia.View
 			DynamicUIControlsHandler.FillRoles(roleCB);
 
             this.Account = account;
+            this.st = st;
             SetAccountData();
             UpdatedSuccessfully = false;
         }
@@ -286,5 +288,13 @@ namespace Encyclopedia.View
 							this.DisplayRectangle);
 		}
         #endregion
+
+        private void deleteButton_Click_1(object sender, EventArgs e)
+        {
+            int rowsAffected = DBConnect.Delete(Account);
+            this.st.Logout();
+            this.Close();
+            MessageBox.Show("Your profile deleted succesfully.");
+        }
     }
 }

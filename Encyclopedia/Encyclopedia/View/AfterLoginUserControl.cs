@@ -98,7 +98,8 @@ namespace Encyclopedia.View
 
         private void profileButton_Click(object sender, EventArgs e)
         {
-            ProfileForm profileForm = new ProfileForm(this.Account);
+            StartPage st = (StartPage)this.Parent.Parent;
+            ProfileForm profileForm = new ProfileForm(this.Account,st);
             profileForm.ShowDialog();
             if (profileForm.UpdatedSuccessfully)
             {
