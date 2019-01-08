@@ -286,5 +286,10 @@ namespace Encyclopedia.View
 							this.DisplayRectangle);
 		}
         #endregion
+
+        private void clearPhotoButton_Click(object sender, EventArgs e)
+        {
+            imagePB.Image = null;
+        }
     }
 }

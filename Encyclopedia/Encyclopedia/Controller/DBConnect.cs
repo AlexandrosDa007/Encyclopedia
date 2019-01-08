@@ -667,7 +667,7 @@ namespace Encyclopedia.Controller
 
             string query = "SELECT * FROM Lemma ORDER BY RAND() LIMIT 1";
             MySqlCommand cmd = new MySqlCommand(query, connection);
-
+            cmd.CommandTimeout = 500000;
             MySqlDataReader dataReader = cmd.ExecuteReader();
             while (dataReader.Read())
             {

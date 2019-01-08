@@ -50,7 +50,8 @@ namespace Encyclopedia.View
             // convert the image into a Byte array
             byte[] imageData = null;
 
-            if(imagePB.Image != null)
+
+            if (imagePB.Image != null)
             {
                 using (var ms = new MemoryStream())
                 {
@@ -58,7 +59,7 @@ namespace Encyclopedia.View
                     imageData = ms.ToArray();
                 }
             }
-                
+
             string username = usernameTextBox.Text;
 			string password = passwordTextBox.Text;
 			string passwordConfirmation = passwordConfirmTextBox.Text;
@@ -189,8 +190,12 @@ namespace Encyclopedia.View
 			e.Graphics.DrawRectangle(new Pen(Color.Black, 2),
 							this.DisplayRectangle);
 		}
+
         #endregion
 
-
+        private void clearPhotoButton_Click(object sender, EventArgs e)
+        {
+            imagePB.Image = null;
+        }
     }
 }
