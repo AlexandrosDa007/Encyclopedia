@@ -63,7 +63,7 @@ namespace Encyclopedia.Controller
                 //Adding the fields in the document
                 //Dont analyze category_id because it doesnt matter in the search
                 document.Add(new Field("lemma_title", lemma.Title, Field.Store.YES, Field.Index.ANALYZED));
-                document.Add(new Field("lemma_body", lemma.Body, Field.Store.YES, Field.Index.ANALYZED));
+                document.Add(new Field("lemma_body", Encoding.UTF8.GetString(Compression.DecompressLemmas(lemma.Body)), Field.Store.YES, Field.Index.ANALYZED));
                 document.Add(new Field("category_id", lemma.Category.ToString(), Field.Store.YES, Field.Index.NOT_ANALYZED));
 
                 //add the documents in the writer
@@ -163,7 +163,7 @@ namespace Encyclopedia.Controller
                 //Adding the fields in the document
                 //Dont analyze category_id because it doesnt matter in the search
                 document.Add(new Field("lemma_title", lemma.Title, Field.Store.YES, Field.Index.ANALYZED));
-                document.Add(new Field("lemma_body", lemma.Body, Field.Store.YES, Field.Index.ANALYZED));
+                document.Add(new Field("lemma_body", Encoding.UTF8.GetString(lemma.Body), Field.Store.YES, Field.Index.ANALYZED));
                 document.Add(new Field("category_id", lemma.Category.ToString(), Field.Store.YES, Field.Index.NOT_ANALYZED));
 
                 //add the documents in the writer

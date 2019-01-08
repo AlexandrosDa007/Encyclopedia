@@ -7,14 +7,14 @@ namespace Encyclopedia.Model
     {
         // fields
         private String title;
-        private String body;
+        private byte[] body;
         private int categoryId;
 
         // constructor
         public Lemma(String title, Byte[] bodyInBytes, int categoryId)
         {
             Title = title;
-            this.body = Encoding.UTF8.GetString(bodyInBytes) ?? throw new ArgumentNullException(nameof(bodyInBytes));
+            this.body = bodyInBytes ?? throw new ArgumentNullException(nameof(bodyInBytes));
             this.categoryId = categoryId;
         }
 
@@ -31,7 +31,7 @@ namespace Encyclopedia.Model
 			}
         }
 
-        public String Body
+        public byte[] Body
         {
             get
             {

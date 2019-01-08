@@ -77,7 +77,7 @@ namespace Encyclopedia.View
             //change the web browser to display the lemma_body from the title given
             if (mode == 0)
             {
-                LemmaViewWebBrowser.DocumentText = "<h1" + titleStyle + ">" + title.Replace("_", " ") + "</h1>" + lemma.Body;
+                LemmaViewWebBrowser.DocumentText = "<h1" + titleStyle + ">" + title.Replace("_", " ") + "</h1>" + Encoding.UTF8.GetString(lemma.Body);
                 if(!StartPage.recentLemmas.Contains(lemma.Title))
                     StartPage.recentLemmas.Add(lemma.Title);
             }

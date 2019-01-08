@@ -2,6 +2,7 @@
 using UI;
 using Encyclopedia.Controller;
 using Encyclopedia.Model;
+using System.Text;
 
 namespace Encyclopedia.View
 {
@@ -44,7 +45,7 @@ namespace Encyclopedia.View
 				"margin-left: 0; " +
 				"margin-right: 0; " +
 				"font-weight: bold;\"";
-			lemmaOfTheDayWebBrowser.DocumentText = "<h1" + titleStyle + ">" + lemma.Title.Replace("_", " ") + "</h1>" + lemma.Body;
+			lemmaOfTheDayWebBrowser.DocumentText = "<h1" + titleStyle + ">" + lemma.Title.Replace("_", " ") + "</h1>" + Encoding.UTF8.GetString(lemma.Body);
 			if (!StartPage.recentLemmas.Contains(lemma.Title))
 				StartPage.recentLemmas.Add(lemma.Title);
 		}

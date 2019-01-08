@@ -53,7 +53,7 @@ namespace Encyclopedia.View
         private void revertButton_Click(object sender, EventArgs e)
         {
             if(mode == 0)
-                htmlTextBox1.WebBrowser.Document.Body.InnerHtml = lemma.Body;
+                htmlTextBox1.WebBrowser.Document.Body.InnerHtml = Encoding.UTF8.GetString(lemma.Body);
             else if(mode == 1)
             {
                 htmlTextBox1.WebBrowser.Document.Body.InnerHtml = editedLemma.Body;
@@ -96,7 +96,7 @@ namespace Encyclopedia.View
                 int res = DBConnect.Update(editedLemma, StartPage.account.User);
                 if (res == 1)
                 {
-                    MessageBox.Show("  The edited lemma \"" + lemma.Title + "\" was saved successfully to your account!\n");
+                    MessageBox.Show("  The edited lemma \"" + editedLemma.LemmaTitle + "\" was saved successfully to your account!\n");
                     StartPage.editedLemmaList = DBConnect.GetEditedLemmasByUser(StartPage.account.User);
                     EditedLemmataUserControl.Instance.editedLemmas = StartPage.editedLemmaList;
                     EditedLemmataUserControl.Instance.SetLemmas();

@@ -90,7 +90,7 @@ namespace Encyclopedia.Controller
 
         public static Byte[] GetLemmaBodyByTitle(string lemmaTitle)
         {
-            Byte[] lemmaBody = new byte[10000];
+            byte[] lemmaBody = null;
             string query = "SELECT lemma_body FROM Lemma WHERE lemma_title = @title";
             MySqlCommand cmd = new MySqlCommand(query, connection);
             cmd.Parameters.AddWithValue("@title", lemmaTitle);
@@ -99,11 +99,11 @@ namespace Encyclopedia.Controller
             MySqlDataReader dataReader = cmd.ExecuteReader();
             while (dataReader.Read())
             {
-                lemmaBody = Encoding.UTF8.GetBytes(dataReader.GetString("lemma_body"));
+                lemmaBody = (byte[])dataReader.GetValue(0);
             }
 
             dataReader.Close();
-            return lemmaBody;
+            return Compression.DecompressLemmas(lemmaBody);
         }
 
         public static List<Lemma> GetAllLemma()
@@ -118,7 +118,7 @@ namespace Encyclopedia.Controller
             while (dataReader.Read())
             {
                 Console.WriteLine(i);
-                Lemma lemma = new Lemma(dataReader[0].ToString(), Encoding.UTF8.GetBytes(dataReader[1].ToString()), Convert.ToInt32(dataReader[2].ToString()));
+                Lemma lemma = new Lemma(dataReader[0].ToString(), (byte[])dataReader["lemma_body"], Convert.ToInt32(dataReader[2].ToString()));
                 lemmaList.Add(lemma);
                 i++;
             }
@@ -138,7 +138,7 @@ namespace Encyclopedia.Controller
             while (dataReader.Read())
             {
                 Console.WriteLine(i);
-                Lemma lemma = new Lemma(dataReader[0].ToString(), Encoding.UTF8.GetBytes(dataReader[1].ToString()), Convert.ToInt32(dataReader[2].ToString()));
+                Lemma lemma = new Lemma(dataReader[0].ToString(), (byte[])dataReader["lemma_body"], Convert.ToInt32(dataReader[2].ToString()));
                 lemmaList.Add(lemma);
                 i++;
             }
@@ -585,7 +585,7 @@ namespace Encyclopedia.Controller
             MySqlDataReader dataReader = cmd.ExecuteReader();
             while (dataReader.Read())
             {
-                lemma = new Lemma(dataReader.GetString("lemma_title"), (byte[])dataReader.GetValue(1), dataReader.GetInt32("category_id"));
+                lemma = new Lemma(dataReader.GetString("lemma_title"), Compression.DecompressLemmas((byte[])dataReader.GetValue(1)), dataReader.GetInt32("category_id"));
             }
 
             dataReader.Close();
@@ -1085,7 +1085,7 @@ namespace Encyclopedia.Controller
         public static int Insert(Lemma lemma)
         {
             string lemmaTitle = lemma.Title;
-            string lemmaBody = lemma.Body;
+            byte[] lemmaBody = Compression.CompressLemmas(lemma.Body);
             int categoryID = lemma.Category;
 
 
@@ -1433,9 +1433,17 @@ namespace Encyclopedia.Controller
             //code to Update favoriteLemma
         }
 
-        public static void Update(Lemma lemma)
+        public static int Update(string title, byte[]body)
         {
-            //code to Update lemma
+            string query = "UPDATE Lemma SET lemma_body = @body WHERE lemma_title = @title";
+            MySqlCommand cmd = new MySqlCommand(query, connection);
+            cmd.CommandTimeout = 500000;
+            cmd.Parameters.AddWithValue("@body", body);
+            cmd.Parameters.AddWithValue("@title", title);
+            cmd.Prepare();
+
+            int rowsAffected = cmd.ExecuteNonQuery();
+            return rowsAffected;
         }
 
         public static void Update(Role role)

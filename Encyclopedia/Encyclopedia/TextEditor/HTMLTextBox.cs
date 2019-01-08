@@ -468,7 +468,7 @@ namespace Testing
         {
             Encyclopedia.View.LemmaEditor lemmaEditor = (Encyclopedia.View.LemmaEditor)this.Parent;
             if(lemmaEditor.mode == 0)
-                webBrowserBody.Document.Body.InnerHtml = lemmaEditor.lemma.Body;
+                webBrowserBody.Document.Body.InnerHtml = Encoding.UTF8.GetString(lemmaEditor.lemma.Body);
             else if(lemmaEditor.mode == 1)
                 webBrowserBody.Document.Body.InnerHtml = lemmaEditor.editedLemma.Body;
         }
