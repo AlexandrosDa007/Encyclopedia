@@ -73,10 +73,11 @@ namespace Encyclopedia.View
 				foreach (object contactItem in checkedContacts)
 				{
 					string contactName = (contactItem as string).Split(new[] { ' ' }, 2)[0];
-					
+					string contactSurname = (contactItem as string).Split(new[] { ' ' }, 2)[1];
+
 					foreach (User contact in ContactsUserControl.Instance.contactList)
 					{
-						if (contact.Name.Equals(contactName))
+						if (contact.Name.Equals(contactName) && contact.Surname.Equals(contactSurname))
 						{
 							receiverIds[i++] = contact.Id;
 							break;
