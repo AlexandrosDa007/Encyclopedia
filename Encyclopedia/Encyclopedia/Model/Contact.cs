@@ -12,6 +12,7 @@ namespace Encyclopedia.Model
         private User contact;
         #endregion
 
+        #region Constructors
         // default constructor
         public Contact(User user, User contact)
         {
@@ -58,8 +59,13 @@ namespace Encyclopedia.Model
                     throw new ArgumentException("The user cannot be contacts with himself.");
             }
         }
+        #endregion
+        
 
-        // overrided ToString
+        /// <summary>
+        /// Overrides ToString method.
+        /// </summary>
+        /// <returns></returns>
         public override string ToString()
         {
             return base.ToString();
