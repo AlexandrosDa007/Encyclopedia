@@ -34,15 +34,15 @@ namespace Encyclopedia.View
             StartPage st = (StartPage)this.Parent.Parent;
             st.Logout();
      
-            if (!st.mainPanel.Controls.Contains(Encyclopedia.View.LemmaOfTheDayUserControl.Instance))
+            if (!st.mainPanel.Controls.Contains(Encyclopedia.View.FeaturedLemmaUserControl.Instance))
             {
-                st.mainPanel.Controls.Add(Encyclopedia.View.LemmaOfTheDayUserControl.Instance);
-                Encyclopedia.View.LemmaOfTheDayUserControl.Instance.Dock = DockStyle.Fill;
-                Encyclopedia.View.LemmaOfTheDayUserControl.Instance.BringToFront();
+                st.mainPanel.Controls.Add(Encyclopedia.View.FeaturedLemmaUserControl.Instance);
+                Encyclopedia.View.FeaturedLemmaUserControl.Instance.Dock = DockStyle.Fill;
+                Encyclopedia.View.FeaturedLemmaUserControl.Instance.BringToFront();
             }
             else
             {
-                Encyclopedia.View.LemmaOfTheDayUserControl.Instance.BringToFront();
+                Encyclopedia.View.FeaturedLemmaUserControl.Instance.BringToFront();
             }
         }
 
@@ -110,15 +110,15 @@ namespace Encyclopedia.View
         {
             StartPage startP = (StartPage)this.Parent.Parent;
 
-            if (!startP.mainPanel.Controls.Contains(Encyclopedia.View.LemmaOfTheDayUserControl.Instance))
+            if (!startP.mainPanel.Controls.Contains(Encyclopedia.View.FeaturedLemmaUserControl.Instance))
             {
-                startP.mainPanel.Controls.Add(Encyclopedia.View.LemmaOfTheDayUserControl.Instance);
-                Encyclopedia.View.LemmaOfTheDayUserControl.Instance.Dock = DockStyle.Fill;
-                Encyclopedia.View.LemmaOfTheDayUserControl.Instance.BringToFront();
+                startP.mainPanel.Controls.Add(Encyclopedia.View.FeaturedLemmaUserControl.Instance);
+                Encyclopedia.View.FeaturedLemmaUserControl.Instance.Dock = DockStyle.Fill;
+                Encyclopedia.View.FeaturedLemmaUserControl.Instance.BringToFront();
             }
             else
             {
-                Encyclopedia.View.LemmaOfTheDayUserControl.Instance.BringToFront();
+                Encyclopedia.View.FeaturedLemmaUserControl.Instance.BringToFront();
             }
         }
 
