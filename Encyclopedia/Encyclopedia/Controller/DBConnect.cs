@@ -1557,9 +1557,18 @@ namespace Encyclopedia.Controller
         /// Delete a Lemma from the database.
         /// </summary>
         /// <param name="lemma"></param>
-        public static void Delete(Lemma lemma)
+        public static int Delete(Lemma lemma)
         {
-            //code to Delete lemma
+            string query = "DELETE FROM Lemma WHERE lemma_title = @title";
+            MySqlCommand cmd = new MySqlCommand(query, connection);
+            cmd.Parameters.AddWithValue("@title", lemma.Title);
+            cmd.Prepare();
+            cmd.CommandTimeout = 500000;
+            Console.WriteLine("deleted");
+            int rowsAffected = cmd.ExecuteNonQuery();
+
+
+            return rowsAffected;
         }
         /// <summary>
         /// Delete a Role from the database.

@@ -34,14 +34,14 @@ namespace Encyclopedia
             }
 
             
-            
+           
             //this takes a long time - 4min 
             //Search.CreateIndex();
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new UI.StartPage());
             //Favorite.addToFavorites(5, "World_energy_consumption");//Example of adding a favorite lemma to DB.
-            
+             
         }
 
        

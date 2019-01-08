@@ -23,6 +23,7 @@ namespace Encyclopedia.Controller
             //Get all Lemmas from database
             List<Lemma> list = DBConnect.GetAllLemma();
             //Iterate through lemmas
+            int i = 0;
             foreach(Lemma lemma in list)
             {
                 //Get the decompressed Lemma body in bytes
@@ -33,6 +34,7 @@ namespace Encyclopedia.Controller
                 lemma.Body = compressedBody;
                 //Try to update the Lemma in database if res != 1 then it fails
                 int res = DBConnect.Update(lemma.Title, lemma.Body);
+                i++;
                 if(res != 1)
                 {
                     MessageBox.Show("Something went wrong with updating lemma!!");
@@ -40,6 +42,7 @@ namespace Encyclopedia.Controller
                 }
                 
             }
+            Console.WriteLine(i);
         }
         /// <summary>
         /// Decompressed all the Lemmas we have in database.
@@ -52,21 +55,25 @@ namespace Encyclopedia.Controller
             //Iterate through lemma list
             foreach (Lemma lemma in list)
             {
+
                 //Get the compressed body in bytes
                 byte[] compressedBody = lemma.Body;
                 //Get the decompress body in bytes
-                byte[] decompressedBody = DecompressLemmas(compressedBody);
-                //Set the lemma body to the decompressed Body 
-                lemma.Body = decompressedBody;
-                //Try to update lemma if res != 1 then fail
-                int res = DBConnect.Update(lemma.Title, lemma.Body);
-                if (res != 1)
-                {
-                    MessageBox.Show("Something went wrong with updating lemma!!");
-                    return;
-                }
-                
+               
+                    
+                    byte[] decompressedBody = DecompressLemmas(compressedBody);
+                    //Set the lemma body to the decompressed Body 
+                    lemma.Body = decompressedBody;
+                    //Try to update lemma if res != 1 then fail
+                    int res = DBConnect.Update(lemma.Title, lemma.Body);
+                    if (res != 1)
+                    {
+                        MessageBox.Show("Something went wrong with updating lemma!!");
+                        return;
+                    }
+
             }
+
         }
         /// <summary>
         /// This method takes the lemma body as a byte array and compresses it with GZip.
