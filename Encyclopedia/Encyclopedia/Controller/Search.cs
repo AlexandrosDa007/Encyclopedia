@@ -50,8 +50,8 @@ namespace Encyclopedia.Controller
             //used in scoring system
             writer.SetSimilarity(new DefaultSimilarity());
 
-            //get First 500 lemmas
-            firstLemmas = DBConnect.GetFirstLemmas();
+            //get all Lemmas
+            firstLemmas = DBConnect.GetAllLemma();
 
             //Iterate in dataset 
             foreach(Lemma lemma in firstLemmas)
@@ -125,7 +125,6 @@ namespace Encyclopedia.Controller
             searcher.Search(query,collector);
             ScoreDoc[] matches = collector.TopDocs().ScoreDocs;
 
-            Console.WriteLine("matches count: " + matches.Length);
 
             //Itereate in matches array 
             foreach (ScoreDoc item in matches)
