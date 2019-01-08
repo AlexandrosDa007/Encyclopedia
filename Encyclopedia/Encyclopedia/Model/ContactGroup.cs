@@ -21,8 +21,7 @@ namespace Encyclopedia.Model
             Owner = owner;
         }
         #endregion
-
-
+		
         #region Properties
         public int Id
         {

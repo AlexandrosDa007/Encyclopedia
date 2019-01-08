@@ -1,25 +1,26 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Encyclopedia.Model
 {
-	class ContactGroupMember
+	/// <summary>
+	/// Represents the data in the database.
+	/// </summary>
+	public class ContactGroupMember
 	{
-		// fields
+		#region Private variables
 		private ContactGroup group;
 		private User contact;
+		#endregion
 
-		// constructor
+		#region Constructors
 		public ContactGroupMember(ContactGroup group, User contact)
 		{
 			Group = group;
 			Contact = contact;
 		}
+		#endregion
 
-		// setters and getters
+		#region Properties
 		public ContactGroup Group
 		{
 			get
@@ -43,8 +44,12 @@ namespace Encyclopedia.Model
 				contact = value ?? throw new ArgumentNullException(nameof(contact));
 			}
 		}
+		#endregion
 
-		// overrided ToString
+		/// <summary>
+		/// Overrides the ToString method.
+		/// </summary>
+		/// <returns></returns>
 		public override string ToString()
 		{
 			return base.ToString();
