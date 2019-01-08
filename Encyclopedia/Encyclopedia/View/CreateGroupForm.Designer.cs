@@ -37,7 +37,7 @@
 			this.saveGroupButton = new System.Windows.Forms.Button();
 			this.groupNameTextBox = new System.Windows.Forms.TextBox();
 			this.label1 = new System.Windows.Forms.Label();
-			this.button1 = new System.Windows.Forms.Button();
+			this.deleteGroupButton = new System.Windows.Forms.Button();
 			this.createGroupToolTip = new System.Windows.Forms.ToolTip(this.components);
 			((System.ComponentModel.ISupportInitialize)(this.closePictureBox)).BeginInit();
 			this.topPanel.SuspendLayout();
@@ -79,7 +79,7 @@
 			this.contactsCheckedListBox.Name = "contactsCheckedListBox";
 			this.contactsCheckedListBox.Size = new System.Drawing.Size(750, 200);
 			this.contactsCheckedListBox.Sorted = true;
-			this.contactsCheckedListBox.TabIndex = 0;
+			this.contactsCheckedListBox.TabIndex = 1;
 			// 
 			// yourContactsLabel
 			// 
@@ -97,7 +97,7 @@
 			// 
 			this.saveGroupButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this.saveGroupButton.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-			this.saveGroupButton.Location = new System.Drawing.Point(648, 391);
+			this.saveGroupButton.Location = new System.Drawing.Point(648, 408);
 			this.saveGroupButton.Name = "saveGroupButton";
 			this.saveGroupButton.Size = new System.Drawing.Size(148, 38);
 			this.saveGroupButton.TabIndex = 2;
@@ -113,7 +113,7 @@
 			this.groupNameTextBox.MaxLength = 30;
 			this.groupNameTextBox.Name = "groupNameTextBox";
 			this.groupNameTextBox.Size = new System.Drawing.Size(412, 33);
-			this.groupNameTextBox.TabIndex = 1;
+			this.groupNameTextBox.TabIndex = 0;
 			this.createGroupToolTip.SetToolTip(this.groupNameTextBox, "Pick a group name");
 			// 
 			// label1
@@ -128,17 +128,18 @@
 			this.label1.TabIndex = 35;
 			this.label1.Text = "Group name";
 			// 
-			// button1
+			// deleteGroupButton
 			// 
-			this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			this.button1.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-			this.button1.Location = new System.Drawing.Point(648, 435);
-			this.button1.Name = "button1";
-			this.button1.Size = new System.Drawing.Size(148, 38);
-			this.button1.TabIndex = 36;
-			this.button1.Text = "Delete group";
-			this.createGroupToolTip.SetToolTip(this.button1, "Delete group");
-			this.button1.UseVisualStyleBackColor = true;
+			this.deleteGroupButton.AutoSize = true;
+			this.deleteGroupButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.deleteGroupButton.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
+			this.deleteGroupButton.Location = new System.Drawing.Point(510, 408);
+			this.deleteGroupButton.Name = "deleteGroupButton";
+			this.deleteGroupButton.Size = new System.Drawing.Size(132, 38);
+			this.deleteGroupButton.TabIndex = 3;
+			this.deleteGroupButton.Text = "Delete group";
+			this.createGroupToolTip.SetToolTip(this.deleteGroupButton, "Delete group");
+			this.deleteGroupButton.UseVisualStyleBackColor = true;
 			// 
 			// CreateGroupForm
 			// 
@@ -146,8 +147,8 @@
 			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.BackColor = System.Drawing.Color.Gainsboro;
-			this.ClientSize = new System.Drawing.Size(847, 500);
-			this.Controls.Add(this.button1);
+			this.ClientSize = new System.Drawing.Size(847, 493);
+			this.Controls.Add(this.deleteGroupButton);
 			this.Controls.Add(this.label1);
 			this.Controls.Add(this.groupNameTextBox);
 			this.Controls.Add(this.saveGroupButton);
@@ -156,6 +157,7 @@
 			this.Controls.Add(this.topPanel);
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
 			this.Name = "CreateGroupForm";
+			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "CreateGroupForm";
 			this.Paint += new System.Windows.Forms.PaintEventHandler(this.CreateGroupForm_Paint);
 			((System.ComponentModel.ISupportInitialize)(this.closePictureBox)).EndInit();
@@ -174,7 +176,7 @@
         private System.Windows.Forms.Button saveGroupButton;
         private System.Windows.Forms.TextBox groupNameTextBox;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button deleteGroupButton;
         private System.Windows.Forms.ToolTip createGroupToolTip;
     }
 }

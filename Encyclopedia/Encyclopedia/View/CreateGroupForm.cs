@@ -14,24 +14,29 @@ namespace Encyclopedia.View
 {
     public partial class CreateGroupForm : Form
     {
-		private ContactGroup group;
+		private ContactGroup Group { set; get; }
 
-        public CreateGroupForm(ContactGroup group)
+		public CreateGroupForm(ContactGroup group)
         {
             InitializeComponent();
+			Group = group;
 
 			Dictionary<int, bool> ifGroupMembers = null;
-			if (group != null)
+			if (Group != null)
 			{
-				groupNameTextBox.Text = group.Name;
+				groupNameTextBox.Text = Group.Name;
 				saveGroupButton.Text = "Update Group";
 
 				ifGroupMembers = ContactAndGroupHandler.CheckContactGroupMembers(group, ContactsUserControl.Instance.ContactList);
+
+				deleteGroupButton.Visible = true;
 			}
 			else
 			{
 				groupNameTextBox.Text = "";
 				saveGroupButton.Text = "Save Group";
+
+				deleteGroupButton.Visible = false;
 			}
 
 			// fill contactsCheckedListBox with the user's contacts
@@ -72,7 +77,7 @@ namespace Encyclopedia.View
 		{
 			string groupName = groupNameTextBox.Text;
 
-			if (group == null)
+			if (Group == null)
 			{
 				int i = 0;
 				int[] memberIds = new int[contactsCheckedListBox.CheckedItems.Count];
@@ -102,6 +107,7 @@ namespace Encyclopedia.View
 					if (dialogResult == DialogResult.OK)
 					{
 						ContactsUserControl.Instance.UpdateTabControl();
+						this.Close();
 					}
 				}
 				else
