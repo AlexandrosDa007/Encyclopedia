@@ -1,5 +1,4 @@
-﻿using Encyclopedia.fooDataSetTableAdapters;
-using Encyclopedia.Model;
+﻿using Encyclopedia.Model;
 using Lucene;
 using Lucene.Net.Analysis;
 using Lucene.Net.Analysis.Standard;
