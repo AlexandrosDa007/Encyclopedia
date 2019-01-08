@@ -67,6 +67,13 @@
             this.imageToolTip2 = new System.Windows.Forms.ToolTip(this.components);
             this.imageToolTip = new System.Windows.Forms.ToolTip(this.components);
             this.nameToolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.SurnameToolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.TelephoneToolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.emailToolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.usernameToolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.passwordToolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.confirmToolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.deleteButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.closePictureBox)).BeginInit();
             this.topPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imagePB)).BeginInit();
@@ -370,6 +377,7 @@
             this.telTexBox.Size = new System.Drawing.Size(200, 28);
             this.telTexBox.TabIndex = 31;
             this.telTexBox.TextMaskFormat = System.Windows.Forms.MaskFormat.IncludePrompt;
+            this.TelephoneToolTip.SetToolTip(this.telTexBox, "Enter your Telephone number");
             // 
             // passwordTextBox
             // 
@@ -382,6 +390,7 @@
             this.passwordTextBox.Name = "passwordTextBox";
             this.passwordTextBox.Size = new System.Drawing.Size(200, 28);
             this.passwordTextBox.TabIndex = 34;
+            this.passwordToolTip.SetToolTip(this.passwordTextBox, "A password must contain 8 characters at least one letter and one number");
             this.passwordTextBox.UseSystemPasswordChar = true;
             // 
             // usernameTextBox
@@ -396,6 +405,7 @@
             this.usernameTextBox.ReadOnly = true;
             this.usernameTextBox.Size = new System.Drawing.Size(200, 28);
             this.usernameTextBox.TabIndex = 33;
+            this.usernameToolTip.SetToolTip(this.usernameTextBox, "Enter a unic username");
             // 
             // emailTextBox
             // 
@@ -408,6 +418,7 @@
             this.emailTextBox.Name = "emailTextBox";
             this.emailTextBox.Size = new System.Drawing.Size(200, 28);
             this.emailTextBox.TabIndex = 32;
+            this.emailToolTip.SetToolTip(this.emailTextBox, "Enter your email (example@host.com)");
             // 
             // passwordConfirmTextBox
             // 
@@ -420,6 +431,7 @@
             this.passwordConfirmTextBox.Name = "passwordConfirmTextBox";
             this.passwordConfirmTextBox.Size = new System.Drawing.Size(200, 28);
             this.passwordConfirmTextBox.TabIndex = 35;
+            this.confirmToolTip.SetToolTip(this.passwordConfirmTextBox, "Password and confirm password have to ");
             this.passwordConfirmTextBox.UseSystemPasswordChar = true;
             // 
             // surnameTextBox
@@ -433,6 +445,7 @@
             this.surnameTextBox.Name = "surnameTextBox";
             this.surnameTextBox.Size = new System.Drawing.Size(200, 28);
             this.surnameTextBox.TabIndex = 30;
+            this.SurnameToolTip.SetToolTip(this.surnameTextBox, "Enter your Surname");
             // 
             // nameTextBox
             // 
@@ -445,15 +458,16 @@
             this.nameTextBox.Name = "nameTextBox";
             this.nameTextBox.Size = new System.Drawing.Size(200, 28);
             this.nameTextBox.TabIndex = 29;
+            this.nameToolTip.SetToolTip(this.nameTextBox, "Enter your name");
             // 
             // editButton
             // 
             this.editButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.editButton.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-            this.editButton.Location = new System.Drawing.Point(687, 74);
+            this.editButton.Location = new System.Drawing.Point(661, 74);
             this.editButton.Margin = new System.Windows.Forms.Padding(2);
             this.editButton.Name = "editButton";
-            this.editButton.Size = new System.Drawing.Size(125, 29);
+            this.editButton.Size = new System.Drawing.Size(151, 29);
             this.editButton.TabIndex = 58;
             this.editButton.Text = "Edit Profile";
             this.editButton.UseVisualStyleBackColor = true;
@@ -498,12 +512,25 @@
             this.imageToolTip.InitialDelay = 300;
             this.imageToolTip.ReshowDelay = 100;
             // 
+            // deleteButton
+            // 
+            this.deleteButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.deleteButton.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
+            this.deleteButton.Location = new System.Drawing.Point(661, 115);
+            this.deleteButton.Margin = new System.Windows.Forms.Padding(2);
+            this.deleteButton.Name = "deleteButton";
+            this.deleteButton.Size = new System.Drawing.Size(151, 28);
+            this.deleteButton.TabIndex = 62;
+            this.deleteButton.Text = "Delete Profile";
+            this.deleteButton.UseVisualStyleBackColor = true;
+            // 
             // ProfileForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.Gainsboro;
             this.ClientSize = new System.Drawing.Size(851, 787);
+            this.Controls.Add(this.deleteButton);
             this.Controls.Add(this.feedbackLabel1);
             this.Controls.Add(this.browseButton);
             this.Controls.Add(this.editButton);
@@ -589,5 +616,12 @@
 		private System.Windows.Forms.ToolTip imageToolTip2;
 		private System.Windows.Forms.ToolTip imageToolTip;
         private System.Windows.Forms.ToolTip nameToolTip;
+        private System.Windows.Forms.ToolTip TelephoneToolTip;
+        private System.Windows.Forms.ToolTip passwordToolTip;
+        private System.Windows.Forms.ToolTip usernameToolTip;
+        private System.Windows.Forms.ToolTip emailToolTip;
+        private System.Windows.Forms.ToolTip confirmToolTip;
+        private System.Windows.Forms.ToolTip SurnameToolTip;
+        private System.Windows.Forms.Button deleteButton;
     }
 }
