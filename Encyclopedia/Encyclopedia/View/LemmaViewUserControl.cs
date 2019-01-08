@@ -75,12 +75,14 @@ namespace Encyclopedia.View
                 {
                     string path = savefile.FileName;
                     PDF.exportToPDF(lemmaTitle, path);
+                    MessageBox.Show("PDF saved succesfully!\n");
                 }
             }
             catch (ArgumentOutOfRangeException ex)
             {
                 // show the exception message in order to inform the user
                 Console.WriteLine(ex.Message);
+                MessageBox.Show("There was a problem saving the PDF.\n");
             }
         }
 
