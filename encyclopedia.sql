@@ -30,7 +30,7 @@ CREATE TABLE Account(
 	account_password_salt CHAR(24) NOT NULL,
 	account_email VARCHAR(60) NOT NULL UNIQUE,
 	account_created_at DATE NOT NULL,
-	FOREIGN KEY(account_id) REFERENCES User(user_id)
+	FOREIGN KEY(account_id) REFERENCES User(user_id) ON DELETE CASCADE
 );
 
 CREATE TABLE Contact(
@@ -52,7 +52,7 @@ CREATE TABLE Contact_Group_Member(
 	group_id INT NOT NULL,
 	contact_id INT NOT NULL,
 	PRIMARY KEY (group_id, contact_id),
-	FOREIGN KEY(group_id) REFERENCES Contact_Group(group_id),
+	FOREIGN KEY(group_id) REFERENCES Contact_Group(group_id) ON DELETE CASCADE,
 	FOREIGN KEY(contact_id) REFERENCES User(user_id)
 );
 
