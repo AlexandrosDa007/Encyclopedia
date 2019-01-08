@@ -42,7 +42,7 @@ namespace Encyclopedia.View
 		{
 			contactsCheckedListBox.Items.Clear();
 			
-			foreach (User contact in ContactsUserControl.Instance.contactList)
+			foreach (User contact in ContactsUserControl.Instance.ContactList)
 			{
 				if (ifGroupMembers != null)
 				{
@@ -83,7 +83,7 @@ namespace Encyclopedia.View
 					string contactName = (contactItem as string).Split(new[] { ' ' }, 2)[0];
 					string contactSurname = (contactItem as string).Split(new[] { ' ' }, 2)[1];
 
-					foreach (User contact in ContactsUserControl.Instance.contactList)
+					foreach (User contact in ContactsUserControl.Instance.ContactList)
 					{
 						if (contact.Name.Equals(contactName) && contact.Surname.Equals(contactSurname))
 						{

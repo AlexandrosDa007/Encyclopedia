@@ -13,39 +13,106 @@ using UI;
 
 namespace Encyclopedia.View
 {
+    /// <summary>
+    /// A Form that opens when the User clicks on a contact. It contains information about that contact.
+    /// </summary>
     public partial class ContactsProfileForm : Form
     {
-        public Account account;
+        #region Properties
+        public Account Account { set; get; }
+        #endregion
 
+        #region Constructors
         public ContactsProfileForm(Account account)
         {
             InitializeComponent();
-            this.account = account;
+            Account = account;
             setUp();
         }
+        #endregion
 
+        #region Private methods
+        private void closePictureBox_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void removeButton_Click(object sender, EventArgs e)
+        {
+            //remove from userContacts
+            int res = DBConnect.Delete(new Contact(StartPage.account.User, Account.User));
+            if (res == 1)
+            {
+                MessageBox.Show("Contact Removed!");
+                foreach (User u in StartPage.contactList)
+                {
+                    if (Account.User.Id == u.Id)
+                    {
+                        StartPage.contactList.Remove(u);
+                        break;
+                    }
+
+                }
+
+                ContactsUserControl.Instance.ContactList = StartPage.contactList;
+                ContactsUserControl.Instance.UpdateTabControl();
+                Close();
+            }
+            else
+            {
+                MessageBox.Show("Something went wrong!!");
+                Close();
+            }
+        }
+
+        private void ContactsProfileForm_Paint(object sender, PaintEventArgs e)
+        {
+            e.Graphics.DrawRectangle(new Pen(Color.Black, 2),
+                            this.DisplayRectangle);
+        }
+
+        private void addButton_Click(object sender, EventArgs e)
+        {
+            int res = DBConnect.Insert(new Contact(StartPage.account.User, Account.User));
+            if (res == 1)
+            {
+                MessageBox.Show("User added to contacts!");
+                StartPage.contactList.Add(Account.User);
+                ContactsUserControl.Instance.ContactList = StartPage.contactList;
+                ContactsUserControl.Instance.UpdateTabControl();
+                Close();
+            }
+            else
+            {
+                MessageBox.Show("Something went wrong!!");
+                Close();
+            }
+        }
+        #endregion
+
+        #region Public methods
         public void setUp()
         {
-            nameTextBox.Text = account.User.Name;
-            surnameTextBox.Text = account.User.Surname;
-            emailTextBox.Text = account.Email;
-            usernameTextBox.Text = account.Username;
-            if (account.User.Gender.Equals('M'))
+            nameTextBox.Text = Account.User.Name;
+            surnameTextBox.Text = Account.User.Surname;
+            emailTextBox.Text = Account.Email;
+            usernameTextBox.Text = Account.Username;
+            if (Account.User.Gender.Equals('M'))
                 genderMaleRB.Checked = true;
-            if (account.User.Gender.Equals('F'))
+            if (Account.User.Gender.Equals('F'))
                 genderFemaleRB.Checked = true;
-            dateOfBirthDTP.Value = account.User.DateOfBirth;
-            if (account.User.EducationLevel.Id == -999)
+            dateOfBirthDTP.Value = Account.User.DateOfBirth;
+            if (Account.User.EducationLevel.Id == -999)
                 educationLevelTextBox.Text = "";
             else
-                educationLevelTextBox.Text = DBConnect.GetEducationLevelById(account.User.EducationLevel.Id).Name;
-            if (account.User.Role.Id == -999)
+                educationLevelTextBox.Text = DBConnect.GetEducationLevelById(Account.User.EducationLevel.Id).Name;
+            if (Account.User.Role.Id == -999)
                 roleLevelTextBox.Text = "";
             else
-                roleLevelTextBox.Text = DBConnect.GetRoleById(account.User.Role.Id).Name;
-            descriptionRTB.Text = account.User.Description;
-            if (account.User.Image != null)
-                imagePB.Image = (Bitmap)((new ImageConverter()).ConvertFrom(account.User.Image));
+                roleLevelTextBox.Text = DBConnect.GetRoleById(Account.User.Role.Id).Name;
+            descriptionRTB.Text = Account.User.Description;
+            if (Account.User.Image != null)
+                imagePB.Image = (Bitmap)((new ImageConverter()).ConvertFrom(Account.User.Image));
             else
                 imagePB.Image = Encyclopedia.Properties.Resources.default_avatar;
 
@@ -53,7 +120,7 @@ namespace Encyclopedia.View
             //check if user is in my contacts
             foreach (User u in StartPage.contactList)
             {
-                if (u.Id == account.User.Id)
+                if (u.Id == Account.User.Id)
                 {
                     removeButton.Visible = true;
                     addButton.Visible = false;
@@ -66,64 +133,7 @@ namespace Encyclopedia.View
                 }
             }
         }
+        #endregion
 
-        private void closePictureBox_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
-        private void removeButton_Click(object sender, EventArgs e)
-        {
-            //remove from userContacts
-            int res = DBConnect.Delete(new Contact(StartPage.account.User,account.User));
-            if(res == 1)
-            {
-                MessageBox.Show("Contact Removed!");
-                foreach(User u in StartPage.contactList)
-                {
-                    if(account.User.Id == u.Id)
-                    {
-                        StartPage.contactList.Remove(u);
-                        break;
-                    }
-
-                }
-                
-                ContactsUserControl.Instance.contactList = StartPage.contactList;
-                ContactsUserControl.Instance.UpdateTabControl();
-                Close();
-            }
-            else
-            {
-                MessageBox.Show("Something went wrong!!");
-                Close();
-            }
-        }
-
-		private void ContactsProfileForm_Paint(object sender, PaintEventArgs e)
-		{
-			e.Graphics.DrawRectangle(new Pen(Color.Black, 2),
-							this.DisplayRectangle);
-		}
-
-        private void addButton_Click(object sender, EventArgs e)
-        {
-            int res = DBConnect.Insert(new Contact(StartPage.account.User, account.User));
-            if(res == 1)
-            {
-                MessageBox.Show("User added to contacts!");
-                StartPage.contactList.Add(account.User);
-                ContactsUserControl.Instance.contactList = StartPage.contactList;
-                ContactsUserControl.Instance.UpdateTabControl();
-                Close();
-            }
-            else
-            {
-                MessageBox.Show("Something went wrong!!");
-                Close();
-            }
-        }
-
-        
     }
 }

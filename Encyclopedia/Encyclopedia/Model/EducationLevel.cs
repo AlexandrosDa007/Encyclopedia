@@ -2,20 +2,25 @@
 
 namespace Encyclopedia.Model
 {
+    /// <summary>
+    /// Represents the data in the database.
+    /// </summary>
     public class EducationLevel
     {
-        // fields
+        #region Private variables
         private int id;
         private String name;
+        #endregion
 
-        // constructor
+        #region Constructors
         public EducationLevel(int id, string name)
         {
             Id = id;
             Name = name;
         }
+        #endregion
 
-        // setters and getters
+        #region Properties
         public int Id
         {
             get
@@ -27,7 +32,6 @@ namespace Encyclopedia.Model
                 id = value;
             }
         }
-
         public String Name
         {
             get
@@ -39,8 +43,12 @@ namespace Encyclopedia.Model
 				name = value ?? throw new ArgumentNullException(nameof(name));
 			}
         }
-
-        // overrided ToString
+        #endregion
+        
+        /// <summary>
+        /// Overrides the ToString method.
+        /// </summary>
+        /// <returns></returns>
         public override string ToString()
         {
             return base.ToString();

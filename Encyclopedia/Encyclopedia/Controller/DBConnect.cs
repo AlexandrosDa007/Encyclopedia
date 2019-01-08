@@ -8,18 +8,27 @@ using MySql.Data.MySqlClient;
 
 namespace Encyclopedia.Controller
 {
-    class DBConnect
+    /// <summary>
+    /// This class is the system that connects to the database and retrieves data.
+    /// </summary>
+    public class DBConnect
     {
+        //A static reference to the Mysql connection that is open
         public static MySqlConnection connection;
 
-
+        /// <summary>
+        /// Initizalizes the connection. Returns true if the connection is open
+        /// </summary>
+        /// <returns></returns>
         public static bool Initialize()
         {
             connection = new MySqlConnection(Encyclopedia.Properties.Settings.Default.Connection);
             return OpenConnection();
         }
-
-        //open connection to database
+        /// <summary>
+        /// This function tries to open the connection. Return true if the connection is open
+        /// </summary>
+        /// <returns></returns>
         public static bool OpenConnection()
         {
             
@@ -36,8 +45,10 @@ namespace Encyclopedia.Controller
                 return false;
             }
         }
-
-        //Close connection
+        /// <summary>
+        /// This function closes the connection. Returns true if the connection is closed
+        /// </summary>
+        /// <returns></returns>
         public static bool CloseConnection()
         {
             try
@@ -51,7 +62,12 @@ namespace Encyclopedia.Controller
                 return false;
             }
         }
-
+        /// <summary>
+        /// This function validates if the user is the database. Returns true if user exists
+        /// </summary>
+        /// <param name="username"></param>
+        /// <param name="password"></param>
+        /// <returns></returns>
         public static bool LoginValidation(String username, String password)
         {
             string query = "SELECT account_username,account_salted_password_hash FROM Account WHERE account_username= @username AND account_salted_password_hash= @pass";
@@ -71,9 +87,12 @@ namespace Encyclopedia.Controller
             return false;
         }
 
-        
         #region Select Statements
-
+        /// <summary>
+        /// This function returns a byte array with the body of a lemma given the title.
+        /// </summary>
+        /// <param name="lemmaTitle"></param>
+        /// <returns></returns>
         public static Byte[] GetLemmaBodyByTitle(string lemmaTitle)
         {
             byte[] lemmaBody = null;
@@ -91,7 +110,10 @@ namespace Encyclopedia.Controller
             dataReader.Close();
             return Compression.DecompressLemmas(lemmaBody);
         }
-
+        /// <summary>
+        /// This function returns all the lemmas from the database
+        /// </summary>
+        /// <returns></returns>
         public static List<Lemma> GetAllLemma()
         {
             List<Lemma> lemmaList = new List<Lemma>();
@@ -111,7 +133,10 @@ namespace Encyclopedia.Controller
             dataReader.Close();
             return lemmaList;
         }
-
+        /// <summary>
+        /// This function returns the first 500 lemmas from the database
+        /// </summary>
+        /// <returns></returns>
         public static List<Lemma> GetFirstLemmas()
         {
             List<Lemma> lemmaList = new List<Lemma>();
@@ -131,7 +156,11 @@ namespace Encyclopedia.Controller
             dataReader.Close();
             return lemmaList;
         }
-
+        /// <summary>
+        /// This function returns a list with all the lemma titles matching with the category name given.
+        /// </summary>
+        /// <param name="categoryName"></param>
+        /// <returns></returns>
         public static List<string> GetLemmaTitleByCategoryName(string categoryName)
         {
             string query = "SELECT category_id FROM Category WHERE category_name = @cat";
@@ -168,7 +197,11 @@ namespace Encyclopedia.Controller
             dataReader.Close();
             return titleList;
         }
-
+        /// <summary>
+        /// This function returns a list with category ids given a list of category names.
+        /// </summary>
+        /// <param name="categoryNameList"></param>
+        /// <returns></returns>
 		public static List<int> GetCategoryIdByName(List<string> categoryNameList)
 		{
 			List<int> categoryIdList = new List<int>();
@@ -189,7 +222,11 @@ namespace Encyclopedia.Controller
 			Console.WriteLine(categoryIdList.Count);
 			return categoryIdList;
 		}
-
+        /// <summary>
+        /// Find the education level from the education level name given
+        /// </summary>
+        /// <param name="educationLevelName"></param>
+        /// <returns></returns>
 		public static List<EducationLevel> FindEducationLevel(string educationLevelName)
         {
             List<EducationLevel> educationLevelList = new List<EducationLevel>();
@@ -212,7 +249,10 @@ namespace Encyclopedia.Controller
             dataReader.Close();
             return educationLevelList;
         }
-
+        /// <summary>
+        /// Retrieves all the education levels as strings.
+        /// </summary>
+        /// <returns></returns>
 		public static string[] GetEducationLevels()
 		{
 			List<string> educationLevelList = new List<string>();
@@ -234,7 +274,11 @@ namespace Encyclopedia.Controller
 			dataReader.Close();
 			return educationLevelArray;
 		}
-
+        /// <summary>
+        /// Find the role from the role name given.
+        /// </summary>
+        /// <param name="roleName"></param>
+        /// <returns></returns>
 		public static List<Role> FindRole(string roleName)
         {
             List<Role> roleList = new List<Role>();
@@ -257,7 +301,10 @@ namespace Encyclopedia.Controller
             dataReader.Close();
             return roleList;
         }
-
+        /// <summary>
+        /// Retrives all the roles as strings from the database
+        /// </summary>
+        /// <returns></returns>
 		public static string[] GetRoles()
 		{
 			List<string> roleList = new List<string>();
@@ -279,7 +326,10 @@ namespace Encyclopedia.Controller
 			dataReader.Close();
 			return roleArray;
 		}
-
+        /// <summary>
+        /// Retrives all the categories as strings from the database
+        /// </summary>
+        /// <returns></returns>
 		public static string[] GetCategories()
 		{
 			List<string> categoryList = new List<string>();
@@ -301,7 +351,11 @@ namespace Encyclopedia.Controller
 			dataReader.Close();
 			return categoryArray;
 		}
-
+        /// <summary>
+        /// This function checks if another user has the username given then returns true. Otherwise false
+        /// </summary>
+        /// <param name="username"></param>
+        /// <returns></returns>
 		public static bool IsAccountUsernameUnique(string username)
 		{
 			bool isUnique = true;
@@ -324,7 +378,11 @@ namespace Encyclopedia.Controller
 			dataReader.Close();
 			return isUnique;
 		}
-
+        /// <summary>
+        /// This function checks if another user has the email given then returns true. Otherwise false
+        /// </summary>
+        /// <param name="email"></param>
+        /// <returns></returns>
 		public static bool IsAccountEmailUnique(string email)
 		{
 			bool isUnique = true;
@@ -347,7 +405,11 @@ namespace Encyclopedia.Controller
 			dataReader.Close();
 			return isUnique;
 		}
-
+        /// <summary>
+        /// This function retrives all the contacts as User from the user Id given.
+        /// </summary>
+        /// <param name="userId"></param>
+        /// <returns></returns>
 		public static List<User> GetContacts(int userId)
 		{
 			List<int> contactIdsList = new List<int>();
@@ -380,7 +442,11 @@ namespace Encyclopedia.Controller
 
 			return contactList;
 		}
-
+        /// <summary>
+        /// This function finds and returns all the contact groups that a user has given the user Id.
+        /// </summary>
+        /// <param name="userId"></param>
+        /// <returns></returns>
 		public static List<ContactGroup> GetContactGroups(int userId)
 		{
 			List<ContactGroup> groupList = new List<ContactGroup>();
@@ -408,8 +474,12 @@ namespace Encyclopedia.Controller
 			dataReader.Close();
 			return groupList;
 		}
-
-		public static List<int> GetContactGroupMembers(ContactGroup group, int ownerId)
+        /// <summary>
+        /// Get a list of contact Ids that are in the group given.
+        /// </summary>
+        /// <param name="group"></param>
+        /// <returns></returns>
+		public static List<int> GetContactGroupMembers(ContactGroup group)
 		{
 			List<int> groupMembersList = new List<int>();
 			
@@ -435,7 +505,11 @@ namespace Encyclopedia.Controller
 			dataReader.Close();
 			return groupMembersList;
 		}
-
+        /// <summary>
+        /// Get a list of accounts that match the string given.
+        /// </summary>
+        /// <param name="searchString"></param>
+        /// <returns></returns>
 		public static List<Account> GetSearchMatchingAccounts(string searchString)
 		{
 			List<Account> matchingAccountsList = new List<Account>();
@@ -477,7 +551,10 @@ namespace Encyclopedia.Controller
 			dataReader.Close();
 			return matchingAccountsList;
 		}
-
+        /// <summary>
+        /// Get a list with lemma titles that are popular amongst the users.
+        /// </summary>
+        /// <returns></returns>
 		public static List<string> GetPopularLemmata()
 		{
 			List<string> popularLemmataList = new List<string>();
@@ -501,7 +578,11 @@ namespace Encyclopedia.Controller
 			dataReader.Close();
 			return popularLemmataList;
 		}
-
+        /// <summary>
+        /// Get the category of the lemma given by the title
+        /// </summary>
+        /// <param name="lemmaTitle"></param>
+        /// <returns></returns>
 		public static int GetLemmaCategoryByTitle(string lemmaTitle)
         {
             int lemmaCategory=-1;
@@ -518,7 +599,11 @@ namespace Encyclopedia.Controller
             dataReader.Close();
             return lemmaCategory;
         }
-
+        /// <summary>
+        /// Get the user's name by the id given
+        /// </summary>
+        /// <param name="userID"></param>
+        /// <returns></returns>
         public static string GetUserNameByID(int userID)
         {
             string userName = "";
@@ -533,7 +618,11 @@ namespace Encyclopedia.Controller
             dataReader.Close();
             return userName;
         }
-
+        /// <summary>
+        /// Get the user's surname by the id given.
+        /// </summary>
+        /// <param name="userID"></param>
+        /// <returns></returns>
         public static string GetUserSurnameByID(int userID)
         {
             string userSurname = "";
@@ -548,7 +637,11 @@ namespace Encyclopedia.Controller
             dataReader.Close();
             return userSurname;
         }
-
+        /// <summary>
+        /// Get the user's date of birth by the user id given.
+        /// </summary>
+        /// <param name="userID"></param>
+        /// <returns></returns>
         public static DateTime GetUserDateOfBirthByID(int userID)
         {
             DateTime userDateOfBirth = new DateTime();
@@ -563,7 +656,10 @@ namespace Encyclopedia.Controller
             dataReader.Close();
             return userDateOfBirth;
         }
-
+        /// <summary>
+        /// Get a random Lemma from the  database.
+        /// </summary>
+        /// <returns></returns>
         public static Lemma GetRandomLemma()
         {
 			Lemma lemma = null;
@@ -580,7 +676,11 @@ namespace Encyclopedia.Controller
             dataReader.Close();
             return lemma;
         }
-		
+		/// <summary>
+        /// Retrieves the password salt of a user given the username
+        /// </summary>
+        /// <param name="username"></param>
+        /// <returns></returns>
         public static string GetSaltByUsername(string username)
         {
             string salt = "";
@@ -599,7 +699,11 @@ namespace Encyclopedia.Controller
 
             return salt;
         }
-
+        /// <summary>
+        /// Get the account given the username.
+        /// </summary>
+        /// <param name="username"></param>
+        /// <returns></returns>
         public static Account GetAccountByUsername(string username)
         {
             Account account;
@@ -630,7 +734,11 @@ namespace Encyclopedia.Controller
 
             return account;
         }
-
+        /// <summary>
+        /// Get User by the account id given.
+        /// </summary>
+        /// <param name="accountId"></param>
+        /// <returns></returns>
         public static User GetUserByAccountId(int accountId)
         {
             User user;
@@ -678,7 +786,11 @@ namespace Encyclopedia.Controller
 
             return user;
         }
-
+        /// <summary>
+        /// Get the role by the role Id given.
+        /// </summary>
+        /// <param name="roleId"></param>
+        /// <returns></returns>
         public static Role GetRoleById(int roleId)
         {
             Role role;
@@ -702,7 +814,11 @@ namespace Encyclopedia.Controller
 
             return role;
         }
-
+        /// <summary>
+        /// Get the education level by the id given.
+        /// </summary>
+        /// <param name="educationLevelId"></param>
+        /// <returns></returns>
         public static EducationLevel GetEducationLevelById(int educationLevelId)
         {
             EducationLevel educationLevel;
@@ -726,7 +842,11 @@ namespace Encyclopedia.Controller
 
             return educationLevel;
         }
-
+        /// <summary>
+        /// Get the editted Lemmas of a user by User given.
+        /// </summary>
+        /// <param name="user"></param>
+        /// <returns></returns>
         public static List<EditedLemma> GetEditedLemmasByUser(User user)
         {
             List<EditedLemma> list = new List<EditedLemma>();
@@ -751,7 +871,12 @@ namespace Encyclopedia.Controller
 
             return list;
         }
-
+        /// <summary>
+        /// Get the edited Lemma of a user given the User and the lemma title.
+        /// </summary>
+        /// <param name="lemmaTitle"></param>
+        /// <param name="user"></param>
+        /// <returns></returns>
         public static EditedLemma GetEditedLemmaByUserAndTitle(string lemmaTitle, User user)
         {
             EditedLemma editedLemma;
@@ -779,7 +904,11 @@ namespace Encyclopedia.Controller
             Console.WriteLine(editedLemma.LemmaTitle);
             return editedLemma;
         }
-
+        /// <summary>
+        /// Get a list of the user's favorite Lemmas given the User.
+        /// </summary>
+        /// <param name="user"></param>
+        /// <returns></returns>
         public static List<FavoriteLemma> GetFavoriteLemmasByUser(User user)
         {
             List<FavoriteLemma> list = new List<FavoriteLemma>();
@@ -803,7 +932,11 @@ namespace Encyclopedia.Controller
 
             return list;
         }
-
+        /// <summary>
+        /// Get the account given the user.
+        /// </summary>
+        /// <param name="user"></param>
+        /// <returns></returns>
         public static Account GetAccountByUser(User user)
         {
             Account account = new Account();
@@ -825,8 +958,12 @@ namespace Encyclopedia.Controller
 
             return account;
         }
-
-       public static Account GetAccountByEmail(string email)
+        /// <summary>
+        /// Get the account given the email.
+        /// </summary>
+        /// <param name="email"></param>
+        /// <returns></returns>
+        public static Account GetAccountByEmail(string email)
         {
             Account account = new Account();
             string selectQuery = "SELECT account_username FROM Account WHERE account_email = @email";
@@ -847,7 +984,11 @@ namespace Encyclopedia.Controller
             return account;
 
         }
-
+        /// <summary>
+        /// Get the User by the account's username.
+        /// </summary>
+        /// <param name="username"></param>
+        /// <returns></returns>
         public static User GetUserByAccountUsername(string username)
         {
 
@@ -903,11 +1044,14 @@ namespace Encyclopedia.Controller
             return user;
         }
 
-
         #endregion
 
         #region Insert Statements
-
+        /// <summary>
+        /// Insert a Category in the database.
+        /// </summary>
+        /// <param name="category"></param>
+        /// <returns></returns>
         public static int Insert(Category category)
         {
             string categoryName = category.Name;
@@ -928,7 +1072,11 @@ namespace Encyclopedia.Controller
 
             return rowsAffected; // if rowsAffected equals to 1, then the insertion completed successfully
         }
-
+        /// <summary>
+        /// Insert a Contact in the database.
+        /// </summary>
+        /// <param name="contact"></param>
+        /// <returns></returns>
         public static int Insert(Contact contact)
         {
             User user = contact.User;
@@ -953,7 +1101,11 @@ namespace Encyclopedia.Controller
             int rowsAffected = cmd.ExecuteNonQuery();
             return rowsAffected; // if rowsAffected equals to 1, then the insertion completed successfully
         }
-
+        /// <summary>
+        /// Insert a ContactGroup in the database.
+        /// </summary>
+        /// <param name="contactGroup"></param>
+        /// <returns></returns>
         public static int Insert(ContactGroup contactGroup)
         {
             string contactGroupName = contactGroup.Name;
@@ -978,7 +1130,11 @@ namespace Encyclopedia.Controller
 
             return rowsAffected; // if rowsAffected equals to 1, then the insertion completed successfully
         }
-
+        /// <summary>
+        /// Insert an EditedLemma in the database.
+        /// </summary>
+        /// <param name="editedLemma"></param>
+        /// <returns></returns>
         public static int Insert(EditedLemma editedLemma)
         {
             string lemmaTitle = editedLemma.LemmaTitle;
@@ -1010,7 +1166,11 @@ namespace Encyclopedia.Controller
 
             return rowsAffected; // if rowsAffected equals to 1, then the insertion completed successfully
         }
-
+        /// <summary>
+        /// Insert an EducationLevel in the database.
+        /// </summary>
+        /// <param name="educationLevel"></param>
+        /// <returns></returns>
         public static int Insert(EducationLevel educationLevel)
         {
             string educationLevelName = educationLevel.Name;
@@ -1031,7 +1191,11 @@ namespace Encyclopedia.Controller
 
             return rowsAffected; // if rowsAffected equals to 1, then the insertion completed successfully
         }
-
+        /// <summary>
+        /// Insert a FavoriteLemma in the database
+        /// </summary>
+        /// <param name="favoriteLemma"></param>
+        /// <returns></returns>
         public static int Insert(FavoriteLemma favoriteLemma)
         {
             //Get object properties into local variables
@@ -1059,7 +1223,11 @@ namespace Encyclopedia.Controller
 
             return rowsAffected; // if rowsAffected equals to 1, then the insertion completed successfully
         }
-
+        /// <summary>
+        /// Insert a Lemma in the database.
+        /// </summary>
+        /// <param name="lemma"></param>
+        /// <returns></returns>
         public static int Insert(Lemma lemma)
         {
             string lemmaTitle = lemma.Title;
@@ -1085,7 +1253,11 @@ namespace Encyclopedia.Controller
 
             return rowsAffected; // if rowsAffected equals to 1, then the insertion completed successfully
         }
-
+        /// <summary>
+        /// Insert a Role in the database.
+        /// </summary>
+        /// <param name="role"></param>
+        /// <returns></returns>
         public static int Insert(Role role)
         {
             string roleName = role.Name;
@@ -1106,7 +1278,11 @@ namespace Encyclopedia.Controller
 
             return rowsAffected; // if rowsAffected equals to 1, then the insertion completed successfully
         }
-
+        /// <summary>
+        /// Insert a SharedLemma in the database.
+        /// </summary>
+        /// <param name="sharedLemma"></param>
+        /// <returns></returns>
         public static int Insert(SharedLemma sharedLemma)
         {
             //Get object properties into local variables
@@ -1142,7 +1318,12 @@ namespace Encyclopedia.Controller
 
             return rowsAffected; // if rowsAffected equals to 1, then the insertion completed successfully
         }
-
+        /// <summary>
+        /// Insert a User in the database given the account and user information.
+        /// </summary>
+        /// <param name="user"></param>
+        /// <param name="account"></param>
+        /// <returns></returns>
 		public static int Insert(User user, Account account)
 		{
 			int userId = Insert(user);
@@ -1166,7 +1347,11 @@ namespace Encyclopedia.Controller
 			// if the method doesn't return 0, something went wrong with the database
 			return 0;
 		}
-
+        /// <summary>
+        /// Insert a User in the database.
+        /// </summary>
+        /// <param name="user"></param>
+        /// <returns></returns>
 		public static int Insert(User user)
         {
             // prepare query string
@@ -1252,7 +1437,11 @@ namespace Encyclopedia.Controller
 			
             return lastInsertedUserId; 
         }
-
+        /// <summary>
+        /// Insert an Account in the database.
+        /// </summary>
+        /// <param name="account"></param>
+        /// <returns></returns>
 		public static int Insert(Account account)
 		{
 			// query string
@@ -1281,12 +1470,19 @@ namespace Encyclopedia.Controller
         #endregion
 
         #region Delete Statements
-
+        /// <summary>
+        /// Delete a Category from the database.
+        /// </summary>
+        /// <param name="category"></param>
         public static void Delete(Category category)
         {
             //code to Delete new category
         }
-
+        /// <summary>
+        /// Delete a Contact from the database.
+        /// </summary>
+        /// <param name="contact"></param>
+        /// <returns></returns>
         public static int Delete(Contact contact)
         {
             string query = "DELETE FROM Contact WHERE user_id = @userId AND contact_id = @contId";
@@ -1301,12 +1497,20 @@ namespace Encyclopedia.Controller
 
             return rowsAffected;
         }
-
+        /// <summary>
+        /// Delete a ContactGroup from the database.
+        /// </summary>
+        /// <param name="contactGroup"></param>
         public static void Delete(ContactGroup contactGroup)
         {
             //code to Delete contactgroup
         }
-
+        /// <summary>
+        /// Delete an EditedLemma from the database given the User.
+        /// </summary>
+        /// <param name="editedLemma"></param>
+        /// <param name="user"></param>
+        /// <returns></returns>
         public static int Delete(EditedLemma editedLemma, User user)
         {
             string query = "DELETE FROM Edited_Lemma WHERE editor_id = @id AND lemma_title = @title";
@@ -1321,12 +1525,20 @@ namespace Encyclopedia.Controller
 
             return rowsAffected;
         }
-
+        /// <summary>
+        /// Delete a EducationLevel from the database.
+        /// </summary>
+        /// <param name="educationLevel"></param>
         public static void Delete(EducationLevel educationLevel)
         {
             //code to Delete educationLevel
         }
-
+        /// <summary>
+        /// Delete an FavoriteLemma from the database given the User.
+        /// </summary>
+        /// <param name="favoriteLemma"></param>
+        /// <param name="user"></param>
+        /// <returns></returns>
         public static int Delete(FavoriteLemma favoriteLemma, User user)
         {
             string query = "DELETE FROM Favorite_Lemma WHERE user_id = @id AND lemma_title = @title";
@@ -1341,27 +1553,42 @@ namespace Encyclopedia.Controller
 
             return rowsAffected;
         }
-
+        /// <summary>
+        /// Delete a Lemma from the database.
+        /// </summary>
+        /// <param name="lemma"></param>
         public static void Delete(Lemma lemma)
         {
             //code to Delete lemma
         }
-
+        /// <summary>
+        /// Delete a Role from the database.
+        /// </summary>
+        /// <param name="role"></param>
         public static void Delete(Role role)
         {
             //code to Delete role
         }
-
+        /// <summary>
+        /// Delete a SharedLemma from the database.
+        /// </summary>
+        /// <param name="sharedLemma"></param>
         public static void Delete(SharedLemma sharedLemma)
         {
             //code to Delete sharedLemma
         }
-
+        /// <summary>
+        /// Delete a User from the database.
+        /// </summary>
+        /// <param name="user"></param>
         public static void Delete(User user)
         {
 			//code to Delete user
 		}
-
+        /// <summary>
+        /// Delete an Account from the database.
+        /// </summary>
+        /// <param name="account"></param>
 		public static void Delete(Account account)
 		{
 			//code to Delete new account
@@ -1369,22 +1596,36 @@ namespace Encyclopedia.Controller
         #endregion
 
         #region Update Statements
-
+        /// <summary>
+        /// Updates a Category in the database.
+        /// </summary>
+        /// <param name="category"></param>
         public static void Update(Category category)
         {
             //code to Update new category
         }
-
+        /// <summary>
+        /// Updates a Contact in the database.
+        /// </summary>
+        /// <param name="contact"></param>
         public static void Update(Contact contact)
         {
             //code to Update new contact
         }
-
+        /// <summary>
+        /// Updates a ContactGroup in the database.
+        /// </summary>
+        /// <param name="contactGroup"></param>
         public static void Update(ContactGroup contactGroup)
         {
             //code to Update contactgroup
         }
-
+        /// <summary>
+        /// Updates a EditedLemma in the database.
+        /// </summary>
+        /// <param name="editedLemma"></param>
+        /// <param name="user"></param>
+        /// <returns></returns>
         public static int Update(EditedLemma editedLemma, User user)
         {
             string query = "UPDATE Edited_Lemma SET edited_lemma_body = @body" +
@@ -1400,17 +1641,28 @@ namespace Encyclopedia.Controller
             int rowsAffected = cmd.ExecuteNonQuery();
             return rowsAffected;
         }
-
+        /// <summary>
+        /// Updates a EducationLevel in the database.
+        /// </summary>
+        /// <param name="educationLevel"></param>
         public static void Update(EducationLevel educationLevel)
         {
             //code to Update educationLevel
         }
-
+        /// <summary>
+        /// Updates a FavoriteLemma in the database.
+        /// </summary>
+        /// <param name="favoriteLemma"></param>
         public static void Update(FavoriteLemma favoriteLemma)
         {
             //code to Update favoriteLemma
         }
-
+        /// <summary>
+        /// Updates a Lemma in the database. Given the Lemma title and body
+        /// </summary>
+        /// <param name="title"></param>
+        /// <param name="body"></param>
+        /// <returns></returns>
         public static int Update(string title, byte[]body)
         {
             string query = "UPDATE Lemma SET lemma_body = @body WHERE lemma_title = @title";
@@ -1423,17 +1675,27 @@ namespace Encyclopedia.Controller
             int rowsAffected = cmd.ExecuteNonQuery();
             return rowsAffected;
         }
-
+        /// <summary>
+        /// Updates a Role in the database.
+        /// </summary>
+        /// <param name="role"></param>
         public static void Update(Role role)
         {
             //code to Update role
         }
-
+        /// <summary>
+        /// Updates a SharedLemma in the database.
+        /// </summary>
+        /// <param name="sharedLemma"></param>
         public static void Update(SharedLemma sharedLemma)
         {
             //code to Update sharedLemma
         }
-
+        /// <summary>
+        /// Updates a User in the database.
+        /// </summary>
+        /// <param name="user"></param>
+        /// <returns></returns>
         public static int Update(User user)
         {
             string query = "UPDATE User SET user_name = @name, user_surname = @surname, user_date_of_birth "+
@@ -1479,7 +1741,14 @@ namespace Encyclopedia.Controller
 
             return rowsAffected;
         }
-
+        /// <summary>
+        /// Check if the username and email given matches to an account.
+        /// Then sets the account password to the tempPassword given.
+        /// </summary>
+        /// <param name="username"></param>
+        /// <param name="email"></param>
+        /// <param name="tempPassword"></param>
+        /// <returns></returns>
 		public static int CheckAccountMatchAndUpdate(string username, string email, string tempPassword)
 		{
 			Account account = new Account();
@@ -1503,7 +1772,11 @@ namespace Encyclopedia.Controller
 			// if the method doesn't return 0, something went wrong with the database
 			return 0;
 		}
-
+        /// <summary>
+        /// Update an Account in the database.
+        /// </summary>
+        /// <param name="account"></param>
+        /// <returns></returns>
 		public static int Update(Account account)
 		{
             string query = "UPDATE Account SET account_salted_password_hash = @pass, account_password_salt = @salt WHERE account_username = @username AND account_email = @email";

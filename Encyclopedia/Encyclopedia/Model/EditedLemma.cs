@@ -3,16 +3,20 @@ using System.Text;
 
 namespace Encyclopedia.Model
 {
+    /// <summary>
+    /// Represents the data in the database.
+    /// </summary>
     public class EditedLemma
     {
-        // fields
+        #region Private variables
         private string lemmaTitle;
         private User editor;
         private String editedBody;
         private DateTime createdAt;
         private DateTime updatedAt;
+        #endregion
 
-        // constructor
+        #region Constructors
         public EditedLemma(string lemmaTitle, User editor, Byte[] editedBodyInBytes, DateTime createdAt, DateTime updatedAt)
         {
             LemmaTitle = lemmaTitle;
@@ -24,8 +28,9 @@ namespace Encyclopedia.Model
             CreatedAt = createdAt;
             UpdatedAt = updatedAt;
         }
+        #endregion
 
-        // setters and getters
+        #region Properties
         public string LemmaTitle
         {
             get
@@ -37,7 +42,6 @@ namespace Encyclopedia.Model
                 lemmaTitle = value ?? throw new ArgumentNullException(nameof(lemmaTitle));
             }
         }
-
         public User Editor
         {
             get
@@ -49,7 +53,6 @@ namespace Encyclopedia.Model
 				editor = value ?? throw new ArgumentNullException(nameof(editor));
 			}
         }
-
         public String Body
         {
             get
@@ -61,7 +64,6 @@ namespace Encyclopedia.Model
                 editedBody = value;
             }
         }
-
         public DateTime CreatedAt
         {
             get
@@ -73,7 +75,6 @@ namespace Encyclopedia.Model
                 createdAt = value;
             }
         }
-
         public DateTime UpdatedAt
         {
             get
@@ -85,8 +86,12 @@ namespace Encyclopedia.Model
                 updatedAt = value;
             }
         }
+        #endregion
 
-        // overrided ToString
+        /// <summary>
+        /// Overrides the ToString method.
+        /// </summary>
+        /// <returns></returns>
         public override string ToString()
         {
             return base.ToString();

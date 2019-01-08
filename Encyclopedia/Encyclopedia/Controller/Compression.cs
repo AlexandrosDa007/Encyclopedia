@@ -10,21 +10,29 @@ using System.Windows.Forms;
 
 namespace Encyclopedia.Controller
 {
+    /// <summary>
+    /// This class has static methods that support the compression system.
+    /// </summary>
     public class Compression
     {
+        /// <summary>
+        /// Compressed all the Lemmas that are on the database.
+        /// </summary>
         public static void CompressAllLemmaFromDatabase()
         {
+            //Get all Lemmas from database
             List<Lemma> list = DBConnect.GetAllLemma();
-
-            foreach(Lemma l in list)
+            //Iterate through lemmas
+            foreach(Lemma lemma in list)
             {
-                byte[] decomp = l.Body;
-
-                byte[] comp = CompressLemmas(decomp);
-
-                l.Body = comp;
-
-                int res = DBConnect.Update(l.Title, l.Body);
+                //Get the decompressed Lemma body in bytes
+                byte[] decompressedBody = lemma.Body;
+                //Compress the body to an array of bytes
+                byte[] compressedBody = CompressLemmas(decompressedBody);
+                //Set lemma body to the compressed array of bytes
+                lemma.Body = compressedBody;
+                //Try to update the Lemma in database if res != 1 then it fails
+                int res = DBConnect.Update(lemma.Title, lemma.Body);
                 if(res != 1)
                 {
                     MessageBox.Show("Something went wrong with updating lemma!!");
@@ -33,20 +41,25 @@ namespace Encyclopedia.Controller
                 
             }
         }
-
+        /// <summary>
+        /// Decompressed all the Lemmas we have in database.
+        /// This is a debug only function no use in release.
+        /// </summary>
         public static void DecompressAllLemmaFromDatabase()
         {
+            //Get all Lemmas from database
             List<Lemma> list = DBConnect.GetAllLemma();
-
-            foreach (Lemma l in list)
+            //Iterate through lemma list
+            foreach (Lemma lemma in list)
             {
-                byte[] comp = l.Body;
-
-                byte[] dec = DecompressLemmas(comp);
-
-                l.Body = dec;
-
-                int res = DBConnect.Update(l.Title, l.Body);
+                //Get the compressed body in bytes
+                byte[] compressedBody = lemma.Body;
+                //Get the decompress body in bytes
+                byte[] decompressedBody = DecompressLemmas(compressedBody);
+                //Set the lemma body to the decompressed Body 
+                lemma.Body = decompressedBody;
+                //Try to update lemma if res != 1 then fail
+                int res = DBConnect.Update(lemma.Title, lemma.Body);
                 if (res != 1)
                 {
                     MessageBox.Show("Something went wrong with updating lemma!!");
@@ -55,9 +68,14 @@ namespace Encyclopedia.Controller
                 
             }
         }
-
+        /// <summary>
+        /// This method takes the lemma body as a byte array and compresses it with GZip.
+        /// </summary>
+        /// <param name="decompressedLemma"></param>
+        /// <returns></returns>
         public static byte[] CompressLemmas(byte[] decompressedLemma)
         {
+
             using (MemoryStream memory = new MemoryStream())
             {
                 using (GZipStream gzip = new GZipStream(memory,
@@ -68,8 +86,11 @@ namespace Encyclopedia.Controller
                 return memory.ToArray();
             }
         }
-
-
+        /// <summary>
+        /// This method takes the compressed Lemma body and decompresses it with GZip.
+        /// </summary>
+        /// <param name="compressLemma"></param>
+        /// <returns></returns>
         public static byte[] DecompressLemmas(byte[] compressLemma)
         {
             // Create a GZIP stream with decompression mode.

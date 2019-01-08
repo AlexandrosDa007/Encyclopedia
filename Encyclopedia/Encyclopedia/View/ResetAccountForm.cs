@@ -5,14 +5,20 @@ using Encyclopedia.Controller;
 
 namespace Encyclopedia.View
 {
+    /// <summary>
+    /// A small window form for forgot password system
+    /// </summary>
     public partial class ResetAccountForm : Form
     {
+        #region Constructors
         public ResetAccountForm()
         {
             InitializeComponent();
         }
+        #endregion
 
-		private void ResetAccountForm_Paint(object sender, PaintEventArgs e)
+        #region Private methods
+        private void ResetAccountForm_Paint(object sender, PaintEventArgs e)
 		{
 			e.Graphics.DrawRectangle(new Pen(Color.Black, 2),
 							this.DisplayRectangle);
@@ -50,5 +56,7 @@ namespace Encyclopedia.View
 		{
 			this.Close();
 		}
-	}
+        #endregion
+
+    }
 }

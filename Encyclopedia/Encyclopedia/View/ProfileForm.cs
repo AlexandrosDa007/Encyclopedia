@@ -12,11 +12,17 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 namespace Encyclopedia.View
 {
+    /// <summary>
+    /// A form that displays the User's profile information
+    /// </summary>
     public partial class ProfileForm : Form
     {
+        #region Properties
         public Account Account { set; get; }
         public bool UpdatedSuccessfully { set; get; }
+        #endregion
 
+        #region Constructors
         public ProfileForm(Account account)
         {
             InitializeComponent();
@@ -28,7 +34,9 @@ namespace Encyclopedia.View
             SetAccountData();
             UpdatedSuccessfully = false;
         }
+        #endregion
 
+        #region Private methods
         private void closePictureBox_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -53,14 +61,8 @@ namespace Encyclopedia.View
                 roleCB.SelectedIndex = Account.User.Role.Id - 1;
 
             descriptionRTB.Text = Account.User.Description;
-            if (Account.User.Image == null)
-            {
-                //no picture
-            }
-            else
-            {
+            if (Account.User.Image != null)
                 imagePB.Image = (Bitmap)((new ImageConverter()).ConvertFrom(Account.User.Image));
-            }
 
         }
 
@@ -76,46 +78,35 @@ namespace Encyclopedia.View
             roleCB.Enabled = true;
             educationLevelCB.Enabled = true;
             descriptionRTB.Enabled = true;
-            imagePathTB.Enabled = true;
             saveButton.Visible = true;
             browseButton.Enabled = true;
         }
 
         private void browseButton_Click(object sender, EventArgs e)
         {
-            try
-            {
-                OpenFileDialog openFileDialog1 = new OpenFileDialog();
-                openFileDialog1.Title = "Please select an image for your account.";
+            OpenFileDialog openFileDialog1 = new OpenFileDialog();
+            openFileDialog1.Title = "Please select an image for your account.";
 
-                // show only image file formats
-                openFileDialog1.Filter = "Image Files(*.BMP;*.JPG;*.JPEG;*.PNG;*.GIF)|*.BMP;*.JPG;*.JPEG;*.PNG;*.GIF|All files (*.*)|*.*";
-                if (openFileDialog1.ShowDialog() == DialogResult.OK)
+            // show only image file formats
+            openFileDialog1.Filter = "Image Files(*.BMP;*.JPG;*.JPEG;*.PNG;*.GIF)|*.BMP;*.JPG;*.JPEG;*.PNG;*.GIF";
+            if (openFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                // check if the file size isn't bigger than 1 MB approx. (measured in bytes)
+                long imageLength = new FileInfo(openFileDialog1.FileName).Length;
+                if (imageLength > 1000000)
                 {
-                    // check if the file size isn't bigger than 16 MB approx. (measured in bytes)
-                    long imageLength = new FileInfo(openFileDialog1.FileName).Length;
-                    if (imageLength > 1000000)
-                    {
-                        throw new ArgumentOutOfRangeException(nameof(imageLength));
-                    }
-
-                    imagePathTB.Text = openFileDialog1.FileName;
-                    imagePB.Image = Image.FromFile(openFileDialog1.FileName);
+                    MessageBox.Show("Please pick a smaller image!!");
+                    return;
                 }
+
+                imagePB.Image = Image.FromFile(openFileDialog1.FileName);
             }
-            catch (ArgumentOutOfRangeException)
+            else
             {
-				// show the exception message in order to inform the user
-				feedbackLabel1.Text = "The chosen image size is too big. Please choose one up to 1MB.";
-				feedbackLabel1.ForeColor = Color.Black;
-
-				// fade out effect in feedbackLabel message
-				Timer timer1 = new Timer();
-				timer1.Tick += new EventHandler(timer1_Tick);
-				timer1.Start();
-			}
+                MessageBox.Show("Please pick an image!");
+                return;
+            }
         }
-
 
         private void saveButton_Click_1(object sender, EventArgs e)
         {
@@ -251,6 +242,7 @@ namespace Encyclopedia.View
 
             updateFeedbackLabel(okayToUpdate);
         }
+
         private void timer1_Tick(object sender, EventArgs e)
         {
             int fadingSpeed = 5;
@@ -293,6 +285,6 @@ namespace Encyclopedia.View
 			e.Graphics.DrawRectangle(new Pen(Color.Black, 2),
 							this.DisplayRectangle);
 		}
-
+        #endregion
     }
 }

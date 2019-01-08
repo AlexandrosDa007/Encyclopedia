@@ -7,13 +7,24 @@ using UI;
 
 namespace Encyclopedia.View
 {
+    /// <summary>
+    /// A User Control that holds list views for displaying contacts and groups.
+    /// </summary>
     public partial class ContactsUserControl : UserControl
     {
+        /// <summary>
+        /// A static reference to the instance of this Control.
+        /// </summary>
         private static ContactsUserControl _instance;
 
-		public List<User> contactList = null;
-		public List<ContactGroup> groupList = null;
+        #region Properties
+        public List<User> ContactList { set; get; }
+        public List<ContactGroup> GroupList { set; get; }
+        #endregion
 
+        /// <summary>
+        /// The public Instance of the Control.
+        /// </summary>
         public static ContactsUserControl Instance
         {
             get
@@ -23,42 +34,27 @@ namespace Encyclopedia.View
                 return _instance;
             }
         }
-
+        
+        #region Constructors
         public ContactsUserControl()
         {
             InitializeComponent();
+            ContactList = null;
+            GroupList = null;
         }
+        #endregion
 
-		private void contactsTabControl_SelectedIndexChanged(object sender, System.EventArgs e)
+
+        #region Private methods
+        private void contactsTabControl_SelectedIndexChanged(object sender, System.EventArgs e)
 		{
 			UpdateTabControl();
-		}
-
-		public void UpdateTabControl()
-		{
-			if (UI.StartPage.account != null)
-			{
-				// update the tab that is selected
-				if (contactsTabControl.SelectedTab == contactsTabControl.TabPages["contactsTabPage"])
-				{
-					ContactAndGroupHandler.FillContacts(contactsListView, contactList);
-				}
-				else if (contactsTabControl.SelectedTab == contactsTabControl.TabPages["groupTabPage"])
-				{
-					ContactAndGroupHandler.FillGroups(groupListView, groupList);
-				}
-			}
 		}
 
         private void searchContactsTextBox_Enter(object sender, System.EventArgs e)
         {
             if (searchContactsTextBox.Text.Trim() != "" || searchContactsTextBox.Text != null)
-
-            {
-
                 searchContactsTextBox.Text = "";
-
-            }
         }
 
         private void contactsListView_DoubleClick(object sender, System.EventArgs e)
@@ -66,7 +62,7 @@ namespace Encyclopedia.View
             string userNameAndSurname = contactsListView.SelectedItems[0].Text;
             string userName = userNameAndSurname.Split(new[] { ' ' }, 2)[0];
             User contactUser = null;
-            foreach(User u in contactList)
+            foreach(User u in ContactList)
             {
                 if (u.Name.Equals(userName))
                 {
@@ -124,7 +120,7 @@ namespace Encyclopedia.View
 			
 			// set up the selected ContactGroup group
 			ContactGroup contactGroup = null;
-			foreach (ContactGroup group in groupList)
+			foreach (ContactGroup group in GroupList)
 			{
 				if (group.Name.Equals(groupName))
 				{
@@ -136,5 +132,24 @@ namespace Encyclopedia.View
 			CreateGroupForm groupForm = new CreateGroupForm(contactGroup);
 			groupForm.ShowDialog();
 		}
-	}
+        #endregion
+
+        #region Public methods
+        public void UpdateTabControl()
+        {
+            if (UI.StartPage.account != null)
+            {
+                // update the tab that is selected
+                if (contactsTabControl.SelectedTab == contactsTabControl.TabPages["contactsTabPage"])
+                {
+                    ContactHandler.FillContacts(contactsListView, ContactList);
+                }
+                else if (contactsTabControl.SelectedTab == contactsTabControl.TabPages["groupTabPage"])
+                {
+                    ContactHandler.FillGroups(groupListView, GroupList);
+                }
+            }
+        }
+        #endregion
+    }
 }

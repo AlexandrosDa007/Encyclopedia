@@ -13,12 +13,16 @@ using UI;
 
 namespace Encyclopedia.View
 {
+    /// <summary>
+    /// A Form that allows the User to Edit a Lemma in a special Editor Using the HTMLTextBox User Control
+    /// Credit to - https://www.codeproject.com/Articles/17307/HTMLTextBox
+    /// </summary>
     public partial class LemmaEditor : Form
     {
-        public Lemma lemma;
-        public EditedLemma editedLemma;
-        public int mode;
-
+        #region Properties
+        public Lemma Lemma { set; get; }
+        public EditedLemma EditedLemma { set; get; }
+        public int Mode { set; get; }
         public WebBrowser WebBrowser
         {
             get
@@ -26,25 +30,27 @@ namespace Encyclopedia.View
                 return this.htmlTextBox1.WebBrowser;
             }
         }
+        #endregion
 
+        #region Constructors
         public LemmaEditor(Lemma lemma, int mode)
         {
             InitializeComponent();
-            this.lemma = lemma;
-            this.mode = mode;
+            this.Lemma = lemma;
+            this.Mode = mode;
             lemmaTitleLabel.Text = lemma.Title + " - Edited By '" + StartPage.account.User.Name + "'";
         }
 
         public LemmaEditor(EditedLemma editedLemma, int mode)
         {
             InitializeComponent();
-            this.editedLemma = editedLemma;
-            this.mode = mode;
+            this.EditedLemma = editedLemma;
+            this.Mode = mode;
             lemmaTitleLabel.Text = editedLemma.LemmaTitle + " - Edited By '" + StartPage.account.User.Name + "'";
         }
+        #endregion
 
-
-
+        #region Private methods
         private void cancelButton_Click(object sender, EventArgs e)
         {
             Close();
@@ -52,33 +58,32 @@ namespace Encyclopedia.View
 
         private void revertButton_Click(object sender, EventArgs e)
         {
-            if(mode == 0)
-                htmlTextBox1.WebBrowser.Document.Body.InnerHtml = Encoding.UTF8.GetString(lemma.Body);
-            else if(mode == 1)
+            if(Mode == 0)
+                htmlTextBox1.WebBrowser.Document.Body.InnerHtml = Encoding.UTF8.GetString(Lemma.Body);
+            else if(Mode == 1)
             {
-                htmlTextBox1.WebBrowser.Document.Body.InnerHtml = editedLemma.Body;
+                htmlTextBox1.WebBrowser.Document.Body.InnerHtml = EditedLemma.Body;
             }
 
         }
-
 
         private void saveButton_Click(object sender, EventArgs e)
         {
             //Determine if we are creating a new edited Lemma or updating one
             byte[] newBody = Encoding.UTF8.GetBytes(htmlTextBox1.WebBrowser.Document.Body.InnerHtml);
             //if new one
-            if (mode == 0)
+            if (Mode == 0)
             {
                
                 //make EditedLemma
-                editedLemma = new EditedLemma(lemma.Title, StartPage.account.User, newBody, DateTime.Now, DateTime.Now);
+                EditedLemma = new EditedLemma(Lemma.Title, StartPage.account.User, newBody, DateTime.Now, DateTime.Now);
 
-                int res = DBConnect.Insert(editedLemma);
+                int res = DBConnect.Insert(EditedLemma);
                 if (res == 1)
                 {
-                    MessageBox.Show("  The edited lemma \"" + lemma.Title + "\" was saved successfully to your account!\n");
+                    MessageBox.Show("  The edited lemma \"" + Lemma.Title + "\" was saved successfully to your account!\n");
                     StartPage.editedLemmaList = DBConnect.GetEditedLemmasByUser(StartPage.account.User);
-                    EditedLemmataUserControl.Instance.editedLemmas = StartPage.editedLemmaList;
+                    EditedLemmataUserControl.Instance.EditedLemmas = StartPage.editedLemmaList;
                     EditedLemmataUserControl.Instance.SetLemmas();
                     Close();
                 }
@@ -86,19 +91,19 @@ namespace Encyclopedia.View
                 {
                     MessageBox.Show("  Something went wrong! Please try again.\n");
                 }
-            }else if(mode == 1)
+            }else if(Mode == 1)
             {
                 //if updating existing one
-                editedLemma = DBConnect.GetEditedLemmaByUserAndTitle(editedLemma.LemmaTitle, StartPage.account.User);
-                editedLemma.Body = htmlTextBox1.WebBrowser.Document.Body.InnerHtml;
-                editedLemma.UpdatedAt = DateTime.Now;
+                EditedLemma = DBConnect.GetEditedLemmaByUserAndTitle(EditedLemma.LemmaTitle, StartPage.account.User);
+                EditedLemma.Body = htmlTextBox1.WebBrowser.Document.Body.InnerHtml;
+                EditedLemma.UpdatedAt = DateTime.Now;
 
-                int res = DBConnect.Update(editedLemma, StartPage.account.User);
+                int res = DBConnect.Update(EditedLemma, StartPage.account.User);
                 if (res == 1)
                 {
-                    MessageBox.Show("  The edited lemma \"" + editedLemma.LemmaTitle + "\" was saved successfully to your account!\n");
+                    MessageBox.Show("  The edited lemma \"" + EditedLemma.LemmaTitle + "\" was saved successfully to your account!\n");
                     StartPage.editedLemmaList = DBConnect.GetEditedLemmasByUser(StartPage.account.User);
-                    EditedLemmataUserControl.Instance.editedLemmas = StartPage.editedLemmaList;
+                    EditedLemmataUserControl.Instance.EditedLemmas = StartPage.editedLemmaList;
                     EditedLemmataUserControl.Instance.SetLemmas();
                     Close();
                 }
@@ -127,5 +132,6 @@ namespace Encyclopedia.View
         {
 
         }
+        #endregion
     }
 }

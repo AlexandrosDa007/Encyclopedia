@@ -12,10 +12,16 @@ using Encyclopedia.Model;
 
 namespace Encyclopedia.View
 {
+    /// <summary>
+    /// A User Control for the left panel of StartPage. This loads when a user in logged in.
+    /// </summary>
     public partial class AfterLoginUserControl : UserControl
     {
+        #region Properties
         public Account Account { set; get; }
+        #endregion
 
+        #region Constructors
         public AfterLoginUserControl()
         {
             InitializeComponent();
@@ -26,8 +32,10 @@ namespace Encyclopedia.View
 				connectUserLabel.Text = "Welcome " + StartPage.account.Username + "!";
 			}
 		}
+        #endregion
 
-		private void logoutButton_Click(object sender, EventArgs e)
+        #region Private methods
+        private void logoutButton_Click(object sender, EventArgs e)
         {
             //logout function
 
@@ -100,12 +108,6 @@ namespace Encyclopedia.View
             }
         }
 
-        public void SetImage()
-        {
-            if(Account.User.Image!=null)
-                sideProfilePicture.Image = (Bitmap)((new ImageConverter()).ConvertFrom(Account.User.Image));
-        }
-
         private void logoLabel_Click(object sender, EventArgs e)
         {
             StartPage startP = (StartPage)this.Parent.Parent;
@@ -136,5 +138,14 @@ namespace Encyclopedia.View
                 SharedLemmataUserControl.Instance.BringToFront();
 
         }
+        #endregion
+
+        #region Public methods
+        public void SetImage()
+        {
+            if (Account.User.Image != null)
+                sideProfilePicture.Image = (Bitmap)((new ImageConverter()).ConvertFrom(Account.User.Image));
+        }
+        #endregion
     }
 }

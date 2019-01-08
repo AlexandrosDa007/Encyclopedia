@@ -3,17 +3,21 @@ using System.Net.Mail;
 
 namespace Encyclopedia.Model
 {
+    /// <summary>
+    /// Represents the data in database.
+    /// </summary>
     public class Account
     {
-        // fields
+        #region private variables
         private User user;
         private String username;
         private String saltedPasswordHash; // Hash value
 		private String passwordSalt;
 		private String email;
         private DateTime createdAt;
+        #endregion
 
-        // constructor
+        #region Constructors
         public Account(User user, string username, string saltedPasswordHash, string passwordSalt, string email, DateTime createdAt)
         {
             User = user;
@@ -23,13 +27,13 @@ namespace Encyclopedia.Model
 			Email = email;
             CreatedAt = createdAt;
         }
-
         public Account()
         {
 
         }
+        #endregion
 
-        // setters and getters
+        #region Properties
         public User User
         {
             get
@@ -41,7 +45,6 @@ namespace Encyclopedia.Model
 				user = value ?? throw new ArgumentNullException(nameof(user));
             }
         }
-
         public String Username
         {
             get
@@ -58,7 +61,6 @@ namespace Encyclopedia.Model
 					username = value ?? throw new ArgumentNullException(nameof(username));
             }
         }
-
         public String SaltedPasswordHash
 		{
             get
@@ -75,7 +77,6 @@ namespace Encyclopedia.Model
 					saltedPasswordHash = value ?? throw new ArgumentNullException(nameof(saltedPasswordHash));
             }
         }
-
 		public String PasswordSalt
 		{
 			get
@@ -92,7 +93,6 @@ namespace Encyclopedia.Model
 					passwordSalt = value ?? throw new ArgumentNullException(nameof(passwordSalt));
 			}
 		}
-
 		public String Email
         {
             get
@@ -113,7 +113,6 @@ namespace Encyclopedia.Model
 				}
             }
         }
-
         public DateTime CreatedAt
         {
             get
@@ -125,8 +124,12 @@ namespace Encyclopedia.Model
                 createdAt = value;
             }
         }
-
-        // overrided ToString
+        #endregion
+        
+        /// <summary>
+        /// Overrides the ToString method.
+        /// </summary>
+        /// <returns></returns>
         public override string ToString()
         {
             return base.ToString();

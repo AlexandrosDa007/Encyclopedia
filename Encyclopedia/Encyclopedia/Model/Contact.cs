@@ -2,12 +2,17 @@
 
 namespace Encyclopedia.Model
 {
+    /// <summary>
+    /// Represents the data in the database.
+    /// </summary>
     public class Contact
     {
-        // fields
+        #region Private variables
         private User user;
         private User contact;
+        #endregion
 
+        #region Constructors
         // default constructor
         public Contact(User user, User contact)
         {
@@ -19,8 +24,9 @@ namespace Encyclopedia.Model
             else
                 throw new ArgumentException("The user cannot be contacts with himself.");
         }
+        #endregion
 
-        // setters and getters
+        #region Properties
         public User User
         {
             get
@@ -37,7 +43,6 @@ namespace Encyclopedia.Model
                     throw new ArgumentException("The user cannot be contacts with himself.");
             }
         }
-
         public User ContactUser
         {
             get
@@ -54,8 +59,13 @@ namespace Encyclopedia.Model
                     throw new ArgumentException("The user cannot be contacts with himself.");
             }
         }
+        #endregion
+        
 
-        // overrided ToString
+        /// <summary>
+        /// Overrides ToString method.
+        /// </summary>
+        /// <returns></returns>
         public override string ToString()
         {
             return base.ToString();

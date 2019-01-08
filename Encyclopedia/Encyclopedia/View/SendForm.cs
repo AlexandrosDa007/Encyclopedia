@@ -6,8 +6,12 @@ using Encyclopedia.Model;
 
 namespace Encyclopedia.View
 {
+    /// <summary>
+    /// A small form that allows the User to select some (or all) of his/her Contacts and send a Lemma to them.
+    /// </summary>
     public partial class SendForm : Form
     {
+        #region Constructors
         public SendForm()
 		{
 			InitializeComponent();
@@ -18,12 +22,14 @@ namespace Encyclopedia.View
 			// fill groupsCheckedListBox with the user's contact groups
 			FillGroupListBox();
 		}
+        #endregion
 
-		private void FillContactsListBox()
+        #region Private methods
+        private void FillContactsListBox()
 		{
 			contactsCheckedListBox.Items.Clear();
 
-			foreach (User contact in ContactsUserControl.Instance.contactList)
+			foreach (User contact in ContactsUserControl.Instance.ContactList)
 			{
 				contactsCheckedListBox.Items.Add(contact.Name + " " + contact.Surname);
 			}
@@ -33,7 +39,7 @@ namespace Encyclopedia.View
 		{
 			groupsCheckedListBox.Items.Clear();
 
-			foreach (ContactGroup group in ContactsUserControl.Instance.groupList)
+			foreach (ContactGroup group in ContactsUserControl.Instance.GroupList)
 			{
 				groupsCheckedListBox.Items.Add(group.Name);
 			}
@@ -53,13 +59,13 @@ namespace Encyclopedia.View
 		private void sendButton_Click(object sender, EventArgs e)
 		{
 			string lemmaTitle = null;
-			if (LemmaViewUserControl.Instance.mode == 0)
+			if (LemmaViewUserControl.Instance.Mode == 0)
 			{
-				lemmaTitle = LemmaViewUserControl.Instance.lemma.Title;
+				lemmaTitle = LemmaViewUserControl.Instance.Lemma.Title;
 			}
 			else
 			{
-				lemmaTitle = LemmaViewUserControl.Instance.editedLemma.LemmaTitle;
+				lemmaTitle = LemmaViewUserControl.Instance.EditedLemma.LemmaTitle;
 			}
 
 			int i = 0;
@@ -75,7 +81,7 @@ namespace Encyclopedia.View
 					string contactName = (contactItem as string).Split(new[] { ' ' }, 2)[0];
 					string contactSurname = (contactItem as string).Split(new[] { ' ' }, 2)[1];
 
-					foreach (User contact in ContactsUserControl.Instance.contactList)
+					foreach (User contact in ContactsUserControl.Instance.ContactList)
 					{
 						if (contact.Name.Equals(contactName) && contact.Surname.Equals(contactSurname))
 						{
@@ -94,5 +100,7 @@ namespace Encyclopedia.View
 
 			//int rowsAffected = Controller.Message.sendMessage(UI.StartPage.account.User.Id, lemmaTitle, receiverIds, additionalNotes);
 		}
-	}
+        #endregion
+
+    }
 }

@@ -13,14 +13,24 @@ using Encyclopedia.Controller;
 
 namespace Encyclopedia.View
 {
+    /// <summary>
+    /// A User Control that displays the User's Favorite Lemmata
+    /// </summary>
     public partial class FavouriteLemmataUserControl : UserControl
     {
-        public List<FavoriteLemma> favoriteLemmas;
+        #region Properties
+        public List<FavoriteLemma> FavoriteLemmas { set; get; }
+        #endregion
 
+        /// <summary>
+        /// A static reference to the Instance of this User Control
+        /// </summary>
         private static FavouriteLemmataUserControl _instance;
 
 
-
+        /// <summary>
+        /// A reference to the public Instance of the User Control
+        /// </summary>
         public static FavouriteLemmataUserControl Instance
         {
             get
@@ -32,20 +42,42 @@ namespace Encyclopedia.View
 
             }
         }
+
+        #region Constructors
         public FavouriteLemmataUserControl()
         {
             InitializeComponent();
         }
+        #endregion
 
+        #region Private methods
+        private Label setLabelData(string labelString, bool isRemoveLabel)
+        {
+            Font style = new System.Drawing.Font("Century Gothic", 22F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
+            Label newLabel = new Label();
+            if (isRemoveLabel)
+                newLabel.ForeColor = Color.Orange;
+
+
+            newLabel.Text = labelString;
+            newLabel.Font = style;
+            newLabel.Dock = DockStyle.Fill;
+            newLabel.TextAlign = ContentAlignment.MiddleCenter;
+
+            return newLabel;
+        }
+        #endregion
+
+        #region Public methods
         public void SetLemmas()
         {
             favoriteTableLayoutPanel.Controls.Clear();
             int i = 0;
-            if (favoriteLemmas.Count < 3)
+            if (FavoriteLemmas.Count < 3)
                 favoriteTableLayoutPanel.RowCount = 3 + 1;
             else
-                favoriteTableLayoutPanel.RowCount = favoriteLemmas.Count + 1;
-            foreach (FavoriteLemma f in favoriteLemmas)
+                favoriteTableLayoutPanel.RowCount = FavoriteLemmas.Count + 1;
+            foreach (FavoriteLemma f in FavoriteLemmas)
             {
 
                 Label title = setLabelData(f.Title, false);
@@ -64,28 +96,12 @@ namespace Encyclopedia.View
             favoriteTableLayoutPanel.Controls.Add(new Label() { Text = "" }, 0, i);
         }
 
-        private Label setLabelData(string labelString, bool isRemoveLabel)
-        {
-            Font style = new System.Drawing.Font("Century Gothic", 17F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-            Label newLabel = new Label();
-            if (isRemoveLabel)
-                newLabel.ForeColor = Color.Orange;
-
-
-            newLabel.Text = labelString;
-            newLabel.Font = style;
-            newLabel.Dock = DockStyle.Fill;
-            newLabel.TextAlign = ContentAlignment.MiddleCenter;
-
-            return newLabel;
-        }
-
         public void removeClick(object sender, EventArgs e)
         {
             int row = favoriteTableLayoutPanel.GetRow(((Label)sender));
             Label titleLabel = (Label)favoriteTableLayoutPanel.GetControlFromPosition(0, row);
             FavoriteLemma toBeRemoved = null;
-            foreach (FavoriteLemma f in favoriteLemmas)
+            foreach (FavoriteLemma f in FavoriteLemmas)
             {
                 if (f.Title == titleLabel.Text)
                 {
@@ -102,8 +118,8 @@ namespace Encyclopedia.View
             else
             {
                 //now remove and update
-                favoriteLemmas.Remove(toBeRemoved);
-                StartPage.favoriteLemmaList = favoriteLemmas;
+                FavoriteLemmas.Remove(toBeRemoved);
+                StartPage.favoriteLemmaList = FavoriteLemmas;
                 SetLemmas();
             }
 
@@ -118,12 +134,12 @@ namespace Encyclopedia.View
             LemmaViewUserControl.Instance.Dock = DockStyle.Fill;
             LemmaViewUserControl.Instance.BringToFront();
             //send mode = 0 so its treated as a raw lemma if we edit that it will go to editedLemmalist
-            LemmaViewUserControl.Instance.isFavorite = true;
+            LemmaViewUserControl.Instance.IsFavorite = true;
             LemmaViewUserControl.Instance.ChangeValue(((Label)sender).Text, 0);
             
 
         }
+        #endregion
 
-       
     }
 }

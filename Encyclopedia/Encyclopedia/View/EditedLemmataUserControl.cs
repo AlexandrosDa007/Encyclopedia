@@ -13,19 +13,31 @@ using Encyclopedia.Controller;
 
 namespace Encyclopedia.View
 {
+    /// <summary>
+    /// A User Control to display the edited Lemmas of the User
+    /// </summary>
     public partial class EditedLemmataUserControl : UserControl
     {
-        public List<EditedLemma> editedLemmas;
+        #region Properties
+        public List<EditedLemma> EditedLemmas { set; get; }
+        #endregion
 
+        #region Constructors
         public EditedLemmataUserControl()
         {
             InitializeComponent();
             
         }
+        #endregion
 
+        /// <summary>
+        /// A reference to the static Instance of this Control
+        /// </summary>
         private static EditedLemmataUserControl _instance;
 
-
+        /// <summary>
+        /// A reference to the public Instance of this Control
+        /// </summary>
         public static EditedLemmataUserControl Instance
         {
             get
@@ -38,33 +50,7 @@ namespace Encyclopedia.View
             }
         }
 
-        public void SetLemmas()
-        {
-            editedTableLayoutPanel.Controls.Clear();
-            int i = 0;
-            if (editedLemmas.Count < 3)
-                editedTableLayoutPanel.RowCount = 3 + 1;
-            else
-                editedTableLayoutPanel.RowCount = editedLemmas.Count + 1;
-            foreach(EditedLemma e in editedLemmas)
-            {
-
-                Label title = setLabelData(e.LemmaTitle,false);
-                title.Click += new EventHandler(this.titleClick);
-                Label updatedAt = setLabelData(e.UpdatedAt.ToShortDateString(),false);
-                updatedAt.Font = new System.Drawing.Font("Century Gothic", 17F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-                Label removeLabel = setLabelData("Remove", true);
-                removeLabel.Click += new EventHandler(this.removeClick);
-
-                editedTableLayoutPanel.Controls.Add(title,0,i);
-                editedTableLayoutPanel.Controls.Add(updatedAt,1,i);
-                editedTableLayoutPanel.Controls.Add(removeLabel, 2, i);
-                i++;
-            }
-
-            editedTableLayoutPanel.Controls.Add(new Label() { Text = "" },0,i);
-        }
-
+        #region Private methods
         private Label setLabelData(string labelString, bool isRemoveLabel)
         {
             Font style = new System.Drawing.Font("Century Gothic", 17F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(161)));      
@@ -80,13 +66,21 @@ namespace Encyclopedia.View
             return newLabel;
         }
 
-        public void removeClick(object sender, EventArgs e)
+        private void NewLabel_Click(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+        #endregion
+
+
+        #region Public methods
+        public void RemoveClick(object sender, EventArgs e)
         {
             int row = editedTableLayoutPanel.GetRow(((Label)sender));
             Label titleLabel = (Label)editedTableLayoutPanel.GetControlFromPosition(0, row);
             EditedLemma toBeRemoved = null;
             Console.WriteLine(titleLabel.Text);
-            foreach (EditedLemma ed in editedLemmas)
+            foreach (EditedLemma ed in EditedLemmas)
             {
                 if (ed.LemmaTitle == titleLabel.Text)
                 {
@@ -103,14 +97,14 @@ namespace Encyclopedia.View
             else
             {
                 //now remove and update
-                editedLemmas.Remove(toBeRemoved);
-                StartPage.editedLemmaList = editedLemmas;
+                EditedLemmas.Remove(toBeRemoved);
+                StartPage.editedLemmaList = EditedLemmas;
                 SetLemmas();
             }
 
         }
 
-        public void titleClick(object sender, EventArgs e)
+        public void TitleClick(object sender, EventArgs e)
         {
             //send data to LemmaViewUserControl
 
@@ -119,14 +113,36 @@ namespace Encyclopedia.View
             LemmaViewUserControl.Instance.Dock = DockStyle.Fill;
             LemmaViewUserControl.Instance.BringToFront();
             LemmaViewUserControl.Instance.ChangeValue(((Label)sender).Text, 1);
-            LemmaViewUserControl.Instance.isFavorite = false;
+            LemmaViewUserControl.Instance.IsFavorite = false;
 
         }
 
-
-        private void NewLabel_Click(object sender, EventArgs e)
+        public void SetLemmas()
         {
-            throw new NotImplementedException();
+            editedTableLayoutPanel.Controls.Clear();
+            int i = 0;
+            if (EditedLemmas.Count < 3)
+                editedTableLayoutPanel.RowCount = 3 + 1;
+            else
+                editedTableLayoutPanel.RowCount = EditedLemmas.Count + 1;
+            foreach (EditedLemma e in EditedLemmas)
+            {
+
+                Label title = setLabelData(e.LemmaTitle, false);
+                title.Click += new EventHandler(this.TitleClick);
+                Label updatedAt = setLabelData(e.UpdatedAt.ToShortDateString(), false);
+                updatedAt.Font = new System.Drawing.Font("Century Gothic", 22F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
+                Label removeLabel = setLabelData("Remove", true);
+                removeLabel.Click += new EventHandler(this.RemoveClick);
+
+                editedTableLayoutPanel.Controls.Add(title, 0, i);
+                editedTableLayoutPanel.Controls.Add(updatedAt, 1, i);
+                editedTableLayoutPanel.Controls.Add(removeLabel, 2, i);
+                i++;
+            }
+
+            editedTableLayoutPanel.Controls.Add(new Label() { Text = "" }, 0, i);
         }
+        #endregion
     }
 }

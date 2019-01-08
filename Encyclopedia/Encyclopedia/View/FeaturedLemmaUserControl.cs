@@ -6,11 +6,19 @@ using System.Text;
 
 namespace Encyclopedia.View
 {
+    /// <summary>
+    /// A User Control that displays a Random Lemma from the database
+    /// </summary>
     public partial class FeaturedLemmaUserControl : UserControl
     {
+        /// <summary>
+        /// A static reference to the Instance of this User Control
+        /// </summary>
         private static FeaturedLemmaUserControl _instance;
 
-
+        /// <summary>
+        /// A static reference to the public Instance of the Control
+        /// </summary>
         public static FeaturedLemmaUserControl Instance
         {
             get
@@ -22,6 +30,9 @@ namespace Encyclopedia.View
 
             }
         }
+
+
+        #region Constructors
         public FeaturedLemmaUserControl()
         {
             //init the database connection -- not the best place here
@@ -30,9 +41,11 @@ namespace Encyclopedia.View
 
             SetRandomLemma();
         }
-		
-		// Use this to Search
-		public void SetRandomLemma()
+        #endregion
+
+        #region Public methods
+        // Use this to Search
+        public void SetRandomLemma()
 		{
 			// get a random lemma to display
 			Lemma lemma = Random.getRandomLemma();
@@ -49,5 +62,7 @@ namespace Encyclopedia.View
 			if (!StartPage.recentLemmas.Contains(lemma.Title))
 				StartPage.recentLemmas.Add(lemma.Title);
 		}
+        #endregion
+
     }
 }

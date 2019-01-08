@@ -2,22 +2,27 @@
 
 namespace Encyclopedia.Model
 {
+    /// <summary>
+    /// Represents the data in the database.
+    /// </summary>
     public class FavoriteLemma
     {
-        // fields
+        #region Private variables
         private string lemmaTitle;
         private User user;
         private DateTime createdAt;
+        #endregion
 
-        // constructor
+        #region Constructors
         public FavoriteLemma(string lemmaTitle, User user, DateTime createdAt)
         {
             Title = lemmaTitle;
             User = user;
             CreatedAt = createdAt;
         }
+        #endregion
 
-        // setters and getters
+        #region Properties
         public string Title
         {
             get
@@ -29,7 +34,6 @@ namespace Encyclopedia.Model
                 lemmaTitle = value ?? throw new ArgumentNullException(nameof(lemmaTitle));
 			}
         }
-
         public User User
         {
             get
@@ -41,7 +45,6 @@ namespace Encyclopedia.Model
 				user = value ?? throw new ArgumentNullException(nameof(user));
 			}
         }
-
         public DateTime CreatedAt
         {
             get
@@ -53,8 +56,12 @@ namespace Encyclopedia.Model
                 createdAt = value;
             }
         }
+        #endregion
 
-        // overrided ToString
+        /// <summary>
+        /// Overrides the ToString method.
+        /// </summary>
+        /// <returns></returns>
         public override string ToString()
         {
             return base.ToString();
