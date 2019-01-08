@@ -157,7 +157,7 @@
 			this.Controls.Add(this.topPanel);
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
 			this.Name = "CreateGroupForm";
-			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
 			this.Text = "CreateGroupForm";
 			this.Paint += new System.Windows.Forms.PaintEventHandler(this.CreateGroupForm_Paint);
 			((System.ComponentModel.ISupportInitialize)(this.closePictureBox)).EndInit();
