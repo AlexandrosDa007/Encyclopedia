@@ -110,7 +110,7 @@
 			// 
 			this.groupNameTextBox.Font = new System.Drawing.Font("Century Gothic", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
 			this.groupNameTextBox.Location = new System.Drawing.Point(46, 411);
-			this.groupNameTextBox.MaxLength = 40;
+			this.groupNameTextBox.MaxLength = 30;
 			this.groupNameTextBox.Name = "groupNameTextBox";
 			this.groupNameTextBox.Size = new System.Drawing.Size(412, 33);
 			this.groupNameTextBox.TabIndex = 1;
