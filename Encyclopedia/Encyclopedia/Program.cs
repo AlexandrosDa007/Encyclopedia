@@ -29,7 +29,7 @@ namespace Encyclopedia
             //comment because database issues
             if (!DBConnect.Initialize())
             {
-                MessageBox.Show("There was a problem with the server.\nPlease make sure you are connected to the internet!\nTry again");
+                MessageBox.Show("  There was a problem with the server.\n  Please make sure you are connected to the internet!\n  Try again.");
                 return;
             }
 
