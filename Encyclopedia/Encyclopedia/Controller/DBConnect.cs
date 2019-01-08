@@ -479,7 +479,7 @@ namespace Encyclopedia.Controller
         /// </summary>
         /// <param name="group"></param>
         /// <returns></returns>
-		public static List<int> GetContactGroupMembers(ContactGroup group)
+		public static List<int> GetContactGroupMembers(ContactGroup group, int ownerId)
 		{
 			List<int> groupMembersList = new List<int>();
 			
