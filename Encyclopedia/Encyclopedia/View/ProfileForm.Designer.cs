@@ -64,16 +64,8 @@
             this.editButton = new System.Windows.Forms.Button();
             this.browseButton = new System.Windows.Forms.Button();
             this.feedbackLabel1 = new System.Windows.Forms.Label();
-            this.imageToolTip2 = new System.Windows.Forms.ToolTip(this.components);
-            this.imageToolTip = new System.Windows.Forms.ToolTip(this.components);
-            this.nameToolTip = new System.Windows.Forms.ToolTip(this.components);
-            this.SurnameToolTip = new System.Windows.Forms.ToolTip(this.components);
-            this.TelephoneToolTip = new System.Windows.Forms.ToolTip(this.components);
-            this.emailToolTip = new System.Windows.Forms.ToolTip(this.components);
-            this.usernameToolTip = new System.Windows.Forms.ToolTip(this.components);
-            this.passwordToolTip = new System.Windows.Forms.ToolTip(this.components);
-            this.confirmToolTip = new System.Windows.Forms.ToolTip(this.components);
             this.deleteButton = new System.Windows.Forms.Button();
+            this.profileToolTip = new System.Windows.Forms.ToolTip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.closePictureBox)).BeginInit();
             this.topPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imagePB)).BeginInit();
@@ -90,6 +82,7 @@
             this.closePictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.closePictureBox.TabIndex = 0;
             this.closePictureBox.TabStop = false;
+            this.profileToolTip.SetToolTip(this.closePictureBox, "Close form");
             this.closePictureBox.Click += new System.EventHandler(this.closePictureBox_Click);
             // 
             // topPanel
@@ -112,7 +105,6 @@
             this.imagePathLabel.Size = new System.Drawing.Size(118, 22);
             this.imagePathLabel.TabIndex = 56;
             this.imagePathLabel.Text = "Image Path";
-            this.imageToolTip.SetToolTip(this.imagePathLabel, "Leave it blank if you don\'t want any avatar icon.");
             // 
             // educationLabel
             // 
@@ -246,7 +238,7 @@
             this.imagePathTB.ReadOnly = true;
             this.imagePathTB.Size = new System.Drawing.Size(200, 28);
             this.imagePathTB.TabIndex = 42;
-            this.imageToolTip.SetToolTip(this.imagePathTB, "Leave it blank if you don\'t want any avatar icon.");
+            this.profileToolTip.SetToolTip(this.imagePathTB, "Leave it blank if you don\'t want any avatar icon.");
             // 
             // saveButton
             // 
@@ -257,6 +249,7 @@
             this.saveButton.Size = new System.Drawing.Size(151, 33);
             this.saveButton.TabIndex = 44;
             this.saveButton.Text = "Save changes";
+            this.profileToolTip.SetToolTip(this.saveButton, "Click to save your changes");
             this.saveButton.UseVisualStyleBackColor = true;
             this.saveButton.Visible = false;
             this.saveButton.Click += new System.EventHandler(this.saveButton_Click_1);
@@ -273,6 +266,7 @@
             this.roleCB.Name = "roleCB";
             this.roleCB.Size = new System.Drawing.Size(200, 29);
             this.roleCB.TabIndex = 40;
+            this.profileToolTip.SetToolTip(this.roleCB, "Pick your profession");
             // 
             // educationLevelCB
             // 
@@ -286,6 +280,7 @@
             this.educationLevelCB.Name = "educationLevelCB";
             this.educationLevelCB.Size = new System.Drawing.Size(200, 29);
             this.educationLevelCB.TabIndex = 39;
+            this.profileToolTip.SetToolTip(this.educationLevelCB, "Pick your education level ");
             // 
             // imagePB
             // 
@@ -297,7 +292,7 @@
             this.imagePB.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.imagePB.TabIndex = 38;
             this.imagePB.TabStop = false;
-            this.imageToolTip2.SetToolTip(this.imagePB, "Leave the image path blank if you don\'t want any avatar icon.");
+            this.profileToolTip.SetToolTip(this.imagePB, "Leave the image path blank if you don\'t want any avatar icon.");
             // 
             // dateOfBirthDTP
             // 
@@ -311,6 +306,7 @@
             this.dateOfBirthDTP.Name = "dateOfBirthDTP";
             this.dateOfBirthDTP.Size = new System.Drawing.Size(200, 28);
             this.dateOfBirthDTP.TabIndex = 37;
+            this.profileToolTip.SetToolTip(this.dateOfBirthDTP, "Pick your birth date");
             this.dateOfBirthDTP.Value = new System.DateTime(1990, 1, 1, 0, 0, 0, 0);
             // 
             // genderFemaleRB
@@ -349,6 +345,7 @@
             this.descriptionRTB.Size = new System.Drawing.Size(200, 66);
             this.descriptionRTB.TabIndex = 41;
             this.descriptionRTB.Text = "";
+            this.profileToolTip.SetToolTip(this.descriptionRTB, "Describe yourself");
             // 
             // genderGroupBox
             // 
@@ -364,6 +361,7 @@
             this.genderGroupBox.TabIndex = 36;
             this.genderGroupBox.TabStop = false;
             this.genderGroupBox.Text = "Gender";
+            this.profileToolTip.SetToolTip(this.genderGroupBox, "Pick your gender");
             // 
             // telTexBox
             // 
@@ -377,7 +375,7 @@
             this.telTexBox.Size = new System.Drawing.Size(200, 28);
             this.telTexBox.TabIndex = 31;
             this.telTexBox.TextMaskFormat = System.Windows.Forms.MaskFormat.IncludePrompt;
-            this.TelephoneToolTip.SetToolTip(this.telTexBox, "Enter your Telephone number");
+            this.profileToolTip.SetToolTip(this.telTexBox, "Enter your Telephone number");
             // 
             // passwordTextBox
             // 
@@ -390,7 +388,7 @@
             this.passwordTextBox.Name = "passwordTextBox";
             this.passwordTextBox.Size = new System.Drawing.Size(200, 28);
             this.passwordTextBox.TabIndex = 34;
-            this.passwordToolTip.SetToolTip(this.passwordTextBox, "A password must contain 8 characters at least one letter and one number");
+            this.profileToolTip.SetToolTip(this.passwordTextBox, "A password must contain 8 characters at least one letter and one number");
             this.passwordTextBox.UseSystemPasswordChar = true;
             // 
             // usernameTextBox
@@ -405,7 +403,7 @@
             this.usernameTextBox.ReadOnly = true;
             this.usernameTextBox.Size = new System.Drawing.Size(200, 28);
             this.usernameTextBox.TabIndex = 33;
-            this.usernameToolTip.SetToolTip(this.usernameTextBox, "Enter a unic username");
+            this.profileToolTip.SetToolTip(this.usernameTextBox, "Enter a unic username");
             // 
             // emailTextBox
             // 
@@ -418,7 +416,7 @@
             this.emailTextBox.Name = "emailTextBox";
             this.emailTextBox.Size = new System.Drawing.Size(200, 28);
             this.emailTextBox.TabIndex = 32;
-            this.emailToolTip.SetToolTip(this.emailTextBox, "Enter your email (example@host.com)");
+            this.profileToolTip.SetToolTip(this.emailTextBox, "Enter your email (example@host.com)");
             // 
             // passwordConfirmTextBox
             // 
@@ -431,7 +429,7 @@
             this.passwordConfirmTextBox.Name = "passwordConfirmTextBox";
             this.passwordConfirmTextBox.Size = new System.Drawing.Size(200, 28);
             this.passwordConfirmTextBox.TabIndex = 35;
-            this.confirmToolTip.SetToolTip(this.passwordConfirmTextBox, "Password and confirm password have to ");
+            this.profileToolTip.SetToolTip(this.passwordConfirmTextBox, "Password and confirm password have to match");
             this.passwordConfirmTextBox.UseSystemPasswordChar = true;
             // 
             // surnameTextBox
@@ -445,7 +443,7 @@
             this.surnameTextBox.Name = "surnameTextBox";
             this.surnameTextBox.Size = new System.Drawing.Size(200, 28);
             this.surnameTextBox.TabIndex = 30;
-            this.SurnameToolTip.SetToolTip(this.surnameTextBox, "Enter your Surname");
+            this.profileToolTip.SetToolTip(this.surnameTextBox, "Enter your Surname");
             // 
             // nameTextBox
             // 
@@ -458,7 +456,7 @@
             this.nameTextBox.Name = "nameTextBox";
             this.nameTextBox.Size = new System.Drawing.Size(200, 28);
             this.nameTextBox.TabIndex = 29;
-            this.nameToolTip.SetToolTip(this.nameTextBox, "Enter your name");
+            this.profileToolTip.SetToolTip(this.nameTextBox, "Enter your name");
             // 
             // editButton
             // 
@@ -470,6 +468,7 @@
             this.editButton.Size = new System.Drawing.Size(151, 29);
             this.editButton.TabIndex = 58;
             this.editButton.Text = "Edit Profile";
+            this.profileToolTip.SetToolTip(this.editButton, "Click to edit your profile");
             this.editButton.UseVisualStyleBackColor = true;
             this.editButton.Click += new System.EventHandler(this.editButton_Click);
             // 
@@ -484,7 +483,7 @@
             this.browseButton.Size = new System.Drawing.Size(89, 26);
             this.browseButton.TabIndex = 59;
             this.browseButton.Text = "Browse";
-            this.imageToolTip2.SetToolTip(this.browseButton, "Leave the image path blank if you don\'t want any avatar icon.");
+            this.profileToolTip.SetToolTip(this.browseButton, "Click to select an image");
             this.browseButton.UseVisualStyleBackColor = true;
             this.browseButton.Click += new System.EventHandler(this.browseButton_Click);
             // 
@@ -500,28 +499,17 @@
             this.feedbackLabel1.TabIndex = 61;
             this.feedbackLabel1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // imageToolTip2
-            // 
-            this.imageToolTip2.AutoPopDelay = 2000;
-            this.imageToolTip2.InitialDelay = 300;
-            this.imageToolTip2.ReshowDelay = 100;
-            // 
-            // imageToolTip
-            // 
-            this.imageToolTip.AutoPopDelay = 2000;
-            this.imageToolTip.InitialDelay = 300;
-            this.imageToolTip.ReshowDelay = 100;
-            // 
             // deleteButton
             // 
             this.deleteButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.deleteButton.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-            this.deleteButton.Location = new System.Drawing.Point(661, 115);
+            this.deleteButton.Location = new System.Drawing.Point(663, 115);
             this.deleteButton.Margin = new System.Windows.Forms.Padding(2);
             this.deleteButton.Name = "deleteButton";
             this.deleteButton.Size = new System.Drawing.Size(151, 28);
             this.deleteButton.TabIndex = 62;
             this.deleteButton.Text = "Delete Profile";
+            this.profileToolTip.SetToolTip(this.deleteButton, "Click to delete your profile");
             this.deleteButton.UseVisualStyleBackColor = true;
             // 
             // ProfileForm
@@ -613,15 +601,7 @@
         private System.Windows.Forms.Button editButton;
         private System.Windows.Forms.Button browseButton;
         private System.Windows.Forms.Label feedbackLabel1;
-		private System.Windows.Forms.ToolTip imageToolTip2;
-		private System.Windows.Forms.ToolTip imageToolTip;
-        private System.Windows.Forms.ToolTip nameToolTip;
-        private System.Windows.Forms.ToolTip TelephoneToolTip;
-        private System.Windows.Forms.ToolTip passwordToolTip;
-        private System.Windows.Forms.ToolTip usernameToolTip;
-        private System.Windows.Forms.ToolTip emailToolTip;
-        private System.Windows.Forms.ToolTip confirmToolTip;
-        private System.Windows.Forms.ToolTip SurnameToolTip;
         private System.Windows.Forms.Button deleteButton;
+        private System.Windows.Forms.ToolTip profileToolTip;
     }
 }

@@ -293,5 +293,6 @@ namespace Encyclopedia.View
 			e.Graphics.DrawRectangle(new Pen(Color.Black, 2),
 							this.DisplayRectangle);
 		}
-	}
+
+    }
 }
