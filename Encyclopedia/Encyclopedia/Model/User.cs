@@ -3,9 +3,12 @@ using System.Linq;
 
 namespace Encyclopedia.Model
 {
+    /// <summary>
+    /// Represents the data in the database.
+    /// </summary>
     public class User
     {
-        // fields
+        #region Private variables
         private int id;
         private String name;
         private String surname;
@@ -16,8 +19,9 @@ namespace Encyclopedia.Model
         private EducationLevel educationLevel;
         private String description;
         private byte[] image;
+        #endregion
 
-        // default constructor
+        #region Constructors
         public User(int id, string name, string surname, DateTime dateOfBirth, char gender, string tel, Role role, EducationLevel educationLevel, string description, byte[] image)
         {
 			Id = id;
@@ -31,7 +35,6 @@ namespace Encyclopedia.Model
 			Description = description;
             Image = image;
         }
-
         // constructor with null values
         public User(int id, string name, string surname, DateTime dateOfBirth)
         {
@@ -48,15 +51,15 @@ namespace Encyclopedia.Model
             Description = "";
             Image = null;
         }
-
 		// utility constructor
 		public User()
 		{
 
 		}
+        #endregion
 
-		// setters and getters
-		public int Id
+        #region Properties
+        public int Id
         {
             get
             {
@@ -67,7 +70,6 @@ namespace Encyclopedia.Model
                 id = value;
             }
         }
-
         public String Name
         {
             get
@@ -84,7 +86,6 @@ namespace Encyclopedia.Model
 					name = value ?? throw new ArgumentNullException(nameof(name));
             }
         }
-
         public String Surname
         {
             get
@@ -101,7 +102,6 @@ namespace Encyclopedia.Model
 					surname = value ?? throw new ArgumentNullException(nameof(surname));
             }
         }
-
         public DateTime DateOfBirth
         {
             get
@@ -113,7 +113,6 @@ namespace Encyclopedia.Model
                 dateOfBirth = value;
             }
         }
-
         public Char Gender
         {
             get
@@ -130,7 +129,6 @@ namespace Encyclopedia.Model
 					throw new ArgumentOutOfRangeException(nameof(gender));
             }
         }
-
         public String Tel
         {
             get
@@ -147,7 +145,6 @@ namespace Encyclopedia.Model
 					tel = value ?? throw new ArgumentNullException(nameof(tel));
             }
         }
-
         public Role Role
         {
             get
@@ -159,7 +156,6 @@ namespace Encyclopedia.Model
                 role = value;
             }
         }
-
         public EducationLevel EducationLevel
         {
             get
@@ -171,7 +167,6 @@ namespace Encyclopedia.Model
                 educationLevel= value;
             }
         }
-
         public String Description
         {
             get
@@ -188,7 +183,6 @@ namespace Encyclopedia.Model
 					throw new ArgumentOutOfRangeException(nameof(description));
             }
         }
-
         public byte[] Image
         {
             get
@@ -200,8 +194,12 @@ namespace Encyclopedia.Model
                 image = value;
             }
         }
+        #endregion
 
-        // overrided ToString
+        /// <summary>
+        /// Overrides the ToString method.
+        /// </summary>
+        /// <returns></returns>
         public override string ToString()
         {
             return base.ToString();

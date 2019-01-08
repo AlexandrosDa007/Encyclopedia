@@ -33,7 +33,7 @@ namespace Encyclopedia.Controller
             int result = DBConnect.Insert(fLemma);
             if (result == 1)//If  result=1 then everything is OK.
             {
-                FavouriteLemmataUserControl.Instance.favoriteLemmas.Add(fLemma);
+                FavouriteLemmataUserControl.Instance.FavoriteLemmas.Add(fLemma);
                 FavouriteLemmataUserControl.Instance.SetLemmas();
             }
             else // If result!=1 then something went wrong.

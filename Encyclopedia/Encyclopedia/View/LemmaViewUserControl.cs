@@ -9,21 +9,32 @@ using UI;
 
 namespace Encyclopedia.View
 {
+    /// <summary>
+    /// A User Control that displays any Lemma.
+    /// </summary>
     public partial class LemmaViewUserControl : UserControl
     {
+        /// <summary>
+        /// Images from resources.
+        /// </summary>
         public Image favoriteClicked = Encyclopedia.Properties.Resources.favoriteClicked;
         public Image favoriteNotClicked = Encyclopedia.Properties.Resources.favoriteNotClicked;
 
-        public Lemma lemma;
-        public EditedLemma editedLemma;
+        #region Properties
+        public Lemma Lemma { set; get; }
+        public EditedLemma EditedLemma { set; get; }
+        public int Mode { set; get; }
+        public bool IsFavorite { set; get; }
+        #endregion
 
-        //private StartPage startPage;
-        public int mode;
-
-        public bool isFavorite;
-
+        /// <summary>
+        /// A static reference to the Instance of User Control
+        /// </summary>
         private static LemmaViewUserControl _instance;
 
+        /// <summary>
+        /// A static reference of the public Instance of this Control
+        /// </summary>
         public static LemmaViewUserControl Instance
         {
             get
@@ -34,67 +45,15 @@ namespace Encyclopedia.View
             }
         }
 
+
+        #region Constructors
         public LemmaViewUserControl()
         {
             InitializeComponent();
-            //start by having something as default --TO BE CHANGED
-            //ChangeValue("Concept");
-            //SetLemmaData("Placebo");
         }
+        #endregion
 
-        public void SetLemmaData(string lemmaTitle,int mode)
-        {
-            if (mode == 0)
-            {
-                byte[] body = DBConnect.GetLemmaBodyByTitle(lemmaTitle);
-                int categoryId = DBConnect.GetLemmaCategoryByTitle(lemmaTitle);
-                lemma = new Lemma(lemmaTitle, body, categoryId);
-            }
-            else
-            {
-                editedLemma = DBConnect.GetEditedLemmaByUserAndTitle(lemmaTitle, StartPage.account.User);
-            }
-        }
-
-        public void ChangeValue(string title, int mode)
-        {
-            if (isFavorite)
-                favouritesButton.BackgroundImage = favoriteClicked;
-            else
-                favouritesButton.BackgroundImage = favoriteNotClicked;
-
-            this.mode = mode;
-            SetLemmaData(title, mode);
-
-			string titleStyle = " style=\"display: block; " +
-				"font-size: 3em;" +
-				"margin-top: 0.67em; " +
-				"margin-bottom: 0.67em; " +
-				"margin-left: 0; " +
-				"margin-right: 0; " +
-				"font-weight: bold;\"";
-
-            //change the web browser to display the lemma_body from the title given
-            if (mode == 0)
-            {
-                LemmaViewWebBrowser.DocumentText = "<h1" + titleStyle + ">" + title.Replace("_", " ") + "</h1>" + Encoding.UTF8.GetString(lemma.Body);
-                if(!StartPage.recentLemmas.Contains(lemma.Title))
-                    StartPage.recentLemmas.Add(lemma.Title);
-            }
-            else
-            {
-                LemmaViewWebBrowser.DocumentText = "<h1" + titleStyle + ">" + title.Replace("_", " ") + "</h1>" + editedLemma.Body;
-                
-            }
-        }
-
-        public void ChangeLabelsToVisibleByValue(bool value)
-        {
-            favouritesButton.Visible = value;
-            shareButton.Visible = value;
-            editButton.Visible = value;
-        }
-
+        #region Private methods
         private void printButton_Click(object sender, EventArgs e)
         {
             // print the document currently displayed in the WebBrowser
@@ -103,7 +62,7 @@ namespace Encyclopedia.View
 
         private void saveButton_Click(object sender, EventArgs e)
         {
-            string lemmaTitle = lemma.Title;
+            string lemmaTitle = Lemma.Title;
             try
             {
                 SaveFileDialog savefile = new SaveFileDialog();
@@ -127,30 +86,30 @@ namespace Encyclopedia.View
 
         private void shareButton_Click(object sender, EventArgs e)
         {
-			SendForm sendForm = new SendForm();
-			sendForm.ShowDialog();
+            SendForm sendForm = new SendForm();
+            sendForm.ShowDialog();
         }
 
         private void editButton_Click(object sender, EventArgs e)
         {
-            if(mode == 0)
+            if (Mode == 0)
             {
-                foreach(EditedLemma ed in StartPage.editedLemmaList)
+                foreach (EditedLemma ed in StartPage.editedLemmaList)
                 {
-                    if (ed.LemmaTitle.Equals(lemma.Title))
+                    if (ed.LemmaTitle.Equals(Lemma.Title))
                     {
                         MessageBox.Show("You already edited this lemma\nCheck your Edited Lemma Tab!");
                         return;
                     }
                 }
             }
-            else if(mode == 1)
+            else if (Mode == 1)
             {
                 foreach (EditedLemma ed in StartPage.editedLemmaList)
                 {
-                    if (ed.LemmaTitle.Equals(editedLemma.LemmaTitle))
+                    if (ed.LemmaTitle.Equals(EditedLemma.LemmaTitle))
                     {
-                        LemmaEditor lemmaEditor = new LemmaEditor(editedLemma, mode);
+                        LemmaEditor lemmaEditor = new LemmaEditor(EditedLemma, Mode);
                         lemmaEditor.ShowDialog();
                         return;
                     }
@@ -161,25 +120,25 @@ namespace Encyclopedia.View
             string lemmaBody = LemmaViewWebBrowser.Document.Body.InnerHtml;
             //if creating a new Lemma or updating one
             //0 new | 1 updating existing
-            if(mode == 0)
+            if (Mode == 0)
             {
-                LemmaEditor lemmaEditor = new LemmaEditor(lemma, mode);
+                LemmaEditor lemmaEditor = new LemmaEditor(Lemma, Mode);
                 lemmaEditor.ShowDialog();
             }
-            else if(mode == 1)
+            else if (Mode == 1)
             {
-                LemmaEditor lemmaEditor = new LemmaEditor(editedLemma, mode);
+                LemmaEditor lemmaEditor = new LemmaEditor(EditedLemma, Mode);
                 lemmaEditor.ShowDialog();
             }
         }
 
         private void favouritesButton_Click(object sender, EventArgs e)
         {
-            if (isFavorite)
+            if (IsFavorite)
             {
-                foreach(FavoriteLemma f in StartPage.favoriteLemmaList)
+                foreach (FavoriteLemma f in StartPage.favoriteLemmaList)
                 {
-                    if (f.Title.Equals(lemma.Title))
+                    if (f.Title.Equals(Lemma.Title))
                     {
                         int result = DBConnect.Delete(f, StartPage.account.User);
                         if (result != 1)
@@ -189,27 +148,84 @@ namespace Encyclopedia.View
                         else
                         {
                             //now remove and update
-                            FavouriteLemmataUserControl.Instance.favoriteLemmas.Remove(f);
-                            StartPage.favoriteLemmaList = FavouriteLemmataUserControl.Instance.favoriteLemmas;
+                            FavouriteLemmataUserControl.Instance.FavoriteLemmas.Remove(f);
+                            StartPage.favoriteLemmaList = FavouriteLemmataUserControl.Instance.FavoriteLemmas;
                             FavouriteLemmataUserControl.Instance.SetLemmas();
-                            isFavorite = false;
+                            IsFavorite = false;
                             favouritesButton.BackgroundImage = favoriteNotClicked;
                             Console.WriteLine("Egine");
-                        } 
+                        }
                         return;
                     }
                 }
             }
 
-            if (mode == 0)
+            if (Mode == 0)
             {
-                Favorite.addToFavorites(StartPage.account.User.Id, lemma.Title);
-                isFavorite = true;
+                Favorite.addToFavorites(StartPage.account.User.Id, Lemma.Title);
+                IsFavorite = true;
                 favouritesButton.BackgroundImage = favoriteClicked;
 
             }
             else
                 MessageBox.Show("You can't add a Lemma you edited in your favorites!");
         }
+        #endregion
+
+        #region Public methods
+        public void SetLemmaData(string lemmaTitle,int mode)
+        {
+            if (mode == 0)
+            {
+                byte[] body = DBConnect.GetLemmaBodyByTitle(lemmaTitle);
+                int categoryId = DBConnect.GetLemmaCategoryByTitle(lemmaTitle);
+                Lemma = new Lemma(lemmaTitle, body, categoryId);
+            }
+            else
+            {
+                EditedLemma = DBConnect.GetEditedLemmaByUserAndTitle(lemmaTitle, StartPage.account.User);
+            }
+        }
+
+        public void ChangeValue(string title, int mode)
+        {
+            if (IsFavorite)
+                favouritesButton.BackgroundImage = favoriteClicked;
+            else
+                favouritesButton.BackgroundImage = favoriteNotClicked;
+
+            this.Mode = mode;
+            SetLemmaData(title, mode);
+
+			string titleStyle = " style=\"display: block; " +
+				"font-size: 3em;" +
+				"margin-top: 0.67em; " +
+				"margin-bottom: 0.67em; " +
+				"margin-left: 0; " +
+				"margin-right: 0; " +
+				"font-weight: bold;\"";
+
+            //change the web browser to display the lemma_body from the title given
+            if (mode == 0)
+            {
+                LemmaViewWebBrowser.DocumentText = "<h1" + titleStyle + ">" + title.Replace("_", " ") + "</h1>" + Encoding.UTF8.GetString(Lemma.Body);
+                if(!StartPage.recentLemmas.Contains(Lemma.Title))
+                    StartPage.recentLemmas.Add(Lemma.Title);
+            }
+            else
+            {
+                LemmaViewWebBrowser.DocumentText = "<h1" + titleStyle + ">" + title.Replace("_", " ") + "</h1>" + EditedLemma.Body;
+                
+            }
+        }
+
+        public void ChangeLabelsToVisibleByValue(bool value)
+        {
+            favouritesButton.Visible = value;
+            shareButton.Visible = value;
+            editButton.Visible = value;
+        }
+        #endregion
+
     }
 }

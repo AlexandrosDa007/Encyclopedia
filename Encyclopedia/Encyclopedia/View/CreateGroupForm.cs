@@ -26,7 +26,7 @@ namespace Encyclopedia.View
 				groupNameTextBox.Text = group.Name;
 				saveGroupButton.Text = "Update Group";
 
-				ifGroupMembers = ContactHandler.CheckContactGroupMembers(group, ContactsUserControl.Instance.contactList);
+				ifGroupMembers = ContactHandler.CheckContactGroupMembers(group, ContactsUserControl.Instance.ContactList);
 			}
 			else
 			{
@@ -42,7 +42,7 @@ namespace Encyclopedia.View
 		{
 			contactsCheckedListBox.Items.Clear();
 			
-			foreach (User contact in ContactsUserControl.Instance.contactList)
+			foreach (User contact in ContactsUserControl.Instance.ContactList)
 			{
 				if (ifGroupMembers != null)
 				{

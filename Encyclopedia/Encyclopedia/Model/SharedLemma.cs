@@ -2,17 +2,21 @@
 
 namespace Encyclopedia.Model
 {
+    /// <summary>
+    /// Represents the data in the database.
+    /// </summary>
     public class SharedLemma
     {
-        // fields
+        #region Private variables
         private User sender;
         private User receiver;
         private Lemma lemma;
         private Boolean ifEditedLemma;
         private DateTime sendingDate;
         private String additionalNotes;
+        #endregion
 
-        // constructor
+        #region Constructors
         public SharedLemma(User sender, User receiver, Lemma lemma, Char ifEditedLemmaChar, DateTime sendingDate, string additionalNotes)
         {
             if (sender.Id != receiver.Id)
@@ -38,7 +42,6 @@ namespace Encyclopedia.Model
             SendingDate = sendingDate;
             AdditionalNotes = additionalNotes ?? throw new ArgumentNullException(nameof(additionalNotes));
         }
-
         // constructor with null values
         public SharedLemma(User sender, User receiver, Lemma lemma, char ifEditedLemmaChar, DateTime sendingDate)
         {
@@ -66,8 +69,9 @@ namespace Encyclopedia.Model
 
             this.additionalNotes = null;
         }
+        #endregion
 
-        // setters and getters
+        #region Properties
         public User Sender
         {
             get
@@ -84,7 +88,6 @@ namespace Encyclopedia.Model
                     throw new ArgumentException("The user cannot send lemmata to himself.");
             }
         }
-
         public User Receiver
         {
             get
@@ -101,7 +104,6 @@ namespace Encyclopedia.Model
                     throw new ArgumentException("The user cannot send lemmata to himself.");
             }
         }
-
         public Lemma Lemma
         {
             get
@@ -113,7 +115,6 @@ namespace Encyclopedia.Model
                 lemma = value ?? throw new ArgumentNullException(nameof(lemma));
 			}
         }
-
         public Boolean IfEditedLemma
         {
             get
@@ -125,7 +126,6 @@ namespace Encyclopedia.Model
                 ifEditedLemma = value;
             }
         }
-
         public DateTime SendingDate
         {
             get
@@ -137,7 +137,6 @@ namespace Encyclopedia.Model
                 sendingDate = value;
             }
         }
-
         public String AdditionalNotes
         {
             get
@@ -154,8 +153,12 @@ namespace Encyclopedia.Model
 					throw new ArgumentOutOfRangeException(nameof(additionalNotes));
             }
         }
+        #endregion
 
-        // overrided ToString
+        /// <summary>
+        /// Overrides the ToString method.
+        /// </summary>
+        /// <returns></returns>
         public override string ToString()
         {
             return base.ToString();

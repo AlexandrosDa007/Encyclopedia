@@ -19,25 +19,32 @@ using UI;
 
 namespace Encyclopedia.Controller
 {
-    class Search
+
+    /// <summary>
+    /// Has static variables to hold information for Lucene indexing.
+    /// Also contains static functions for creating index and searching.
+    /// </summary>
+    public class Search
     {
-        //static variable for directory -- holding in memory
-        //public static RAMDirectory directory;
-
+        /// <summary>
+        /// A static reference to the directory of the lucene index.
+        /// </summary>
         public static SimpleFSDirectory dir;
+        /// <summary>
+        /// A static reference to the lemmas for indexing.
+        /// </summary>
+        public static List<Lemma> lemmaList;
 
-        public static List<Lemma> firstLemmas;
-
-        /*
-         * Static method for Creating Index or Directory 
-         * The Lucene Engine analyzes the documents
-         * And makes an index table -- IN MEMORY
-         */
+        /// <summary>
+        /// Static method for Creating Index or Directory 
+        /// The Lucene Engine analyzes the documents
+        /// And makes an index table -- In disk
+        /// </summary>
         public static void CreateIndex()
         {
             //initialize all static components
             //directory = new RAMDirectory();
-            firstLemmas = new List<Lemma>();
+            lemmaList = new List<Lemma>();
 
             dir = new SimpleFSDirectory(new System.IO.DirectoryInfo("../../LuceneDocuments"), null);
 
@@ -51,10 +58,10 @@ namespace Encyclopedia.Controller
             writer.SetSimilarity(new DefaultSimilarity());
 
             //get all Lemmas
-            firstLemmas = DBConnect.GetAllLemma();
+            lemmaList = DBConnect.GetAllLemma();
 
             //Iterate in dataset 
-            foreach(Lemma lemma in firstLemmas)
+            foreach(Lemma lemma in lemmaList)
             {
                 
                 //Use Lucene Document for assign fields
@@ -73,14 +80,15 @@ namespace Encyclopedia.Controller
             
             //Closing the writer -- IF writer remains open the search cant be completed
             writer.Dispose();
-            
+
         }
 
-        /*
-         * Static method: Search the index table by a string 
-         * It analyzes the index table and retrieves 
-         * data by searching lemma_body for the string
-         */
+        /// <summary>
+        /// Static method: Search the index table by a string 
+        /// It analyzes the index table and retrieves data by searching lemma body for the string.
+        /// </summary>
+        /// <param name="text"></param>
+        /// <returns></returns>
         public static List<Document> DoSearch(string text)
         {
             //string text = RemoveControlCharsFromString(textSearch);
@@ -141,42 +149,6 @@ namespace Encyclopedia.Controller
             //the list is always with order by score
             return list;
         }
-
-        public static void WriteToDirectory()
-        {
-            //Analyzer object used to analyze text based search
-            Analyzer analyzer = new StandardAnalyzer(Lucene.Net.Util.Version.LUCENE_30);
-            //Writer object used to write the directory or the "Index"
-            IndexWriter writer = new IndexWriter(dir, analyzer, new IndexWriter.MaxFieldLength(1000));
-
-            //Seting similarity -- Used to make the text based search retrive relavant
-            //used in scoring system
-            writer.SetSimilarity(new DefaultSimilarity());
-            
-            //Iterate in dataset 
-            foreach (Lemma lemma in StartPage.allLemas)
-            {
-
-                //Use Lucene Document for assign fields
-                Document document = new Document();
-
-                //Adding the fields in the document
-                //Dont analyze category_id because it doesnt matter in the search
-                document.Add(new Field("lemma_title", lemma.Title, Field.Store.YES, Field.Index.ANALYZED));
-                document.Add(new Field("lemma_body", Encoding.UTF8.GetString(lemma.Body), Field.Store.YES, Field.Index.ANALYZED));
-                document.Add(new Field("category_id", lemma.Category.ToString(), Field.Store.YES, Field.Index.NOT_ANALYZED));
-
-                //add the documents in the writer
-                writer.AddDocument(document);
-
-            }
-
-            //Closing the writer -- IF writer remains open the search cant be completed
-            writer.Dispose();
-        }
-
-        
-
 
     }
 }

@@ -14,10 +14,20 @@ using Encyclopedia.Model;
 
 namespace Encyclopedia.View
 {
+    /// <summary>
+    /// A User Control that displays search results in a list view.
+    /// That the User can click on to see the body.
+    /// </summary>
     public partial class SearchResultsUserControl : UserControl
     {
+        /// <summary>
+        /// A static reference to the Instance of this User Control.
+        /// </summary>
         private static SearchResultsUserControl _instance;
 
+        /// <summary>
+        /// A static reference to the public Instance of this Control.
+        /// </summary>
         public static SearchResultsUserControl Instance
         {
             get
@@ -28,6 +38,8 @@ namespace Encyclopedia.View
 
             }
         }
+
+        #region Constructors
         public SearchResultsUserControl()
         {
             InitializeComponent();
@@ -36,7 +48,42 @@ namespace Encyclopedia.View
 			list.ImageSize = new Size(8, 48);
 			searchResultsListView.SmallImageList = list;
 		}
+        #endregion
 
+        #region Private methods
+        private void listView1_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            //Get the selected item's text
+            string toSearch = searchResultsListView.SelectedItems[0].Text;
+            Encyclopedia.View.LemmaViewUserControl.Instance.Dock = DockStyle.Fill;
+            Encyclopedia.View.LemmaViewUserControl.Instance.BringToFront();
+            //search for the lemma_body
+
+
+            //if user is connected
+            if (StartPage.account != null)
+            {
+                LemmaViewUserControl.Instance.IsFavorite = false;
+                foreach (FavoriteLemma f in StartPage.favoriteLemmaList)
+                {
+                    if (f.Title.Equals(toSearch))
+                    {
+                        LemmaViewUserControl.Instance.IsFavorite = true;
+                        Encyclopedia.View.LemmaViewUserControl.Instance.ChangeValue(toSearch, 0);
+                        return;
+                    }
+                    else
+                    {
+                        LemmaViewUserControl.Instance.IsFavorite = false;
+                    }
+                }
+            }
+            Encyclopedia.View.LemmaViewUserControl.Instance.ChangeValue(toSearch, 0);
+
+        }
+        #endregion
+
+        #region Public methods
         public void AddRecentLemmas()
         {
             searchResultsListView.Items.Clear();
@@ -114,38 +161,7 @@ namespace Encyclopedia.View
 
             
         }
+        #endregion
 
-        private void listView1_MouseDoubleClick(object sender, MouseEventArgs e)
-        {
-            //Get the selected item's text
-            string toSearch = searchResultsListView.SelectedItems[0].Text;
-            Encyclopedia.View.LemmaViewUserControl.Instance.Dock = DockStyle.Fill;
-            Encyclopedia.View.LemmaViewUserControl.Instance.BringToFront();
-            //search for the lemma_body
-            
-
-            //if user is connected
-            if(StartPage.account != null)
-            {
-                LemmaViewUserControl.Instance.isFavorite = false;
-                foreach (FavoriteLemma f in StartPage.favoriteLemmaList)
-                {
-                    if (f.Title.Equals(toSearch))
-                    {
-                        LemmaViewUserControl.Instance.isFavorite = true;
-                        Encyclopedia.View.LemmaViewUserControl.Instance.ChangeValue(toSearch, 0);
-                        return;
-                    }
-                    else
-                    {
-                        LemmaViewUserControl.Instance.isFavorite = false;
-                    }
-                }
-            }
-            Encyclopedia.View.LemmaViewUserControl.Instance.ChangeValue(toSearch, 0);
-
-        }
-
-        
     }
 }

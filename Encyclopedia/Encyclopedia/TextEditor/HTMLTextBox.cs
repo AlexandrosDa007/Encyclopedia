@@ -356,6 +356,15 @@ namespace Testing
 
         #region Web Browser
 
+        private void webBrowserBody_Navigated(object sender, WebBrowserNavigatedEventArgs e)
+        {
+            Encyclopedia.View.LemmaEditor lemmaEditor = (Encyclopedia.View.LemmaEditor)this.Parent;
+            if (lemmaEditor.Mode == 0)
+                webBrowserBody.Document.Body.InnerHtml = Encoding.UTF8.GetString(lemmaEditor.Lemma.Body);
+            else if (lemmaEditor.Mode == 1)
+                webBrowserBody.Document.Body.InnerHtml = lemmaEditor.EditedLemma.Body;
+        }
+
         private void webBrowserBody_DocumentCompleted(object sender, WebBrowserDocumentCompletedEventArgs e)
         {
             
@@ -464,13 +473,6 @@ namespace Testing
         }
         #endregion
 
-        private void webBrowserBody_Navigated(object sender, WebBrowserNavigatedEventArgs e)
-        {
-            Encyclopedia.View.LemmaEditor lemmaEditor = (Encyclopedia.View.LemmaEditor)this.Parent;
-            if(lemmaEditor.mode == 0)
-                webBrowserBody.Document.Body.InnerHtml = Encoding.UTF8.GetString(lemmaEditor.lemma.Body);
-            else if(lemmaEditor.mode == 1)
-                webBrowserBody.Document.Body.InnerHtml = lemmaEditor.editedLemma.Body;
-        }
+        
     }
 }

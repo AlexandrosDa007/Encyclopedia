@@ -12,8 +12,12 @@ using Encyclopedia.Controller;
 
 namespace Encyclopedia.View
 {
+    /// <summary>
+    /// A Form that displays text boxes and controls so a new User can register.
+    /// </summary>
     public partial class RegisterForm : Form
     {
+        #region Constructors
         public RegisterForm()
         {
             InitializeComponent();
@@ -21,7 +25,9 @@ namespace Encyclopedia.View
 			DynamicUIControlsHandler.FillEducationLevels(educationLevelCB);
 			DynamicUIControlsHandler.FillRoles(roleCB);
         }
+        #endregion
 
+        #region Private methods
         private void registerb_Click(object sender, EventArgs e)
         {
             // take all the input in variables
@@ -183,29 +189,8 @@ namespace Encyclopedia.View
 			e.Graphics.DrawRectangle(new Pen(Color.Black, 2),
 							this.DisplayRectangle);
 		}
-	}
+        #endregion
 
-    //private void updateFeedbackLabel(int errorCode)
-    //{
-    //    switch (exitCode)
-    //    {
-    //        case 3:
-    //            feedbackLabel.Text = "*Name can't be empty!";
-    //            break;
-    //        case 4:
-    //            feedbackLabel.Text = "*Surname can't be empty!";
-    //            break;
-    //        case 5:
-    //            feedbackLabel.Text = "*Password can't be empty!";
-    //            break;
-    //        case 6:
-    //            feedbackLabel.Text = "*Password doesn't match!";
-    //            break;
-    //        case 7:
-    //            feedbackLabel.Text = "*Password must be at least 8 characters long\n with at least one letter and one digit!";
-    //            break;
-    //        case 8:
-    //            feedbackLabel.Text = "*Connection error please try again!";
-    //            break;
-    //    }
+
+    }
 }

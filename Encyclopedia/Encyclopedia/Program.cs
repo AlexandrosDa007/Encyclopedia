@@ -34,6 +34,7 @@ namespace Encyclopedia
             }
 
 
+            
             //this takes a long time - 4min 
             //Search.CreateIndex();
             Application.EnableVisualStyles();

@@ -2,22 +2,28 @@
 
 namespace Encyclopedia.Model
 {
+    /// <summary>
+    /// Represents the data in the database.
+    /// </summary>
     public class ContactGroup
     {
-        // fields
+        #region Private variables
         private int id;
         private String name;
         private User owner;
+        #endregion
 
-        // constructor
+        #region Constructors
         public ContactGroup(int id, string name, User owner)
         {
             Id = id;
             Name = name;
             Owner = owner;
         }
+        #endregion
 
-        // setters and getters
+
+        #region Properties
         public int Id
         {
             get
@@ -29,7 +35,6 @@ namespace Encyclopedia.Model
                 id = value;
             }
         }
-
         public String Name
         {
             get
@@ -41,7 +46,6 @@ namespace Encyclopedia.Model
 				name = value ?? throw new ArgumentNullException(nameof(name));
             }
         }
-
         public User Owner
         {
             get
@@ -53,8 +57,12 @@ namespace Encyclopedia.Model
 				owner = value ?? throw new ArgumentNullException(nameof(owner));
             }
         }
+        #endregion
 
-        // overrided ToString
+        /// <summary>
+        /// Overrides the ToString method.
+        /// </summary>
+        /// <returns></returns>
         public override string ToString()
         {
             return base.ToString();

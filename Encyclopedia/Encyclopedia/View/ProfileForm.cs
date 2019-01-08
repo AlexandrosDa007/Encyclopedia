@@ -12,11 +12,17 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 namespace Encyclopedia.View
 {
+    /// <summary>
+    /// A form that displays the User's profile information
+    /// </summary>
     public partial class ProfileForm : Form
     {
+        #region Properties
         public Account Account { set; get; }
         public bool UpdatedSuccessfully { set; get; }
+        #endregion
 
+        #region Constructors
         public ProfileForm(Account account)
         {
             InitializeComponent();
@@ -28,7 +34,9 @@ namespace Encyclopedia.View
             SetAccountData();
             UpdatedSuccessfully = false;
         }
+        #endregion
 
+        #region Private methods
         private void closePictureBox_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -99,7 +107,6 @@ namespace Encyclopedia.View
                 return;
             }
         }
-
 
         private void saveButton_Click_1(object sender, EventArgs e)
         {
@@ -235,6 +242,7 @@ namespace Encyclopedia.View
 
             updateFeedbackLabel(okayToUpdate);
         }
+
         private void timer1_Tick(object sender, EventArgs e)
         {
             int fadingSpeed = 5;
@@ -277,5 +285,6 @@ namespace Encyclopedia.View
 			e.Graphics.DrawRectangle(new Pen(Color.Black, 2),
 							this.DisplayRectangle);
 		}
-	}
+        #endregion
+    }
 }
