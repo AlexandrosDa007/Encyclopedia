@@ -140,6 +140,7 @@
 			this.deleteGroupButton.Text = "Delete group";
 			this.createGroupToolTip.SetToolTip(this.deleteGroupButton, "Delete group");
 			this.deleteGroupButton.UseVisualStyleBackColor = true;
+			this.deleteGroupButton.Click += new System.EventHandler(this.deleteGroupButton_Click);
 			// 
 			// CreateGroupForm
 			// 

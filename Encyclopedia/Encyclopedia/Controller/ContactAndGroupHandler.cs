@@ -8,6 +8,14 @@ namespace Encyclopedia.Controller
 {
 	class ContactAndGroupHandler
 	{
+		public static int DeleteGroup(ContactGroup group)
+		{
+			// delete the contact group provided
+			int rowsAffected = DBConnect.Delete(group);
+
+			return rowsAffected;
+		}
+
 		public static ContactGroup CreateNewGroup(string groupName, int[] groupMembers)
 		{
 			// configure ContactGroup Object

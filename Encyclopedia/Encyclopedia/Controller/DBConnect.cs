@@ -125,7 +125,7 @@ namespace Encyclopedia.Controller
             int i = 0;
             while (dataReader.Read())
             {
-                Console.WriteLine(i);
+                Console.WriteLine("Completed: "+((i / 3018.0f) * 100)+"%");
                 Lemma lemma = new Lemma(dataReader[0].ToString(), (byte[])dataReader["lemma_body"], Convert.ToInt32(dataReader[2].ToString()));
                 lemmaList.Add(lemma);
                 i++;
@@ -1571,10 +1571,20 @@ namespace Encyclopedia.Controller
         /// Delete a ContactGroup from the database.
         /// </summary>
         /// <param name="contactGroup"></param>
-        public static void Delete(ContactGroup contactGroup)
+        public static int Delete(ContactGroup contactGroup)
         {
-            //code to Delete contactgroup
-        }
+			// construct delete query
+			string query = "DELETE FROM Contact_Group WHERE group_id = @group";
+			MySqlCommand cmd = new MySqlCommand(query, connection);
+			cmd.Parameters.AddWithValue("@group", contactGroup.Id);
+			cmd.CommandTimeout = 500000;
+
+			// prepare and execute
+			cmd.Prepare();
+			int rowsAffected = cmd.ExecuteNonQuery();
+			
+			return rowsAffected;
+		}
         /// <summary>
         /// Delete an EditedLemma from the database given the User.
         /// </summary>

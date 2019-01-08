@@ -117,5 +117,28 @@ namespace Encyclopedia.View
 			}
 
 		}
+
+		private void deleteGroupButton_Click(object sender, EventArgs e)
+		{
+			if (Group != null)
+			{
+				int rowsAffected = ContactAndGroupHandler.DeleteGroup(Group);
+				if (rowsAffected == 1)
+				{
+					ContactsUserControl.Instance.GroupList.Remove(Group);
+
+					DialogResult dialogResult = MessageBox.Show("  Your group \"" + Group.Name + "\" deleted successfully!");
+					if (dialogResult == DialogResult.OK)
+					{
+						ContactsUserControl.Instance.UpdateTabControl();
+						this.Close();
+					}
+				}
+				else
+				{
+					MessageBox.Show("  Something went wrong with the group deletion. Please try again.\n");
+				}
+			}
+		}
 	}
 }
