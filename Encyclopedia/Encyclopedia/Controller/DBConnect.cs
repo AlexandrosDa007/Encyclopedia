@@ -125,7 +125,7 @@ namespace Encyclopedia.Controller
             int i = 0;
             while (dataReader.Read())
             {
-                Console.WriteLine(i);
+                Console.WriteLine("Completed: "+((i / 3018.0f) * 100)+"%");
                 Lemma lemma = new Lemma(dataReader[0].ToString(), (byte[])dataReader["lemma_body"], Convert.ToInt32(dataReader[2].ToString()));
                 lemmaList.Add(lemma);
                 i++;
