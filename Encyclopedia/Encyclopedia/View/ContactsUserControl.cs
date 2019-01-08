@@ -142,11 +142,11 @@ namespace Encyclopedia.View
                 // update the tab that is selected
                 if (contactsTabControl.SelectedTab == contactsTabControl.TabPages["contactsTabPage"])
                 {
-                    ContactHandler.FillContacts(contactsListView, ContactList);
+                    ContactAndGroupHandler.FillContacts(contactsListView, ContactList);
                 }
                 else if (contactsTabControl.SelectedTab == contactsTabControl.TabPages["groupTabPage"])
                 {
-                    ContactHandler.FillGroups(groupListView, GroupList);
+                    ContactAndGroupHandler.FillGroups(groupListView, GroupList);
                 }
             }
         }

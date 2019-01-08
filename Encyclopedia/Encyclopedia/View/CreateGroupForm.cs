@@ -26,7 +26,7 @@ namespace Encyclopedia.View
 				groupNameTextBox.Text = group.Name;
 				saveGroupButton.Text = "Update Group";
 
-				ifGroupMembers = ContactAndGroupHandler.CheckContactGroupMembers(group, ContactsUserControl.Instance.contactList);
+				ifGroupMembers = ContactAndGroupHandler.CheckContactGroupMembers(group, ContactsUserControl.Instance.ContactList);
 			}
 			else
 			{
