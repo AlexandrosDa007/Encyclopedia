@@ -41,18 +41,19 @@ namespace Encyclopedia.View
             string roleName = roleCB.GetItemText(roleCB.SelectedItem);
 			string educationLevelName = educationLevelCB.GetItemText(educationLevelCB.SelectedItem);
             string description = descriptionRTB.Text;
-			// convert the image into a Byte array
-			byte[] imageData = null;
-            if (imagePathTB.Text.Length > 0)
+            // convert the image into a Byte array
+            byte[] imageData = null;
+
+            if(imagePB.Image != null)
             {
-                string filePath = imagePathTB.Text;
-                FileStream fs = new FileStream(filePath, FileMode.Open, FileAccess.Read);
-                BinaryReader br = new BinaryReader(fs);
-                imageData = br.ReadBytes((int)fs.Length);
-                br.Close();
-                fs.Close();
+                using (var ms = new MemoryStream())
+                {
+                    imagePB.Image.Save(ms, imagePB.Image.RawFormat);
+                    imageData = ms.ToArray();
+                }
             }
-			string username = usernameTextBox.Text;
+                
+            string username = usernameTextBox.Text;
 			string password = passwordTextBox.Text;
 			string passwordConfirmation = passwordConfirmTextBox.Text;
 			string email = emailTextBox.Text;
@@ -133,37 +134,31 @@ namespace Encyclopedia.View
 
         private void browseb_Click(object sender, EventArgs e)
         {
-            try
-            {
-                OpenFileDialog openFileDialog1 = new OpenFileDialog();
-                openFileDialog1.Title = "Please select an image for your account.";
 
-                // show only image file formats
-                openFileDialog1.Filter = "Image Files(*.BMP;*.JPG;*.JPEG;*.PNG;*.GIF)|*.BMP;*.JPG;*.JPEG;*.PNG;*.GIF|All files (*.*)|*.*";
-                if (openFileDialog1.ShowDialog() == DialogResult.OK)
+            OpenFileDialog openFileDialog1 = new OpenFileDialog();
+            openFileDialog1.Title = "Please select an image for your account.";
+
+            // show only image file formats
+            openFileDialog1.Filter = "Image Files(*.BMP;*.JPG;*.JPEG;*.PNG;*.GIF)|*.BMP;*.JPG;*.JPEG;*.PNG;*.GIF";
+            if (openFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                // check if the file size isn't bigger than 1 MB approx. (measured in bytes)
+                long imageLength = new FileInfo(openFileDialog1.FileName).Length;
+                if (imageLength > 1000000)
                 {
-                    // check if the file size isn't bigger than 16 MB approx. (measured in bytes)
-                    long imageLength = new FileInfo(openFileDialog1.FileName).Length;
-                    if (imageLength > 1000000)
-                    {
-                        throw new ArgumentOutOfRangeException(nameof(imageLength));
-                    }
-
-                    imagePathTB.Text = openFileDialog1.FileName;
-                    imagePB.Image = Image.FromFile(openFileDialog1.FileName);
+                    MessageBox.Show("Please pick a smaller image!!");
+                    return;
                 }
-            }
-            catch (ArgumentOutOfRangeException)
-            {
-                // show the exception message in order to inform the user
-                feedbackLabel.Text = "The chosen image size is too big. Please choose one up to 1MB.";
-				feedbackLabel.ForeColor = Color.Black;
 
-				// fade out effect in feedbackLabel message
-				Timer timer1 = new Timer();
-				timer1.Tick += new EventHandler(timer1_Tick);
-				timer1.Start();
-			}
+                imagePB.Image = Image.FromFile(openFileDialog1.FileName);
+            }
+            else
+            {
+                MessageBox.Show("Please pick an image!");
+                return;
+            }
+
+
         }
 
         private void closePictureBox_Click(object sender, EventArgs e)

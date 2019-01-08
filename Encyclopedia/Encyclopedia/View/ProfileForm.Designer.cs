@@ -32,7 +32,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ProfileForm));
             this.closePictureBox = new System.Windows.Forms.PictureBox();
             this.topPanel = new System.Windows.Forms.Panel();
-            this.imagePathLabel = new System.Windows.Forms.Label();
             this.educationLabel = new System.Windows.Forms.Label();
             this.professionLabel = new System.Windows.Forms.Label();
             this.descriptionLabel = new System.Windows.Forms.Label();
@@ -44,7 +43,6 @@
             this.passwordLabel = new System.Windows.Forms.Label();
             this.passwordConfirmLabel = new System.Windows.Forms.Label();
             this.nameLabel = new System.Windows.Forms.Label();
-            this.imagePathTB = new System.Windows.Forms.TextBox();
             this.saveButton = new System.Windows.Forms.Button();
             this.roleCB = new System.Windows.Forms.ComboBox();
             this.educationLevelCB = new System.Windows.Forms.ComboBox();
@@ -95,18 +93,6 @@
             this.topPanel.Size = new System.Drawing.Size(851, 41);
             this.topPanel.TabIndex = 57;
             // 
-            // imagePathLabel
-            // 
-            this.imagePathLabel.AutoSize = true;
-            this.imagePathLabel.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-            this.imagePathLabel.Location = new System.Drawing.Point(114, 671);
-            this.imagePathLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.imagePathLabel.Name = "imagePathLabel";
-            this.imagePathLabel.Size = new System.Drawing.Size(118, 22);
-            this.imagePathLabel.TabIndex = 56;
-            this.imagePathLabel.Text = "Image Path";
-            this.imageToolTip.SetToolTip(this.imagePathLabel, "Leave it blank if you don\'t want any avatar icon.");
-            // 
             // educationLabel
             // 
             this.educationLabel.AutoSize = true;
@@ -114,7 +100,7 @@
             this.educationLabel.Location = new System.Drawing.Point(82, 492);
             this.educationLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.educationLabel.Name = "educationLabel";
-            this.educationLabel.Size = new System.Drawing.Size(152, 22);
+            this.educationLabel.Size = new System.Drawing.Size(123, 20);
             this.educationLabel.TabIndex = 55;
             this.educationLabel.Text = "Education level";
             // 
@@ -125,7 +111,7 @@
             this.professionLabel.Location = new System.Drawing.Point(132, 539);
             this.professionLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.professionLabel.Name = "professionLabel";
-            this.professionLabel.Size = new System.Drawing.Size(98, 22);
+            this.professionLabel.Size = new System.Drawing.Size(82, 20);
             this.professionLabel.TabIndex = 54;
             this.professionLabel.Text = "Profession";
             // 
@@ -136,7 +122,7 @@
             this.descriptionLabel.Location = new System.Drawing.Point(121, 586);
             this.descriptionLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.descriptionLabel.Name = "descriptionLabel";
-            this.descriptionLabel.Size = new System.Drawing.Size(111, 22);
+            this.descriptionLabel.Size = new System.Drawing.Size(91, 20);
             this.descriptionLabel.TabIndex = 53;
             this.descriptionLabel.Text = "Description";
             // 
@@ -147,7 +133,7 @@
             this.dateOfBirthLabel.Location = new System.Drawing.Point(106, 449);
             this.dateOfBirthLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.dateOfBirthLabel.Name = "dateOfBirthLabel";
-            this.dateOfBirthLabel.Size = new System.Drawing.Size(139, 22);
+            this.dateOfBirthLabel.Size = new System.Drawing.Size(110, 20);
             this.dateOfBirthLabel.TabIndex = 52;
             this.dateOfBirthLabel.Text = "Date of birth *";
             // 
@@ -158,7 +144,7 @@
             this.surnameLabel.Location = new System.Drawing.Point(139, 115);
             this.surnameLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.surnameLabel.Name = "surnameLabel";
-            this.surnameLabel.Size = new System.Drawing.Size(105, 22);
+            this.surnameLabel.Size = new System.Drawing.Size(82, 20);
             this.surnameLabel.TabIndex = 51;
             this.surnameLabel.Text = "Surname *";
             // 
@@ -169,7 +155,7 @@
             this.telLabel.Location = new System.Drawing.Point(52, 157);
             this.telLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.telLabel.Name = "telLabel";
-            this.telLabel.Size = new System.Drawing.Size(183, 22);
+            this.telLabel.Size = new System.Drawing.Size(145, 20);
             this.telLabel.TabIndex = 50;
             this.telLabel.Text = "Telephone number";
             // 
@@ -180,7 +166,7 @@
             this.emailLabel.Location = new System.Drawing.Point(171, 200);
             this.emailLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.emailLabel.Name = "emailLabel";
-            this.emailLabel.Size = new System.Drawing.Size(70, 22);
+            this.emailLabel.Size = new System.Drawing.Size(56, 20);
             this.emailLabel.TabIndex = 49;
             this.emailLabel.Text = "Email *";
             // 
@@ -191,7 +177,7 @@
             this.usernameLabel.Location = new System.Drawing.Point(128, 244);
             this.usernameLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.usernameLabel.Name = "usernameLabel";
-            this.usernameLabel.Size = new System.Drawing.Size(115, 22);
+            this.usernameLabel.Size = new System.Drawing.Size(93, 20);
             this.usernameLabel.TabIndex = 48;
             this.usernameLabel.Text = "Username *";
             // 
@@ -202,7 +188,7 @@
             this.passwordLabel.Location = new System.Drawing.Point(136, 288);
             this.passwordLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.passwordLabel.Name = "passwordLabel";
-            this.passwordLabel.Size = new System.Drawing.Size(109, 22);
+            this.passwordLabel.Size = new System.Drawing.Size(89, 20);
             this.passwordLabel.TabIndex = 47;
             this.passwordLabel.Text = "Password *";
             // 
@@ -213,7 +199,7 @@
             this.passwordConfirmLabel.Location = new System.Drawing.Point(61, 333);
             this.passwordConfirmLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.passwordConfirmLabel.Name = "passwordConfirmLabel";
-            this.passwordConfirmLabel.Size = new System.Drawing.Size(187, 22);
+            this.passwordConfirmLabel.Size = new System.Drawing.Size(151, 20);
             this.passwordConfirmLabel.TabIndex = 46;
             this.passwordConfirmLabel.Text = "Confirm password *";
             // 
@@ -224,22 +210,9 @@
             this.nameLabel.Location = new System.Drawing.Point(162, 77);
             this.nameLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.nameLabel.Name = "nameLabel";
-            this.nameLabel.Size = new System.Drawing.Size(80, 22);
+            this.nameLabel.Size = new System.Drawing.Size(63, 20);
             this.nameLabel.TabIndex = 45;
             this.nameLabel.Text = "Name *";
-            // 
-            // imagePathTB
-            // 
-            this.imagePathTB.BackColor = System.Drawing.SystemColors.Window;
-            this.imagePathTB.Enabled = false;
-            this.imagePathTB.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.imagePathTB.Location = new System.Drawing.Point(264, 668);
-            this.imagePathTB.Margin = new System.Windows.Forms.Padding(2);
-            this.imagePathTB.Name = "imagePathTB";
-            this.imagePathTB.ReadOnly = true;
-            this.imagePathTB.Size = new System.Drawing.Size(200, 28);
-            this.imagePathTB.TabIndex = 42;
-            this.imageToolTip.SetToolTip(this.imagePathTB, "Leave it blank if you don\'t want any avatar icon.");
             // 
             // saveButton
             // 
@@ -264,7 +237,7 @@
             this.roleCB.Location = new System.Drawing.Point(264, 536);
             this.roleCB.Margin = new System.Windows.Forms.Padding(2);
             this.roleCB.Name = "roleCB";
-            this.roleCB.Size = new System.Drawing.Size(200, 29);
+            this.roleCB.Size = new System.Drawing.Size(200, 27);
             this.roleCB.TabIndex = 40;
             // 
             // educationLevelCB
@@ -277,7 +250,7 @@
             this.educationLevelCB.Location = new System.Drawing.Point(264, 489);
             this.educationLevelCB.Margin = new System.Windows.Forms.Padding(2);
             this.educationLevelCB.Name = "educationLevelCB";
-            this.educationLevelCB.Size = new System.Drawing.Size(200, 29);
+            this.educationLevelCB.Size = new System.Drawing.Size(200, 27);
             this.educationLevelCB.TabIndex = 39;
             // 
             // imagePB
@@ -302,7 +275,7 @@
             this.dateOfBirthDTP.MaxDate = new System.DateTime(2200, 12, 31, 0, 0, 0, 0);
             this.dateOfBirthDTP.MinDate = new System.DateTime(1900, 1, 1, 0, 0, 0, 0);
             this.dateOfBirthDTP.Name = "dateOfBirthDTP";
-            this.dateOfBirthDTP.Size = new System.Drawing.Size(200, 28);
+            this.dateOfBirthDTP.Size = new System.Drawing.Size(200, 24);
             this.dateOfBirthDTP.TabIndex = 37;
             this.dateOfBirthDTP.Value = new System.DateTime(1990, 1, 1, 0, 0, 0, 0);
             // 
@@ -313,7 +286,7 @@
             this.genderFemaleRB.Location = new System.Drawing.Point(121, 29);
             this.genderFemaleRB.Margin = new System.Windows.Forms.Padding(2);
             this.genderFemaleRB.Name = "genderFemaleRB";
-            this.genderFemaleRB.Size = new System.Drawing.Size(91, 25);
+            this.genderFemaleRB.Size = new System.Drawing.Size(78, 23);
             this.genderFemaleRB.TabIndex = 8;
             this.genderFemaleRB.Text = "Female";
             this.genderFemaleRB.UseVisualStyleBackColor = true;
@@ -325,7 +298,7 @@
             this.genderMaleRB.Location = new System.Drawing.Point(121, 0);
             this.genderMaleRB.Margin = new System.Windows.Forms.Padding(2);
             this.genderMaleRB.Name = "genderMaleRB";
-            this.genderMaleRB.Size = new System.Drawing.Size(74, 25);
+            this.genderMaleRB.Size = new System.Drawing.Size(62, 23);
             this.genderMaleRB.TabIndex = 7;
             this.genderMaleRB.Text = "Male";
             this.genderMaleRB.UseVisualStyleBackColor = true;
@@ -367,7 +340,7 @@
             this.telTexBox.Margin = new System.Windows.Forms.Padding(2);
             this.telTexBox.Mask = "(999) 000-0000";
             this.telTexBox.Name = "telTexBox";
-            this.telTexBox.Size = new System.Drawing.Size(200, 28);
+            this.telTexBox.Size = new System.Drawing.Size(200, 24);
             this.telTexBox.TabIndex = 31;
             this.telTexBox.TextMaskFormat = System.Windows.Forms.MaskFormat.IncludePrompt;
             // 
@@ -380,7 +353,7 @@
             this.passwordTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.passwordTextBox.MaxLength = 40;
             this.passwordTextBox.Name = "passwordTextBox";
-            this.passwordTextBox.Size = new System.Drawing.Size(200, 28);
+            this.passwordTextBox.Size = new System.Drawing.Size(200, 24);
             this.passwordTextBox.TabIndex = 34;
             this.passwordTextBox.UseSystemPasswordChar = true;
             // 
@@ -394,7 +367,7 @@
             this.usernameTextBox.MaxLength = 40;
             this.usernameTextBox.Name = "usernameTextBox";
             this.usernameTextBox.ReadOnly = true;
-            this.usernameTextBox.Size = new System.Drawing.Size(200, 28);
+            this.usernameTextBox.Size = new System.Drawing.Size(200, 24);
             this.usernameTextBox.TabIndex = 33;
             // 
             // emailTextBox
@@ -406,7 +379,7 @@
             this.emailTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.emailTextBox.MaxLength = 60;
             this.emailTextBox.Name = "emailTextBox";
-            this.emailTextBox.Size = new System.Drawing.Size(200, 28);
+            this.emailTextBox.Size = new System.Drawing.Size(200, 24);
             this.emailTextBox.TabIndex = 32;
             // 
             // passwordConfirmTextBox
@@ -418,7 +391,7 @@
             this.passwordConfirmTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.passwordConfirmTextBox.MaxLength = 40;
             this.passwordConfirmTextBox.Name = "passwordConfirmTextBox";
-            this.passwordConfirmTextBox.Size = new System.Drawing.Size(200, 28);
+            this.passwordConfirmTextBox.Size = new System.Drawing.Size(200, 24);
             this.passwordConfirmTextBox.TabIndex = 35;
             this.passwordConfirmTextBox.UseSystemPasswordChar = true;
             // 
@@ -431,7 +404,7 @@
             this.surnameTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.surnameTextBox.MaxLength = 50;
             this.surnameTextBox.Name = "surnameTextBox";
-            this.surnameTextBox.Size = new System.Drawing.Size(200, 28);
+            this.surnameTextBox.Size = new System.Drawing.Size(200, 24);
             this.surnameTextBox.TabIndex = 30;
             // 
             // nameTextBox
@@ -443,7 +416,7 @@
             this.nameTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.nameTextBox.MaxLength = 40;
             this.nameTextBox.Name = "nameTextBox";
-            this.nameTextBox.Size = new System.Drawing.Size(200, 28);
+            this.nameTextBox.Size = new System.Drawing.Size(200, 24);
             this.nameTextBox.TabIndex = 29;
             // 
             // editButton
@@ -464,10 +437,10 @@
             this.browseButton.Enabled = false;
             this.browseButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.browseButton.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-            this.browseButton.Location = new System.Drawing.Point(468, 668);
+            this.browseButton.Location = new System.Drawing.Point(496, 240);
             this.browseButton.Margin = new System.Windows.Forms.Padding(2);
             this.browseButton.Name = "browseButton";
-            this.browseButton.Size = new System.Drawing.Size(89, 26);
+            this.browseButton.Size = new System.Drawing.Size(146, 26);
             this.browseButton.TabIndex = 59;
             this.browseButton.Text = "Browse";
             this.imageToolTip2.SetToolTip(this.browseButton, "Leave the image path blank if you don\'t want any avatar icon.");
@@ -508,7 +481,6 @@
             this.Controls.Add(this.browseButton);
             this.Controls.Add(this.editButton);
             this.Controls.Add(this.topPanel);
-            this.Controls.Add(this.imagePathLabel);
             this.Controls.Add(this.educationLabel);
             this.Controls.Add(this.professionLabel);
             this.Controls.Add(this.descriptionLabel);
@@ -520,7 +492,6 @@
             this.Controls.Add(this.passwordLabel);
             this.Controls.Add(this.passwordConfirmLabel);
             this.Controls.Add(this.nameLabel);
-            this.Controls.Add(this.imagePathTB);
             this.Controls.Add(this.saveButton);
             this.Controls.Add(this.roleCB);
             this.Controls.Add(this.educationLevelCB);
@@ -554,7 +525,6 @@
 
         private System.Windows.Forms.PictureBox closePictureBox;
         private System.Windows.Forms.Panel topPanel;
-        private System.Windows.Forms.Label imagePathLabel;
         private System.Windows.Forms.Label educationLabel;
         private System.Windows.Forms.Label professionLabel;
         private System.Windows.Forms.Label descriptionLabel;
@@ -566,7 +536,6 @@
         private System.Windows.Forms.Label passwordLabel;
         private System.Windows.Forms.Label passwordConfirmLabel;
         private System.Windows.Forms.Label nameLabel;
-        private System.Windows.Forms.TextBox imagePathTB;
         private System.Windows.Forms.Button saveButton;
         private System.Windows.Forms.ComboBox roleCB;
         private System.Windows.Forms.ComboBox educationLevelCB;
