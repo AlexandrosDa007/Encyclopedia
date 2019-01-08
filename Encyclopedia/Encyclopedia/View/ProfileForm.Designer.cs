@@ -486,6 +486,7 @@
             this.deleteButton.Text = "Delete Profile";
             this.profileToolTip.SetToolTip(this.deleteButton, "Click to delete your profile");
             this.deleteButton.UseVisualStyleBackColor = true;
+            this.deleteButton.Click += new System.EventHandler(this.deleteButton_Click_1);
             // 
             // clearPhotoButton
             // 

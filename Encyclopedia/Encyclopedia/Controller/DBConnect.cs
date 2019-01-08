@@ -1571,10 +1571,20 @@ namespace Encyclopedia.Controller
         /// Delete a ContactGroup from the database.
         /// </summary>
         /// <param name="contactGroup"></param>
-        public static void Delete(ContactGroup contactGroup)
+        public static int Delete(ContactGroup contactGroup)
         {
-            //code to Delete contactgroup
-        }
+			// construct delete query
+			string query = "DELETE FROM Contact_Group WHERE group_id = @group";
+			MySqlCommand cmd = new MySqlCommand(query, connection);
+			cmd.Parameters.AddWithValue("@group", contactGroup.Id);
+			cmd.CommandTimeout = 500000;
+
+			// prepare and execute
+			cmd.Prepare();
+			int rowsAffected = cmd.ExecuteNonQuery();
+			
+			return rowsAffected;
+		}
         /// <summary>
         /// Delete an EditedLemma from the database given the User.
         /// </summary>
@@ -1668,10 +1678,19 @@ namespace Encyclopedia.Controller
         /// Delete an Account from the database.
         /// </summary>
         /// <param name="account"></param>
-		public static void Delete(Account account)
+		public static int Delete(Account account)
 		{
-			//code to Delete new account
-		}
+            string accountUsername = account.Username;
+            string query = "DELETE FROM Account WHERE account_username=@accountUsername";
+            MySqlCommand cmd = new MySqlCommand(query, connection);
+            cmd.Parameters.AddWithValue("@accountUsername", accountUsername);
+            cmd.Prepare();
+            cmd.CommandTimeout = 500000;
+            int rowsAffected = cmd.ExecuteNonQuery();
+
+
+            return rowsAffected;
+        }
         #endregion
 
         #region Update Statements
