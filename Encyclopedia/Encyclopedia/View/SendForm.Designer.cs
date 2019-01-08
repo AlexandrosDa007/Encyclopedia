@@ -85,7 +85,7 @@
 			this.contactsTabControl.Padding = new System.Drawing.Point(15, 10);
 			this.contactsTabControl.SelectedIndex = 0;
 			this.contactsTabControl.Size = new System.Drawing.Size(755, 318);
-			this.contactsTabControl.TabIndex = 30;
+			this.contactsTabControl.TabIndex = 1;
 			// 
 			// contactsTabPage
 			// 
@@ -111,7 +111,7 @@
 			this.contactsCheckedListBox.Name = "contactsCheckedListBox";
 			this.contactsCheckedListBox.Size = new System.Drawing.Size(741, 263);
 			this.contactsCheckedListBox.Sorted = true;
-			this.contactsCheckedListBox.TabIndex = 1;
+			this.contactsCheckedListBox.TabIndex = 0;
 			// 
 			// groupTabPage
 			// 
@@ -157,7 +157,7 @@
 			this.notesTextBox.Name = "notesTextBox";
 			this.notesTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
 			this.notesTextBox.Size = new System.Drawing.Size(412, 60);
-			this.notesTextBox.TabIndex = 31;
+			this.notesTextBox.TabIndex = 1;
 			// 
 			// label1
 			// 
@@ -171,6 +171,7 @@
 			// 
 			// SendForm
 			// 
+			this.AcceptButton = this.sendButton;
 			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.AutoSize = true;

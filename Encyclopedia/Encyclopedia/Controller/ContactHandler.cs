@@ -8,6 +8,26 @@ namespace Encyclopedia.Controller
 {
 	class ContactHandler
 	{
+		public static Dictionary<int, bool> CheckContactGroupMembers(ContactGroup group, List<User> contacts)
+		{
+			Dictionary<int, bool> ifGroupMembers = new Dictionary<int, bool>();
+			List<int> groupMembers = DBConnect.GetContactGroupMembers(group);
+
+			foreach (User contact in contacts)
+			{
+				if (groupMembers.Contains(contact.Id))
+				{
+					ifGroupMembers[contact.Id] = true;
+				}
+				else
+				{
+					ifGroupMembers[contact.Id] = false;
+				}
+			}
+
+			return ifGroupMembers;
+		}
+
 		// fills dynamically the parametered ListView with the user's contacts
 		public static void FillContacts(ListView listView, List<User> contacts)
 		{

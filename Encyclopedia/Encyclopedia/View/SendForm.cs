@@ -12,10 +12,6 @@ namespace Encyclopedia.View
 		{
 			InitializeComponent();
 
-			ImageList list = new ImageList();
-			list.ImageSize = new Size(8, 48);
-			//contactsCheckedListBox.Checke = list;
-
 			// fill contactsCheckedListBox with the user's contacts
 			FillContactsListBox();
 
@@ -27,28 +23,20 @@ namespace Encyclopedia.View
 		{
 			contactsCheckedListBox.Items.Clear();
 
-			string[] contactsArray = new string[ContactsUserControl.Instance.contactList.Count];
-			int i = 0;
 			foreach (User contact in ContactsUserControl.Instance.contactList)
 			{
-				contactsArray[i++] = contact.Name + " " + contact.Surname;
+				contactsCheckedListBox.Items.Add(contact.Name + " " + contact.Surname);
 			}
-
-			contactsCheckedListBox.Items.AddRange(contactsArray);
 		}
 
 		private void FillGroupListBox()
 		{
 			groupsCheckedListBox.Items.Clear();
 
-			string[] groupsArray = new string[ContactsUserControl.Instance.groupList.Count];
-			int i = 0;
 			foreach (ContactGroup group in ContactsUserControl.Instance.groupList)
 			{
-				groupsArray[i++] = group.Name;
+				groupsCheckedListBox.Items.Add(group.Name);
 			}
-
-			groupsCheckedListBox.Items.AddRange(groupsArray);
 		}
 
 		private void closePictureBox_Click(object sender, EventArgs e)

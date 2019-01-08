@@ -83,7 +83,8 @@ namespace Encyclopedia.View
 
 		private void createGroupButton_Click(object sender, EventArgs e)
 		{
-
+			CreateGroupForm groupForm = new CreateGroupForm(null);
+			groupForm.ShowDialog();
 		}
 
 		private void searchContactsButton_Click(object sender, EventArgs e)
@@ -115,5 +116,25 @@ namespace Encyclopedia.View
 
 
         }
-    }
+
+		private void groupListView_DoubleClick(object sender, EventArgs e)
+		{
+			// get the selected group name
+			string groupName = groupListView.SelectedItems[0].Text;
+			
+			// set up the selected ContactGroup group
+			ContactGroup contactGroup = null;
+			foreach (ContactGroup group in groupList)
+			{
+				if (group.Name.Equals(groupName))
+				{
+					contactGroup = group;
+				}
+			}
+
+			// open a CreateGroupForm
+			CreateGroupForm groupForm = new CreateGroupForm(contactGroup);
+			groupForm.ShowDialog();
+		}
+	}
 }
