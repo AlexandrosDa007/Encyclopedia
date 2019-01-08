@@ -7,22 +7,8 @@ namespace Encyclopedia.Model
         // fields
         private User user;
         private User contact;
-        private ContactGroup contactGroup;
 
         // default constructor
-        public Contact(User user, User contact, ContactGroup contactGroup)
-        {
-            if (user.Id != contact.Id)
-            {
-                this.user = user ?? throw new ArgumentNullException(nameof(user));
-                this.contact = contact ?? throw new ArgumentNullException(nameof(contact));
-            }
-            else
-                throw new ArgumentException("The user cannot be contacts with himself.");
-            ContactGroup = contactGroup ?? throw new ArgumentNullException(nameof(contactGroup));
-        }
-
-        // constructor with null values
         public Contact(User user, User contact)
         {
             if (user.Id != contact.Id)
@@ -32,8 +18,6 @@ namespace Encyclopedia.Model
             }
             else
                 throw new ArgumentException("The user cannot be contacts with himself.");
-
-            ContactGroup = null;
         }
 
         // setters and getters
@@ -68,18 +52,6 @@ namespace Encyclopedia.Model
                 }
                 else
                     throw new ArgumentException("The user cannot be contacts with himself.");
-            }
-        }
-
-        public ContactGroup ContactGroup
-        {
-            get
-            {
-                return contactGroup;
-            }
-            set
-            {
-                contactGroup = value;
             }
         }
 

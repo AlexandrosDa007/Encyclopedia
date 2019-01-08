@@ -414,9 +414,12 @@ namespace Encyclopedia.Controller
 			List<int> groupMembersList = new List<int>();
 			
 			// construct query
-			string selectId = "SELECT contact_id FROM Contact WHERE group_id = @group";
+			string selectId = "SELECT contact_id FROM Contact_Group_Member GM " +
+				"INNER JOIN Contact_Group G ON GM.group_id = G.group_id " +
+				"WHERE GM.group_id = @group AND G.owner_id = @user";
 			MySqlCommand select = new MySqlCommand(selectId, connection);
 			select.Parameters.AddWithValue("@group", group.Id);
+			select.Parameters.AddWithValue("@user", UI.StartPage.account.User.Id);
 			select.CommandTimeout = 500000;
 
 			// prepare and execute
@@ -930,31 +933,20 @@ namespace Encyclopedia.Controller
         {
             User user = contact.User;
             User contactUser = contact.ContactUser;
-            ContactGroup contactGroup = null;
-            if(contact.ContactGroup!=null)
-                contactGroup = contact.ContactGroup;
 
             int userID = user.Id;
             int contactID = contactUser.Id;
-            int groupID = -999;
-            if(contact.ContactGroup!=null)
-                groupID = contactGroup.Id;
-
-
+			
             //Create prepared statement string
             string insertContact = "INSERT INTO " +
-                "Contact (user_id ,contact_id ,group_id  ) " +
-                "VALUES(@userID,@contactID,@groupID) ";
+                "Contact (user_id ,contact_id ) " +
+                "VALUES(@userID,@contactID) ";
 
             MySqlCommand cmd = new MySqlCommand(insertContact, connection);
             cmd.CommandTimeout = 500000;
             // add values to the parameters
             cmd.Parameters.AddWithValue("@userID", userID);
             cmd.Parameters.AddWithValue("@contactID", contactID);
-            if (groupID != -999)
-                cmd.Parameters.AddWithValue("@groupID", groupID);
-            else
-                cmd.Parameters.AddWithValue("@groupID", DBNull.Value);
 
             // prepare and execute
             cmd.Prepare();

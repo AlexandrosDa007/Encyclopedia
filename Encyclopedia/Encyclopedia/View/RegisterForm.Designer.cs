@@ -63,8 +63,6 @@
 			this.topPanel = new System.Windows.Forms.Panel();
 			this.closePictureBox = new System.Windows.Forms.PictureBox();
 			this.feedbackLabel = new System.Windows.Forms.Label();
-			this.imageToolTip = new System.Windows.Forms.ToolTip(this.components);
-			this.imageToolTip2 = new System.Windows.Forms.ToolTip(this.components);
 			this.genderGroupBox.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.imagePB)).BeginInit();
 			this.topPanel.SuspendLayout();
@@ -213,7 +211,6 @@
 			this.imagePB.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
 			this.imagePB.TabIndex = 9;
 			this.imagePB.TabStop = false;
-			this.imageToolTip2.SetToolTip(this.imagePB, "Leave the image path blank if you don\'t want any avatar icon.");
 			// 
 			// educationLevelCB
 			// 
@@ -271,7 +268,6 @@
 			this.imagePathTB.Name = "imagePathTB";
 			this.imagePathTB.Size = new System.Drawing.Size(200, 27);
 			this.imagePathTB.TabIndex = 13;
-			this.imageToolTip.SetToolTip(this.imagePathTB, "Leave it blank if you don\'t want any avatar icon.");
 			// 
 			// browseB
 			// 
@@ -283,7 +279,6 @@
 			this.browseB.Size = new System.Drawing.Size(89, 26);
 			this.browseB.TabIndex = 14;
 			this.browseB.Text = "Browse";
-			this.imageToolTip2.SetToolTip(this.browseB, "Leave the image path blank if you don\'t want any avatar icon.");
 			this.browseB.UseVisualStyleBackColor = true;
 			this.browseB.Click += new System.EventHandler(this.browseb_Click);
 			// 
@@ -418,7 +413,6 @@
 			this.imagePathLabel.Size = new System.Drawing.Size(114, 21);
 			this.imagePathLabel.TabIndex = 27;
 			this.imagePathLabel.Text = "Image Path";
-			this.imageToolTip.SetToolTip(this.imagePathLabel, "Leave it blank if you don\'t want any avatar icon.");
 			// 
 			// topPanel
 			// 
@@ -453,18 +447,6 @@
 			this.feedbackLabel.Size = new System.Drawing.Size(780, 31);
 			this.feedbackLabel.TabIndex = 29;
 			this.feedbackLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			// 
-			// imageToolTip
-			// 
-			this.imageToolTip.AutoPopDelay = 2000;
-			this.imageToolTip.InitialDelay = 300;
-			this.imageToolTip.ReshowDelay = 100;
-			// 
-			// imageToolTip2
-			// 
-			this.imageToolTip2.AutoPopDelay = 2000;
-			this.imageToolTip2.InitialDelay = 300;
-			this.imageToolTip2.ReshowDelay = 100;
 			// 
 			// RegisterForm
 			// 
@@ -554,6 +536,5 @@
         private System.Windows.Forms.Panel topPanel;
         private System.Windows.Forms.PictureBox closePictureBox;
 		private System.Windows.Forms.Label feedbackLabel;
-		private System.Windows.Forms.ToolTip registerToolTip;
 	}
 }
