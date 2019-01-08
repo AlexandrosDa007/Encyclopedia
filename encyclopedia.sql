@@ -18,7 +18,7 @@ CREATE TABLE User(
 	user_role_id INT,
 	user_education_level_id INT,
 	user_description VARCHAR(250),
-	user_image MEDIUMBLOB, -- 16MB size approx.
+	user_image MEDIUMBLOB, -- 16MB size approx. | only up to 1MB in app
 	FOREIGN KEY(user_role_id) REFERENCES Role(role_id),
 	FOREIGN KEY(user_education_level_id) REFERENCES Education_Level(education_level_id)
 );
@@ -33,6 +33,14 @@ CREATE TABLE Account(
 	FOREIGN KEY(account_id) REFERENCES User(user_id)
 );
 
+CREATE TABLE Contact(
+	user_id INT NOT NULL,
+	contact_id INT NOT NULL,
+	PRIMARY KEY (user_id, contact_id),
+	FOREIGN KEY(user_id) REFERENCES User(user_id),
+	FOREIGN KEY(contact_id) REFERENCES User(user_id)
+);
+
 CREATE TABLE Contact_Group(
 	group_id INT AUTO_INCREMENT PRIMARY KEY,
 	group_name VARCHAR(30) NOT NULL,
@@ -40,14 +48,12 @@ CREATE TABLE Contact_Group(
 	FOREIGN KEY(owner_id) REFERENCES User(user_id)
 );
 
-CREATE TABLE Contact(
-	user_id INT NOT NULL,
+CREATE TABLE Contact_Group_Member(
+	group_id INT NOT NULL,
 	contact_id INT NOT NULL,
-	group_id INT,
-	PRIMARY KEY (user_id, contact_id),
-	FOREIGN KEY(user_id) REFERENCES User(user_id),
-	FOREIGN KEY(contact_id) REFERENCES User(user_id),
-	FOREIGN KEY(group_id) REFERENCES Contact_Group(group_id)
+	PRIMARY KEY (group_id, contact_id),
+	FOREIGN KEY(group_id) REFERENCES Contact_Group(group_id),
+	FOREIGN KEY(contact_id) REFERENCES User(user_id)
 );
 
 CREATE TABLE Category(

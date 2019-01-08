@@ -85,7 +85,7 @@ namespace Encyclopedia.View
 					}
 				}
 			}
-			else if (contactsTabControl.SelectedTab == contactsTabControl.TabPages["contactsTabPage"])
+			else if (contactsTabControl.SelectedTab == contactsTabControl.TabPages["groupTabPage"])
 			{
 
 			}
