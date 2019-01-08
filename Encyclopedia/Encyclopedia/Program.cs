@@ -29,10 +29,9 @@ namespace Encyclopedia
             //comment because database issues
             if (!DBConnect.Initialize())
             {
-                MessageBox.Show("There was a problem with the server.\nPlease make sure you are connected to the internet!");
+                MessageBox.Show("There was a problem with the server.\nPlease make sure you are connected to the internet!\nTry again");
                 return;
             }
-            
 
 
             //this takes a long time - 4min 
