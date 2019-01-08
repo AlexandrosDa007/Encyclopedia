@@ -98,7 +98,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controller\Compression.cs" />
-    <Compile Include="Controller\ContactHandler.cs" />
+    <Compile Include="Controller\ContactAndGroupHandler.cs" />
     <Compile Include="Controller\DBConnect.cs" />
     <Compile Include="Controller\Favorite.cs" />
     <Compile Include="Controller\LoginHandler.cs" />

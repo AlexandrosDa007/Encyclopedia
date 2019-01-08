@@ -89,7 +89,7 @@ namespace Encyclopedia.View
 			string searchString = searchContactsTextBox.Text;
 
 			// fill the tab/listview with the matching user accounts
-			ContactHandler.FillContactSearchResults(contactsSearchResultsListView, searchString);
+			ContactAndGroupHandler.FillContactSearchResults(contactsSearchResultsListView, searchString);
 
 			// set focus on the search results tab
 			contactsTabControl.SelectedTab = contactsTabControl.TabPages["searchContactsResultTabPage"];

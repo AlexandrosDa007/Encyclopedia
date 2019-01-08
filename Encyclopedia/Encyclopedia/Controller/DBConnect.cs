@@ -479,7 +479,7 @@ namespace Encyclopedia.Controller
         /// </summary>
         /// <param name="group"></param>
         /// <returns></returns>
-		public static List<int> GetContactGroupMembers(ContactGroup group)
+		public static List<int> GetContactGroupMembers(ContactGroup group, int ownerId)
 		{
 			List<int> groupMembersList = new List<int>();
 			
@@ -489,7 +489,7 @@ namespace Encyclopedia.Controller
 				"WHERE GM.group_id = @group AND G.owner_id = @user";
 			MySqlCommand select = new MySqlCommand(selectId, connection);
 			select.Parameters.AddWithValue("@group", group.Id);
-			select.Parameters.AddWithValue("@user", UI.StartPage.account.User.Id);
+			select.Parameters.AddWithValue("@user", ownerId);
 			select.CommandTimeout = 500000;
 
 			// prepare and execute
