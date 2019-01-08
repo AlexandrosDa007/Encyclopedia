@@ -29,7 +29,7 @@ namespace Encyclopedia.Controller
         /// <summary>
         /// A static reference to the directory of the lucene index.
         /// </summary>
-        public static SimpleFSDirectory dir;
+        public static SimpleFSDirectory dir = new SimpleFSDirectory(new System.IO.DirectoryInfo("../../LuceneDocuments"), null);
         /// <summary>
         /// A static reference to the lemmas for indexing.
         /// </summary>
@@ -45,8 +45,6 @@ namespace Encyclopedia.Controller
             //initialize all static components
             //directory = new RAMDirectory();
             lemmaList = new List<Lemma>();
-
-            dir = new SimpleFSDirectory(new System.IO.DirectoryInfo("../../LuceneDocuments"), null);
 
             //Analyzer object used to analyze text based search
             Analyzer analyzer = new StandardAnalyzer(Lucene.Net.Util.Version.LUCENE_30);
