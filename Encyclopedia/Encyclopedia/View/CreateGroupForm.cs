@@ -79,49 +79,59 @@ namespace Encyclopedia.View
 		private void saveGroupButton_Click(object sender, EventArgs e)
 		{
 			string groupName = groupNameTextBox.Text;
-
+            if(groupName.Equals("") || groupName == null)
+            {
+                MessageBox.Show("  Give the group a name!");
+                return;
+            }
 			if (Group == null)
 			{
 				CreateNewContactGroup(groupName);
 			}
 			else
-			{
-				Dictionary<int, bool> groupMembersBefore = IfGroupMembers;
+            {
+                UpdateGroup(groupName);
+            }
+        }
 
-				Dictionary<int, bool> groupMembersAfter = new Dictionary<int, bool>();
+        private void UpdateGroup(string groupName)
+        {
 
-				int[] checkedContacts = GetCheckedContactsIds();
-				List<int> checkedContactsList = checkedContacts.ToList<int>();
-				foreach (User contact in ContactsUserControl.Instance.ContactList)
-				{
-					if (checkedContactsList.Contains(contact.Id))
-					{
-						groupMembersAfter[contact.Id] = true;
-					}
-					else
-					{
-						groupMembersAfter[contact.Id] = false;
-					}
-				}
+            Dictionary<int, bool> groupMembersBefore = IfGroupMembers;
 
-				int exitCode = ContactAndGroupHandler.UpdateGroup(Group, groupName, groupMembersBefore, groupMembersAfter);
-				if (exitCode == -1)
-				{
-					MessageBox.Show("  Something went wrong with the group name update. Please try again.\n");
-				}
-				else if (exitCode == ContactsUserControl.Instance.ContactList.Count)
-				{
-					DialogResult dialogResult = MessageBox.Show("  Your group \"" + groupName + "\" updated successfully!");
-					if (dialogResult == DialogResult.OK)
-					{
-						ContactsUserControl.Instance.UpdateTabControl();
-						this.Close();
-					}
-				}
-			}
-		}
+            Dictionary<int, bool> groupMembersAfter = new Dictionary<int, bool>();
 
-		private void CreateNewContactGroup(string groupName)
+            int[] checkedContacts = GetCheckedContactsIds();
+            List<int> checkedContactsList = checkedContacts.ToList<int>();
+            foreach (User contact in ContactsUserControl.Instance.ContactList)
+            {
+                if (checkedContactsList.Contains(contact.Id))
+                {
+                    groupMembersAfter[contact.Id] = true;
+                }
+                else
+                {
+                    groupMembersAfter[contact.Id] = false;
+                }
+            }
+
+            int exitCode = ContactAndGroupHandler.UpdateGroup(Group, groupName, groupMembersBefore, groupMembersAfter);
+            if (exitCode == -1)
+            {
+                MessageBox.Show("  Something went wrong with the group name update. Please try again.\n");
+            }
+            else if (exitCode == ContactsUserControl.Instance.ContactList.Count)
+            {
+                DialogResult dialogResult = MessageBox.Show("  Your group \"" + groupName + "\" updated successfully!");
+                if (dialogResult == DialogResult.OK)
+                {
+                    ContactsUserControl.Instance.UpdateTabControl();
+                    this.Close();
+                }
+            }
+        }
+
+        private void CreateNewContactGroup(string groupName)
 		{
 			int[] memberIds = GetCheckedContactsIds();
 

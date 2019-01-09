@@ -1,8 +1,10 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
 using Encyclopedia.Controller;
 using Encyclopedia.Model;
+using System.Linq;
 
 namespace Encyclopedia.View
 {
@@ -69,11 +71,10 @@ namespace Encyclopedia.View
 			}
 
 			int i = 0;
-			int[] receiverIds = null;
+            List<int> receiverIds = new List<int>();
 			// TODO get checked contact ids for the receivers array
 			if (contactsTabControl.SelectedTab == contactsTabControl.TabPages["contactsTabPage"])
 			{
-				receiverIds = new int[contactsCheckedListBox.CheckedItems.Count];
 
 				CheckedListBox.CheckedItemCollection checkedContacts = contactsCheckedListBox.CheckedItems;
 				foreach (object contactItem in checkedContacts)
@@ -85,7 +86,7 @@ namespace Encyclopedia.View
 					{
 						if (contact.Name.Equals(contactName) && contact.Surname.Equals(contactSurname))
 						{
-							receiverIds[i++] = contact.Id;
+                            receiverIds.Add(contact.Id);
 							break;
 						}
 					}
@@ -93,13 +94,50 @@ namespace Encyclopedia.View
 			}
 			else if (contactsTabControl.SelectedTab == contactsTabControl.TabPages["groupTabPage"])
 			{
+                CheckedListBox.CheckedItemCollection checkedGroups = groupsCheckedListBox.CheckedItems;
+                List<ContactGroup> listOfContactGroups = new List<ContactGroup>();
+                foreach (object contactItem in checkedGroups)
+                {
+                    string groupName = (contactItem as string);
+                    
+                    foreach (ContactGroup group in ContactsUserControl.Instance.GroupList)
+                    {
+                        if (group.Name.Equals(groupName))
+                        {
+                            listOfContactGroups.Add(group);
+                            break;
+                        }
+                    }
 
-			}
+                }
+                
+                foreach(ContactGroup group in listOfContactGroups)
+                {
+                    List<int> idList = DBConnect.GetContactGroupMembers(group, group.Owner.Id);
+                    receiverIds.AddRange(idList);
+                }
+
+                List<int> distictIds = receiverIds.Distinct().ToList();
+                receiverIds.Clear();
+                receiverIds.AddRange(distictIds);
+                
+            }
 			
 			string additionalNotes = notesTextBox.Text;
 
-			//int rowsAffected = Controller.Message.sendMessage(UI.StartPage.account.User.Id, lemmaTitle, receiverIds, additionalNotes);
-		}
+
+			int result = Controller.Message.sendMessage(UI.StartPage.account.User.Id, lemmaTitle, receiverIds.ToArray(), additionalNotes);
+            if(result == 0)
+            {
+                MessageBox.Show("Mail sent!!");
+                Close();
+            }
+            else
+            {
+                MessageBox.Show("Something went wrong!!");
+                Close();
+            }
+        }
         #endregion
 
     }

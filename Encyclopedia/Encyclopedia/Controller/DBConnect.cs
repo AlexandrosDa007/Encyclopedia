@@ -1736,7 +1736,7 @@ namespace Encyclopedia.Controller
         public static int Update(ContactGroup contactGroup)
         {
 			// construct the update query
-			string query = "UPDATE Contact_Group SET group_name = @groupName" +
+			string query = "UPDATE Contact_Group SET group_name = @groupName " +
 				"WHERE group_id = @groupId";
 			MySqlCommand cmd = new MySqlCommand(query, connection);
 			cmd.Parameters.AddWithValue("@groupName", contactGroup.Name);

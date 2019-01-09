@@ -125,6 +125,7 @@ namespace Encyclopedia.View
 				if (group.Name.Equals(groupName))
 				{
 					contactGroup = group;
+                    break;
 				}
 			}
 
