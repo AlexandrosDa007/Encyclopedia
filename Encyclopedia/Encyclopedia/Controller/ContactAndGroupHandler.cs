@@ -16,6 +16,63 @@ namespace Encyclopedia.Controller
 			return rowsAffected;
 		}
 
+		public static int UpdateGroup(ContactGroup Group, string groupNameInserted, Dictionary<int, bool> groupMembersBefore, Dictionary<int, bool> groupMembersAfter)
+		{
+			if (!Group.Name.Equals(groupNameInserted))
+			{
+				Group.Name = groupNameInserted;
+
+				int rowsAffected = DBConnect.Update(Group);
+				if (rowsAffected != 1)
+				{
+					return -1;
+				}
+			}
+
+			int contactsUpdated = UpdateGroupContacts(Group, groupMembersBefore, groupMembersAfter);
+
+			return contactsUpdated;
+		}
+
+		private static int UpdateGroupContacts(ContactGroup Group, Dictionary<int, bool> groupMembersBefore, Dictionary<int, bool> groupMembersAfter)
+		{
+			int contactsUpdated = 0;
+			foreach (int contactId in groupMembersBefore.Keys)
+			{
+				if (groupMembersBefore[contactId] == false && groupMembersAfter[contactId] == true)
+				{
+					User contact = new User();
+					contact.Id = contactId;
+
+					ContactGroupMember groupMember = new ContactGroupMember(Group, contact);
+					int rowsAffected = DBConnect.Insert(groupMember);
+					if (rowsAffected == 1)
+					{
+						contactsUpdated++;
+					}
+				}
+				else if (groupMembersBefore[contactId] == true && groupMembersAfter[contactId] == false)
+				{
+					User contact = new User();
+					contact.Id = contactId;
+
+					ContactGroupMember groupMember = new ContactGroupMember(Group, contact);
+					int rowsAffected = DBConnect.Delete(groupMember);
+					if (rowsAffected == 1)
+					{
+						contactsUpdated++;
+					}
+				}
+				else if (groupMembersBefore[contactId] == groupMembersAfter[contactId])
+				{
+					// this contact remained untouched
+					contactsUpdated++;
+				}
+			}
+
+			return contactsUpdated;
+		}
+
 		public static ContactGroup CreateNewGroup(string groupName, int[] groupMembers)
 		{
 			// configure ContactGroup Object

@@ -142,7 +142,7 @@ namespace Encyclopedia.View
         {
 
             OpenFileDialog openFileDialog1 = new OpenFileDialog();
-            openFileDialog1.Title = "Please select an image for your account.";
+            openFileDialog1.Title = "  Please select an image for your account.";
 
             // show only image file formats
             openFileDialog1.Filter = "Image Files(*.BMP;*.JPG;*.JPEG;*.PNG;*.GIF)|*.BMP;*.JPG;*.JPEG;*.PNG;*.GIF";
@@ -152,7 +152,7 @@ namespace Encyclopedia.View
                 long imageLength = new FileInfo(openFileDialog1.FileName).Length;
                 if (imageLength > 1000000)
                 {
-                    MessageBox.Show("Please pick a smaller image!!");
+                    MessageBox.Show("  Please pick a smaller image!");
                     return;
                 }
 
@@ -160,7 +160,7 @@ namespace Encyclopedia.View
             }
             else
             {
-                MessageBox.Show("Please pick an image!");
+                MessageBox.Show("  Please pick an image!");
                 return;
             }
 

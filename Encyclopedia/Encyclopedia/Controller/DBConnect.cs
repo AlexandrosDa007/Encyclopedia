@@ -1585,13 +1585,32 @@ namespace Encyclopedia.Controller
 			
 			return rowsAffected;
 		}
-        /// <summary>
-        /// Delete an EditedLemma from the database given the User.
-        /// </summary>
-        /// <param name="editedLemma"></param>
-        /// <param name="user"></param>
-        /// <returns></returns>
-        public static int Delete(EditedLemma editedLemma, User user)
+		/// <summary>
+		/// Delete a ContactGroupMember from the database.
+		/// </summary>
+		/// <param name="contactGroupMember"></param>
+		public static int Delete(ContactGroupMember contactGroupMember)
+		{
+			// construct delete query
+			string query = "DELETE FROM Contact_Group_Member WHERE group_id = @group AND contact_id = @contact";
+			MySqlCommand cmd = new MySqlCommand(query, connection);
+			cmd.Parameters.AddWithValue("@group", contactGroupMember.Group.Id);
+			cmd.Parameters.AddWithValue("@contact", contactGroupMember.Contact.Id);
+			cmd.CommandTimeout = 500000;
+
+			// prepare and execute
+			cmd.Prepare();
+			int rowsAffected = cmd.ExecuteNonQuery();
+
+			return rowsAffected;
+		}
+		/// <summary>
+		/// Delete an EditedLemma from the database given the User.
+		/// </summary>
+		/// <param name="editedLemma"></param>
+		/// <param name="user"></param>
+		/// <returns></returns>
+		public static int Delete(EditedLemma editedLemma, User user)
         {
             string query = "DELETE FROM Edited_Lemma WHERE editor_id = @id AND lemma_title = @title";
             MySqlCommand cmd = new MySqlCommand(query, connection);
@@ -1705,10 +1724,22 @@ namespace Encyclopedia.Controller
         /// Updates a ContactGroup in the database.
         /// </summary>
         /// <param name="contactGroup"></param>
-        public static void Update(ContactGroup contactGroup)
+        public static int Update(ContactGroup contactGroup)
         {
-            //code to Update contactgroup
-        }
+			// construct the update query
+			string query = "UPDATE Contact_Group SET group_name = @groupName" +
+				"WHERE group_id = @groupId";
+			MySqlCommand cmd = new MySqlCommand(query, connection);
+			cmd.Parameters.AddWithValue("@groupName", contactGroup.Name);
+			cmd.Parameters.AddWithValue("@groupId", contactGroup.Id);
+			cmd.CommandTimeout = 500000;
+			
+			// prepare and execute
+			cmd.Prepare();
+			int rowsAffected = cmd.ExecuteNonQuery();
+
+			return rowsAffected;
+		}
         /// <summary>
         /// Updates a EditedLemma in the database.
         /// </summary>
