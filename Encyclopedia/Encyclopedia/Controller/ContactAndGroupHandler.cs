@@ -111,7 +111,7 @@ namespace Encyclopedia.Controller
 		{
 			Dictionary<int, bool> ifGroupMembers = new Dictionary<int, bool>();
 
-			// get the selected group's members
+			// get the members of the selected group
 			List<int> groupMembers = DBConnect.GetContactGroupMembers(group, UI.StartPage.account.User.Id);
 
 			// define which of the user's contacts are in this group and configure them
@@ -149,20 +149,19 @@ namespace Encyclopedia.Controller
 			foreach (User contact in contacts)
 			{
 				// add contact item
-				ListViewItem contactItem = new ListViewItem(contact.Name + " " + contact.Surname);
-				contactItem.ImageKey = contactItem.Text;
+				ListViewItem contactItem = new ListViewItem(contact.Name + " " + contact.Surname, i);
 				contactNames[i++] = contactItem;
 
 				// if an image is specified, add it to the image list
 				if (contact.Image != null)
 				{
 					MemoryStream ms = new MemoryStream(contact.Image);
-					contactImages.Images.Add(contactItem.ImageKey, Image.FromStream(ms));
+					contactImages.Images.Add(Image.FromStream(ms));
 				}
 				else
 				{
 					// otherwise add the default avatar image to the image list
-					contactImages.Images.Add(contactItem.ImageKey, Properties.Resources.default_avatar);
+					contactImages.Images.Add(Properties.Resources.default_avatar);
 				}
 			}
 
