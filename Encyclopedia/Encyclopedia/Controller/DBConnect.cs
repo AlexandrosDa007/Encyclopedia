@@ -667,7 +667,7 @@ namespace Encyclopedia.Controller
 
             string query = "SELECT * FROM Lemma ORDER BY RAND() LIMIT 1";
             MySqlCommand cmd = new MySqlCommand(query, connection);
-
+            cmd.CommandTimeout = 500000;
             MySqlDataReader dataReader = cmd.ExecuteReader();
             while (dataReader.Read())
             {
@@ -1697,10 +1697,19 @@ namespace Encyclopedia.Controller
         /// Delete an Account from the database.
         /// </summary>
         /// <param name="account"></param>
-		public static void Delete(Account account)
+		public static int Delete(Account account)
 		{
-			//code to Delete new account
-		}
+            string accountUsername = account.Username;
+            string query = "DELETE FROM Account WHERE account_username=@accountUsername";
+            MySqlCommand cmd = new MySqlCommand(query, connection);
+            cmd.Parameters.AddWithValue("@accountUsername", accountUsername);
+            cmd.Prepare();
+            cmd.CommandTimeout = 500000;
+            int rowsAffected = cmd.ExecuteNonQuery();
+
+
+            return rowsAffected;
+        }
         #endregion
 
         #region Update Statements
