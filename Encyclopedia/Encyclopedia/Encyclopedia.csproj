@@ -119,6 +119,7 @@
     <Compile Include="Model\FavoriteLemma.cs" />
     <Compile Include="Model\Lemma.cs" />
     <Compile Include="Model\Role.cs" />
+    <Compile Include="Model\SharedLemma.cs" />
     <Compile Include="Model\User.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
