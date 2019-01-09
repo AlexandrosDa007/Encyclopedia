@@ -53,7 +53,7 @@ namespace Encyclopedia.View
         #region Private methods
         private Label setLabelData(string labelString, bool isRemoveLabel)
         {
-            Font style = new System.Drawing.Font("Century Gothic", 22F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
+            Font style = new System.Drawing.Font("Century Gothic", 16F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
             Label newLabel = new Label();
             if (isRemoveLabel)
                 newLabel.ForeColor = Color.Orange;
@@ -83,7 +83,7 @@ namespace Encyclopedia.View
                 Label title = setLabelData(f.Title, false);
                 title.Click += new EventHandler(this.titleClick);
                 Label updatedAt = setLabelData(f.CreatedAt.ToShortDateString(), false);
-                updatedAt.Font = new System.Drawing.Font("Century Gothic", 17F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
+                updatedAt.Font = new System.Drawing.Font("Century Gothic", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
                 Label removeLabel = setLabelData("Remove", true);
                 removeLabel.Click += new EventHandler(this.removeClick);
 
@@ -113,7 +113,7 @@ namespace Encyclopedia.View
             int result = DBConnect.Delete(toBeRemoved, StartPage.account.User);
             if (result != 1)
             {
-                MessageBox.Show("Something went wrong with removing that Lemma");
+                MessageBox.Show("  Something went wrong trying to remove that Lemma.");
             }
             else
             {
