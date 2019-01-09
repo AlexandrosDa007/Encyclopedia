@@ -184,8 +184,6 @@ namespace UI
             LoginHandler handler = new LoginHandler(username, password);
             bool doesUserExist = handler.ValidateAccount();
 
-            Console.WriteLine(doesUserExist);
-
             if (doesUserExist)
             {
                 //User Exists
