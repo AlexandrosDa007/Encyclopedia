@@ -4,8 +4,12 @@ using System.Text;
 
 namespace Encyclopedia.Controller
 {
+	/// <summary>
+	/// Controls anything related to the password utilities needed.
+	/// </summary>
 	class PasswordUtilities
 	{
+		// create a salt
 		public static String CreateSalt(int size)
 		{
 			RNGCryptoServiceProvider rng = new RNGCryptoServiceProvider();
@@ -14,6 +18,7 @@ namespace Encyclopedia.Controller
 			return Convert.ToBase64String(buffer);
 		}
 
+		// generate a SHA Hash from the two inputs
 		public static String GenerateSHA256Hash(String input, String salt)
 		{
 			byte[] bytes = Encoding.UTF8.GetBytes(input + salt);
@@ -24,6 +29,7 @@ namespace Encyclopedia.Controller
 			return ByteArrayToHexString(hash);
 		}
 
+		// convert the byte[] hash into a ToHexString
 		private static String ByteArrayToHexString(byte[] hash)
 		{
 			StringBuilder hex = new StringBuilder(hash.Length * 2);

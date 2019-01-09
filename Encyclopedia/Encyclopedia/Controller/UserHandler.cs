@@ -9,7 +9,10 @@ using Encyclopedia.Model;
 
 namespace Encyclopedia.Controller
 {
-    class UserHandler
+	/// <summary>
+	/// Controls anything related to the user and his personal information.
+	/// </summary>
+	class UserHandler
     {
 		public static int SendTempPasswordToAccountEmail(string username, string emailAddress)
 		{

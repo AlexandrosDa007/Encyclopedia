@@ -69,76 +69,81 @@ namespace Encyclopedia.View
 			{
 				lemmaTitle = LemmaViewUserControl.Instance.EditedLemma.LemmaTitle;
 			}
-
-			int i = 0;
+			
             List<int> receiverIds = new List<int>();
 			// TODO get checked contact ids for the receivers array
 			if (contactsTabControl.SelectedTab == contactsTabControl.TabPages["contactsTabPage"])
 			{
-
-				CheckedListBox.CheckedItemCollection checkedContacts = contactsCheckedListBox.CheckedItems;
-				foreach (object contactItem in checkedContacts)
-				{
-					string contactName = (contactItem as string).Split(new[] { ' ' }, 2)[0];
-					string contactSurname = (contactItem as string).Split(new[] { ' ' }, 2)[1];
-
-					foreach (User contact in ContactsUserControl.Instance.ContactList)
-					{
-						if (contact.Name.Equals(contactName) && contact.Surname.Equals(contactSurname))
-						{
-                            receiverIds.Add(contact.Id);
-							break;
-						}
-					}
-				}
+				GetCheckedContactsIds(receiverIds);
 			}
 			else if (contactsTabControl.SelectedTab == contactsTabControl.TabPages["groupTabPage"])
 			{
-                CheckedListBox.CheckedItemCollection checkedGroups = groupsCheckedListBox.CheckedItems;
-                List<ContactGroup> listOfContactGroups = new List<ContactGroup>();
-                foreach (object contactItem in checkedGroups)
-                {
-                    string groupName = (contactItem as string);
-                    
-                    foreach (ContactGroup group in ContactsUserControl.Instance.GroupList)
-                    {
-                        if (group.Name.Equals(groupName))
-                        {
-                            listOfContactGroups.Add(group);
-                            break;
-                        }
-                    }
-
-                }
-                
-                foreach(ContactGroup group in listOfContactGroups)
-                {
-                    List<int> idList = DBConnect.GetContactGroupMembers(group, group.Owner.Id);
-                    receiverIds.AddRange(idList);
-                }
-
-                List<int> distictIds = receiverIds.Distinct().ToList();
-                receiverIds.Clear();
-                receiverIds.AddRange(distictIds);
-                
-            }
-			
+				GetContactsIdsFromCheckedGroups(receiverIds);
+			}
+		
 			string additionalNotes = notesTextBox.Text;
 
-
-			int result = Controller.Message.sendMessage(UI.StartPage.account.User.Id, lemmaTitle, receiverIds.ToArray(), additionalNotes);
+			int result = Controller.ShareMessage.SendMessage(UI.StartPage.account.User.Id, lemmaTitle, receiverIds.ToArray(), additionalNotes);
             if(result == 0)
             {
-                MessageBox.Show("Mail sent!!");
+                MessageBox.Show("  Mail sent successfully!");
                 Close();
             }
             else
             {
-                MessageBox.Show("Something went wrong!!");
+                MessageBox.Show("  Something went wrong! Please try again.");
                 Close();
             }
         }
-        #endregion
 
-    }
+		private void GetContactsIdsFromCheckedGroups(List<int> receiverIds)
+		{
+			CheckedListBox.CheckedItemCollection checkedGroups = groupsCheckedListBox.CheckedItems;
+			List<ContactGroup> listOfContactGroups = new List<ContactGroup>();
+			foreach (object contactItem in checkedGroups)
+			{
+				string groupName = (contactItem as string);
+
+				foreach (ContactGroup group in ContactsUserControl.Instance.GroupList)
+				{
+					if (group.Name.Equals(groupName))
+					{
+						listOfContactGroups.Add(group);
+						break;
+					}
+				}
+			}
+
+			foreach (ContactGroup group in listOfContactGroups)
+			{
+				List<int> idList = DBConnect.GetContactGroupMembers(group, group.Owner.Id);
+				receiverIds.AddRange(idList);
+			}
+
+			List<int> distictIds = receiverIds.Distinct().ToList();
+			receiverIds.Clear();
+			receiverIds.AddRange(distictIds);
+		}
+
+		private void GetCheckedContactsIds(List<int> receiverIds)
+		{
+			CheckedListBox.CheckedItemCollection checkedContacts = contactsCheckedListBox.CheckedItems;
+			foreach (object contactItem in checkedContacts)
+			{
+				string contactName = (contactItem as string).Split(new[] { ' ' }, 2)[0];
+				string contactSurname = (contactItem as string).Split(new[] { ' ' }, 2)[1];
+
+				foreach (User contact in ContactsUserControl.Instance.ContactList)
+				{
+					if (contact.Name.Equals(contactName) && contact.Surname.Equals(contactSurname))
+					{
+						receiverIds.Add(contact.Id);
+						break;
+					}
+				}
+			}
+		}
+		#endregion
+
+	}
 }

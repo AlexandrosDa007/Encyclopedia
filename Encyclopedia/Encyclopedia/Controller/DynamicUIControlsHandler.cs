@@ -8,6 +8,9 @@ using System.Windows.Forms;
 
 namespace Encyclopedia.Controller
 {
+	/// <summary>
+	/// Controls anything related to the dynamically filled controls.
+	/// </summary>
 	class DynamicUIControlsHandler
 	{
 		// fills dynamically the parametered ComboBox

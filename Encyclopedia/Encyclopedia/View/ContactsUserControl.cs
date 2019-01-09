@@ -43,8 +43,7 @@ namespace Encyclopedia.View
             GroupList = null;
         }
         #endregion
-
-
+		
         #region Private methods
         private void contactsTabControl_SelectedIndexChanged(object sender, System.EventArgs e)
 		{

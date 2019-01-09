@@ -6,6 +6,9 @@ using Encyclopedia.Model;
 
 namespace Encyclopedia.Controller
 {
+	/// <summary>
+	/// Controls anything related to the user's contacts and contact groups with their members.
+	/// </summary>
 	class ContactAndGroupHandler
 	{
 		public static int DeleteGroup(ContactGroup group)
@@ -18,6 +21,7 @@ namespace Encyclopedia.Controller
 
 		public static int UpdateGroup(ContactGroup Group, string groupNameInserted, Dictionary<int, bool> groupMembersBefore, Dictionary<int, bool> groupMembersAfter)
 		{
+			// if the group name changed, update the contact group
 			if (!Group.Name.Equals(groupNameInserted))
 			{
 				Group.Name = groupNameInserted;
@@ -25,10 +29,12 @@ namespace Encyclopedia.Controller
 				int rowsAffected = DBConnect.Update(Group);
 				if (rowsAffected != 1)
 				{
+					// something went wrong with the update
 					return -1;
 				}
 			}
 
+			// update the group contacts regarding the update changes
 			int contactsUpdated = UpdateGroupContacts(Group, groupMembersBefore, groupMembersAfter);
 
 			return contactsUpdated;
@@ -36,30 +42,42 @@ namespace Encyclopedia.Controller
 
 		private static int UpdateGroupContacts(ContactGroup Group, Dictionary<int, bool> groupMembersBefore, Dictionary<int, bool> groupMembersAfter)
 		{
+			// keep track of the contacts updated
 			int contactsUpdated = 0;
+
+			// for each user's contact
 			foreach (int contactId in groupMembersBefore.Keys)
 			{
+				// check if the contact wasn't in the group and was checked
 				if (groupMembersBefore[contactId] == false && groupMembersAfter[contactId] == true)
 				{
+					// construct a user's Object
 					User contact = new User();
 					contact.Id = contactId;
 
+					// construct a groupMember Object and insert it in the database
 					ContactGroupMember groupMember = new ContactGroupMember(Group, contact);
 					int rowsAffected = DBConnect.Insert(groupMember);
 					if (rowsAffected == 1)
 					{
+						// if the groupMember inserted successfully, update the counter
 						contactsUpdated++;
 					}
 				}
 				else if (groupMembersBefore[contactId] == true && groupMembersAfter[contactId] == false)
 				{
+					// if the contact was in the group and was unchecked
+
+					// construct a user's Object
 					User contact = new User();
 					contact.Id = contactId;
 
+					// construct a groupMember Object and delete it from the database
 					ContactGroupMember groupMember = new ContactGroupMember(Group, contact);
 					int rowsAffected = DBConnect.Delete(groupMember);
 					if (rowsAffected == 1)
 					{
+						// if the groupMember inserted successfully, update the counter
 						contactsUpdated++;
 					}
 				}
@@ -96,7 +114,7 @@ namespace Encyclopedia.Controller
 			// get the selected group's members
 			List<int> groupMembers = DBConnect.GetContactGroupMembers(group, UI.StartPage.account.User.Id);
 
-			// define which of the user's contacts are in this group
+			// define which of the user's contacts are in this group and configure them
 			foreach (User contact in contacts)
 			{
 				if (groupMembers.Contains(contact.Id))

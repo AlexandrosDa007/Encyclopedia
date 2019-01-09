@@ -49,16 +49,15 @@ namespace Encyclopedia.View
             string description = descriptionRTB.Text;
             // convert the image into a Byte array
             byte[] imageData = null;
-
-
-            if (imagePB.Image != null)
+			
+            if (imagePathTB.Text.Length != 0)
             {
-                using (var ms = new MemoryStream())
-                {
-                    imagePB.Image.Save(ms, imagePB.Image.RawFormat);
-                    imageData = ms.ToArray();
-                }
-            }
+				string fileName = imagePathTB.Text;
+
+				FileStream fs = new FileStream(fileName, FileMode.Open, FileAccess.Read);
+				BinaryReader br = new BinaryReader(fs);
+				imageData = br.ReadBytes((int)fs.Length);
+			}
 
             string username = usernameTextBox.Text;
 			string password = passwordTextBox.Text;
@@ -143,7 +142,7 @@ namespace Encyclopedia.View
         {
 
             OpenFileDialog openFileDialog1 = new OpenFileDialog();
-            openFileDialog1.Title = "  Please select an image for your account.";
+            openFileDialog1.Title = "Please select an image for your account.";
 
             // show only image file formats
             openFileDialog1.Filter = "Image Files(*.BMP;*.JPG;*.JPEG;*.PNG;*.GIF)|*.BMP;*.JPG;*.JPEG;*.PNG;*.GIF";
@@ -158,14 +157,13 @@ namespace Encyclopedia.View
                 }
 
                 imagePB.Image = Image.FromFile(openFileDialog1.FileName);
+				imagePathTB.Text = openFileDialog1.FileName;
             }
             else
             {
                 MessageBox.Show("  Please pick an image!");
                 return;
             }
-
-
         }
 
         private void closePictureBox_Click(object sender, EventArgs e)
@@ -195,7 +193,8 @@ namespace Encyclopedia.View
 
         private void clearPhotoButton_Click(object sender, EventArgs e)
         {
-            imagePB.Image = null;
-        }
+			imagePathTB.Text = "";
+			imagePB.Image = Properties.Resources.default_avatar;
+		}
     }
 }

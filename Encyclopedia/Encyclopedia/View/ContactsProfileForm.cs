@@ -43,7 +43,7 @@ namespace Encyclopedia.View
             int res = DBConnect.Delete(new Contact(StartPage.account.User, Account.User));
             if (res == 1)
             {
-                MessageBox.Show("Contact Removed!");
+                MessageBox.Show("  The user removed successfully from your contacts!");
                 foreach (User u in StartPage.contactList)
                 {
                     if (Account.User.Id == u.Id)
@@ -60,7 +60,7 @@ namespace Encyclopedia.View
             }
             else
             {
-                MessageBox.Show("Something went wrong!!");
+                MessageBox.Show("  Something went wrong!");
                 Close();
             }
         }
@@ -76,7 +76,7 @@ namespace Encyclopedia.View
             int res = DBConnect.Insert(new Contact(StartPage.account.User, Account.User));
             if (res == 1)
             {
-                MessageBox.Show("User added to contacts!");
+                MessageBox.Show("  The user added successfully to your contacts!");
                 StartPage.contactList.Add(Account.User);
                 ContactsUserControl.Instance.ContactList = StartPage.contactList;
                 ContactsUserControl.Instance.UpdateTabControl();
@@ -84,7 +84,7 @@ namespace Encyclopedia.View
             }
             else
             {
-                MessageBox.Show("Something went wrong!!");
+                MessageBox.Show("  Something went wrong!");
                 Close();
             }
         }

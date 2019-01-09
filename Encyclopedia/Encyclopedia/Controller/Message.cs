@@ -9,75 +9,68 @@ using System.Threading.Tasks;
 
 namespace Encyclopedia.Controller
 {
-    class Message
+    class ShareMessage
     {
         //userID: the id of the current user logged in.
         //lemmaTitle: the lemma of  the title to be send.
         //receivers: array with the IDs of the receivers.
         //additional notes: a string with extra notes from the user.
-        public static int sendMessage(int userID,string lemmaTitle,int[] receivers,string additionalNotes)
-        {
-
-            byte[] lemmaBody = null;
-            int lemmaCategory = -999;
-            Lemma lemma = null;
-            EditedLemma editedLemma = null;
-            if (LemmaViewUserControl.Instance.Mode == 0)
-            {
-                //Get the properties needed for the creation of Lemma object
-                lemmaBody = DBConnect.GetLemmaBodyByTitle(lemmaTitle);
-                lemmaCategory = DBConnect.GetLemmaCategoryByTitle(lemmaTitle);
-                lemma = new Lemma(lemmaTitle, lemmaBody, lemmaCategory);
-            }
-            else
-            {
-                User user = new User();
-                user.Id = userID;
-                editedLemma = DBConnect.GetEditedLemmaByUserAndTitle(lemmaTitle, user);
-            }
-
-            
-
-            //Get the properties needed for the creation of User object.
-            string userName = DBConnect.GetUserNameByID(userID);
-            string userSurname = DBConnect.GetUserSurnameByID(userID);
-            DateTime senderDateOfBirth = DBConnect.GetUserDateOfBirthByID(userID);
-            //User sender = new User(userID, userName, userSurname, senderDateOfBirth);
-
-            DateTime sendingDate = new DateTime();
+        public static int SendMessage(int userID,string lemmaTitle,int[] receivers,string additionalNotes)
+		{
+			Lemma lemma;
+			EditedLemma editedLemma;
+			ConfigureLemma(userID, lemmaTitle, out lemma, out editedLemma);
 
 			int result = 0;
-            for (int i=0; i< receivers.Length; i++)
-            {
-                int receiverID = receivers[i];
-                //Get the properties needed for the creation of User object.
-                User user = new User();
-                user.Id = receiverID;
-                Account receiverAccount = DBConnect.GetAccountByUser(user);
-                string receiverName = DBConnect.GetUserNameByID(receiverID);
-                string receiverSurname = DBConnect.GetUserSurnameByID(receiverID);
-                DateTime receiverdateOfBirth = DBConnect.GetUserDateOfBirthByID(receiverID);
-                User receiver = new User(receiverID, receiverName, receiverSurname, receiverdateOfBirth);
+			for (int i = 0; i < receivers.Length; i++)
+			{
+				int receiverID = receivers[i];
 
-                string body = "";
-                if(LemmaViewUserControl.Instance.Mode == 0)
-                {
-                    body = Encoding.UTF8.GetString(lemma.Body);
-                }
-                else
-                {
-                    body = editedLemma.Body;
-                }
+				// Get the properties needed for the creation of User object.
+				User user = new User();
+				user.Id = receiverID;
+				Account receiverAccount = DBConnect.GetAccountByUser(user);
 
-                //Sent mail
-                result = SendEmail(new MailAddress(receiverAccount.Email, receiverAccount.Username), receiverAccount.Username, lemmaTitle, body, additionalNotes);
+				string body = "";
+				if (LemmaViewUserControl.Instance.Mode == 0)
+				{
+					body = Encoding.UTF8.GetString(lemma.Body);
+				}
+				else
+				{
+					body = editedLemma.Body;
+				}
+
+				// Sent mail
+				result = SendEmail(new MailAddress(receiverAccount.Email, receiverAccount.Username), receiverAccount.Username, lemmaTitle, body, additionalNotes);
 			}
 
 			// the result must be equal to the receivers.Length if all of the insertions were successful
 			return result;
 		}
 
-        private static int SendEmail(MailAddress toAddress, string username,string lemmaTitle,string lemmaBody, string additionalNotes)
+		private static void ConfigureLemma(int userID, string lemmaTitle, out Lemma lemma, out EditedLemma editedLemma)
+		{
+			byte[] lemmaBody = null;
+			int lemmaCategory = -999;
+			lemma = null;
+			editedLemma = null;
+			if (LemmaViewUserControl.Instance.Mode == 0)
+			{
+				//Get the properties needed for the creation of Lemma object
+				lemmaBody = DBConnect.GetLemmaBodyByTitle(lemmaTitle);
+				lemmaCategory = DBConnect.GetLemmaCategoryByTitle(lemmaTitle);
+				lemma = new Lemma(lemmaTitle, lemmaBody, lemmaCategory);
+			}
+			else
+			{
+				User user = new User();
+				user.Id = userID;
+				editedLemma = DBConnect.GetEditedLemmaByUserAndTitle(lemmaTitle, user);
+			}
+		}
+
+		private static int SendEmail(MailAddress toAddress, string username,string lemmaTitle,string lemmaBody, string additionalNotes)
         {
             // configure sender's email address
             MailAddress fromAddress = new MailAddress("encyclopedia.noreply@gmail.com", "EncyclopediaSupport Team4");
@@ -96,13 +89,14 @@ namespace Encyclopedia.Controller
             MailMessage mailMessage = new MailMessage(fromAddress, toAddress);
             mailMessage.Subject = "Lemma shared from User: "+username+" | Encyclopedia";
             mailMessage.IsBodyHtml = true;
-            string htmlBody = "<p>"+additionalNotes+"</p>"+"<hr>"+
+            string htmlBody = "<p>Greetings, the user noted the following information if any: " + additionalNotes + "</p></br>" +
+				"<p>Below you can read the shared lemma. Happy Reading!</p>"+"<hr>"+
                 "<h1>"+lemmaTitle+"</h1>"+
                 "<hr>"+lemmaBody;
 
             mailMessage.Body = htmlBody;
 
-            // send password recovery email
+            // send email
             try
             {
                 client.Send(mailMessage);

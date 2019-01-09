@@ -82,6 +82,7 @@ namespace Encyclopedia.View
             descriptionRTB.Enabled = true;
             saveButton.Visible = true;
             browseButton.Enabled = true;
+			clearPhotoButton.Enabled = true;
         }
 
         private void browseButton_Click(object sender, EventArgs e)
@@ -101,8 +102,9 @@ namespace Encyclopedia.View
                     return;
                 }
 
-                imagePB.Image = Image.FromFile(openFileDialog1.FileName);
-            }
+				imagePB.Image = Image.FromFile(openFileDialog1.FileName);
+				imagePathTB.Text = openFileDialog1.FileName;
+			}
             else
             {
                 MessageBox.Show("  Please pick an image!");
@@ -154,18 +156,22 @@ namespace Encyclopedia.View
                 Account.User.Description = "";
             else
                 Account.User.Description = descriptionRTB.Text;
-            //check image
-            if(imagePB != null)
-            {
-                using (var ms = new MemoryStream())
-                {
-                    imagePB.Image.Save(ms, imagePB.Image.RawFormat);
-                    Account.User.Image = ms.ToArray();
-                }
-            }
+			//check image
+			byte[] imageData = null;
+			
+			if (imagePathTB.Text.Length != 0)
+			{
+				string fileName = imagePathTB.Text;
+
+				FileStream fs = new FileStream(fileName, FileMode.Open, FileAccess.Read);
+				BinaryReader br = new BinaryReader(fs);
+				imageData = br.ReadBytes((int)fs.Length);
+
+				Account.User.Image = imageData;
+			}
             else
             {
-                Account.User.Image = null;
+                Account.User.Image = imageData;
             }
             
             
@@ -294,13 +300,14 @@ namespace Encyclopedia.View
             int rowsAffected = DBConnect.Delete(Account);
             this.st.Logout();
             this.Close();
-            MessageBox.Show("Your profile deleted succesfully.");
+            MessageBox.Show("  Your profile deleted successfully!");
         }
 
         private void clearPhotoButton_Click(object sender, EventArgs e)
-        {
-            imagePB.Image = null;
-        }
+		{
+			imagePathTB.Text = "";
+			imagePB.Image = Properties.Resources.default_avatar;
+		}
         #endregion
     }
 }
