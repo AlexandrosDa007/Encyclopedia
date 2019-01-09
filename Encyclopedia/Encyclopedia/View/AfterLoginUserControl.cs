@@ -125,20 +125,6 @@ namespace Encyclopedia.View
             }
         }
 
-        private void sharedWithMeButton_Click(object sender, EventArgs e)
-        {
-            StartPage startP = (StartPage)this.Parent.Parent;
-
-            if (!startP.mainPanel.Controls.Contains(SharedLemmataUserControl.Instance))
-            {
-                startP.mainPanel.Controls.Add(SharedLemmataUserControl.Instance);
-                SharedLemmataUserControl.Instance.Dock = DockStyle.Fill;
-                SharedLemmataUserControl.Instance.BringToFront();
-            }
-            else
-                SharedLemmataUserControl.Instance.BringToFront();
-
-        }
         #endregion
 
         #region Public methods

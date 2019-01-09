@@ -39,7 +39,6 @@
             this.logoPanel = new System.Windows.Forms.Panel();
             this.logoPictureBox = new System.Windows.Forms.PictureBox();
             this.logoLabel = new System.Windows.Forms.Label();
-            this.sharedWithMeButton = new Bunifu.Framework.UI.BunifuFlatButton();
             this.sideProfilePicture = new System.Windows.Forms.PictureBox();
             this.sideMenuToolTip = new System.Windows.Forms.ToolTip(this.components);
             this.logoPanel.SuspendLayout();
@@ -69,14 +68,14 @@
             this.logoutButton.IconVisible = true;
             this.logoutButton.IconZoom = 90D;
             this.logoutButton.IsTab = false;
-            this.logoutButton.Location = new System.Drawing.Point(0, 745);
-            this.logoutButton.Margin = new System.Windows.Forms.Padding(5);
+            this.logoutButton.Location = new System.Drawing.Point(0, 543);
+            this.logoutButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.logoutButton.Name = "logoutButton";
             this.logoutButton.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(53)))), ((int)(((byte)(65)))));
             this.logoutButton.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(92)))), ((int)(((byte)(127)))));
             this.logoutButton.OnHoverTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(126)))), ((int)(((byte)(49)))));
             this.logoutButton.selected = false;
-            this.logoutButton.Size = new System.Drawing.Size(328, 63);
+            this.logoutButton.Size = new System.Drawing.Size(246, 51);
             this.logoutButton.TabIndex = 23;
             this.logoutButton.Text = "Logout";
             this.logoutButton.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -107,14 +106,14 @@
             this.contactsButton.IconVisible = true;
             this.contactsButton.IconZoom = 90D;
             this.contactsButton.IsTab = false;
-            this.contactsButton.Location = new System.Drawing.Point(0, 638);
-            this.contactsButton.Margin = new System.Windows.Forms.Padding(5);
+            this.contactsButton.Location = new System.Drawing.Point(0, 459);
+            this.contactsButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.contactsButton.Name = "contactsButton";
             this.contactsButton.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(53)))), ((int)(((byte)(65)))));
             this.contactsButton.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(92)))), ((int)(((byte)(127)))));
             this.contactsButton.OnHoverTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(126)))), ((int)(((byte)(49)))));
             this.contactsButton.selected = false;
-            this.contactsButton.Size = new System.Drawing.Size(328, 63);
+            this.contactsButton.Size = new System.Drawing.Size(246, 51);
             this.contactsButton.TabIndex = 22;
             this.contactsButton.Text = "Contacts";
             this.contactsButton.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -145,14 +144,14 @@
             this.editedButton.IconVisible = true;
             this.editedButton.IconZoom = 90D;
             this.editedButton.IsTab = false;
-            this.editedButton.Location = new System.Drawing.Point(0, 492);
-            this.editedButton.Margin = new System.Windows.Forms.Padding(5);
+            this.editedButton.Location = new System.Drawing.Point(0, 400);
+            this.editedButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.editedButton.Name = "editedButton";
             this.editedButton.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(53)))), ((int)(((byte)(65)))));
             this.editedButton.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(92)))), ((int)(((byte)(127)))));
             this.editedButton.OnHoverTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(126)))), ((int)(((byte)(49)))));
             this.editedButton.selected = false;
-            this.editedButton.Size = new System.Drawing.Size(328, 63);
+            this.editedButton.Size = new System.Drawing.Size(246, 51);
             this.editedButton.TabIndex = 21;
             this.editedButton.Text = "Edited Lemmata";
             this.editedButton.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -183,14 +182,14 @@
             this.favouritesButton.IconVisible = true;
             this.favouritesButton.IconZoom = 90D;
             this.favouritesButton.IsTab = false;
-            this.favouritesButton.Location = new System.Drawing.Point(0, 419);
-            this.favouritesButton.Margin = new System.Windows.Forms.Padding(5);
+            this.favouritesButton.Location = new System.Drawing.Point(0, 340);
+            this.favouritesButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.favouritesButton.Name = "favouritesButton";
             this.favouritesButton.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(53)))), ((int)(((byte)(65)))));
             this.favouritesButton.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(92)))), ((int)(((byte)(127)))));
             this.favouritesButton.OnHoverTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(126)))), ((int)(((byte)(49)))));
             this.favouritesButton.selected = false;
-            this.favouritesButton.Size = new System.Drawing.Size(328, 63);
+            this.favouritesButton.Size = new System.Drawing.Size(246, 51);
             this.favouritesButton.TabIndex = 20;
             this.favouritesButton.Text = "Favourites";
             this.favouritesButton.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -221,14 +220,14 @@
             this.profileButton.IconVisible = true;
             this.profileButton.IconZoom = 90D;
             this.profileButton.IsTab = false;
-            this.profileButton.Location = new System.Drawing.Point(0, 346);
-            this.profileButton.Margin = new System.Windows.Forms.Padding(5);
+            this.profileButton.Location = new System.Drawing.Point(0, 281);
+            this.profileButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.profileButton.Name = "profileButton";
             this.profileButton.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(53)))), ((int)(((byte)(65)))));
             this.profileButton.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(92)))), ((int)(((byte)(127)))));
             this.profileButton.OnHoverTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(126)))), ((int)(((byte)(49)))));
             this.profileButton.selected = false;
-            this.profileButton.Size = new System.Drawing.Size(328, 63);
+            this.profileButton.Size = new System.Drawing.Size(246, 51);
             this.profileButton.TabIndex = 19;
             this.profileButton.Text = "Profile";
             this.profileButton.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -241,10 +240,10 @@
             // 
             this.connectUserLabel.Font = new System.Drawing.Font("Century Gothic", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
             this.connectUserLabel.ForeColor = System.Drawing.Color.White;
-            this.connectUserLabel.Location = new System.Drawing.Point(2, 96);
-            this.connectUserLabel.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.connectUserLabel.Location = new System.Drawing.Point(2, 78);
+            this.connectUserLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.connectUserLabel.Name = "connectUserLabel";
-            this.connectUserLabel.Size = new System.Drawing.Size(328, 73);
+            this.connectUserLabel.Size = new System.Drawing.Size(246, 59);
             this.connectUserLabel.TabIndex = 17;
             this.connectUserLabel.Text = "Welcome";
             this.connectUserLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -258,18 +257,17 @@
             this.logoPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.logoPanel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(126)))), ((int)(((byte)(49)))));
             this.logoPanel.Location = new System.Drawing.Point(0, 0);
-            this.logoPanel.Margin = new System.Windows.Forms.Padding(4);
             this.logoPanel.Name = "logoPanel";
-            this.logoPanel.Size = new System.Drawing.Size(335, 75);
+            this.logoPanel.Size = new System.Drawing.Size(252, 61);
             this.logoPanel.TabIndex = 25;
             // 
             // logoPictureBox
             // 
             this.logoPictureBox.Image = global::Encyclopedia.Properties.Resources.logo;
-            this.logoPictureBox.Location = new System.Drawing.Point(28, 0);
+            this.logoPictureBox.Location = new System.Drawing.Point(21, 0);
             this.logoPictureBox.Margin = new System.Windows.Forms.Padding(0);
             this.logoPictureBox.Name = "logoPictureBox";
-            this.logoPictureBox.Size = new System.Drawing.Size(41, 75);
+            this.logoPictureBox.Size = new System.Drawing.Size(31, 61);
             this.logoPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.logoPictureBox.TabIndex = 2;
             this.logoPictureBox.TabStop = false;
@@ -280,71 +278,32 @@
             this.logoLabel.Font = new System.Drawing.Font("Century Gothic", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
             this.logoLabel.ForeColor = System.Drawing.Color.White;
             this.logoLabel.Location = new System.Drawing.Point(0, 0);
-            this.logoLabel.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.logoLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.logoLabel.Name = "logoLabel";
-            this.logoLabel.Size = new System.Drawing.Size(316, 74);
+            this.logoLabel.Size = new System.Drawing.Size(237, 60);
             this.logoLabel.TabIndex = 1;
             this.logoLabel.Text = "Encyclopedia";
             this.logoLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.sideMenuToolTip.SetToolTip(this.logoLabel, "Home page");
             this.logoLabel.Click += new System.EventHandler(this.logoLabel_Click);
             // 
-            // sharedWithMeButton
-            // 
-            this.sharedWithMeButton.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(53)))), ((int)(((byte)(65)))));
-            this.sharedWithMeButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(53)))), ((int)(((byte)(65)))));
-            this.sharedWithMeButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.sharedWithMeButton.BorderRadius = 0;
-            this.sharedWithMeButton.ButtonText = "Shared with me";
-            this.sharedWithMeButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.sharedWithMeButton.DisabledColor = System.Drawing.Color.Gray;
-            this.sharedWithMeButton.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-            this.sharedWithMeButton.Iconcolor = System.Drawing.Color.Transparent;
-            this.sharedWithMeButton.Iconimage = null;
-            this.sharedWithMeButton.Iconimage_right = null;
-            this.sharedWithMeButton.Iconimage_right_Selected = null;
-            this.sharedWithMeButton.Iconimage_Selected = null;
-            this.sharedWithMeButton.IconMarginLeft = 0;
-            this.sharedWithMeButton.IconMarginRight = 0;
-            this.sharedWithMeButton.IconRightVisible = true;
-            this.sharedWithMeButton.IconRightZoom = 0D;
-            this.sharedWithMeButton.IconVisible = true;
-            this.sharedWithMeButton.IconZoom = 90D;
-            this.sharedWithMeButton.IsTab = false;
-            this.sharedWithMeButton.Location = new System.Drawing.Point(0, 565);
-            this.sharedWithMeButton.Margin = new System.Windows.Forms.Padding(5);
-            this.sharedWithMeButton.Name = "sharedWithMeButton";
-            this.sharedWithMeButton.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(53)))), ((int)(((byte)(65)))));
-            this.sharedWithMeButton.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(92)))), ((int)(((byte)(127)))));
-            this.sharedWithMeButton.OnHoverTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(126)))), ((int)(((byte)(49)))));
-            this.sharedWithMeButton.selected = false;
-            this.sharedWithMeButton.Size = new System.Drawing.Size(328, 63);
-            this.sharedWithMeButton.TabIndex = 26;
-            this.sharedWithMeButton.Text = "Shared with me";
-            this.sharedWithMeButton.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.sharedWithMeButton.Textcolor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(126)))), ((int)(((byte)(49)))));
-            this.sharedWithMeButton.TextFont = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-            this.sideMenuToolTip.SetToolTip(this.sharedWithMeButton, "Lemmata that other users shared with you");
-            this.sharedWithMeButton.Click += new System.EventHandler(this.sharedWithMeButton_Click);
-            // 
             // sideProfilePicture
             // 
             this.sideProfilePicture.Image = ((System.Drawing.Image)(resources.GetObject("sideProfilePicture.Image")));
-            this.sideProfilePicture.Location = new System.Drawing.Point(88, 171);
-            this.sideProfilePicture.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.sideProfilePicture.Location = new System.Drawing.Point(66, 139);
+            this.sideProfilePicture.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.sideProfilePicture.Name = "sideProfilePicture";
-            this.sideProfilePicture.Size = new System.Drawing.Size(153, 142);
+            this.sideProfilePicture.Size = new System.Drawing.Size(115, 115);
             this.sideProfilePicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.sideProfilePicture.TabIndex = 18;
             this.sideProfilePicture.TabStop = false;
             // 
             // AfterLoginUserControl
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(53)))), ((int)(((byte)(65)))));
-            this.Controls.Add(this.sharedWithMeButton);
             this.Controls.Add(this.logoPanel);
             this.Controls.Add(this.logoutButton);
             this.Controls.Add(this.contactsButton);
@@ -353,9 +312,9 @@
             this.Controls.Add(this.profileButton);
             this.Controls.Add(this.sideProfilePicture);
             this.Controls.Add(this.connectUserLabel);
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "AfterLoginUserControl";
-            this.Size = new System.Drawing.Size(335, 832);
+            this.Size = new System.Drawing.Size(252, 676);
             this.logoPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.logoPictureBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.sideProfilePicture)).EndInit();
@@ -374,7 +333,6 @@
         private System.Windows.Forms.Panel logoPanel;
         private System.Windows.Forms.PictureBox logoPictureBox;
         private System.Windows.Forms.Label logoLabel;
-        private Bunifu.Framework.UI.BunifuFlatButton sharedWithMeButton;
         private System.Windows.Forms.ToolTip sideMenuToolTip;
     }
 }
