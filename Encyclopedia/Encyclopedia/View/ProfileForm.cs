@@ -63,9 +63,15 @@ namespace Encyclopedia.View
                 roleCB.SelectedIndex = Account.User.Role.Id - 1;
 
             descriptionRTB.Text = Account.User.Description;
-            if (Account.User.Image != null)
-                imagePB.Image = (Bitmap)((new ImageConverter()).ConvertFrom(Account.User.Image));
-
+			if (Account.User.Image != null)
+			{
+				imagePB.Image = (Bitmap)((new ImageConverter()).ConvertFrom(Account.User.Image));
+				imagePathTB.Text = "keepTheSameImage";
+			}
+			else
+			{
+				imagePathTB.Text = "";
+			}
         }
 
         private void editButton_Click(object sender, EventArgs e)
@@ -157,25 +163,26 @@ namespace Encyclopedia.View
             else
                 Account.User.Description = descriptionRTB.Text;
 			//check image
-			byte[] imageData = null;
-			
-			if (imagePathTB.Text.Length != 0)
+			if (imagePathTB.Text.Length != 0 && !imagePathTB.Text.Equals("keepTheSameImage"))
 			{
+				// update the image, the user chose a new one
 				string fileName = imagePathTB.Text;
 
 				FileStream fs = new FileStream(fileName, FileMode.Open, FileAccess.Read);
 				BinaryReader br = new BinaryReader(fs);
-				imageData = br.ReadBytes((int)fs.Length);
+				byte[] imageData = br.ReadBytes((int)fs.Length);
 
 				Account.User.Image = imageData;
 			}
-            else
+            else if (imagePathTB.Text.Length == 0)
             {
-                Account.User.Image = imageData;
+				// remove the image, the user didn't choose any image
+                Account.User.Image = null;
             }
-            
-            
-            if (genderMaleRB.Checked)
+			// else, keep the same image, so don't change the Account.User.Image value at all
+
+
+			if (genderMaleRB.Checked)
                 Account.User.Gender = 'M';
             else if (genderFemaleRB.Checked)
                 Account.User.Gender = 'F';
@@ -191,8 +198,6 @@ namespace Encyclopedia.View
             
             if (pass.Equals(passConf))
             {
-                
-
                 if (pass.Length < 8 || !pass.Any(char.IsNumber) || !pass.Any(char.IsLetter))
                 {
                     //lathos password
@@ -218,23 +223,18 @@ namespace Encyclopedia.View
                         if (accountAffected == 1 && userAffected == 1)
                         {
                             UpdatedSuccessfully = true;
-                            Console.WriteLine("Debug Account updated succeded");
+                            // Account update succeded
                             MessageBox.Show("  Account updated successfully!\n");
                             feedbackLabel1.Text = "";
                             this.Close();
                         }
-                            
                         else
                         {
-                            Console.WriteLine("Debug Account updated not successfull");
+                            // Account update not successful
                             okayToUpdate = 8;
                         }
-                            
                     }
-                  
-                    
                 }
-                
             }
             else
             {
@@ -294,7 +294,6 @@ namespace Encyclopedia.View
 							this.DisplayRectangle);
 		}
         
-
         private void deleteButton_Click_1(object sender, EventArgs e)
         {
             int rowsAffected = DBConnect.Delete(Account);

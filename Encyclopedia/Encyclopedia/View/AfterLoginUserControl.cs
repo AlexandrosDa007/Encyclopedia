@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Drawing;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using UI;
 using Encyclopedia.Model;
@@ -103,7 +97,7 @@ namespace Encyclopedia.View
             profileForm.ShowDialog();
             if (profileForm.UpdatedSuccessfully)
             {
-                //update success
+                // update success
                 this.Account = profileForm.Account;
                 SetImage();
             }
@@ -130,9 +124,11 @@ namespace Encyclopedia.View
         #region Public methods
         public void SetImage()
         {
-            if (Account.User.Image != null)
-                sideProfilePicture.Image = (Bitmap)((new ImageConverter()).ConvertFrom(Account.User.Image));
-        }
+			if (this.Account.User.Image != null)
+				sideProfilePicture.Image = (Bitmap)((new ImageConverter()).ConvertFrom(Account.User.Image));
+			else
+				sideProfilePicture.Image = Properties.Resources.default_avatar;
+		}
         #endregion
     }
 }
