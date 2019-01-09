@@ -6,7 +6,7 @@ using Encyclopedia.Controller;
 namespace Encyclopedia.View
 {
     /// <summary>
-    /// A small window form for forgot password system
+    /// A small window form for forgot password system.
     /// </summary>
     public partial class ResetAccountForm : Form
     {
@@ -57,6 +57,5 @@ namespace Encyclopedia.View
 			this.Close();
 		}
         #endregion
-
     }
 }

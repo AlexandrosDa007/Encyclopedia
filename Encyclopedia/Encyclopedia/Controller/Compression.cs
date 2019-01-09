@@ -37,12 +37,11 @@ namespace Encyclopedia.Controller
                 i++;
                 if(res != 1)
                 {
-                    MessageBox.Show("Something went wrong with updating lemma!!");
+                    MessageBox.Show("  Something went wrong trying to update a lemma!");
                     return;
                 }
-                
             }
-            Console.WriteLine(i);
+            //Console.WriteLine(i);
         }
         /// <summary>
         /// Decompressed all the Lemmas we have in database.
@@ -55,25 +54,21 @@ namespace Encyclopedia.Controller
             //Iterate through lemma list
             foreach (Lemma lemma in list)
             {
-
                 //Get the compressed body in bytes
                 byte[] compressedBody = lemma.Body;
                 //Get the decompress body in bytes
                
-                    
-                    byte[] decompressedBody = DecompressLemmas(compressedBody);
-                    //Set the lemma body to the decompressed Body 
-                    lemma.Body = decompressedBody;
-                    //Try to update lemma if res != 1 then fail
-                    int res = DBConnect.Update(lemma.Title, lemma.Body);
-                    if (res != 1)
-                    {
-                        MessageBox.Show("Something went wrong with updating lemma!!");
-                        return;
-                    }
-
+                byte[] decompressedBody = DecompressLemmas(compressedBody);
+                //Set the lemma body to the decompressed Body 
+                lemma.Body = decompressedBody;
+                //Try to update lemma if res != 1 then fail
+                int res = DBConnect.Update(lemma.Title, lemma.Body);
+                if (res != 1)
+                {
+                    MessageBox.Show("  Something went wrong trying to update a lemma!");
+                    return;
+                }
             }
-
         }
         /// <summary>
         /// This method takes the lemma body as a byte array and compresses it with GZip.
@@ -82,7 +77,6 @@ namespace Encyclopedia.Controller
         /// <returns></returns>
         public static byte[] CompressLemmas(byte[] decompressedLemma)
         {
-
             using (MemoryStream memory = new MemoryStream())
             {
                 using (GZipStream gzip = new GZipStream(memory,

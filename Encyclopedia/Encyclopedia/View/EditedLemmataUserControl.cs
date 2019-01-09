@@ -1,11 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Drawing;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Encyclopedia.Model;
 using UI;
@@ -79,7 +74,7 @@ namespace Encyclopedia.View
             int row = editedTableLayoutPanel.GetRow(((Label)sender));
             Label titleLabel = (Label)editedTableLayoutPanel.GetControlFromPosition(0, row);
             EditedLemma toBeRemoved = null;
-            Console.WriteLine(titleLabel.Text);
+            
             foreach (EditedLemma ed in EditedLemmas)
             {
                 if (ed.LemmaTitle == titleLabel.Text)

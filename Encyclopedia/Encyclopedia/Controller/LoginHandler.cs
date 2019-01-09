@@ -3,7 +3,7 @@
 namespace Encyclopedia.Controller
 {
     /// <summary>
-    /// Has function to validate the user when he/she gives information in the textboxes.
+    /// Contains function to validate the user when he/she gives information in the textboxes.
     /// </summary>
     class LoginHandler
     {

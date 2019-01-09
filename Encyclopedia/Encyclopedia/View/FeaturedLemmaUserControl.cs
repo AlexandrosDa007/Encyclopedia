@@ -59,8 +59,8 @@ namespace Encyclopedia.View
 				"margin-right: 0; " +
 				"font-weight: bold;\"";
 			lemmaOfTheDayWebBrowser.DocumentText = "<h1" + titleStyle + ">" + lemma.Title.Replace("_", " ") + "</h1>" + Encoding.UTF8.GetString(lemma.Body);
-			if (!StartPage.recentLemmas.Contains(lemma.Title))
-				StartPage.recentLemmas.Add(lemma.Title);
+			if (!StartPage.recentLemmata.Contains(lemma.Title))
+				StartPage.recentLemmata.Add(lemma.Title);
 		}
         #endregion
 

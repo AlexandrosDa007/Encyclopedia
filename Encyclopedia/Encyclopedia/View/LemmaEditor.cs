@@ -1,13 +1,8 @@
 ﻿using Encyclopedia.Controller;
 using Encyclopedia.Model;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using UI;
 
@@ -64,7 +59,6 @@ namespace Encyclopedia.View
             {
                 htmlTextBox1.WebBrowser.Document.Body.InnerHtml = EditedLemma.Body;
             }
-
         }
 
         private void saveButton_Click(object sender, EventArgs e)
@@ -74,14 +68,13 @@ namespace Encyclopedia.View
             //if new one
             if (Mode == 0)
             {
-               
                 //make EditedLemma
                 EditedLemma = new EditedLemma(Lemma.Title, StartPage.account.User, newBody, DateTime.Now, DateTime.Now);
 
                 int res = DBConnect.Insert(EditedLemma);
                 if (res == 1)
                 {
-                    MessageBox.Show("  The edited lemma \"" + Lemma.Title + "\" was saved successfully to your account!\n");
+                    MessageBox.Show("  The edited lemma \"" + Lemma.Title + "\"\n  was saved successfully to your account!\n");
                     StartPage.editedLemmaList = DBConnect.GetEditedLemmasByUser(StartPage.account.User);
                     EditedLemmataUserControl.Instance.EditedLemmas = StartPage.editedLemmaList;
                     EditedLemmataUserControl.Instance.SetLemmas();
@@ -101,7 +94,7 @@ namespace Encyclopedia.View
                 int res = DBConnect.Update(EditedLemma, StartPage.account.User);
                 if (res == 1)
                 {
-                    MessageBox.Show("  The edited lemma \"" + EditedLemma.LemmaTitle + "\" was saved successfully to your account!\n");
+                    MessageBox.Show("  The edited lemma \"" + EditedLemma.LemmaTitle + "\"\n  was saved successfully to your account!\n");
                     StartPage.editedLemmaList = DBConnect.GetEditedLemmasByUser(StartPage.account.User);
                     EditedLemmataUserControl.Instance.EditedLemmas = StartPage.editedLemmaList;
                     EditedLemmataUserControl.Instance.SetLemmas();
@@ -112,9 +105,6 @@ namespace Encyclopedia.View
                     MessageBox.Show("  Something went wrong! Please try again.\n");
                 }
             }
-
-
-            
         }
 
         private void closePictureBox_Click(object sender, EventArgs e)
@@ -126,11 +116,6 @@ namespace Encyclopedia.View
         {
             e.Graphics.DrawRectangle(new Pen(Color.Black, 2),
                             this.DisplayRectangle);
-        }
-
-        private void htmlTextBox1_Load(object sender, EventArgs e)
-        {
-
         }
         #endregion
     }

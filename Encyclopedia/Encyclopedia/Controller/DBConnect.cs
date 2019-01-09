@@ -39,7 +39,6 @@ namespace Encyclopedia.Controller
             }
             catch (Exception ex)
             {
-                
                 Console.WriteLine(ex.Message);
 
                 return false;
@@ -125,7 +124,7 @@ namespace Encyclopedia.Controller
             int i = 0;
             while (dataReader.Read())
             {
-                Console.WriteLine("Completed: "+((i / 3018.0f) * 100)+"%");
+                //Console.WriteLine("Completed: "+((i / 3018.0f) * 100)+"%");
                 Lemma lemma = new Lemma(dataReader[0].ToString(), (byte[])dataReader["lemma_body"], Convert.ToInt32(dataReader[2].ToString()));
                 lemmaList.Add(lemma);
                 i++;
@@ -148,7 +147,7 @@ namespace Encyclopedia.Controller
             int i = 0;
             while (dataReader.Read())
             {
-                Console.WriteLine(i);
+                //Console.WriteLine(i);
                 Lemma lemma = new Lemma(dataReader[0].ToString(), (byte[])dataReader["lemma_body"], Convert.ToInt32(dataReader[2].ToString()));
                 lemmaList.Add(lemma);
                 i++;
@@ -193,7 +192,7 @@ namespace Encyclopedia.Controller
                 titleList.Add(dataReader[0].ToString());
             }
 
-            Console.WriteLine(titleList.Count);
+            //Console.WriteLine(titleList.Count);
             dataReader.Close();
             return titleList;
         }
@@ -219,7 +218,7 @@ namespace Encyclopedia.Controller
 				}
 				dataReader.Close();
 			}
-			Console.WriteLine(categoryIdList.Count);
+			//Console.WriteLine(categoryIdList.Count);
 			return categoryIdList;
 		}
         /// <summary>
@@ -900,9 +899,8 @@ namespace Encyclopedia.Controller
             }
             dataReader.Close();
             
-
             editedLemma = new EditedLemma(lemmaTitle, user, body, createdAt, updatedAt);
-            Console.WriteLine(editedLemma.LemmaTitle);
+            //Console.WriteLine(editedLemma.LemmaTitle);
             return editedLemma;
         }
         /// <summary>
@@ -1661,12 +1659,11 @@ namespace Encyclopedia.Controller
             string query = "DELETE FROM Lemma WHERE lemma_title = @title";
             MySqlCommand cmd = new MySqlCommand(query, connection);
             cmd.Parameters.AddWithValue("@title", lemma.Title);
+
             cmd.Prepare();
             cmd.CommandTimeout = 500000;
-            Console.WriteLine("deleted");
             int rowsAffected = cmd.ExecuteNonQuery();
-
-
+			
             return rowsAffected;
         }
         /// <summary>

@@ -1,20 +1,20 @@
 ﻿using Encyclopedia.Model;
 using Encyclopedia.View;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Net.Mail;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace Encyclopedia.Controller
 {
-    class ShareMessage
+	/// <summary>
+	/// Controls anything related to the .
+	/// </summary>
+	class ShareMessage
     {
-        //userID: the id of the current user logged in.
-        //lemmaTitle: the lemma of  the title to be send.
-        //receivers: array with the IDs of the receivers.
-        //additional notes: a string with extra notes from the user.
+        // userID: the id of the current user logged in.
+        // lemmaTitle: the lemma of  the title to be send.
+        // receivers: array with the IDs of the receivers.
+        // additional notes: a string with extra notes from the user.
         public static int SendMessage(int userID,string lemmaTitle,int[] receivers,string additionalNotes)
 		{
 			Lemma lemma;

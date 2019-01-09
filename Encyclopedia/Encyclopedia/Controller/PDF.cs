@@ -1,16 +1,15 @@
 ﻿using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using Encyclopedia.Model;
 using IronPdf;
 
 namespace Encyclopedia.Controller
 {
-    class PDF
+	/// <summary>
+	/// Contains a function that exports and saves as a PDF file the specified lemma to the computer.
+	/// </summary>
+	class PDF
     {
         public static void exportToPDF(string lemmaTitle,string path)
         {
-            
             //Get lemma body
             byte[] lemmaBody = DBConnect.GetLemmaBodyByTitle(lemmaTitle);
             //Convert byte array to string
@@ -29,7 +28,6 @@ namespace Encyclopedia.Controller
 
 			IronPdf.HtmlToPdf Renderer = new IronPdf.HtmlToPdf();
             Renderer.RenderHtmlAsPdf(wholeHTMLLemma).SaveAs(path);
-
         }
     }
 }

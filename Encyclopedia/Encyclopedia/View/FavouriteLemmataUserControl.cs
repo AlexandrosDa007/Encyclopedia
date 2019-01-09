@@ -1,11 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Drawing;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Encyclopedia.Model;
 using UI;
@@ -35,11 +30,9 @@ namespace Encyclopedia.View
         {
             get
             {
-
                 if (_instance == null)
                     _instance = new FavouriteLemmataUserControl();
                 return _instance;
-
             }
         }
 
@@ -136,8 +129,6 @@ namespace Encyclopedia.View
             //send mode = 0 so its treated as a raw lemma if we edit that it will go to editedLemmalist
             LemmaViewUserControl.Instance.IsFavorite = true;
             LemmaViewUserControl.Instance.ChangeValue(((Label)sender).Text, 0);
-            
-
         }
         #endregion
 

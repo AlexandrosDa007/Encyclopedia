@@ -15,11 +15,11 @@ namespace UI
     public partial class StartPage : Form
     {
         #region Static members
-        public static List<Lemma> allLemas = new List<Lemma>();
+        public static List<Lemma> allLemmata = new List<Lemma>();
         // stores the account of the logged-in user
         public static Account account = null;
         //stores the recent lemmas of the guest or user
-        public static List<string> recentLemmas = new List<string>();
+        public static List<string> recentLemmata = new List<string>();
         //stores the edited Lemma of the user
         public static List<EditedLemma> editedLemmaList;
         //stores the favourite Lemma of the user
@@ -114,7 +114,7 @@ namespace UI
             else
                 Encyclopedia.View.SearchResultsUserControl.Instance.BringToFront();
 
-            SearchResultsUserControl.Instance.AddRecentLemmas();
+            SearchResultsUserControl.Instance.AddRecentLemmata();
         }
 
         private void Search()
@@ -215,7 +215,7 @@ namespace UI
             else
             {
                 //User doesnt Exists
-                feedbackLabel.Text = "Wrong username or password, please try again.";
+                feedbackLabel.Text = "Wrong username or password. Please try again!";
                 feedbackLabel.ForeColor = Color.White;
 
                 Timer timer1 = new Timer();
@@ -249,11 +249,8 @@ namespace UI
         private void searchTextBox_Enter(object sender, EventArgs e)
         {
             if (searchTextBox.Text.Trim() != "" || searchTextBox.Text != null)
-
             {
-
                 searchTextBox.Text = "";
-
             }
         }
 
@@ -287,18 +284,22 @@ namespace UI
         #region Public methods
         public void Logout()
         {
-
+			// adjust UI
             foreach (Control x in ControlsBeforeLogin)
             {
                 x.Visible = true;
             }
-
             NewLeftPanel.Controls.Remove(AfterLoginPanel);
             LemmaViewUserControl.Instance.ChangeLabelsToVisibleByValue(false);
 
+			// clear some static variables
+			recentLemmata.Clear();
+
+			// clear textboxes
             usernameTextBox.Text = "";
             passwordTextBox.Text = "";
             feedbackLabel.Text = "";
+			searchTextBox.Text = " Search";
         }
         #endregion
     }

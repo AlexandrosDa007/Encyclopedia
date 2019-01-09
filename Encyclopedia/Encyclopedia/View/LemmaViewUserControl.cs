@@ -81,8 +81,7 @@ namespace Encyclopedia.View
             catch (ArgumentOutOfRangeException ex)
             {
                 // show the exception message in order to inform the user
-                Console.WriteLine(ex.Message);
-                MessageBox.Show("There was a problem saving the PDF.\n");
+                MessageBox.Show("  There was a problem on saving the PDF.\n");
             }
         }
 
@@ -100,7 +99,7 @@ namespace Encyclopedia.View
                 {
                     if (ed.LemmaTitle.Equals(Lemma.Title))
                     {
-                        MessageBox.Show("You already edited this lemma\nCheck your Edited Lemma Tab!");
+                        MessageBox.Show("  You already edited this lemma.\n  Check your Edited Lemma Tab!");
                         return;
                     }
                 }
@@ -145,7 +144,7 @@ namespace Encyclopedia.View
                         int result = DBConnect.Delete(f, StartPage.account.User);
                         if (result != 1)
                         {
-                            MessageBox.Show("Something went wrong with removing that Lemma");
+                            MessageBox.Show("  Something went wrong trying to remove that Lemma.");
                         }
                         else
                         {
@@ -155,7 +154,6 @@ namespace Encyclopedia.View
                             FavouriteLemmataUserControl.Instance.SetLemmas();
                             IsFavorite = false;
                             favouritesButton.BackgroundImage = favoriteNotClicked;
-                            Console.WriteLine("Egine");
                         }
                         return;
                     }
@@ -167,10 +165,9 @@ namespace Encyclopedia.View
                 Favorite.addToFavorites(StartPage.account.User.Id, Lemma.Title);
                 IsFavorite = true;
                 favouritesButton.BackgroundImage = favoriteClicked;
-
             }
             else
-                MessageBox.Show("You can't add a Lemma you edited in your favorites!");
+                MessageBox.Show("  You can't add a Lemma you edited in your favorites!");
         }
         #endregion
 
@@ -211,13 +208,12 @@ namespace Encyclopedia.View
             if (mode == 0)
             {
                 LemmaViewWebBrowser.DocumentText = "<h1" + titleStyle + ">" + title.Replace("_", " ") + "</h1>" + Encoding.UTF8.GetString(Lemma.Body);
-                if(!StartPage.recentLemmas.Contains(Lemma.Title))
-                    StartPage.recentLemmas.Add(Lemma.Title);
+                if(!StartPage.recentLemmata.Contains(Lemma.Title))
+                    StartPage.recentLemmata.Add(Lemma.Title);
             }
             else
             {
                 LemmaViewWebBrowser.DocumentText = "<h1" + titleStyle + ">" + title.Replace("_", " ") + "</h1>" + EditedLemma.Body;
-                
             }
         }
 

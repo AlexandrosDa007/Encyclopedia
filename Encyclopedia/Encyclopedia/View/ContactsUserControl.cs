@@ -3,7 +3,6 @@ using Encyclopedia.Model;
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
-using UI;
 
 namespace Encyclopedia.View
 {
@@ -101,15 +100,10 @@ namespace Encyclopedia.View
             Account contactAccount = DBConnect.GetAccountByEmail(clickedText);
             contactAccount.User = DBConnect.GetUserByAccountUsername(contactAccount.Username);
 
-            if (contactAccount.User.Image == null)
-                Console.WriteLine("ha");
+			// if the contactAccount.User.Image is null don't load any image
 
             ContactsProfileForm form = new ContactsProfileForm(contactAccount);
             form.ShowDialog();
-
-            Console.WriteLine(clickedText);
-
-
         }
 
 		private void groupListView_DoubleClick(object sender, EventArgs e)

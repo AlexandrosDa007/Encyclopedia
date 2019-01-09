@@ -103,7 +103,7 @@
     <Compile Include="Controller\Favorite.cs" />
     <Compile Include="Controller\LoginHandler.cs" />
     <Compile Include="Controller\DynamicUIControlsHandler.cs" />
-    <Compile Include="Controller\Message.cs" />
+    <Compile Include="Controller\ShareMessage.cs" />
     <Compile Include="Controller\PasswordUtilities.cs" />
     <Compile Include="Controller\PDF.cs" />
     <Compile Include="Controller\Random.cs" />
@@ -207,12 +207,6 @@
     <Compile Include="View\SendForm.Designer.cs">
       <DependentUpon>SendForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\SharedLemmataUserControl.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="View\SharedLemmataUserControl.Designer.cs">
-      <DependentUpon>SharedLemmataUserControl.cs</DependentUpon>
-    </Compile>
     <Compile Include="View\StartPage.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -277,9 +271,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\SendForm.resx">
       <DependentUpon>SendForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="View\SharedLemmataUserControl.resx">
-      <DependentUpon>SharedLemmataUserControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\StartPage.resx">
       <DependentUpon>StartPage.cs</DependentUpon>

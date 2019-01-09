@@ -3,7 +3,10 @@ using Encyclopedia.Model;
 
 namespace Encyclopedia.Controller
 {
-    class Random
+	/// <summary>
+	/// Contains a function that sets up the 'Featured Lemma', getting a random lemma from the DB.
+	/// </summary>
+	class Random
     {
         public static Lemma getRandomLemma()
         {

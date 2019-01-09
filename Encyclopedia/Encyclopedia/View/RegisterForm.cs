@@ -1,12 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Encyclopedia.Controller;
 
@@ -70,12 +64,12 @@ namespace Encyclopedia.View
             int exitCode = UserHandler.RegisterUserAccount(name, surname, dateOfBirth, gender, tel, roleName, educationLevelName, description, imageData, username, password, passwordConfirmation, email);
             if (exitCode == 0)
             {
-                MessageBox.Show("  Registered Successfully!\n");
+                MessageBox.Show("  Your account created successfully '" + username + "'!\n");
                 Close();
             }
-                
+            
 			// show error messages if any
-			Console.WriteLine("The exit code was: " + exitCode);
+			//Console.WriteLine("The exit code was: " + exitCode);
             switch (exitCode)
             {
                 case 2:
@@ -140,7 +134,6 @@ namespace Encyclopedia.View
 
         private void browseb_Click(object sender, EventArgs e)
         {
-
             OpenFileDialog openFileDialog1 = new OpenFileDialog();
             openFileDialog1.Title = "Please select an image for your account.";
 
@@ -189,12 +182,12 @@ namespace Encyclopedia.View
 							this.DisplayRectangle);
 		}
 
-        #endregion
-
-        private void clearPhotoButton_Click(object sender, EventArgs e)
-        {
+		private void clearPhotoButton_Click(object sender, EventArgs e)
+		{
 			imagePathTB.Text = "";
 			imagePB.Image = Properties.Resources.default_avatar;
 		}
-    }
+
+		#endregion
+	}
 }

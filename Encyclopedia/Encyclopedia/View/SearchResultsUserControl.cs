@@ -1,11 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Drawing;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Encyclopedia.Controller;
 using Lucene.Net.Documents;
@@ -84,16 +79,16 @@ namespace Encyclopedia.View
         #endregion
 
         #region Public methods
-        public void AddRecentLemmas()
+        public void AddRecentLemmata()
         {
             searchResultsListView.Items.Clear();
 
-            StartPage.recentLemmas.Reverse();
-            foreach(string title in StartPage.recentLemmas)
+            StartPage.recentLemmata.Reverse();
+            foreach(string title in StartPage.recentLemmata)
             {
                 searchResultsListView.Items.Insert(searchResultsListView.Items.Count, title);
             }
-            StartPage.recentLemmas.Reverse();
+            StartPage.recentLemmata.Reverse();
         }
 
 		public void AddPopularLemmata()
@@ -158,10 +153,7 @@ namespace Encyclopedia.View
                     searchResultsListView.Items.Add(doc.GetField("lemma_title").StringValue);
                 }
             }
-
-            
         }
         #endregion
-
     }
 }
