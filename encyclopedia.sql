@@ -37,15 +37,15 @@ CREATE TABLE Contact(
 	user_id INT NOT NULL,
 	contact_id INT NOT NULL,
 	PRIMARY KEY (user_id, contact_id),
-	FOREIGN KEY(user_id) REFERENCES User(user_id),
-	FOREIGN KEY(contact_id) REFERENCES User(user_id)
+	FOREIGN KEY(user_id) REFERENCES User(user_id) ON DELETE CASCADE,
+	FOREIGN KEY(contact_id) REFERENCES User(user_id) ON DELETE CASCADE
 );
 
 CREATE TABLE Contact_Group(
 	group_id INT AUTO_INCREMENT PRIMARY KEY,
 	group_name VARCHAR(30) NOT NULL,
 	owner_id INT NOT NULL,
-	FOREIGN KEY(owner_id) REFERENCES User(user_id)
+	FOREIGN KEY(owner_id) REFERENCES User(user_id) ON DELETE CASCADE
 );
 
 CREATE TABLE Contact_Group_Member(
@@ -53,7 +53,7 @@ CREATE TABLE Contact_Group_Member(
 	contact_id INT NOT NULL,
 	PRIMARY KEY (group_id, contact_id),
 	FOREIGN KEY(group_id) REFERENCES Contact_Group(group_id) ON DELETE CASCADE,
-	FOREIGN KEY(contact_id) REFERENCES User(user_id)
+	FOREIGN KEY(contact_id) REFERENCES User(user_id) ON DELETE CASCADE
 );
 
 CREATE TABLE Category(
@@ -76,7 +76,7 @@ CREATE TABLE Edited_Lemma(
 	edited_lemma_updated_at DATE NOT NULL,
 	PRIMARY KEY (lemma_title, editor_id),
 	FOREIGN KEY(lemma_title) REFERENCES Lemma(lemma_title),
-	FOREIGN KEY(editor_id) REFERENCES User(user_id)
+	FOREIGN KEY(editor_id) REFERENCES User(user_id) ON DELETE CASCADE
 );
 
 CREATE TABLE Favorite_Lemma(
@@ -85,7 +85,7 @@ CREATE TABLE Favorite_Lemma(
 	favorite_lemma_created_at DATE NOT NULL,
 	PRIMARY KEY (lemma_title, user_id),
 	FOREIGN KEY(lemma_title) REFERENCES Lemma(lemma_title),
-	FOREIGN KEY(user_id) REFERENCES User(user_id)
+	FOREIGN KEY(user_id) REFERENCES User(user_id) ON DELETE CASCADE
 );
 
 CREATE TABLE Shared_Lemma( -- lemmata shared with sender's contacts
@@ -96,7 +96,7 @@ CREATE TABLE Shared_Lemma( -- lemmata shared with sender's contacts
 	sending_date DATETIME NOT NULL,
 	additional_notes VARCHAR(250),
 	PRIMARY KEY (sender_id, receiver_id, lemma_title, sending_date),
-	FOREIGN KEY(sender_id) REFERENCES User(user_id),
-	FOREIGN KEY(receiver_id) REFERENCES User(user_id),
+	FOREIGN KEY(sender_id) REFERENCES User(user_id) ON DELETE CASCADE,
+	FOREIGN KEY(receiver_id) REFERENCES User(user_id) ON DELETE CASCADE,
 	FOREIGN KEY(lemma_title) REFERENCES Lemma(lemma_title)
 );
