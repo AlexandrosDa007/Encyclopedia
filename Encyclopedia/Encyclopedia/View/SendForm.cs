@@ -83,15 +83,16 @@ namespace Encyclopedia.View
 		
 			string additionalNotes = notesTextBox.Text;
 
-			int result = Controller.ShareMessage.SendMessage(UI.StartPage.account.User.Id, lemmaTitle, receiverIds.ToArray(), additionalNotes);
-            if(result == 0)
+			int receiversNotified = ShareMessage.SendMessage(UI.StartPage.account.User.Id, lemmaTitle, receiverIds.ToArray(), additionalNotes);
+            if(receiversNotified == receiverIds.ToArray().Length)
             {
-                MessageBox.Show("  Mail sent successfully!");
+				// all of the receivers got the email successfully
+                MessageBox.Show("  Mail sent successfully to all of the receivers!");
                 Close();
             }
             else
             {
-                MessageBox.Show("  Something went wrong! Please try again.");
+                MessageBox.Show("  Something went wrong! Some of the receivers didn't get your email. Please try again.");
                 Close();
             }
         }
