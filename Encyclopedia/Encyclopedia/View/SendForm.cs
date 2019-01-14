@@ -83,7 +83,7 @@ namespace Encyclopedia.View
 		
 			string additionalNotes = notesTextBox.Text;
 
-			int receiversNotified = ShareMessage.SendMessage(UI.StartPage.account.User.Id, lemmaTitle, receiverIds.ToArray(), additionalNotes);
+			int receiversNotified = ShareLemma.SendLemma(UI.StartPage.account.User.Id, lemmaTitle, receiverIds.ToArray(), additionalNotes);
             if(receiversNotified == receiverIds.ToArray().Length)
             {
 				// all of the receivers got the email successfully
@@ -92,7 +92,7 @@ namespace Encyclopedia.View
             }
             else
             {
-                MessageBox.Show("  Something went wrong! Some of the receivers didn't get your email. Please try again.");
+                MessageBox.Show("  Something went wrong! Some of the receivers\n  didn't get your email. Please try again.");
                 Close();
             }
         }

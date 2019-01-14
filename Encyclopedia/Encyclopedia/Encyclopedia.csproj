@@ -65,6 +65,9 @@
     <Reference Include="IronPdf, Version=4.4.9.15720, Culture=neutral, PublicKeyToken=94e1c31412563c75, processorArchitecture=MSIL">
       <HintPath>..\packages\IronPdf.4.4.9\lib\net40\IronPdf.dll</HintPath>
     </Reference>
+    <Reference Include="itextsharp, Version=5.5.13.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\iTextSharp.5.5.13\lib\itextsharp.dll</HintPath>
+    </Reference>
     <Reference Include="Lucene.Net, Version=3.0.3.0, Culture=neutral, PublicKeyToken=85089178b9ac3181, processorArchitecture=MSIL">
       <HintPath>..\packages\Lucene.Net.3.0.3\lib\NET40\Lucene.Net.dll</HintPath>
     </Reference>
@@ -103,7 +106,7 @@
     <Compile Include="Controller\Favorite.cs" />
     <Compile Include="Controller\LoginHandler.cs" />
     <Compile Include="Controller\DynamicUIControlsHandler.cs" />
-    <Compile Include="Controller\ShareMessage.cs" />
+    <Compile Include="Controller\ShareLemma.cs" />
     <Compile Include="Controller\PasswordUtilities.cs" />
     <Compile Include="Controller\PDF.cs" />
     <Compile Include="Controller\Random.cs" />

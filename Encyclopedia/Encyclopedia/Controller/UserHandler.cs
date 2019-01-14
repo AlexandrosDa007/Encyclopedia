@@ -76,8 +76,8 @@ namespace Encyclopedia.Controller
 				"<p>Your password was reset to the following temporary one: </p></br></br>" +
 				"<p style=\"text-decoration: underline dotted;\"><b>" + tempPassword + "</b></p></br></br>" +
 				"<p>It can be used to log into your account and update your password.</p></br></br></br>" +
-				"<p>Kind Regards,</p></br>" +
-				"<p>Encyclopedia Team.</p>";
+				"<p>Kind Regards, " +
+				"Encyclopedia Team.</p>";
 			mailMessage.Body = htmlBody;
 
 			// send password recovery email
