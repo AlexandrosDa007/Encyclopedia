@@ -3,13 +3,7 @@ using Encyclopedia.View;
 using System;
 using System.IO;
 using System.Net.Mail;
-// run this command "Install-Package iTextSharp -Version 5.5.13"
-using iTextSharp.text;
-using iTextSharp.text.pdf;
-using iTextSharp.text.html.simpleparser;
-// in the NuGet Package Manager Console
 using System.Text;
-using System.Web.UI;
 
 namespace Encyclopedia.Controller
 {
